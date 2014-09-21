@@ -1,0 +1,35 @@
+\documentclass{svmult}
+
+\usepackage{mathptmx,helvet,courier,graphicx,multicol}
+
+\begin{document}
+
+\title*{Low or no cost distributed evolutionary computation}
+\author{Juan J. Merelo-Guervós}
+\institute{GeNeura Group (\url{http://geneura.wordpress.com}), Department of Computer Architecture (\url{http://atc.ugr.es}) and CITIC (\url{http://citic.ugr.es}), University of Granada (Spain) (\url{http://www.ugr.es})}
+
+
+\maketitle
+
+\abstract{From the era of big science we are back to the "do it yourself", where you do not have any money to buy clusters or subscribe to grids but still have algorithms that crave many computing nodes and need them to measure scalability. Fortunately, this coincides with the era of big data, cloud computing, and browsers that include JavaScript virtual machines. Those are the reasons why this talk will focus on two different aspects of volunteer or freeriding computing: first, the pragmatic: where to find those resources, which ones can be used, what kind of support you have to give them; and then, the theoretical: how evolutionary algorithms can be adapted to a environment in which nodes come and go, have different computing capabilities and operate in complete asynchrony of each other.}
+
+\section{What is the point of low or no cost evolutionary algorithms?}
+
+The world has computational resources in spades. Most of them do not belong to you or your lab. That does not mean you cannot use it. The problem is how.
+
+Most theory in parallel computing has been devoted to predict and optimize the performance in systems where the number of nodes, their connections, and the time every one is devoting to the computation is known in advance. However, even if Big Science is not over, the era of Citizen science has started (with SETI@home and then BOINC) and it offers a vast amount of computational resources to attract, if only you know how. But there is a challenge: knowing, or at least having a ballpark, of how your algorithm is going to perform in this uncertain environment, where none of the factors is known: neither the number of nodes, through how they are connected, to how long are they going to be focused on doing what you want them to.
+
+Besides, since Amazon started selling EC2 several years ago, reliable and scalable computing resources are also available for a low price and on demand. Recently, Google has also refurbished its offering lowering their prices. This means that the conjunction of free or low-cost cloud computing engines, volunteer computing systems and and untapped capability of desktop systems can be used for creating massive, or at least potentially massive, distributed computing experiments.
+
+\section{Conclusion}
+
+In this talk we will offer our experience on using browser-based computing since 1999 \cite{jesusIWANN99} and other emerging paradigms, such as peer to peer based computing \cite{evag:gpem}, mainly applied to the design of evolutionary algorithms. 
+
+There are many issues involved in using these resources: from adapting current algorithms so that they match this environment \cite{agajaj} to check which EA configuration works the best in it, or creating a framework that can use it easily \cite{nodeo2014}. But the main challenge is that asking people to contribute resources implies that you are opening your science to society and you have to give something in return: you have to adopt a set of best practices that have come to be known as Open Science, because ``Give, and it shall be given unto you'', you will get as much back from society as you give to it opening your science and explaining it to the public. This, among other things, means that popularity will become directly performance of the metacomputer you create by attracting more users.
+
+
+
+\bibliographystyle{unsrt}
+\bibliography{geneura}
+
+\end{document}
