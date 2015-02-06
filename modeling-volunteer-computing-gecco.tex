@@ -1,28 +1,39 @@
-\documentclass[a4paper]{article}
+\documentclass{sig-alternate}
+
+
+\usepackage[latin1]{inputenc}
 \usepackage{amssymb}
 \setcounter{tocdepth}{3}
-\usepackage{graphicx,epsfig}
-\usepackage{listings}
-\usepackage{rotating}
+\usepackage{graphicx}
 \usepackage{subfigure}
-\usepackage[affil-it]{authblk}
-
-%%%%
-
-\usepackage{color}
-\usepackage{alltt}
-\usepackage{verbatim}
-\usepackage{url}
 
 \usepackage{url}
 
 \begin{document}
 
-\title{Modeling browser-based evolutionary computation systems}
-%\author{Juan J. Merelo-Guervós}
-\author{Som E. One}
-\affil{Somewhere Institute}
+\title{Modeling browser-based distributed evolutionary computation systems} 
 
+\numberofauthors{1} %  in this sample file, there are a *total*
+% of EIGHT authors. SIX appear on the 'first-page' (for formatting
+% reasons) and the remaining two appear in the \additionalauthors section.
+%
+\author{
+% You can go ahead and credit any number of authors here,
+% e.g. one 'row of three' or two rows (consisting of one row of three
+% and a second row of one, two or three).
+%
+% The command \alignauthor (no curly braces needed) should
+% precede each author name, affiliation/snail-mail address and
+% e-mail address. Additionally, tag each line of
+% affiliation/address with \affaddr, and tag the
+% e-mail address with \email.
+%
+% 1st. author
+\alignauthor
+Som E. One\\
+       \affaddr{Some Institute}\\
+       \email{em@a.il}
+}
 
 
 \maketitle
@@ -42,7 +53,10 @@ come and go, have different computing capabilities and operate in
 complete asynchrony of each other. 
 \end{abstract}
 
-\section{What is the point of low or no cost evolutionary algorithms?}
+\keywords{Evolutionary computation, volunteer computing, distributed
+  computing, node.js, javascript}
+
+\section{Introduction}
 
 The world has computational resources in spades. Most of them do not belong to you or your lab. That does not mean you cannot use it. The problem is how.
 
@@ -52,12 +66,12 @@ Besides, since Amazon started selling EC2 several years ago, reliable and scalab
 
 \section{Conclusion}
 
-In this talk we will offer our experience on using browser-based computing since 1999 \cite{jesusIWANN99} and other emerging paradigms, such as peer to peer based computing \cite{evag:gpem}, mainly applied to the design of evolutionary algorithms. 
+In this paper we will offer our experience on using browser-based computing since 1999 \cite{jesusIWANN99} and other emerging paradigms, such as peer to peer based computing \cite{evag:gpem}, mainly applied to the design of evolutionary algorithms. 
 
 There are many issues involved in using these resources: from adapting current algorithms so that they match this environment \cite{agajaj} to check which EA configuration works the best in it, or creating a framework that can use it easily \cite{nodeo2014}. But the main challenge is that asking people to contribute resources implies that you are opening your science to society and you have to give something in return: you have to adopt a set of best practices that have come to be known as Open Science, because ``Give, and it shall be given unto you'', you will get as much back from society as you give to it opening your science and explaining it to the public. This, among other things, means that popularity will become directly performance of the metacomputer you create by attracting more users.
 
 
-\bibliographystyle{splncs}
+\bibliographystyle{abbrv}
 \bibliography{geneura,volunteer}
 
 \end{document}
