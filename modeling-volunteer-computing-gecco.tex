@@ -44,13 +44,17 @@ you do not have any money to buy clusters or subscribe to grids but
 still have algorithms that crave many computing nodes and need them to
 measure scalability. Fortunately, this coincides with the era of big
 data, cloud computing, and browsers that include JavaScript virtual
-machines. Those are the reasons why this talk will focus on two
+machines. Those are the reasons why this paper will focus on two
 different aspects of volunteer or freeriding computing: first, the
 pragmatic: where to find those resources, which ones can be used, what
 kind of support you have to give them; and then, the theoretical: how
 evolutionary algorithms can be adapted to a environment in which nodes
 come and go, have different computing capabilities and operate in
-complete asynchrony of each other. 
+complete asynchrony of each other. We will examine the setup needed to
+create a very simple distributed evolutionary algorithm using
+JavaScript and then find a model of how users react to it by
+collecting data from several experiments featuring different classical
+benchmark functions. 
 \end{abstract}
 
 \keywords{Evolutionary computation, volunteer computing, distributed
@@ -58,11 +62,38 @@ complete asynchrony of each other.
 
 \section{Introduction}
 
-The world has computational resources in spades. Most of them do not belong to you or your lab. That does not mean you cannot use it. The problem is how.
+The world has computational resources in spades. Most of them do not
+belong to you or your lab. That does not mean you cannot use it. The
+problem is how. 
 
-Most theory in parallel computing has been devoted to predict and optimize the performance in systems where the number of nodes, their connections, and the time every one is devoting to the computation is known in advance. However, even if Big Science is not over, the era of Citizen science has started (with SETI@home and then BOINC) and it offers a vast amount of computational resources to attract, if only you know how. But there is a challenge: knowing, or at least having a ballpark, of how your algorithm is going to perform in this uncertain environment, where none of the factors is known: neither the number of nodes, through how they are connected, to how long are they going to be focused on doing what you want them to.
+Most theory in parallel computing has been devoted to predict and
+optimize the performance in systems where the number of nodes, their
+connections, and the time every one is devoting to the computation is
+known in advance. However, even if Big Science is not really over and
+it is slated to come back, the era of
+Citizen Science already started a few years ago (with SETI@home \cite{david-seti:home} and then BOINC \cite{boinc_grid04}) and it
+offers a vast amount of computational resources to attract, if only
+you know how. But there is a challenge: knowing, or at least having a
+ballpark, of how your algorithm is going to perform in this uncertain
+environment, where none of the factors is known: neither the number of
+nodes, through how they are connected, to how long are they going to
+be focused on doing what you want them to. That is why some effort is
+needed to first understand the dynamics of the decision to participate
+in an experiment that requires you to click on a link and then stay
+for a while looking at the screen (or just leave it there running).
 
 Besides, since Amazon started selling EC2 several years ago, reliable and scalable computing resources are also available for a low price and on demand. Recently, Google has also refurbished its offering lowering their prices. This means that the conjunction of free or low-cost cloud computing engines, volunteer computing systems and and untapped capability of desktop systems can be used for creating massive, or at least potentially massive, distributed computing experiments.
+
+
+\begin{figure*}[h!tb]
+  \centering
+  \includegraphics[trim=0cm 2cm 0cm 3cm, width=10cm]{img/screenshot.png}
+  \label{fig:sshot}
+  \caption{Screenshot of the talk that includes at the graph
+    that shows the progression of the evolutionary
+    algorithm at the top right corner}
+\end{figure*}
+
 
 \section{Conclusion}
 
