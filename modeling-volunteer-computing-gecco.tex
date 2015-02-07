@@ -82,8 +82,75 @@ needed to first understand the dynamics of the decision to participate
 in an experiment that requires you to click on a link and then stay
 for a while looking at the screen (or just leave it there running).
 
-Besides, since Amazon started selling EC2 several years ago, reliable and scalable computing resources are also available for a low price and on demand. Recently, Google has also refurbished its offering lowering their prices. This means that the conjunction of free or low-cost cloud computing engines, volunteer computing systems and and untapped capability of desktop systems can be used for creating massive, or at least potentially massive, distributed computing experiments.
+Besides, since Amazon started selling EC2 several years ago, reliable
+and scalable computing resources are also available for a low price
+and on demand. Recently, Google has also refurbished its offering
+lowering their prices. This means that the conjunction of free or
+low-cost cloud computing engines, volunteer computing systems and and
+untapped capability of desktop systems can be used for creating
+massive, or at least potentially massive, distributed computing
+experiments. 
 
+The rest of the paper is organized as follows: next we will present
+the state of the art in volunteer computing and its modelization. We
+will proceed to describe the experimental setup in Section
+\ref{sec:exp}, some preliminary results in Section \ref{sec:res} and
+finally we will present our conclusions in Section \ref{sec:conc}
+along with future lines of work. 
+
+\section{State of the art}
+\label{sec:soa}
+
+Using the web as a resource for distributed, or plainly user based,
+evolutionary computation has a long history since JavaScript was
+introduced as a browser-based language in 1997 and even before, when
+other procedures, including Flash animations, VBScript, ActiveX or Java applets were
+used. Java was pointed out in \cite{soares1998get} as a ``language for
+internet'' and
+\begin{quote}
+Java can bring some important advantages... solves architectural
+heterogeneity [...] easy to install and [...] built-in security
+mechanisms
+\end{quote}
+The same paper by Soares et al. describes JET, a system that supports
+the execution of parallel applications over the Internet. In fact the
+same paper describes some other systems working at the same time,
+except they cannot be used for science since they do not have a
+comprehensive statistics support like JET. 
+
+However, Java (and all the other technologies) is not universal in the
+sense than an extra component, namely, the Java virtual machine, has
+to be installed in the browser. JavaScript
+\cite{flanagan2006javascript} was introduced in 1997 as a
+browser-embedded language and has, since them, become a set of standards
+\cite{ECMA-262} for the language, its components and future versions
+that have been widely adopted by the industry and also by scientists,
+who used them for creating a non-distributed evolutionary algorithm on
+the browser as early as 1998 \cite{jj-ppsn98}. 
+
+The potential for volunteer computing using browsers was realized
+later on \cite{sarmenta-bayanihan} as well as the potential for
+mischief of users with code in their hands
+\cite{sarmenta-sabotagetolerance} however, these early efforts by
+Sarmenta once again used Java and not JavaScript, making this effort
+less universal. JavaScript can be used either for unwitting
+\cite{unwitting-ec} or volunteer
+\cite{langdon:2005:metas,gecco07:workshop:dcor} distributed
+evolutionary computation and has been used ever since by several
+authors, including recent efforts \cite{duda2013distributed} that even
+used the client's GPU \cite{duda2013gpu}.
+
+There have been relatively few efforts to analyze what is the
+performance that can be obtained from these volunteer computing
+effort. There was some effort initially to dodge the issue by making
+the algorithm adaptive to the kind of resources allotted to it
+\cite{sarmenta-bayanihan}, which is actually not such a big problem in
+algorithms such as the evolutionary algorithm that can easily be
+paralelized via population splitting or farming out evaluations to all
+the nodes available. 
+
+\section{Methodology}
+\label{sec:exp}
 
 \begin{figure*}[h!tb]
   \centering
@@ -103,6 +170,6 @@ There are many issues involved in using these resources: from adapting current a
 
 
 \bibliographystyle{abbrv}
-\bibliography{geneura,volunteer}
+\bibliography{geneura,volunteer,javascript,ror-js}
 
 \end{document}
