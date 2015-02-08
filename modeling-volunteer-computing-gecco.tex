@@ -387,7 +387,7 @@ free tier, has been chosen. It could be also be deployed, with small
 or no modification, to OpenShift or other similar PaaS. Far from being
 a freeriding way, using free or very low cost servers can be a
 sustainable way of performing massive distributed evolutionary
-computation experiments \cite{Merelo2014}
+computation experiments \cite{Merelo2014,jj:idc:lowcost}.
 
 Having the pages and the server in the same domain allows to work in
 default Ajax mode, that does not allow cross-site requests. However,
@@ -402,12 +402,145 @@ announced in Twitter several times until enough data was gathered.
 
 As indicated in the introduction, every part of the experiment and
 data gathered have been released as free software in a GitHub
-repository (address hidden for double blind review).
-
-
+repository (address hidden for double blind review). These results
+will be analyzed in the next section.
 
 \section{Results}
 \label{sec:res}
+
+The litmus test that all experiments should pass, that is, that they
+work and found the solution, passed. In fact, the first version of the
+algorithm (until January 2015) used too much memory on the browser,
+which crashed after a while running. A total of 7 experiments were
+done with this version. After January, a new version of the
+evolutionary algorithm with non-cached fitness was used which did not
+crash the browser and was thus allowed to run as much time as
+needed. That was the version used in a lightning talk at the beginning
+of February. A total of 10 experiments were made with this second
+version. In the first version, finding the solution took a few
+minutes. The second needed around 20 minutes. In the logs used, it was
+not checked that the algorithm had found the solution, but in most
+cases it had. More systematic experimentation would have to wait until
+the next version, since in this first one we were looking for some
+kind of systematicity in the behavior of users and the experimental
+apparatus is the minimum possible to have it running.
+%
+\begin{figure*}[htb]
+        \centering
+        \subfigure[First experiment]{
+                \includegraphics[width=0.45\linewidth]{data/diffs-ips-1.png}
+                \label{fig:e1_p}
+        }
+        \subfigure[Second experiment]{
+                \includegraphics[width=0.45\linewidth]{data/diffs-ips-2.png}
+                \label{fig:e2_p}
+        }
+        \caption{Histogram of number of different IPs in an experiment}\label{fig:histo:ips}
+\end{figure*}
+
+The fact that it run correctly during a massive lightning talk means that this setup is a
+valid, no-cost, platform for massive evolutionary algorithms. There
+were several ways of introducing it: during a talk, telling the
+audience to visit the web that was posted in the first slide, and
+after the talk, inserting the URL in a tweet with a brief explanation
+and several tweets more indicating what it was about and what it
+did. If any question arose, it was answered as fast as possible. In
+the first experiment, the median number of different IPs was 18, with
+a maximum of 28 and a minimum of 6. In the second, the median was 12.5
+with a maximum of 19 and minimum of 8. The histogram of different IPs
+in each experiment is shown in figure \ref{fig:histo:ips}. Probably
+the most remarkable thing is that a cluster of 6 computers can, as a
+minimum, be gathered for a distributed computing experiment by just
+announcing it as a tweet, but the fact that we can obtain more than a
+dozen computers in more than half the cases is also remarkable, and
+goes to prove the excess of computing resources that people,
+willingly, lend to a simple experiment.
+%
+\begin{figure*}[htb]
+        \centering
+        \subfigure[First experiment, run 3]{
+                \includegraphics[width=0.45\linewidth]{data/log-puts-1-exp7.png}
+                \label{fig:d1}
+        }
+        \subfigure[Second experiment, run 7]{
+                \includegraphics[width=0.45\linewidth]{data/log-puts-2-traps-eps-3.png}
+                \label{fig:d2}
+        }
+        \caption{IPs and the number of {\tt PUT}s (one every $n$
+          generations, 50 in the first experiment, 100 in the second
+          experiment) they did, sorted. These correspond to the runs
+          in each batch of experiments with the max number of
+          different IPs. Please note the algorithmic scale in the $x$ axis.}\label{fig:dist}
+\end{figure*}
+
+Not all users contribute in the same way. The distribution for the
+runs in each experiment with the most IPs is shown in Figure
+\ref{fig:dist}, which chooses the experiment with the most number of
+uses and ranks, tops to down, every IP with the number of PUTs (which
+should be multiplied by the number of generations per PUT, 50 in the
+first case, 100 in the second, although at this point it is not
+important, since all nodes in the experiment do it after the same
+number of generations) contributed to the experiment. We can observe
+in both cases a power law, something already observed by \cite{agajaj}
+and which implies that there is a fixed proportion between the number
+of cycles (generations) contributed by the first and that contributed
+by the second which is roughly the same as the one between the second
+and third. Note also that, since the experiment is hosted in a PaaS,
+the IPs listed are anonymous, with a 10 always as the first number.
+%
+\begin{figure*}[htb]
+        \centering
+        \includegraphics[width=0.8\linewidth]{data/time-vs-ips.png}
+        \caption{Total experiment time (time of the last PUT - time of
+        the first one) vs number of IPs participating in it.}\label{fig:t}
+\end{figure*}
+%
+\begin{figure*}[htb]
+        \centering
+        \includegraphics[width=0.8\linewidth]{data/intervals-histo.png}
+        \caption{Histogram of the time between two PUTs for all the
+          experiments in the second batch. The $x$ axis is logarithmic
+        and bin size is 0.5, which means that the first bin contains
+        all intervals of less than 3 seconds.}\label{fig:intervals}
+\end{figure*}
+
+At any rate, this exponential trend in the first posts breaks down
+after a number of IPs. That could be due to several possible factors:
+persons checking the web for just an instant, late comers, or very
+slow computers that are not able to lend more cycles to the
+simulation. The first IP in both cases contributes on the order of a
+hundred PUTs, that is, several thousands generations and several
+hundred thousands evaluations, which, once again, is quite remarkable
+for such a simple experiment announced by an ephemeral tweet. It
+should be noted that, since the speed in the browser virtual machines
+(Chrome, mainly, but also Firefox) is as fast as the node.js version,
+a parallel version does not add overhead to the single-browser
+version, which, as mentioned above, can run in an independent
+way: a second browser always adds to the first, even if the total
+number of evaluations and the time needed will not speed up in the
+same way. However, even taking into account the stochastic nature of a
+single evolutionary algorithm, what we are going to find is a high
+dispersion of the times needed to reach a solution, which are plotted
+in Figure \ref{fig:t} against the number of IPs. There is a wide
+range of durations, although there is no clear decrease of the time
+needed as the number of IPs used increase. However, we will have to
+investigate further the speed ups achieved and if these are
+algorithmic or due to the particular asynchronous and web-based
+implementation. Figure \ref{fig:intervals} might help understand the
+kind of raw material we are using: It plots an histogram of the time
+needed by all experiments to process 100 generations, 25600
+evaluations and the associated evolutionary geneticry. The vast
+majority of browsers processes it in less than 3 seconds (logarithm(
+time ) < 0.5, which is equivalent to 3.16). However, it is interesting
+to note that there are some intervals that go up to the thousands of
+seconds, for which we cannot really offer an explanation, other than
+the user leaving the page and returning after a while. However, 75\%
+of the cases take less than 4 seconds, which is thus a statistical
+measure of the kind of performance we can expect from clients for this
+type of problem. We can also conclude that 75\%, or a majority, will
+be in the fastest tier, although there will be a small amount of them
+that will be quite slow and will probably be impossible to accomodate
+in the distributed computing experiment.
 
 \section{Conclusion}
 \label{sec:conc}
