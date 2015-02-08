@@ -284,7 +284,26 @@ running. First we will describe the client code and next, in
 subsection \ref{ss:server} the server architecture and where it is
 hosted. 
 
-\subsection{Volunteer distributed evolutionary computation in the browser}
+\subsection{Volunteer distributed evolutionary computation in the
+  browser}
+
+As stated above, the evolutionary algorithms runs mainly in the
+browser. The problem run is a multimodal problem called {\em l-trap},
+which has been used extensively as a benchmark for evolutionary
+algorithms \cite{fernandes2009using,nijssen2003analysis}. This
+function counts the number of bits in a sequence of $l$ and assigns
+the local maximum if it has got 0 bits and the global maximum to $l$
+bits. The fitness goes down to a {\em trap} as you increase the number
+of bits, that is why it creates a rugged fitness landscape that is
+difficult to surmount for evolutionary algorithms. Its difficulty is
+increased as the number of traps concatenated grows, so that in some
+cases it might need millions of evaluations to find the solution. In
+our case we have used several values, from 30 to 50 traps, although we
+were not so much focused in finding the solution (or the fastest way
+of finding it) but on creating a experiment that could last for a
+certain amount of time, around one hour, so that there would be a
+chance for having many users checkout out the page and contributing
+cycles to it. 
 
 \section{Results}
 \label{sec:res}
