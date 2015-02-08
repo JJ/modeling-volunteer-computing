@@ -1,6 +1,5 @@
 \documentclass{sig-alternate}
 
-
 \usepackage[latin1]{inputenc}
 \usepackage{amssymb}
 \setcounter{tocdepth}{3}
@@ -549,13 +548,58 @@ in the distributed computing experiment.
 \label{sec:conc}
 
 In this paper we have presented our experience on using browser-based
-computing applied
-to the design of evolutionary algorithms.  
+computing applied to the design of evolutionary algorithms. In the
+spirit of Open Science, we have released all material related to the
+experiment, including this paper. Experiments have been performed at
+several times of the day and announced in Twitter or during a live
+presentation about distributed computation using the browser. 
 
-%FERGU: Creo que te falta terminar las conclusiones, pero por si acaso habría que decir: Este tipo de computación se basa en tal y tal y tiene tales problemas. Nuestra metodología ha propuesto usar tal tecnología por tal y tal. Los resultados demuestran que los usuarios hacen tal y tal y que por lo tanto hay que tener en cuenta el tal. Bueno, qué te voy a contar...
+What we conclude from these computers is that the nature of the
+performance, which is due to the number of persons deciding to
+participate in the experiment, is not totally random. There are at
+least lower bounds we can count on: several computers (as few as six)
+can almost always be relied on, and in some cases up to 30 can
+participate in a single experiment. However, it is not clear how all
+these computers contribute to the overall performance in terms of
+time, although all experiments were performed until a solution was
+found. Most computers participating in the experiment are in the same
+performance tier, although a small percentage of them (which will be
+around 25\%) are quite slow.
 
-There are many issues involved in using these resources: from adapting current algorithms so that they match this environment \cite{agajaj} to check which EA configuration works the best in it, or creating a framework that can use it easily \cite{nodeo2014}, or even security issues. But the main challenge is that asking people to contribute resources implies that you are opening your science to society and you have to give something in return: you have to adopt a set of best practices that have come to be known as Open Science, because ``Give, and it shall be given unto you'', you will get as much back from society as you give to it opening your science and explaining it to the public. This, among other things, means that popularity will become directly performance of the metacomputer you create by attracting more users.
+The evolutionary algorithm programmed in this way can easily
+accommodate all kinds of browsers. However, we are using an homogeneous
+configuration for all of them, which might not be the best from an
+algorithmic point of view; a random parameter setting like the one
+used by \cite{LNCS86720702} could offer better results, since we do
+not know in advance what is the performance of the nodes. More
+systematic experimentation is also needed, specially using different
+kind of problems, including more complex problems in which the fitness
+function is {\em heavier} and takes longer to be processed. However,
+the main intention of this paper, which was to prove that distributed
+evolutionary computation could be done efficiently in a volunteer/free
+environment, has been sufficiently proved. 
 
+There are many issues involved in using these resources: from adapting
+current algorithms so that they match this environment 
+to check which EA configuration works the best in it, or creating a
+framework that can use it easily. But the main
+challenge is that asking people to contribute resources implies that
+you are opening your science to society and you have to give something
+in return: you have to adopt a set of best practices that have come to
+be known as Open Science, because ``Give, and it shall be given unto
+you'', you will get as much back from society as you give to it
+opening your science and explaining it to the public. This, among
+other things, means that popularity will become directly performance
+of the metacomputer you create by attracting more users. And this
+interplay between the social network itself (popularity in Twitter,
+people attending to the conference and interested in following the
+slides in their computer) is another, very interesting, venue to
+explore in the future. 
+
+\section{Acknowledgments}
+
+This paper is supported in part by several grants hidden for
+anonymity. 
 
 \bibliographystyle{abbrv}
 \bibliography{geneura,volunteer,javascript,ror-js,GA-general}
