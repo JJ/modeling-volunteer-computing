@@ -305,6 +305,45 @@ certain amount of time, around one hour, so that there would be a
 chance for having many users checkout out the page and contributing
 cycles to it. 
 
+This fitness is implemented as part of a (name hidden) evolutionary
+algorithm library written in node.js, a server-based implementation of
+JavaScript. However, since it is going to be run on the browser, a
+procedure called ``browserification'' must be applied to it so that it
+can run, without modifications, in any browser. The main difference
+between JavaScript on the browser and node is the way they load the
+external libraries. The algorithm used a population of 256
+individuals, random initialization, a canonical evolutionary algorithm
+with an elite of 2 individuals and crossover and then mutation applied
+to all the population pool, that was generated using 2-individual
+tournament selection. Once again, the particular evolutionary
+algorithm used is not so important, since we were rather focused on
+the user behavior, although it is quite clear that the selective
+pressure of the algorithm will have an impact in its performance and
+will play for or against its asynchrony in many different and complex
+ways \cite{jj:2008:PPSN}. 
+
+The initial code was only modified to represent the fitness in a chart
+(that uses the {\tt chart.js} JavaScript library) so that the user has
+a visual feedback of what is going on. The {\em migration} part is
+also added: after every 100 generations, a single individual is sent
+to the server and another request is made to the server of a single
+and random individual. This makes the procedure less greedy, and also
+decreases the probability of getting the same individual that was sent
+some generations back. These two operations are made in {\em fire and
+  forget} style without any error checking, so that if the server is
+down, or indeed if the algorithm is run locally, it is not interrupted
+and continues operation until the solution is found, a string with all
+ones.  
+
+As a summary, the only thing needed to run an evolutionary algorithm
+in the browser is to add {\em migration} functions. To make the
+operation of the algorithm independent of them is a plus, because it
+makes the local algorithm more fault-tolerant. The algorithm running
+on every browser has the same parameters and starts from a random
+population when the page is loaded.
+
+
+
 \section{Results}
 \label{sec:res}
 
