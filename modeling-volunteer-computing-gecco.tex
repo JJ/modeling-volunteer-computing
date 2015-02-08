@@ -370,7 +370,7 @@ free tier, has been chosen. It could be also be deployed, with small
 or no modification, to OpenShift or other similar PaaS. Far from being
 a freeriding way, using free or very low cost servers can be a
 sustainable way of performing massive distributed evolutionary
-computation experiments \cite{Merelo2014}
+computation experiments \cite{Merelo2014,jj:idc:lowcost}.
 
 Having the pages and the server in the same domain allows to work in
 default Ajax mode, that does not allow cross-site requests. However,
@@ -385,12 +385,49 @@ announced in Twitter several times until enough data was gathered.
 
 As indicated in the introduction, every part of the experiment and
 data gathered have been released as free software in a GitHub
-repository (address hidden for double blind review).
-
-
+repository (address hidden for double blind review). These results
+will be analyzed in the next section.
 
 \section{Results}
 \label{sec:res}
+
+The litmus test that all experiments should pass, that is, that they
+work and found the solution, passed. In fact, the first version of the
+algorithm (until January 2015) used too much memory on the browser,
+which crashed after a while running. A total of 7 experiments were
+done with this version. After January, a new version of the
+evolutionary algorithm with non-cached fitness was used which did not
+crash the browser and was thus allowed to run as much time as
+needed. That was the version used in a lightning talk at the beginning
+of February. A total of 10 experiments were made with this second
+version. In the first version, finding the solution took a few
+minutes. The second needed around 20 minutes. In the logs used, it was
+not checked that the algorithm had found the solution, but in most
+cases it had. More systematic experimentation would have to wait until
+the next version, since in this first one we were looking for some
+kind of systematicity in the behavior of users and the experimental
+apparatus is the minimum possible to have it running.
+%
+\begin{figure*}[htb]
+        \centering
+        \subfigure[First experiment]{
+                \includegraphics[width=0.45\linewidth]{data/diffs-ips-1.png}
+                \label{fig:e1_p}
+        }
+        \subfigure[Second experiment]{
+                \includegraphics[width=0.45\linewidth]{data/diffs-ips-2.png}
+                \label{fig:e2_p}
+        }
+        \caption{Histogram of number of different IPs in an experiment}\label{fig:histo:ips}
+\end{figure*}
+
+The fact that it run correctly during a massive lightning talk means that this setup is a
+valid, no-cost, platform for massive evolutionary algorithms. There
+were several ways of introducing it: during a talk, telling the
+audience to visit the web that was posted in the first slide, and
+after the talk, inserting the URL in a tweet with a brief explanation
+and several tweets more indicating what it was about and what it
+did. If any question arose, it was answered as fast as possible. 
 
 \section{Conclusion}
 \label{sec:conc}
