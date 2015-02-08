@@ -342,6 +342,51 @@ makes the local algorithm more fault-tolerant. The algorithm running
 on every browser has the same parameters and starts from a random
 population when the page is loaded.
 
+\subsection{Server side}
+\label{ss:server} 
+
+The server was also written using node.js and the {\tt express.js}
+module and has three REST \cite{DBLP:journals/corr/abs-1105-4971}
+functions, that is, three functions that can be accessed from any
+client, including the browser, via a request encoded in an URL and a
+standard HTTP command. These functions are\begin{itemize}
+\item {\tt GET random} returns a random, non-evaluated individual,
+  from the pool. The pool is just an array containing chromosomes,
+  that is initialized at the beginning of the experiment.
+\item {\tt PUT one} puts a single individual in the pool. In REST
+  conventions, {\tt PUT} is used to create a resource, that is why it
+  is used, in this case, to add a new individual to the pool.
+\item {\tt GET log} returns the experiment log so far. It is used by
+  the researcher to gather data, and as a transparency measure so that
+  anyone can use it. 
+\end{itemize}
+
+In fact, the program includes more logic to serve the static pages
+that contain the talk in which it is included and the JavaScript/CSS
+code also, but it all amounts to a small amount of code. This code can
+be deployed, in principle, in any server running node.js, but for the
+purposes of this experiment Heroku, a Platform as a Service with a
+free tier, has been chosen. It could be also be deployed, with small
+or no modification, to OpenShift or other similar PaaS. Far from being
+a freeriding way, using free or very low cost servers can be a
+sustainable way of performing massive distributed evolutionary
+computation experiments \cite{Merelo2014}
+
+Having the pages and the server in the same domain allows to work in
+default Ajax mode, that does not allow cross-site requests. However,
+these can also be disabled if needed. In this case, every domain holds
+a single experiment, there is no multi-tenancy of experiments, so its
+management is quite simple.
+
+When the experiment is finished, that is, the solution has been found,
+the server is restarted using  command line tools provided by
+Heroku. Every experiment was first done during the talk and then
+announced in Twitter several times until enough data was gathered.
+
+As indicated in the introduction, every part of the experiment and
+data gathered have been released as free software in a GitHub
+repository (address hidden for double blind review).
+
 
 
 \section{Results}
