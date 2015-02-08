@@ -437,7 +437,93 @@ minimum, be gathered for a distributed computing experiment by just
 announcing it as a tweet, but the fact that we can obtain more than a
 dozen computers in more than half the cases is also remarkable, and
 goes to prove the excess of computing resources that people,
-willingly, lend to a simple experiment. 
+willingly, lend to a simple experiment.
+%
+\begin{figure*}[htb]
+        \centering
+        \subfigure[First experiment, run 3]{
+                \includegraphics[width=0.45\linewidth]{data/log-puts-1-exp7.png}
+                \label{fig:d1}
+        }
+        \subfigure[Second experiment, run 7]{
+                \includegraphics[width=0.45\linewidth]{data/log-puts-2-traps-eps-3.png}
+                \label{fig:d2}
+        }
+        \caption{IPs and the number of {\tt PUT}s (one every $n$
+          generations, 50 in the first experiment, 100 in the second
+          experiment) they did, sorted. These correspond to the runs
+          in each batch of experiments with the max number of
+          different IPs. Please note the algorithmic scale in the $x$ axis.}\label{fig:dist}
+\end{figure*}
+
+Not all users contribute in the same way. The distribution for the
+runs in each experiment with the most IPs is shown in Figure
+\ref{fig:dist}, which chooses the experiment with the most number of
+uses and ranks, tops to down, every IP with the number of PUTs (which
+should be multiplied by the number of generations per PUT, 50 in the
+first case, 100 in the second, although at this point it is not
+important, since all nodes in the experiment do it after the same
+number of generations) contributed to the experiment. We can observe
+in both cases a power law, something already observed by \cite{agajaj}
+and which implies that there is a fixed proportion between the number
+of cycles (generations) contributed by the first and that contributed
+by the second which is roughly the same as the one between the second
+and third. Note also that, since the experiment is hosted in a PaaS,
+the IPs listed are anonymous, with a 10 always as the first number.
+%
+\begin{figure*}[htb]
+        \centering
+        \includegraphics[width=0.8\linewidth]{data/time-vs-ips.png}
+        \caption{Total experiment time (time of the last PUT - time of
+        the first one) vs number of IPs participating in it.}\label{fig:t}
+\end{figure*}
+%
+\begin{figure*}[htb]
+        \centering
+        \includegraphics[width=0.8\linewidth]{data/intervals-histo.png}
+        \caption{Histogram of the time between two PUTs for all the
+          experiments in the second batch. The $x$ axis is logarithmic
+        and bin size is 0.5, which means that the first bin contains
+        all intervals of less than 3 seconds.}\label{fig:intervals}
+\end{figure*}
+
+At any rate, this exponential trend in the first posts breaks down
+after a number of IPs. That could be due to several possible factors:
+persons checking the web for just an instant, late comers, or very
+slow computers that are not able to lend more cycles to the
+simulation. The first IP in both cases contributes on the order of a
+hundred PUTs, that is, several thousands generations and several
+hundred thousands evaluations, which, once again, is quite remarkable
+for such a simple experiment announced by an ephemeral tweet. It
+should be noted that, since the speed in the browser virtual machines
+(Chrome, mainly, but also Firefox) is as fast as the node.js version,
+a parallel version does not add overhead to the single-browser
+version, which, as mentioned above, can run in an independent
+way: a second browser always adds to the first, even if the total
+number of evaluations and the time needed will not speed up in the
+same way. However, even taking into account the stochastic nature of a
+single evolutionary algorithm, what we are going to find is a high
+dispersion of the times needed to reach a solution, which are plotted
+in Figure \ref{fig:t} against the number of IPs. There is a wide
+range of durations, although there is no clear decrease of the time
+needed as the number of IPs used increase. However, we will have to
+investigate further the speed ups achieved and if these are
+algorithmic or due to the particular asynchronous and web-based
+implementation. Figure \ref{fig:intervals} might help understand the
+kind of raw material we are using: It plots an histogram of the time
+needed by all experiments to process 100 generations, 25600
+evaluations and the associated evolutionary geneticry. The vast
+majority of browsers processes it in less than 3 seconds (logarithm(
+time ) < 0.5, which is equivalent to 3.16). However, it is interesting
+to note that there are some intervals that go up to the thousands of
+seconds, for which we cannot really offer an explanation, other than
+the user leaving the page and returning after a while. However, 75\%
+of the cases take less than 4 seconds, which is thus a statistical
+measure of the kind of performance we can expect from clients for this
+type of problem. We can also conclude that 75\%, or a majority, will
+be in the fastest tier, although there will be a small amount of them
+that will be quite slow and will probably be impossible to accomodate
+in the distributed computing experiment.
 
 \section{Conclusion}
 \label{sec:conc}
