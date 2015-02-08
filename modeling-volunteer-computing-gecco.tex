@@ -39,7 +39,7 @@ Som E. One\\
 \maketitle
 
 \begin{abstract}
-From the era of big science we are back to the "do it yourself", where
+From the era of big science we are back to the ``do it yourself'', where
 you do not have any money to buy clusters or subscribe to grids but
 still have algorithms that crave many computing nodes and need them to
 measure scalability. Fortunately, this coincides with the era of big
@@ -68,7 +68,8 @@ problem is how.
 
 Most theory in parallel computing has been devoted to predict and
 optimize the performance in systems where the number of nodes, their
-connections, and the time every one is devoting to the computation is
+connections, and the time every one is dedicating to the computation is
+%FERGU: cambiado el devoting que se repite, por dedicating 
 known in advance. However, even if Big Science is not really over and
 it is slated to come back, the era of
 Citizen Science already started a few years ago (with SETI@home \cite{david-seti:home} and then BOINC \cite{boinc_grid04}) and it
@@ -90,8 +91,9 @@ low-cost cloud computing engines, volunteer computing systems and and
 untapped capability of desktop systems can be used for creating
 massive, or at least potentially massive, distributed computing
 experiments. These experiments can be easily created using open-source
-repository sites like GitHub and deployed automatically to Platform as
-a Service products such as Heroku or OpenShift. 
+repository sites like GitHub\footnote{\url{http://www.github.com}} and deployed automatically to Platform as
+a Service (PaaS) products such as Heroku\footnote{\url{https://www.heroku.com/}} or OpenShift\footnote{\url{https://www.openshift.com/}}. 
+%FERGU: luego usas el acrónimo PaaS
 
 In general, any volunteer computing experiment will have to be made
 ``in the open''. The fact that somebody is giving you, basically for
@@ -102,8 +104,8 @@ opposite is probably the reason why many companies like PopularPower \cite{buyya
 have folded or others like CrowdProcess have decided to turn their
 product to in-house computation: there must be a mutual relationship
 of trust among the scientist and the person that is running his/her
-code in the browser. As has been mentioned in the early stages of what
-was then called {\em desktop grid computing}, \cite{gc:bausch}, in
+code in the browser. As it has been mentioned in the early stages of what
+was then called {\em desktop grid computing} \cite{gc:bausch}, in
 fact CPU cycle selling might not make economic sense since there are
 not so much demand for it and supply is quite high. However, while
 potential supply is in fact huge, {\em actual} supply will depend on
@@ -116,6 +118,10 @@ has to progress from open source code to open science: releasing all
 data obtained in the experiment in a repository such as GitHub,
 mentioned above, and even allowing real-time access to experiment data
 to users.
+
+% Había metido en el .bib el artículo de detectar vulnerabilidades 
+% en EAs distribuidos de Juanlu, pero creo que al final no tiene sentido 
+% hablar en este paper de él (Muszynski14vulnerabilities)
 
 Another possible reason of the failure of former companies to create a
 for-profit desktop grid might be the lack of a way to predict what is
@@ -142,7 +148,7 @@ performance of any experiment you might want to perform.
 
 These are best practices that have been followed in the experiments in
 this paper, that first presents the first versions of a platform for
-distributed evolutionary algorithms using the browser and a free (as
+distributed evolutionary algorithms (EAs) using the browser and a free (as
 in free beer) backend, and second, shows the result from an
 statistical point of view in order to put the basis for a model of the
 metacomputer obtained by joining all volunteers and the free backend
@@ -155,7 +161,8 @@ which should show some advantage over doing the same kind of
 experiments locally using available resources. 
 
 The rest of the paper is organized as follows: next we will present
-the state of the art in volunteer computing and its modelization. We
+the state of the art in volunteer computing and its modelization. We 
+%FERGU: aunque hay artículos con el término "modelization", no sé si el correcto será "modelling"
 will proceed to describe the experimental setup in Section
 \ref{sec:exp}, some preliminary results in Section \ref{sec:res} and
 finally we will present our conclusions in Section \ref{sec:conc}
@@ -169,37 +176,39 @@ evolutionary computation has a long history since JavaScript was
 introduced as a browser-based language in 1997 and even before, when
 other procedures, including Flash animations, VBScript, ActiveX or Java applets were
 used. Java was pointed out in \cite{soares1998get} as a ``language for
-internet'' and
-\begin{quote}
-Java can bring some important advantages... solves architectural
-heterogeneity [...] easy to install and [...] built-in security
-mechanisms
-\end{quote}
-The same paper by Soares et al. describes JET, a system that supports
-the execution of parallel applications over the Internet. In fact the
-same paper describes some other systems working at the same time,
-except they cannot be used for science since they do not have a
-comprehensive statistics support like JET. 
+internet'', providing some advantages such as multi-architecture compatibility or 
+security mechanisms.
+%\begin{quote}
+%Java can bring some important advantages... solves architectural
+%heterogeneity [...] easy to install and [...] built-in security
+%mechanisms
+%\end{quote} FERGU: quito esta cita y lo pongo sin el quote
+In that work, Soares et al. describe JET, a system that supports
+the execution of parallel applications over the Internet. This system has 
+a comprehensive statistics support, allowing its use for science, 
+unlike the other systems compared in that paper.
 
-However, Java (and all the other technologies) is not universal in the
+
+However, Java (and all the other technologies)
+is not universal in the
 sense than an extra component, namely, the Java virtual machine, has
 to be installed in the browser. JavaScript
 \cite{flanagan2006javascript} was introduced in 1997 as a
 browser-embedded language and has, since them, become a set of standards
 \cite{ECMA-262} for the language, its components and future versions
 that have been widely adopted by the industry and also by scientists,
-who used them for creating a non-distributed evolutionary algorithm on
+who used them for creating a non-distributed EA on
 the browser as early as 1998 \cite{jj-ppsn98}. 
 
 The potential for volunteer computing using browsers was realized
 later on \cite{sarmenta-bayanihan} as well as the potential for
 mischief of users with code in their hands
-\cite{sarmenta-sabotagetolerance} however, these early efforts by
+\cite{sarmenta-sabotagetolerance}. However, these early efforts by
 Sarmenta once again used Java and not JavaScript, making this effort
 less universal. JavaScript can be used either for unwitting
 \cite{unwitting-ec} or volunteer
 \cite{langdon:2005:metas,gecco07:workshop:dcor} distributed
-evolutionary computation and has been used ever since by several
+evolutionary computation and it has been used ever since by several
 authors, including more recent efforts \cite{Desell:2008:AHG:1389095.1389273,duda2013distributed,DBLP:journals/corr/abs-0801-1210} that even
 used the client's GPU \cite{duda2013gpu}. Many other researchers have
 used Java \cite{chong:1999:jDGPi} and others have gone away from the
@@ -211,17 +220,17 @@ threshold to join them is much lower.
 
 There have been relatively few efforts to analyze what is the
 performance that can be obtained from these volunteer computing
-effort. There was some effort initially to dodge the issue by making
+effort. There was some attempt initially to dodge the issue by making
 the algorithm adaptive to the kind of resources allotted to it
 \cite{milani2004online}, which is actually not such a big problem in
-algorithms such as the evolutionary algorithm that can easily be
-paralelized via population splitting or farming out evaluations to all
+algorithms such as the EA that can easily be
+parallelized via population splitting or farming out evaluations to all
 the nodes available. Lately, several approaches have focused on the
 fault-tolerance of volunteer algorithms
 \cite{gonzalez2010characterizing} which can, of course, be studied in
 a more general distributed computing context
 \cite{nogueras2015studying} or including it in a more general study of
-performance of the evolutionary algorithm itself
+performance of the EA itself %Con tu permiso lo paso a acrónimos para que no sea tan largo el párrafo. FERGU
 \cite{DBLP:journals/gpem/LaredoBGVAGF14}. But the raw material of
 volunteer computing, number of users and the time spent in the
 computation in browser-based volunteer computing experiments, have only been studied in a limited way in
@@ -235,10 +244,12 @@ there are many users that give a small amount of cycles, while there
 are just a few that give many cycles. This is in concordance with the
 results obtained in \cite{agajaj}.
 
-As far as we know, this is the only experiment that uses computational
+As far as we know, this paper presents the only experiment that uses computational
 resources that are as dissimilar as smartphones and powerful laptops
 or desktop computers in a research center. The methodology used to
 gather resources and the algorithms used will be described next. 
+
+%FERGU: volver a indicar que además se dan resultados de uso, para que quede clara la contribución?
 
 \section{Methodology}
 \label{sec:exp}
@@ -251,7 +262,8 @@ gather resources and the algorithms used will be described next.
     that shows the progression of the evolutionary
     algorithm at the top right corner}
 \end{figure*}
-
+%FERGU: No puedes poner el gráfico un poco más grande? (y de paso 
+% recortar mejor la imagen para que no se vea el texto de la derecha)
 In order to test the volunteer computing environment, a presentation
 describing a low cost volunteer computing environment was
 created. This presentation was actually delivered in several
@@ -268,7 +280,9 @@ Above the experiment, from the point of view of the user, has been
 described. What it is actually running is an island model
 \cite{muhlenbein1991parallel} in every browser that uses the server as
 a {\em shuttle} to transfer individuals from one browser to another in
-what can be eventually a fully connected topology. This deals with
+what can be eventually a fully connected topology. 
+%FERGU: explica esto: los navegadores se conectan entre sí o sólo a tu servidor?
+This deals with
 several problems. The connection is stateless: islands connect to the
 server to send and receive a single individual but there is no task
 balancing: all islands start clicking on an URL and finish when they
@@ -306,11 +320,13 @@ chance for having many users checkout out the page and contributing
 cycles to it. 
 
 This fitness is implemented as part of a (name hidden) evolutionary
+%FERGU: creo que si usas un framework libre puedes dejarlo visible
 algorithm library written in node.js, a server-based implementation of
 JavaScript. However, since it is going to be run on the browser, a
 procedure called ``browserification'' must be applied to it so that it
 can run, without modifications, in any browser. The main difference
-between JavaScript on the browser and node is the way they load the
+between JavaScript on the browser and node.js is the way they load the
+%FERGU: puesto .js para distinguir la palabra node del nombre de la librería
 external libraries. The algorithm used a population of 256
 individuals, random initialization, a canonical evolutionary algorithm
 with an elite of 2 individuals and crossover and then mutation applied
@@ -320,7 +336,7 @@ algorithm used is not so important, since we were rather focused on
 the user behavior, although it is quite clear that the selective
 pressure of the algorithm will have an impact in its performance and
 will play for or against its asynchrony in many different and complex
-ways \cite{jj:2008:PPSN}. 
+ways \cite{jj:2008:PPSN}. %FERGU: este párrafo me lo copio para el de la ASOCO ;)
 
 The initial code was only modified to represent the fitness in a chart
 (that uses the {\tt chart.js} JavaScript library) so that the user has
@@ -331,6 +347,7 @@ and random individual. This makes the procedure less greedy, and also
 decreases the probability of getting the same individual that was sent
 some generations back. These two operations are made in {\em fire and
   forget} style without any error checking, so that if the server is
+  %FERGU: Qué es fire and forget? (se puede intuir, pero dejarlo claro)
 down, or indeed if the algorithm is run locally, it is not interrupted
 and continues operation until the solution is found, a string with all
 ones.  
@@ -399,7 +416,7 @@ In this paper we have presented our experience on using browser-based
 computing applied
 to the design of evolutionary algorithms.  
 
-There are many issues involved in using these resources: from adapting current algorithms so that they match this environment \cite{agajaj} to check which EA configuration works the best in it, or creating a framework that can use it easily \cite{nodeo2014}. But the main challenge is that asking people to contribute resources implies that you are opening your science to society and you have to give something in return: you have to adopt a set of best practices that have come to be known as Open Science, because ``Give, and it shall be given unto you'', you will get as much back from society as you give to it opening your science and explaining it to the public. This, among other things, means that popularity will become directly performance of the metacomputer you create by attracting more users.
+There are many issues involved in using these resources: from adapting current algorithms so that they match this environment \cite{agajaj} to check which EA configuration works the best in it, or creating a framework that can use it easily \cite{nodeo2014}, or even security issues. But the main challenge is that asking people to contribute resources implies that you are opening your science to society and you have to give something in return: you have to adopt a set of best practices that have come to be known as Open Science, because ``Give, and it shall be given unto you'', you will get as much back from society as you give to it opening your science and explaining it to the public. This, among other things, means that popularity will become directly performance of the metacomputer you create by attracting more users.
 
 
 \bibliographystyle{abbrv}
