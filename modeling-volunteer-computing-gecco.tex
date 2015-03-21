@@ -1,4 +1,4 @@
-\documentclass{sig-alternate}
+\documentclass{article}
 
 \usepackage[latin1]{inputenc}
 \usepackage{amssymb}
@@ -12,26 +12,10 @@
 
 \title{Modeling browser-based distributed evolutionary computation systems} 
 
-\numberofauthors{1} %  in this sample file, there are a *total*
-% of EIGHT authors. SIX appear on the 'first-page' (for formatting
-% reasons) and the remaining two appear in the \additionalauthors section.
-%
-\author{
-% You can go ahead and credit any number of authors here,
-% e.g. one 'row of three' or two rows (consisting of one row of three
-% and a second row of one, two or three).
-%
-% The command \alignauthor (no curly braces needed) should
-% precede each author name, affiliation/snail-mail address and
-% e-mail address. Additionally, tag each line of
-% affiliation/address with \affaddr, and tag the
-% e-mail address with \email.
-%
-% 1st. author
-\alignauthor
-Som E. One\\
-       \affaddr{Some Institute}\\
-       \email{em@a.il}
+\author{ J. J. Merelo Guerv�s and Pablo Garc�a S�nchez\\
+  Dept. of Computer Architecture and Technology and CITIC\\
+  University of Granada\\
+  \texttt{(jmerelo,pgarcia)@ugr.es)}
 }
 
 
@@ -55,9 +39,6 @@ JavaScript and then find a model of how users react to it by
 collecting data from several experiments featuring different classical
 benchmark functions. 
 \end{abstract}
-
-\keywords{Evolutionary computation, volunteer computing, distributed
-  computing, node.js, javascript}
 
 \section{Introduction}
 
@@ -253,34 +234,23 @@ gather resources and the algorithms used will be described next.
 \section{Methodology}
 \label{sec:exp}
 
-\begin{figure*}[h!tb]
-  \centering
-  \includegraphics[trim=0cm 2cm 0cm 3cm, width=10cm]{img/screenshot.png}
-  \label{fig:sshot}
-  \caption{Screenshot of the talk that includes at the graph
-    that shows the progression of the evolutionary
-    algorithm at the top right corner}
-\end{figure*}
-%FERGU: No puedes poner el gráfico un poco más grande? (y de paso 
-% recortar mejor la imagen para que no se vea el texto de la derecha)
 In order to test the volunteer computing environment, a presentation
 describing a low cost volunteer computing environment was
 created. This presentation was actually delivered in several
-conferences\footnote{Names withheld for the double blind review} and
-it has the appearance shown in Figure \ref{fig:sshot}. During the
-conference, it was revealed to the users that they were participating
+conferences\footnote{Names withheld for the double blind review}. During the
+conference, it was revealed to the persons attending it that they were participating
 in the experiment. The same procedure was used when trying to gather
 users in social networks: a description of the container (the
-presentation) and disclosure of its purpose. As it can be seen in the
-image, the upper right corner shows the progress of the evolution. It
+presentation) and disclosure of its purpose. The upper right corner of
+the presentation shows the progress of the evolution. It
 stops when the solution has been reached. 
 
 Above the experiment, from the point of view of the user, has been
 described. What it is actually running is an island model
 \cite{muhlenbein1991parallel} in every browser that uses the server as
 a {\em shuttle} to transfer individuals from one browser to another in
-what can be eventually a fully connected topology. 
-%FERGU: explica esto: los navegadores se conectan entre sí o sólo a tu servidor?
+what can be eventually a fully connected topology; however, all
+connections take place between the browser and the server.
 This deals with
 several problems. The connection is stateless: islands connect to the
 server to send and receive a single individual but there is no task
@@ -318,14 +288,12 @@ certain amount of time, around one hour, so that there would be a
 chance for having many users checkout out the page and contributing
 cycles to it. 
 
-This fitness is implemented as part of a (name hidden) evolutionary
-%FERGU: creo que si usas un framework libre puedes dejarlo visible
+This fitness is implemented as part of the Nodeo evolutionary
 algorithm library written in node.js, a server-based implementation of
 JavaScript. However, since it is going to be run on the browser, a
 procedure called ``browserification'' must be applied to it so that it
 can run, without modifications, in any browser. The main difference
 between JavaScript on the browser and node.js is the way they load the
-%FERGU: puesto .js para distinguir la palabra node del nombre de la librería
 external libraries. The algorithm used a population of 256
 individuals, random initialization, a canonical evolutionary algorithm
 with an elite of 2 individuals and crossover and then mutation applied
@@ -335,7 +303,7 @@ algorithm used is not so important, since we were rather focused on
 the user behavior, although it is quite clear that the selective
 pressure of the algorithm will have an impact in its performance and
 will play for or against its asynchrony in many different and complex
-ways \cite{jj:2008:PPSN}. %FERGU: este párrafo me lo copio para el de la ASOCO ;)
+ways \cite{jj:2008:PPSN}. 
 
 The initial code was only modified to represent the fitness in a chart
 (that uses the {\tt chart.js} JavaScript library) so that the user has
@@ -345,8 +313,7 @@ to the server and another request is made to the server of a single
 and random individual. This makes the procedure less greedy, and also
 decreases the probability of getting the same individual that was sent
 some generations back. These two operations are made in {\em fire and
-  forget} style without any error checking, so that if the server is
-  %FERGU: Qué es fire and forget? (se puede intuir, pero dejarlo claro)
+  forget} style, that is, without any error checking, so that if the server is
 down, or indeed if the algorithm is run locally, it is not interrupted
 and continues operation until the solution is found, a string with all
 ones.  
@@ -400,8 +367,8 @@ Heroku. Every experiment was first done during the talk and then
 announced in Twitter several times until enough data was gathered.
 
 As indicated in the introduction, every part of the experiment and
-data gathered have been released as free software in a GitHub
-repository (address hidden for double blind review). These results
+data gathered have been released as free software in the GitHub
+repository \url{https://github.com/JJ/idc-keynote}. These results
 will be analyzed in the next section.
 
 \section{Results}
@@ -595,10 +562,12 @@ explore in the future.
 
 \section{Acknowledgements}
 
-This paper is supported in part by several grants hidden for
-anonymity. 
+This work has been supported in part by TIN2011-28627-C04-02 and
+TIN2014-56494-C4-3-P (Spanish Ministry of Economy and Competitivity),
+SPIP2014-01437 (Direcci{\'o}n General de Tr{\'a}fico) and PYR-2014-17
+GENIL project (CEI-BIOTIC Granada). 
 
 \bibliographystyle{abbrv}
-\bibliography{geneura,volunteer,javascript,ror-js,GA-general}
+\bibliography{geneura-latin1,volunteer,javascript,ror-js,GA-general}
 
 \end{document}
