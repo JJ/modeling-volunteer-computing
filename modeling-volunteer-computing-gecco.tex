@@ -329,7 +329,7 @@ population when the page is loaded.
 \label{ss:server} 
 
 The server was also written using node.js and the {\tt express.js}
-module and has three REST \cite{DBLP:journals/corr/abs-1105-4971}
+module and has three REST \cite{Castillo12REST} %FERGU: cito a este paper que es un capítulo de libro en vez de Arxiv
 functions, that is, three functions that can be accessed from any
 client, including the browser, via a request encoded in an URL and a
 standard HTTP command. These functions are\begin{itemize}
@@ -375,7 +375,8 @@ will be analyzed in the next section.
 \label{sec:res}
 
 The litmus test that all experiments should pass, that is, that they
-work and found the solution, passed. In fact, the first version of the
+work and found the solution, passed. %FERGU: que quiere decir esta primera frase?
+In fact, the first version of the
 algorithm (until January 2015) used too much memory on the browser,
 which crashed after a while running. A total of 7 experiments were
 done with this version. After January, a new version of the
@@ -389,6 +390,7 @@ not checked that the algorithm had found the solution, but in most
 cases it had. More systematic experimentation would have to wait until
 the next version, since in this first one we were looking for some
 kind of systematicity in the behavior of users and the experimental
+%FERGU: systematicity? systematization mejor?
 apparatus is the minimum possible to have it running.
 %
 \begin{figure*}[htb]
@@ -421,6 +423,7 @@ announcing it as a tweet, but the fact that we can obtain more than a
 dozen computers in more than half the cases is also remarkable, and
 goes to prove the excess of computing resources that people,
 willingly, lend to a simple experiment.
+%FERGU: dí que la persona que lo anunció en twitter tiene X seguidores
 %
 \begin{figure*}[htb]
         \centering
@@ -490,13 +493,13 @@ dispersion of the times needed to reach a solution, which are plotted
 in Figure \ref{fig:t} against the number of IPs. There is a wide
 range of durations, although there is no clear decrease of the time
 needed as the number of IPs used increase. However, we will have to
-investigate further the speed ups achieved and if these are
+investigate further the speedups achieved and if these are %FERGU: speedup va junto
 algorithmic or due to the particular asynchronous and web-based
 implementation. Figure \ref{fig:intervals} might help understand the
 kind of raw material we are using: It plots an histogram of the time
 needed by all experiments to process 100 generations, 25600
-evaluations and the associated evolutionary geneticry. The vast
-majority of browsers processes it in less than 3 seconds (logarithm(
+evaluations and the associated evolutionary geneticry. The vast %FERGU: geneticry?
+majority of browsers processes it in less than 3 seconds (logarithm( 
 time ) < 0.5, which is equivalent to 3.16). However, it is interesting
 to note that there are some intervals that go up to the thousands of
 seconds, for which we cannot really offer an explanation, other than
@@ -505,7 +508,7 @@ of the cases take less than 4 seconds, which is thus a statistical
 measure of the kind of performance we can expect from clients for this
 type of problem. We can also conclude that 75\%, or a majority, will
 be in the fastest tier, although there will be a small amount of them
-that will be quite slow and will probably be impossible to accomodate
+that will be quite slow and will probably be impossible to accommodate
 in the distributed computing experiment.
 
 \section{Conclusion}
@@ -560,7 +563,7 @@ people attending to the conference and interested in following the
 slides in their computer) is another, very interesting, venue to
 explore in the future. 
 
-\section{Acknowledgements}
+\section{Acknowledgments}
 
 This work has been supported in part by TIN2011-28627-C04-02 and
 TIN2014-56494-C4-3-P (Spanish Ministry of Economy and Competitivity),
