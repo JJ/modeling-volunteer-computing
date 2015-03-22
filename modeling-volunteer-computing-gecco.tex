@@ -12,10 +12,10 @@
 
 \title{Modeling browser-based distributed evolutionary computation systems} 
 
-\author{ J. J. Merelo Guervós and Pablo García Sánchez\\
+\author{ J. J. Merelo Guervós and Pablo García-Sánchez\\
   Dept. of Computer Architecture and Technology and CITIC\\
   University of Granada\\
-  \texttt{(jmerelo,pgarcia)@ugr.es}
+  \texttt{(jmerelo,pablogarcia)@ugr.es}
 }
 
 
@@ -31,7 +31,7 @@ machines. Those are the reasons why this paper will focus on two
 different aspects of volunteer or freeriding computing: first, the
 pragmatic: where to find those resources, which ones can be used, what
 kind of support you have to give them; and then, the theoretical: how
-evolutionary algorithms can be adapted to a environment in which nodes
+evolutionary algorithms can be adapted to an environment in which nodes
 come and go, have different computing capabilities and operate in
 complete asynchrony of each other. We will examine the setup needed to
 create a very simple distributed evolutionary algorithm using
@@ -66,7 +66,7 @@ Besides, since Amazon started selling EC2 several years ago, reliable
 and scalable computing resources are also available for a low price
 and on demand. Recently, Google has also refurbished its offering
 lowering their prices. This means that the conjunction of free or
-low-cost cloud computing engines, volunteer computing systems and and
+low-cost cloud computing engines, volunteer computing systems and
 untapped capability of desktop systems can be used for creating
 massive, or at least potentially massive, distributed computing
 experiments. These experiments can be easily created using open-source
@@ -95,7 +95,7 @@ attention of the supplier. That is why trust is essential, and using
 free software might not be enough: Openness
 has to progress from open source code to open science: releasing all
 data obtained in the experiment in a repository such as GitHub,
-mentioned above, and even allowing real-time access to experiment data
+mentioned above, and even allowing real-time access to experimental data
 to users.
 
 % HabÃ­a metido en el .bib el artÃ­culo de detectar vulnerabilidades 
@@ -116,7 +116,7 @@ is theoretically impossible to predict to a high precision what
 happens, it is in practice possible to approximate the number of
 visits in a site, at least in a particular one, using time series. But
 in the short term and using a more general model, there is still need
-to model the behavior of users so that more factors can be added to
+to model the behavior of users, so that more factors can be added to
 the model other than the time series. This user behavior, of course,
 presupposes that you are respecting their anonymity and privacy (not using
 cookies, for instance) and that you are respecting the open approach
@@ -128,7 +128,7 @@ performance of any experiment you might want to perform.
 These are best practices that have been followed in the experiments in
 this paper, that first presents the first versions of a platform for
 distributed evolutionary algorithms (EAs) using the browser and a free (as
-in free beer) backend, and second, shows the result from an
+in free beer) backend, and second, shows the result from a
 statistical point of view in order to put the basis for a model of the
 metacomputer obtained by joining all volunteers and the free backend
 used for the experiment. This is not an exhaustive or complete
@@ -173,7 +173,7 @@ is not universal in the
 sense than an extra component, namely, the Java virtual machine, has
 to be installed in the browser. JavaScript
 \cite{flanagan2006javascript} was introduced in 1997 as a
-browser-embedded language and has, since them, become a set of standards
+browser-embedded language and has, since then, become a set of standards
 \cite{ECMA-262} for the language, its components and future versions
 that have been widely adopted by the industry and also by scientists,
 who used them for creating a non-distributed EA on
@@ -193,7 +193,7 @@ used the client's GPU \cite{duda2013gpu}. Many other researchers have
 used Java \cite{chong:1999:jDGPi} and others have gone away from the
 server-based paradigm to embrace peer to peer systems
 \cite{jin2006constructing,10.1109/ICICSE.2008.99}. These computing
-platform avoid single points of failure (the server) but, since they
+platforms avoid single points of failure (the server) but, since they
 need a certain amount of infrastructure installed to start, the
 threshold to join them is much lower. 
 
@@ -262,14 +262,14 @@ the experiment all of their own.
 
 We will next explain its different parts from the point of
 view of the architecture itself and the algorithm that it is actually
-running. First we will describe the client code and next, in
+running. First, we will describe the client code and next, in
 subsection \ref{ss:server} the server architecture and where it is
 hosted. 
 
 \subsection{Volunteer distributed evolutionary computation in the
   browser}
 
-As stated above, the evolutionary algorithms runs mainly in the
+As stated above, the evolutionary algorithms run mainly in the
 browser. The problem run is a multimodal problem called {\em l-trap},
 which has been used extensively as a benchmark for evolutionary
 algorithms \cite{fernandes2009using,nijssen2003analysis}. This
@@ -281,7 +281,7 @@ difficult to surmount for evolutionary algorithms. Its difficulty is
 increased as the number of traps concatenated grows, so that in some
 cases it might need millions of evaluations to find the solution. In
 our case we have used several values, from 30 to 50 traps, although we
-were not so much focused in finding the solution (or the fastest way
+were not so much focused on finding the solution (or the fastest way
 of finding it) but on creating a experiment that could last for a
 certain amount of time, around one hour, so that there would be a
 chance for having many users checkout out the page and contributing
@@ -377,7 +377,7 @@ The litmus test that all experiments should pass, that is, that they
 work and found the solution, passed. %FERGU: que quiere decir esta primera frase?
 In fact, the first version of the
 algorithm (until January 2015) used too much memory on the browser,
-which crashed after a while running. A total of 7 experiments were
+which crashed after a while running. A total of 7 experiments were %el "were" es para los experimento o para el "total" A total was?
 done with this version. After January, a new version of the
 evolutionary algorithm with non-cached fitness was used which did not
 crash the browser and was thus allowed to run as much time as
@@ -414,7 +414,7 @@ and several tweets more indicating what it was about and what it
 did. If any question arose, it was answered as fast as possible. In
 the first experiment, the median number of different IPs was 18, with
 a maximum of 28 and a minimum of 6. In the second, the median was 12.5
-with a maximum of 19 and minimum of 8. The histogram of different IPs
+with a maximum of 19 and a minimum of 8. The histogram of different IPs
 in each experiment is shown in figure \ref{fig:histo:ips}. Probably
 the most remarkable thing is that a cluster of 6 computers can, as a
 minimum, be gathered for a distributed computing experiment by just
@@ -495,7 +495,7 @@ needed as the number of IPs used increase. However, we will have to
 investigate further the speedups achieved and if these are %FERGU: speedup va junto
 algorithmic or due to the particular asynchronous and web-based
 implementation. Figure \ref{fig:intervals} might help understand the
-kind of raw material we are using: It plots an histogram of the time
+kind of raw material we are using: It plots a histogram of the time
 needed by all experiments to process 100 generations, 25600
 evaluations and the associated evolutionary geneticry. The vast %FERGU: geneticry?
 majority of browsers processes it in less than 3 seconds (logarithm( 
