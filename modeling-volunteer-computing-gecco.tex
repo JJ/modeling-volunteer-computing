@@ -10,7 +10,7 @@
 
 \begin{document}
 
-\title{Modeling browser-based distributed evolutionary computation systems} 
+\title{Designing and modeling a browser-based distributed evolutionary computation systems} 
 
 \author{ J. J. Merelo Guervós and Pablo García-Sánchez\\
   Dept. of Computer Architecture and Technology and CITIC\\
@@ -22,19 +22,19 @@
 \maketitle
 
 \begin{abstract}
-From the era of big science we are back to the ``do it yourself'', where
-you do not have any money to buy clusters or subscribe to grids but
-still have algorithms that crave many computing nodes and need them to
-measure scalability. Fortunately, this coincides with the era of big
-data, cloud computing, and browsers that include JavaScript virtual
-machines. Those are the reasons why this paper will focus on two
-different aspects of volunteer or freeriding computing: first, the
+Browsers have scaled from simple page-rendering engines to operating
+systems that include most services the lower OS layer has, with the
+added facility that applications can be run by just visiting a web
+page. In this paper we will describe the front and back end of a
+distributed evolutionary computation system that uses the browser's
+capabilities of running programs written in JavaScript. We will focus on two
+different aspects of volunteer computing: first, the
 pragmatic: where to find those resources, which ones can be used, what
 kind of support you have to give them; and then, the theoretical: how
 evolutionary algorithms can be adapted to an environment in which nodes
 come and go, have different computing capabilities and operate in
 complete asynchrony of each other. We will examine the setup needed to
-create a very simple distributed evolutionary algorithm using
+create a  simple distributed evolutionary algorithm using
 JavaScript and then find a model of how users react to it by
 collecting data from several experiments featuring different classical
 benchmark functions. 
@@ -42,15 +42,20 @@ benchmark functions.
 
 \section{Introduction}
 
-The world has computational resources in spades. Most of them do not
-belong to you or your lab. That does not mean you cannot use them. The
-problem is how. 
+The world has computational resources in spades, with every person
+wielding one or more computational devices. The issue is how to make
+them allocate even a small part of those resources to your particular
+experiment. 
 
-Most theory in parallel computing has been devoted to predict and
+Most theory and experimentation in parallel computing has been devoted to predict and
 optimize the performance in systems where the number of nodes, their
 connections, and the time every one is dedicating to the computation is
-known in advance. However, even if Big Science is not really over and
-it is slated to come back, the era of
+known in advance as it often did in the Big Science era, where labs
+could easily buy 16-node clusters or subscribe to the resources of a
+big grid. Even today, you can rent instances of virtual machines in
+the cloud relatively cheaply and use them for evolutionary computation
+experiments \cite{sherry2012flex}. Nothing beats free, which is one of
+the reasons why the era of
 Citizen Science already started a few years ago (with SETI@home \cite{david-seti:home} and then BOINC \cite{boinc_grid04}) and it
 offers a vast amount of computational resources to be used, if only
 you know how to attract them. But there is a challenge: knowing, or at least having a
