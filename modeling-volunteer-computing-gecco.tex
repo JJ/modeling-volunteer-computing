@@ -15,10 +15,11 @@
 \numberofauthors{1}
 \author{
 \alignauthor 
-J. J. Merelo Guervós and Pablo García-Sánchez\\
-  \affaddr{Dept. of Computer Architecture and Technology and CITIC}\\
-  \affaddr{University of Granada}\\
-  \email{(jmerelo,pablogarcia)@ugr.es}
+A. N. Onymous.
+%J. J. Merelo Guervós and Pablo García-Sánchez\\
+%  \affaddr{Dept. of Computer Architecture and Technology and CITIC}\\
+%  \affaddr{University of Granada}\\
+%  \email{(jmerelo,pablogarcia)@ugr.es}
 }
 
 
@@ -267,7 +268,7 @@ gather resources and the algorithms used will be described next.
 In order to test the volunteer computing environment, a presentation
 describing a low cost volunteer computing environment was
 created. This presentation was actually delivered in several
-conferences\footnote{Names withheld for the double blind review}. During the
+conferences\footnote{Names withheld for the double blind review}. During the %FERGU: TODO JJ, no te olvides de decirme esto. Es la IDC 2014?
 conference, it was revealed to the persons attending it that they were participating
 in the experiment. The same procedure was used when trying to gather
 users in social networks: a description of the container (the
@@ -395,7 +396,8 @@ announced in Twitter several times until enough data was gathered.
 
 As indicated in the introduction, every part of the experiment and
 data gathered have been released as free software in the GitHub
-repository \url{https://github.com/JJ/idc-keynote}. These results
+repository \url{http:\\blind-review} %\url{https://github.com/JJ/idc-keynote}. FERGU: JJ, es este el repo correcto, no?
+These results
 will be analyzed in the next section.
 
 \section{Results}
@@ -430,9 +432,9 @@ apparatus is the minimum possible to have it running.
                 \includegraphics[width=0.45\linewidth]{data/diffs-ips-2.png}
                 \label{fig:e2_p}
         }
-        \caption{Histogram of number of different IPs in an experiment}\label{fig:histo:ips}
+        \caption{Histogram of number of different IPs in a run (7 runs for first experiment and 10 for the second).}\label{fig:histo:ips}
 \end{figure*}
-
+%FERGU: uhm, yo en vez de poenr 2 veces 7 ips distintas, simplemente pondría las barras de Ips distintas (del 1 al 7 y del 1 al 10).
 The fact that it run correctly during a massive lightning talk means that this setup is a
 valid, no-cost, platform for massive evolutionary algorithms. There
 were several ways of introducing it: during a talk, telling the
@@ -466,7 +468,7 @@ willingly, lend to a simple experiment.
           generations, 50 in the first experiment, 100 in the second
           experiment) they did, sorted. These correspond to the runs
           in each batch of experiments with the max number of
-          different IPs. Please note the algorithmic scale in the $x$ axis.}\label{fig:dist}
+          different IPs. Please note the logarithmic scale in the $x$ axis, and the IPs are anonymous (starting with 10).}\label{fig:dist}
 \end{figure*}
 
 Not all users contribute in the same way. The distribution for the
