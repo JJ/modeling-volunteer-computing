@@ -16,8 +16,8 @@
 \author{
 \alignauthor 
 J. J. Merelo GuervÛs and Pablo GarcÌa-S·nchez\\
-  \affaddr{Dept. of Computer Architecture and Technology and CITIC}\\
-  \affaddr{University of Granada}\\
+  \affaddr{GeNeura \url{http://geneura.wordpress.com}, Dept. of Computer Architecture and Technology \url{http://atc.ugr.es} and CITIC \url{http://citic.ugr.es}}\\
+  \affaddr{University of Granada \url{http://www.ugr.university}}\\
   \email{(jmerelo,pablogarcia)@ugr.es}
 }
 
@@ -171,8 +171,10 @@ which should show some advantage over doing the same kind of
 experiments locally using available resources. 
 
 The rest of the paper is organized as follows: next we will present
-the state of the art in volunteer computing and its modelization. We 
-%FERGU: aunque hay art√≠culos con el t√©rmino "modelization", no s√© si el correcto ser√° "modelling"
+the state of the art in volunteer computing and its modelling. We 
+%FERGU: aunque hay art√≠culos con el t√©rmino "modelization", no s√©
+%si el correcto ser√° "modelling"
+% OK- JJ
 will proceed to describe the experimental setup in Section
 \ref{sec:exp}, some preliminary results in Section \ref{sec:res} and
 finally we will present our conclusions in Section \ref{sec:conc}
@@ -193,6 +195,7 @@ security mechanisms.
 %heterogeneity [...] easy to install and [...] built-in security
 %mechanisms
 %\end{quote} FERGU: quito esta cita y lo pongo sin el quote
+% OK, pero øpor? - JJ
 In that work, Soares et al. describe JET, a system that supports
 the execution of parallel applications over the Internet. This system has 
 a comprehensive statistics support, allowing its use for science, 
@@ -240,7 +243,9 @@ fault-tolerance of volunteer algorithms
 \cite{gonzalez2010characterizing} which can, of course, be studied in
 a more general distributed computing context
 \cite{nogueras2015studying} or including it in a more general study of
-performance of the EA itself %Con tu permiso lo paso a acr√≥nimos para que no sea tan largo el p√°rrafo. FERGU
+performance of the EA itself %Con tu permiso lo paso a acr√≥nimos para
+                             %que no sea tan largo el p√°rrafo. FERGU
+%OK - JJ
 \cite{DBLP:journals/gpem/LaredoBGVAGF14}. But the raw material of
 volunteer computing, number of users and the time spent in the
 computation in browser-based volunteer computing experiments, have only been studied in a limited way in
@@ -257,17 +262,24 @@ results obtained in \cite{agajaj}.
 As far as we know, this paper presents the only experiment that uses computational
 resources that are as dissimilar as smartphones and powerful laptops
 or desktop computers in a research center. The methodology used to
-gather resources and the algorithms used will be described next. 
+gather resources and the algorithms used will be described next, as
+well as the results obtained with the setup.
 
-%FERGU: volver a indicar que adem√°s se dan resultados de uso, para que quede clara la contribuci√≥n?
+%FERGU: volver a indicar que adem√°s se dan resultados de uso, para
+%que quede clara la contribuci√≥n?
+%JJ: Hecho.
 
-\section{Methodology}
+\section{Materials: running an island model in the browser}
 \label{sec:exp}
 
 In order to test the volunteer computing environment, a presentation
 describing a low cost volunteer computing environment was
 created. This presentation was actually delivered in several
-conferences (such as IDC 2014). During the %FERGU: TODO JJ, no te olvides de decirme esto. Es la IDC 2014?
+conferences (such as IDC 2014). During the %FERGU: TODO JJ, no te
+                                %olvides de decirme esto. Es la IDC
+                                %2014?
+% Y el PPSN. Pero eso lo voy a dejar para el trabajo anterior, voy a
+% intentar hacer experimentos nuevos. - JJ
 conference, it was revealed to the persons attending it that they were participating
 in the experiment. The same procedure was used when trying to gather
 users in social networks: a description of the container (the
@@ -359,7 +371,10 @@ population when the page is loaded.
 \label{ss:server} 
 
 The server was also written using node.js and the {\tt express.js}
-module and has three REST \cite{Castillo12REST} %FERGU: cito a este paper que es un cap√≠tulo de libro en vez de Arxiv
+module and has three REST \cite{Castillo12REST} %FERGU: cito a este
+                                %paper que es un cap√≠tulo de libro en
+                                %vez de Arxiv
+% OK - JJ
 functions, that is, three functions that can be accessed from any
 client, including the browser, via a request encoded in an URL and a
 standard HTTP command. These functions are\begin{itemize}
@@ -395,7 +410,10 @@ announced in Twitter several times until enough data was gathered.
 
 As indicated in the introduction, every part of the experiment and
 data gathered have been released as free software in the GitHub
-repository \url{https://github.com/JJ/idc-keynote}. %FERGU: JJ, es este el repo correcto, no?
+repository \url{https://github.com/JJ/idc-keynote}. %FERGU: JJ, es
+                                %este el repo correcto, no?
+% Todo esto lo voy a cambiar, no lo mires mucho m·s que por
+% metodologÌa. Ahora uso http://github.com/JJ/splash-volunteer
 These results
 will be analyzed in the next section.
 
@@ -403,10 +421,14 @@ will be analyzed in the next section.
 \label{sec:res}
 
 The litmus test that all experiments should pass, that is, that they
-work and found the solution, passed. %FERGU: que quiere decir esta primera frase?
+work and found the solution, passed. %FERGU: que quiere decir esta
+                                %primera frase?
+% que funcionan. - JJ
 In fact, the first version of the
 algorithm (until January 2015) used too much memory on the browser,
-which crashed after a while running. A total of 7 experiments were %el "were" es para los experimento o para el "total" A total was?
+which crashed after a while running. A total of seven experiments was
+%el "were" es para los experimento o para el "total" A total was? 
+%Correcto - JJ
 done with this version. After January, a new version of the
 evolutionary algorithm with non-cached fitness was used which did not
 crash the browser and was thus allowed to run as much time as
@@ -417,8 +439,9 @@ minutes. The second needed around 20 minutes. In the logs used, it was
 not checked that the algorithm had found the solution, but in most
 cases it had. More systematic experimentation would have to wait until
 the next version, since in this first one we were looking for some
-kind of systematicity in the behavior of users and the experimental
+kind of systematic patterns in the behavior of users and the experimental
 %FERGU: systematicity? systematization mejor?
+% patterns mejor - JJ
 apparatus is the minimum possible to have it running.
 %
 \begin{figure*}[htb]
@@ -433,7 +456,9 @@ apparatus is the minimum possible to have it running.
         }
         \caption{Histogram of number of different IPs in a run (7 runs for first experiment and 10 for the second).}\label{fig:histo:ips}
 \end{figure*}
-%FERGU: uhm, yo en vez de poenr 2 veces 7 ips distintas, simplemente pondrÌa las barras de Ips distintas (del 1 al 7 y del 1 al 10).
+%FERGU: uhm, yo en vez de poenr 2 veces 7 ips distintas, simplemente
+%pondrÌa las barras de Ips distintas (del 1 al 7 y del 1 al 10).
+%jj: no te entiendo, pero los datos est·n por ahÌ - JJ
 The fact that it run correctly during a massive lightning talk means that this setup is a
 valid, no-cost, platform for massive evolutionary algorithms. There
 were several ways of introducing it: during a talk, telling the
@@ -452,7 +477,8 @@ dozen computers in more than half the cases is also remarkable, and
 goes to prove the excess of computing resources that people,
 willingly, lend to a simple experiment.
 %FERGU: d√≠ que la persona que lo anunci√≥ en twitter tiene X seguidores
-%
+% OK, con los nuevos experimentos lo harÈ. De hecho, deberÌamos hacer
+% experimentos anunci·ndolo t˙ y anunci·ndolo yo. - JJ
 \begin{figure*}[htb]
         \centering
         \subfigure[First experiment, run 3]{
@@ -521,12 +547,17 @@ dispersion of the times needed to reach a solution, which are plotted
 in Figure \ref{fig:t} against the number of IPs. There is a wide
 range of durations, although there is no clear decrease of the time
 needed as the number of IPs used increase. However, we will have to
-investigate further the speedups achieved and if these are %FERGU: speedup va junto
+investigate further the speedups achieved and if these are %FERGU:
+                                %speedup va junto
+%si son correcciones de estas no hace falta que las comentes, hazlas y
+%ya est· - JJ
 algorithmic or due to the particular asynchronous and web-based
 implementation. Figure \ref{fig:intervals} might help understand the
 kind of raw material we are using: It plots a histogram of the time
 needed by all experiments to process 100 generations, 25600
-evaluations and the associated evolutionary geneticry. The vast %FERGU: geneticry?
+evaluations and the associated evolutionary geneticry. The vast
+%FERGU: geneticry?
+%JJ un palabro inventao 
 majority of browsers processes it in less than 3 seconds (logarithm( 
 time ) < 0.5, which is equivalent to 3.16). However, it is interesting
 to note that there are some intervals that go up to the thousands of
