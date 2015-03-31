@@ -25,7 +25,7 @@ J. J. Merelo Guervós and Pablo García-Sánchez\\
 \maketitle
 
 \begin{abstract}
-Browsers have scaled from simple page-rendering engines to operating
+Web browsers have scaled from simple page-rendering engines to operating
 systems that include most services the lower OS layer has, with the
 added facility that applications can be run by just visiting a web
 page. In this paper we will describe the front and back end of a
@@ -89,14 +89,17 @@ Infraestructure as a Service (IaaS) sites such as Microsoft's Azure.
 
 
 In general, it should be a requisite for volunteer computing
-experiment will have to be performed 
+experiments  to be performed 
 ``in the open''. The fact that somebody is giving to you, basically for
 free, computing resources, means that the scientist using them has to
-give back. The baseline is releasing the source code used: all
+give back; besides, people do not usually visit a resource unless they
+can trust it; trust is an essential factor in the sharing of resources
+such as this one, computing power \cite{van2009would}. The point of
+departure for establishing this trust is releasing the source code used: all
 volunteer computing platforms, from SETI@home on, have done it. The
 opposite is probably the reason why many companies like PopularPower \cite{buyya2001compute}
 have folded or others like CrowdProcess have decided to turn their
-product to in-house computation: there must be a mutual relationship
+product to in-house computation \cite{ycombinator}: there must be a mutual relationship
 of trust among the scientist and the person that is running his/her
 code in the browser. As it has been mentioned in the early stages of what
 was then called {\em desktop grid computing} \cite{gc:bausch}, in
@@ -106,8 +109,11 @@ potential supply is in fact huge, {\em actual} supply will depend on
 the person holding it willing to actually allocate it to a particular
 company selling it or a particular experiment needing it, not to
 mention the fact that the experiment {\em actually} has to draw the
-attention of the supplier. That is why trust is essential, and using
-free software might not be enough: Openness
+attention of the supplier, and thus it is better analyzed using the
+Uses and Gratifications Theory \cite{severin2010communication}, that
+is, taking into account {\em why} an user would do it, than using a
+purely computational approach. That is why considering trust is
+essential, and using free software might not be enough: Openness
 has to progress from open source code to open science: releasing all
 data obtained in the experiment in a repository such as GitHub,
 mentioned above, and even allowing real-time access to experimental data
@@ -116,6 +122,16 @@ to users.
 % HabÃ­a metido en el .bib el artÃ­culo de detectar vulnerabilidades 
 % en EAs distribuidos de Juanlu, pero creo que al final no tiene sentido 
 % hablar en este paper de Ã©l (Muszynski14vulnerabilities)
+%Lo voy a meter
+In fact, this relationship of trust is in many cases the only
+mechanism preventing the malicious use of the system by creating bogus
+solutions or simply attempting to exploit vulnerabilities by injecting
+code. These problems have been analyzed in
+\cite{Muszynski14vulnerabilities} but in principle our working
+hypothesis will be that the clients using the browser are not
+manipulating the code make the experiment finish before it should,
+which is possibly the only way in which the experiment would be
+affected. 
 
 Another possible reason of the failure of former companies to create a
 for-profit desktop grid might be the lack of a way to predict what is
@@ -350,12 +366,9 @@ standard HTTP command. These functions are\begin{itemize}
 \item {\tt GET random} returns a random, non-evaluated individual,
   from the pool. The pool is just an array containing chromosomes,
   that is initialized at the beginning of the experiment.
-\item {\tt PUT one} puts a single individual in the pool. In REST
+\item {\tt PUT one} puts a single individual along with its fitness in the pool. In REST
   conventions, {\tt PUT} is used to create a resource, that is why it
   is used, in this case, to add a new individual to the pool.
-\item {\tt GET log} returns the experiment log so far. It is used by
-  the researcher to gather data, and as a transparency measure so that
-  anyone can use it. 
 \end{itemize}
 
 In fact, the program includes more logic to serve the static pages
