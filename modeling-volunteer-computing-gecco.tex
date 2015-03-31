@@ -269,7 +269,7 @@ well as the results obtained with the setup.
 %que quede clara la contribución?
 %JJ: Hecho.
 
-\section{Materials: running an island model in the browser}
+\section{An island model in the browser}
 \label{sec:exp}
 
 In order to test the volunteer computing environment, a presentation
@@ -370,14 +370,11 @@ population when the page is loaded.
 \subsection{Server side}
 \label{ss:server} 
 
-The server was also written using node.js and the {\tt express.js}
-module and has three REST \cite{Castillo12REST} %FERGU: cito a este
-                                %paper que es un capítulo de libro en
-                                %vez de Arxiv
-% OK - JJ
-functions, that is, three functions that can be accessed from any
-client, including the browser, via a request encoded in an URL and a
-standard HTTP command. These functions are\begin{itemize}
+The server, that was also introduced during \cite{arxiv:modeling}, has
+been rewritten in part to add new features that make experimentation
+easier. I has been written using node.js and the {\tt express.js}
+module and includes the following REST \cite{Castillo12REST} 
+routes:
 \item {\tt GET random} returns a random, non-evaluated individual,
   from the pool. The pool is just an array containing chromosomes,
   that is initialized at the beginning of the experiment.
@@ -386,7 +383,11 @@ standard HTTP command. These functions are\begin{itemize}
   is used, in this case, to add a new individual to the pool.
 \end{itemize}
 
-In fact, the program includes more logic to serve the static pages
+These two routes are, in fact, an universal interface that can be
+accessed from any program, written in any language that can connect
+via HTTP.
+
+The server program includes more logic to serve the static pages
 that contain the talk in which it is included and the JavaScript/CSS
 code also, but it all amounts to a small amount of code. This code can
 be deployed, in principle, in any server running node.js, but for the
