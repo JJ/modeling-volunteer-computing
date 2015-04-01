@@ -419,8 +419,16 @@ management is quite simple.
 During and after the experiment, the data can be collected from one of
 the logs: the log file (if the PaaS allows writing to the filesystem,
 which is not the case in Heroku) or to online logging services such as
-Loggly, which is the one we are using.
-
+Loggly, which is the one we are using. Loggly was chosen for its
+easiness and support from the {\tt winston} logging library; however,
+it is only free for a month, so a more sustainable alternative (read:
+free) will have to be sought in the future. Other online logging
+services have a free tier that can be used for ever; however, its
+support and facilities are not so good. Choosing a good logging
+service for experiments in open science is an open issue but it is
+outside the scope of this paper. It will have to be left for future
+work. 
+% Include loggly graphs here.
 As indicated in the introduction, every part of the experiment and
 data gathered have been released as free software in the GitHub
 repository \url{https://github.com/JJ/splash-volunteer}. 
