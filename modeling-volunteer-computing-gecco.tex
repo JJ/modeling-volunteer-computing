@@ -416,18 +416,14 @@ REST server can be hosted in different servers. In this case, every domain holds
 a single experiment, there is no multi-tenancy of experiments, so its
 management is quite simple.
 
-When the experiment is finished, that is, the solution has been found,
-the server is restarted using  command line tools provided by
-Heroku. Every experiment was first done during the talk and then
-announced in Twitter several times until enough data was gathered.
+During and after the experiment, the data can be collected from one of
+the logs: the log file (if the PaaS allows writing to the filesystem,
+which is not the case in Heroku) or to online logging services such as
+Loggly, which is the one we are using.
 
 As indicated in the introduction, every part of the experiment and
 data gathered have been released as free software in the GitHub
-repository \url{https://github.com/JJ/idc-keynote}. %FERGU: JJ, es
-                                %este el repo correcto, no?
-% Todo esto lo voy a cambiar, no lo mires mucho más que por
-% metodología. Ahora uso http://github.com/JJ/splash-volunteer
-These results
+repository \url{https://github.com/JJ/splash-volunteer}. 
 will be analyzed in the next section.
 
 \section{Results}
