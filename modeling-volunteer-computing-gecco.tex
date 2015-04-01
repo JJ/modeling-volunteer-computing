@@ -372,8 +372,8 @@ population when the page is loaded.
 
 The server, that was also introduced during \cite{arxiv:modeling}, has
 been rewritten in part to add new features that make experimentation
-easier. I has been written using node.js and the {\tt express.js}
-module and includes the following REST \cite{Castillo12REST} 
+easier. I has been written using node.js and the {\tt express.js} and {\tt winston}
+modules for REST and logging and includes the following REST \cite{Castillo12REST} 
 routes:
 \begin{itemize}
 \item {\tt GET random} returns a random, non-evaluated individual,
@@ -388,20 +388,31 @@ These two routes are, in fact, an universal interface that can be
 accessed from any program, written in any language that can connect
 via HTTP.
 
-The server program includes more logic to serve the static pages
-that contain the talk in which it is included and the JavaScript/CSS
-code also, but it all amounts to a small amount of code. This code can
-be deployed, in principle, in any server running node.js, but for the
+The server program includes also additional logic for logging to
+different devices, routes to obtain information from the server and code to serve the static pages
+and the JavaScript/CSS
+code also. Additionally to the code in the previous paper
+\cite{arxiv:modeling} this version restarts the chromosome pool when
+the experiment has finished; it includes a configurable termination
+condition that checks for the solution and empties the chromosome pool
+and logs the end of the experiment. This allows us to run continuously
+experiments without restarting the server by hand as we did in the
+previous version.
+
+All in all, it amounts to a few hundred lines of code
+including all languages. This code can
+be deployed, in principle, in any server that is able to run node.js, but for the
 purposes of this experiment Heroku, a Platform as a Service with a
 free tier, has been chosen. It could be also be deployed, with small
 or no modification, to OpenShift or other similar PaaS. Far from being
-a freeriding way, using free or very low cost servers can be a
+a cheap way of performing experiments, using free or very low cost servers can be a
 sustainable way of performing massive distributed evolutionary
 computation experiments \cite{Merelo2014,jj:idc:lowcost}.
 
-Having the pages and the server in the same domain allows to work in
+Having the pages and the server in the same domain allows to work in the
 default Ajax mode, that does not allow cross-site requests. However,
-these can also be disabled if needed. In this case, every domain holds
+these can also be enabled if needed so that the static pages and the
+REST server can be hosted in different servers. In this case, every domain holds
 a single experiment, there is no multi-tenancy of experiments, so its
 management is quite simple.
 
