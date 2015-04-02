@@ -386,18 +386,21 @@ via HTTP.
 
 The server program includes also additional logic for logging to
 different files or services, routes to obtain information from the
-server, such as the anonymized IPs that have participated in the experiment, and code to serve the static pages
+server, such as the anonymized IPs that have participated in the
+experiment, the ordinal number of the experiment that is being performed or the content of the chromosome pool, and code to serve the static pages
 and the JavaScript/CSS
-code also. Additionally to the code in the previous paper
-\cite{arxiv:modeling} this version restarts the chromosome pool when
-the experiment has finished; it includes a configurable termination
+code also. The main changes to the code from the  the previous paper
+\cite{arxiv:modeling} is, besides the inclusion of logging for a
+better experiment analyis, the function that checks for the algorithm
+termination condition and restarts the chromosome pool when
+it does; it includes a configurable termination
 condition that checks for the solution and empties the chromosome pool
 and logs the end of the experiment. This allows us to run continuously
 experiments without restarting the server by hand as we did in the
 previous version.
 
 All in all, it amounts to a few hundred lines of code
-including all languages. This code can
+including all languages (client and server JavaScript, HTML and CSS). This code can
 be deployed, in principle, in any server that is able to run node.js, but for the
 purposes of this experiment OpenShift (\url{http://openshift.com}), a Platform as a Service with a
 free tier, has been chosen. It could be also be deployed, with small
