@@ -119,10 +119,6 @@ data obtained in the experiment in a repository such as GitHub,
 mentioned above, and even allowing real-time access to experimental data
 to users.
 
-% Había metido en el .bib el artículo de detectar vulnerabilidades 
-% en EAs distribuidos de Juanlu, pero creo que al final no tiene sentido 
-% hablar en este paper de él (Muszynski14vulnerabilities)
-%Lo voy a meter
 In fact, this relationship of trust is in many cases the only
 mechanism preventing the malicious use of the system by creating bogus
 solutions or simply attempting to exploit vulnerabilities by injecting
@@ -146,36 +142,40 @@ users going to a web site and spending some time on them. Even if it
 is theoretically impossible to predict to a high precision what
 happens, it is in practice possible to approximate the number of
 visits in a site, at least in a particular one, using time series. But
-in the short term and using a more general model, there is still need
-to model the behavior of users, so that more factors can be added to
-the model other than the time series. This user behavior, of course,
+in the short term and looking at the big picture, there is still need
+to model the behavior of users, so more factors can be added to
+the model besides the time series of visits. This user behavior, of course,
 presupposes that you are respecting their anonymity and privacy (not using
-cookies, for instance) and that you are respecting the open approach
+cookies, for instance) and that you are respecting the open science approach
 mentioned above. All computation can be done without the knowledge of
 the user \cite{unwitting-ec}, but this would work against openness
 that would, curiously enough, result in a huge decrease of the future
 performance of any experiment you might want to perform. 
 
 These are best practices that have been followed in the experiments in
-this paper, that first presents the first versions of a platform for
+this paper, that first presents a new version of a platform for
 distributed evolutionary algorithms (EAs) using the browser and a free (as
 in free beer) backend, and second, shows the result from a
 statistical point of view in order to put the basis for a model of the
 metacomputer obtained by joining all volunteers and the free backend
-used for the experiment. This is not an exhaustive or complete
-exploration of the possibilities of this kind of computation, but it
-is enough to present the free software used to perform the experiments
-and will allow us to describe, in general, the behavior of the users
+used for the experiment. This has been one of the criterion when
+choosing the different cloud services (hosting and logging, mainly):
+the fact that they are free, and sustainably so
+\cite{Merelo2014,jj:idc:lowcost}.
+ 
+The work presented here is not intended to be an exhaustive or complete
+exploration of the possibilities of this kind of volunteer and
+distributed computation, but will allow us to describe, in general,
+the behavior of the users 
 as well as the performance achieved on the experiments done so far,
 which should show some advantage over doing the same kind of
-experiments locally using available resources. 
+experiments locally using available resources. This performance will
+be compared with other traditional island-based single user
+client-server experiment using the same setup.
 
 The rest of the paper is organized as follows: next we will present
 the state of the art in volunteer computing and its modelling. We 
-%FERGU: aunque hay artículos con el término "modelization", no sé
-%si el correcto será "modelling"
-% OK- JJ
-will proceed to describe the experimental setup in Section
+will proceed to describe the system and its experimental setup in Section
 \ref{sec:exp}, some preliminary results in Section \ref{sec:res} and
 finally we will present our conclusions in Section \ref{sec:conc}
 along with future lines of work. 
@@ -200,7 +200,6 @@ In that work, Soares et al. describe JET, a system that supports
 the execution of parallel applications over the Internet. This system has 
 a comprehensive statistics support, allowing its use for science, 
 unlike the other systems compared in that paper.
-
 
 However, Java (and all the other technologies)
 is not universal in the
@@ -265,13 +264,10 @@ or desktop computers in a research center. The methodology used to
 gather resources and the algorithms used will be described next, as
 well as the results obtained with the setup.
 
-%FERGU: volver a indicar que además se dan resultados de uso, para
-%que quede clara la contribución?
-%JJ: Hecho.
-
 \section{An island model in the browser}
 \label{sec:exp}
 
+% Rewrite this - JJ
 In order to test the volunteer computing environment, a presentation
 describing a low cost volunteer computing environment was
 created. This presentation was actually delivered in several
@@ -389,7 +385,8 @@ accessed from any program, written in any language that can connect
 via HTTP.
 
 The server program includes also additional logic for logging to
-different devices, routes to obtain information from the server and code to serve the static pages
+different files or services, routes to obtain information from the
+server, such as the anonymized IPs that have participated in the experiment, and code to serve the static pages
 and the JavaScript/CSS
 code also. Additionally to the code in the previous paper
 \cite{arxiv:modeling} this version restarts the chromosome pool when
@@ -402,12 +399,12 @@ previous version.
 All in all, it amounts to a few hundred lines of code
 including all languages. This code can
 be deployed, in principle, in any server that is able to run node.js, but for the
-purposes of this experiment Heroku, a Platform as a Service with a
+purposes of this experiment OpenShift (\url{http://openshift.com}), a Platform as a Service with a
 free tier, has been chosen. It could be also be deployed, with small
-or no modification, to OpenShift or other similar PaaS. Far from being
-a cheap way of performing experiments, using free or very low cost servers can be a
-sustainable way of performing massive distributed evolutionary
-computation experiments \cite{Merelo2014,jj:idc:lowcost}.
+or no modification, to Heroku or other similar PaaS. Any of them are
+free up to a certain level of use and thus fulfill the requirement of
+using free resources as a sustainable way of performing distributed
+evolutionary compuation experiments \cite{Merelo2014,jj:idc:lowcost}.
 
 Having the pages and the server in the same domain allows to work in the
 default Ajax mode, that does not allow cross-site requests. However,
@@ -419,7 +416,7 @@ management is quite simple.
 During and after the experiment, the data can be collected from one of
 the logs: the log file (if the PaaS allows writing to the filesystem,
 which is not the case in Heroku) or to online logging services such as
-Loggly, which is the one we are using. Loggly was chosen for its
+Loggly (\url{http://loggly.com}, which is the one we are using. Loggly was chosen for its
 easiness and support from the {\tt winston} logging library; however,
 it is only free for a month, so a more sustainable alternative (read:
 free) will have to be sought in the future. Other online logging
