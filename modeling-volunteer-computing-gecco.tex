@@ -401,31 +401,58 @@ previous version.
 
 All in all, it amounts to a few hundred lines of code
 including all languages (client and server JavaScript, HTML and CSS). This code can
-be deployed, in principle, in any server that is able to run node.js, but for the
-purposes of this experiment OpenShift (\url{http://openshift.com}), a Platform as a Service with a
-free tier, has been chosen. It could be also be deployed, with small
-or no modification, to Heroku or other similar PaaS. Any of them are
+be deployed, in principle, in any server that is able to run node.js. 
+
+In this experiment we have used OpenShift (\url{http://openshift.com})
+and Heroku (\url{http://heroku.com}) which are Platform as a Service products with a
+free tier. It could be also be deployed, with small
+or no modification, to other similar PaaS, maybe with a bit of adaptation. Any of them are
 free up to a certain level of use and thus fulfill the requirement of
 using free resources as a sustainable way of performing distributed
 evolutionary compuation experiments \cite{Merelo2014,jj:idc:lowcost}.
 
+Programming the server so that it can be deployed, without
+modification, to any PaaS is not difficult, but you have to consider
+the different capabilities of each one.\begin{itemize}
+\item Heroku does not have a permanent filesystem, so if you want to
+  create any directory it has to be done when the server is
+  started. It is only guaranteed to last while the application is
+  running. 
+\item In order to scale properly, all requests in Openshift are routed
+  through a proxy. This means that the requests all have, as remote
+  address, this IP. Other ways of obtaining the requests must be found
+  out. On the other hand, it does have a permanent directory for data.
+\end{itemize}
+
+Every PaaS has its own way of defining environment variables, which is the way
+used for passing private information such as passwords to the
+server. This can be done usually through a command-line client ({\tt
+  heroku} or {\tt rhc}), which is also used to check the logs or
+restart the client. Eventually, we decided to leave the two servers
+running. 
+
 Having the pages and the server in the same domain allows to work in the
 default Ajax mode, that does not allow cross-site requests. However,
 these can also be enabled if needed so that the static pages and the
-REST server can be hosted in different servers. In this case, every domain holds
+REST server can be hosted in different servers, allowing the genetic
+algorithm code to {\em parasite} other pages. 
+
+In this case, every domain holds
 a single experiment, there is no multi-tenancy of experiments, so its
-management is quite simple.
+management is quite simple. A different experiment would need to
+deploy and start a server that serves different code and checks for
+different termination conditions.
 
 During and after the experiment, the data can be collected from one of
-the logs: the log file (if the PaaS allows writing to the filesystem,
-which is not the case in Heroku) or to online logging services such as
-Loggly (\url{http://loggly.com}, which is the one we are using. Loggly was chosen for its
+the logs: the server log file, data files (that cannot be used in
+Heroku, for instance)  or from online logging services such as
+Loggly (\url{http://loggly.com}), which is the one we are using. Loggly was chosen for its
 easiness and support from the {\tt winston} logging library; however,
 it is only free for a month, so a more sustainable alternative (read:
-free) will have to be sought in the future. Other online logging
+free) will have to be sought in the future, after this paper is finished. Other online logging
 services have a free tier that can be used for ever; however, its
-support and facilities are not so good. Choosing a good logging
-service for experiments in open science is an open issue but it is
+support and graphing facilities were not so complete. Choosing a good logging
+service for experiments in open science is, for us, an open issue but it is
 outside the scope of this paper. It will have to be left for future
 work. 
 % Include loggly graphs here.
