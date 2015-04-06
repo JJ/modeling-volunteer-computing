@@ -397,7 +397,7 @@ it does; it includes a configurable termination
 condition that checks for the solution and empties the chromosome pool
 and logs the end of the experiment. This allows us to run continuously
 experiments without restarting the server by hand as we did in the
-previous version.
+previous version. %FERGU: es esta la única innovación al paper de Arxiv? A lo mejor no deberíamos mencionarlo ni usarlo como base
 
 All in all, it amounts to a few hundred lines of code
 including all languages (client and server JavaScript, HTML and CSS). This code can
@@ -409,7 +409,7 @@ free tier. It could be also be deployed, with small
 or no modification, to other similar PaaS, maybe with a bit of adaptation. Any of them are
 free up to a certain level of use and thus fulfill the requirement of
 using free resources as a sustainable way of performing distributed
-evolutionary compuation experiments \cite{Merelo2014,jj:idc:lowcost}.
+evolutionary computation experiments \cite{Merelo2014,jj:idc:lowcost}.
 
 Programming the server so that it can be deployed, without
 modification, to any PaaS is not difficult, but you have to consider
@@ -432,12 +432,12 @@ restart the client. Eventually, we decided to leave the two servers
 running. 
 
 Having the pages and the server in the same domain allows to work in the
-default Ajax mode, that does not allow cross-site requests. However,
+default Ajax mode, that does not allow cross-site requests. However, %FERGU: no todo el mundo sabe de Ajax y lo de cross-site, explícalo mejor
 these can also be enabled if needed so that the static pages and the
 REST server can be hosted in different servers, allowing the genetic
 algorithm code to {\em parasite} other pages. 
 
-In this case, every domain holds
+In this case, every domain holds %FERGU: si es referencia a lo de parasitar de arriba ponlo en el mismo párrafo, que parece que te refieres a lo "parasitar". Mejor "In this study"?
 a single experiment, there is no multi-tenancy of experiments, so its
 management is quite simple. A different experiment would need to
 deploy and start a server that serves different code and checks for
@@ -450,11 +450,11 @@ Loggly (\url{http://loggly.com}), which is the one we are using. Loggly was chos
 easiness and support from the {\tt winston} logging library as well as
 its graphing capabilities, shown in Figure \ref{fig:loggly}; however,
 it is only free for a month, so a more sustainable alternative (read:
-free and open source) will have to be sought in the future, after this paper is finished. Other online logging
-services have a free tier that can be used for ever; however, its
+free and open source) will have to be sought in the future, after this paper is finished. Other online logging %FERGU: esto de que "despues de que se termine el paper" no me mola mucho.
+services have a free tier that can be used forever; however, its
 support and graphing facilities were not so complete. Choosing a good logging
-service for experiments in open science is, for us, an open issue but it is
-outside the scope of this paper. It will have to be left for future
+service for experiments in open science is, for us, an open issue, and it is
+outside the scope of this paper, so it will have to be left for future
 work.
 %
 \begin{figure*}[htb]
@@ -466,7 +466,7 @@ work.
 
 As indicated in the introduction, every part of the experiment and
 data gathered have been released as free software in the GitHub
-repository \url{https://github.com/JJ/splash-volunteer}. 
+repository \url{https://github.com/JJ/splash-volunteer}, and they 
 will be analyzed in the next section.
 
 \section{Results}
