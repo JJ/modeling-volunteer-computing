@@ -377,6 +377,13 @@ or no modification, to other similar PaaS, maybe with a bit of adaptation. Any o
 free up to a certain level of use and thus fulfill the requirement of
 using free resources as a sustainable way of performing distributed
 evolutionary computation experiments \cite{Merelo2014,jj:idc:lowcost}.
+%
+\begin{figure*}[h!tb]
+        \centering
+        \includegraphics[width=0.9\linewidth]{img/loggly.png}
+        \caption{Loggly dashboard showing the evolution of fitness for
+        the last 10 minutes of an experiment.}\label{fig:loggly}
+\end{figure*}
 
 Programming the server so that it can be deployed, without
 modification, to any PaaS is not difficult, but you have to consider
@@ -399,16 +406,27 @@ restart the client. Eventually, we decided to leave the two servers
 running. 
 
 Having the pages and the server in the same domain allows to work in the
-default Ajax mode, that does not allow cross-site requests. However, %FERGU: no todo el mundo sabe de Ajax y lo de cross-site, explícalo mejor
+default Ajax mode, that does not allow cross-site requests, that is,
+requests from a page to a domain different from the one it has been
+served. However, 
+%FERGU: no todo el mundo sabe de Ajax y lo de cross-site, explícalo
+%mejor
+%explicado - JJ
 these can also be enabled if needed so that the static pages and the
 REST server can be hosted in different servers, allowing the genetic
 algorithm code to {\em parasite} other pages. 
 
-In this case, every domain holds %FERGU: si es referencia a lo de parasitar de arriba ponlo en el mismo párrafo, que parece que te refieres a lo "parasitar". Mejor "In this study"?
+In this framework every server holds %FERGU: si es referencia a lo de
+                                %parasitar de arriba ponlo en el mismo
+                                %párrafo, que parece que te refieres a
+                                %lo "parasitar". Mejor "In this
+                                %study"? 
+% No, se refiere a que no es un sistema multi-experimento - JJ 
 a single experiment, there is no multi-tenancy of experiments, so its
 management is quite simple. A different experiment would need to
 deploy and start a server that serves different code and checks for
 different termination conditions.
+
 
 During and after the experiment, the data can be collected from one of
 the logs: the server log file, data files (that cannot be used in
@@ -423,13 +441,7 @@ support and graphing facilities were not so complete. Choosing a good logging
 service for experiments in open science is, for us, an open issue, and it is
 outside the scope of this paper, so it will have to be left for future
 work.
-%
-\begin{figure*}[htb]
-        \centering
-        \includegraphics[width=0.9\linewidth]{img/loggly.png}
-        \caption{Loggly dashboard showing the evolution of fitness for
-        the last 10 minutes of an experiment.}\label{fig:loggly}
-\end{figure*}
+
 
 As indicated in the introduction, every part of the experiment and
 data gathered have been released as free software in the GitHub
@@ -446,136 +458,53 @@ sufficiently announced; every experiment was individually announced so
 more or less a certain amount of nodes were guaranteed. However, it
 did not run correctly in mobile phones, design of the presentation was
 not adaptive and thus missed a good amount of possible clients. In
-this case the design, which used the Kube CSS framework, was fully
+this case the design, which has used the Kube CSS framework, was fully
 adaptive and indeed proved to work with mobile phones browsers for
 iPhones and Android phones. 
-
 %
-\begin{figure*}[htb]
-        \centering
-        \subfigure[First experiment]{
-                \includegraphics[width=0.45\linewidth]{data/diffs-ips-1.png}
-                \label{fig:e1_p}
-        }
-        \subfigure[Second experiment]{
-                \includegraphics[width=0.45\linewidth]{data/diffs-ips-2.png}
-                \label{fig:e2_p}
-        }
-        \caption{Histogram of number of different IPs in a run (7 runs for first experiment and 10 for the second).}\label{fig:histo:ips}
-\end{figure*}
-%FERGU: uhm, yo en vez de poenr 2 veces 7 ips distintas, simplemente
-%pondría las barras de Ips distintas (del 1 al 7 y del 1 al 10).
-%jj: no te entiendo, pero los datos están por ahí - JJ
-The fact that it run correctly during a massive lightning talk means that this setup is a
-valid, no-cost, platform for massive evolutionary algorithms. There
-were several ways of introducing it: during a talk, telling the
-audience to visit the web that was posted in the first slide, and
-after the talk, inserting the URL in a tweet with a brief explanation
-and several tweets more indicating what it was about and what it
-did. If any question arose, it was answered as fast as possible. In
-the first experiment, the median number of different IPs was 18, with
-a maximum of 28 and a minimum of 6. In the second, the median was 12.5
-with a maximum of 19 and a minimum of 8. The histogram of different IPs
-in each experiment is shown in figure \ref{fig:histo:ips}. Probably
-the most remarkable thing is that a cluster of 6 computers can, as a
-minimum, be gathered for a distributed computing experiment by just
-announcing it as a tweet, but the fact that we can obtain more than a
-dozen computers in more than half the cases is also remarkable, and
-goes to prove the excess of computing resources that people,
-willingly, lend to a simple experiment.
-%FERGU: dÃ­ que la persona que lo anunciÃ³ en twitter tiene X seguidores
-% OK, con los nuevos experimentos lo haré. De hecho, deberíamos hacer
-% experimentos anunciándolo tú y anunciándolo yo. - JJ
-\begin{figure*}[htb]
-        \centering
-        \subfigure[First experiment, run 3]{
-                \includegraphics[width=0.45\linewidth]{data/log-puts-1-exp7.png}
-                \label{fig:d1}
-        }
-        \subfigure[Second experiment, run 7]{
-                \includegraphics[width=0.45\linewidth]{data/log-puts-2-traps-eps-3.png}
-                \label{fig:d2}
-        }
-        \caption{IPs and the number of {\tt PUT}s (one every $n$
-          generations, 50 in the first experiment, 100 in the second
-          experiment) they did, sorted. These correspond to the runs
-          in each batch of experiments with the max number of
-          different IPs. Please note the logarithmic scale in the $x$ axis, and the IPs are anonymous (starting with 10).}\label{fig:dist}
-\end{figure*}
-
-Not all users contribute in the same way. The distribution for the
-runs in each experiment with the most IPs is shown in Figure
-\ref{fig:dist}, which chooses the experiment with the most number of
-uses and ranks, tops to down, every IP with the number of PUTs (which
-should be multiplied by the number of generations per PUT, 50 in the
-first case, 100 in the second, although at this point it is not
-important, since all nodes in the experiment do it after the same
-number of generations) contributed to the experiment. We can observe
-in both cases a power law, something already observed by \cite{agajaj}
-and which implies that there is a fixed proportion between the number
-of cycles (generations) contributed by the first and that contributed
-by the second which is roughly the same as the one between the second
-and third. Note also that, since the experiment is hosted in a PaaS,
-the IPs listed are anonymous, with a 10 always as the first number.
-%
-\begin{figure*}[htb]
-        \centering
-        \includegraphics[width=0.8\linewidth]{data/time-vs-ips.png}
-        \caption{Total experiment time (time of the last PUT - time of
-        the first one) vs number of IPs participating in it.}\label{fig:t}
+\begin{figure*}[h!tb]
+  \includegraphics[width=0.90\linewidth]{img/openshift-intervals.png}
+  \caption{Histogram of the intervals between two requests by the same
+  IP for all experiments in the OpenShift server.}  \label{fig:intervals}
 \end{figure*}
 %
-\begin{figure*}[htb]
-        \centering
-        \includegraphics[width=0.8\linewidth]{data/intervals-histo.png}
-        \caption{Histogram of the time between two PUTs for all the
-          experiments in the second batch. The $x$ axis is logarithmic
-        and bin size is 0.5, which means that the first bin contains
-        all intervals of less than 3 seconds.}\label{fig:intervals}
+\begin{figure*}[h!tb]
+  \includegraphics[width=0.90\linewidth]{img/openshift-intervals-IP.png}
+  \caption{Boxplot of the intervals between two requests by the same
+  IP, by IP, ordered by descending median.}  \label{fig:intervalIP}
 \end{figure*}
 
-At any rate, this exponential trend in the first posts breaks down
-after a number of IPs. That could be due to several possible factors:
-persons checking the web for just an instant, late comers, or very
-slow computers that are not able to lend more cycles to the
-simulation. The first IP in both cases contributes on the order of a
-hundred PUTs, that is, several thousands generations and several
-hundred thousands evaluations, which, once again, is quite remarkable
-for such a simple experiment announced by an ephemeral tweet. It
-should be noted that, since the speed in the browser virtual machines
-(Chrome, mainly, but also Firefox) is as fast as the node.js version,
-a parallel version does not add overhead to the single-browser
-version, which, as mentioned above, can run in an independent
-way: a second browser always adds to the first, even if the total
-number of evaluations and the time needed will not speed up in the
-same way. However, even taking into account the stochastic nature of a
-single evolutionary algorithm, what we are going to find is a high
-dispersion of the times needed to reach a solution, which are plotted
-in Figure \ref{fig:t} against the number of IPs. There is a wide
-range of durations, although there is no clear decrease of the time
-needed as the number of IPs used increase. However, we will have to
-investigate further the speedups achieved and if these are %FERGU:
-                                %speedup va junto
-%si son correcciones de estas no hace falta que las comentes, hazlas y
-%ya está - JJ
-algorithmic or due to the particular asynchronous and web-based
-implementation. Figure \ref{fig:intervals} might help understand the
-kind of raw material we are using: It plots a histogram of the time
-needed by all experiments to process 100 generations, 25600
-evaluations and the associated evolutionary geneticry. The vast
-%FERGU: geneticry?
-%JJ un palabro inventao 
-majority of browsers processes it in less than 3 seconds (logarithm( 
-time ) < 0.5, which is equivalent to 3.16). However, it is interesting
-to note that there are some intervals that go up to the thousands of
-seconds, for which we cannot really offer an explanation, other than
-the user leaving the page and returning after a while. However, 75\%
-of the cases take less than 4 seconds, which is thus a statistical
-measure of the kind of performance we can expect from clients for this
-type of problem. We can also conclude that 75\%, or a majority, will
-be in the fastest tier, although there will be a small amount of them
-that will be quite slow and will probably be impossible to accommodate
-in the distributed computing experiment.
+At the time of this writing, 23 runs were done in OpenShift and one in
+Heroku. The Openshift URL was mentioned more frequently than the other
+so that accounts for the popularity, not any particular problem with
+the algorithm in one or the other. That is why the data that we have
+obtained and used below, and which is, as usual, available with a free
+license, is mainly processed from the log files stored in Loggly and
+in OpenShift. These 23 experiments took each one a number of hours, so
+that in many cases the nodes were not accessing at the same time, but
+sequentially, to the server. This means that the island model is, in
+fact, behaving partly as a pool-based evolutionary algorithm
+\cite{sofea:evopar2012} with some results, the best from each
+generation, available to future runs. This is clearly noticed when
+visualizing the algorithm: its behavior changes when it gets its first
+chromosome from the pool, in many cases improving a lot.
+
+However, due to the small population we are using, this sometimes
+means stagnation and a long time to run so the first lesson we have
+learned here is that adaptation of at least the population size to the
+distributed, pool-based and asynchronous setup should be studied more
+carefully and probably use a randomized parameter setting as we did in
+\cite{sofea:evopar2012}. 
+
+Another interesting result is that we have been able to obtain many
+more different users. At the time of this writing we obtained 75
+different IPs contributing CPU time to the experiment, giving an
+average of around 4 per experiment. However, there is a big variation
+in the number of CPUs. There is also a much bigger range in the
+performance of these clients. In order to measure that we have
+computed the time between two requests from the same IP and plotted it
+as an histogram in Figure \ref{fig:intervals}. 
+
 
 \section{Conclusion}
 \label{sec:conc}
