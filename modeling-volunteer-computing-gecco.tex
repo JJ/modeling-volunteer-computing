@@ -16,7 +16,9 @@
 \author{
 \alignauthor 
 J. J. Merelo Guervós and Pablo García-Sánchez\\
-  \affaddr{GeNeura \url{http://geneura.wordpress.com}, Dept. of Computer Architecture and Technology \url{http://atc.ugr.es} and CITIC \url{http://citic.ugr.es}}\\
+  \affaddr{GeNeura \url{http://geneura.wordpress.com}, Dept. of
+    Computer Architecture and Technology \url{http://atc.ugr.es} and
+    CITIC \url{http://citic.ugr.es}}\\ 
   \affaddr{University of Granada \url{http://www.ugr.university}}\\
   \email{(jmerelo,pablogarcia)@ugr.es}
 }
@@ -271,35 +273,25 @@ well as the results obtained with the setup.
 In order to test the volunteer computing environment, a presentation
 describing a low cost volunteer computing environment was
 created. This presentation was actually delivered in several
-conferences (such as IDC 2014). During the %FERGU: TODO JJ, no te
-                                %olvides de decirme esto. Es la IDC
-                                %2014?
-% Y el PPSN. Pero eso lo voy a dejar para el trabajo anterior, voy a
-% intentar hacer experimentos nuevos. - JJ
-conference, it was revealed to the persons attending it that they were participating
-in the experiment. The same procedure was used when trying to gather
-users in social networks: a description of the container (the
-presentation) and disclosure of its purpose. The upper right corner of
-the presentation shows the progress of the evolution. It
-stops when the solution has been reached. 
+conferences (such as IDC 2014, PPSN 2014 and FOSDEM 2015). These
+results have been presented in \cite{arxiv:modeling}. In this paper,
+although it uses exactly the same evolutionary algorithm client code,
+the {\em presentation} has changed: it uses a single page with several
+panels showing the progress of the algorithm and how many users have
+been contributing to the experiment. To get users, the URL
+(\url{http://nodio-jmerelo.rhcloud.com} and
+\url{http://nodeo-i.herokuapp.com}) where presented, with a short
+message, in Twitter and other social networks, introducing it as a
+``demo for evolutionary algorithms'', sometimes in Spanish, some in
+English. 
 
-Above the experiment, from the point of view of the user, has been
-described. What it is actually running is an island model
-\cite{muhlenbein1991parallel} in every browser that uses the server as
-a {\em shuttle} to transfer individuals from one browser to another in
-what can be eventually a fully connected topology; however, all
-connections take place between the browser and the server.
-This deals with
-several problems. The connection is stateless: islands connect to the
-server to send and receive a single individual but there is no task
-balancing: all islands start clicking on an URL and finish when they
-browse off to the next page. Fault tolerance is implicit, in the sense
-that no island has information that cannot be, or generated, somewhere
-else, although if the server fails the experiment results might be
-lost. All operation is asynchronous, with islands entering and leaving
-the experiment all of their own. 
+Besides visualizing the evolution, the browser is actually running an
+distributed evolutionary algorithm that follows an  island model
+\cite{muhlenbein1991parallel} using the server to transfer individuals from one browser to another in
+what can be eventually a fully connected topology, although the term
+does not correctly apply here.  
 
-We will next explain its different parts from the point of
+We will next explain the two framework tiers from the point of
 view of the architecture itself and the algorithm that it is actually
 running. First, we will describe the client code and next, in
 subsection \ref{ss:server} the server architecture and where it is
@@ -314,29 +306,24 @@ which has been used extensively as a benchmark for evolutionary
 algorithms \cite{fernandes2009using,nijssen2003analysis}. This
 function counts the number of bits in a sequence of $l$ and assigns
 the local maximum if it has got 0 bits and the global maximum to $l$
-bits. The fitness goes down to a {\em trap} as you increase the number
+bits. The fitness falls into a {\em trap} as you increase the number
 of bits, that is why it creates a rugged fitness landscape that is
 difficult to surmount for evolutionary algorithms. Its difficulty is
-increased as the number of traps concatenated grows, so that in some
-cases it might need millions of evaluations to find the solution. In
-our case we have used several values, from 30 to 50 traps, although we
-were not so much focused on finding the solution (or the fastest way
-of finding it) but on creating a experiment that could last for a
-certain amount of time, around one hour, so that there would be a
-chance for having many users checkout out the page and contributing
-cycles to it. 
+increased as the number of  concatenated traps grows, turning it into
+a difficult problem for evolutioanry algorithms. In
+our case we have used $l=40$ traps. 
 
-This fitness is implemented as part of the Nodeo evolutionary
-algorithm library written in node.js, a server-based implementation of
-JavaScript. However, since it is going to be run on the browser, a
-procedure called ``browserification'' must be applied to it so that it
-can run, without modifications, in any browser. The main difference
-between JavaScript on the browser and node.js is the way they load the
-external libraries. The algorithm used a population of 256
-individuals, random initialization, a canonical evolutionary algorithm
-with an elite of 2 individuals and crossover and then mutation applied
-to all the population pool, that was generated using 2-individual
-tournament selection. Once again, the particular evolutionary
+This fitness is implemented as part of the NodEO evolutionary
+algorithm library written in node.js \cite{DBLP:conf/gecco/GuervosVGES14}, a server-based implementation of
+JavaScript, converted to a client-based version via
+``browserification''. The algorithm runs a canonican evolutionary
+algorithm on a population of 128, which is in fact too small for a
+single node to find the solution; at least a population of 512 has
+been found to be necessary to find the solution with a certain
+probability. Initialization is random initialization and a canonical evolutionary algorithm
+with an elite of 2 individuals is run, with crossover and then mutation applied
+to all the population pool generated using 2-individual
+tournament selection. The particular evolutionary
 algorithm used is not so important, since we were rather focused on
 the user behavior, although it is quite clear that the selective
 pressure of the algorithm will have an impact in its performance and
@@ -348,20 +335,9 @@ The initial code was only modified to represent the fitness in a chart
 a visual feedback of what is going on. The {\em migration} part is
 also added: after every 100 generations, a single individual is sent
 to the server and another request is made to the server of a single
-and random individual. This makes the procedure less greedy, and also
-decreases the probability of getting the same individual that was sent
-some generations back. These two operations are made in {\em fire and
-  forget} style, that is, without any error checking, so that if the server is
-down, or indeed if the algorithm is run locally, it is not interrupted
-and continues operation until the solution is found, a string with all
-ones.  
-
-As a summary, the only thing needed to run an evolutionary algorithm
-in the browser is to add {\em migration} functions. To make the
-operation of the algorithm independent of them is a plus, because it
-makes the local algorithm more fault-tolerant. The algorithm running
-on every browser has the same parameters and starts from a random
-population when the page is loaded.
+and random individual; this algorithm can be also run locally, the
+algorithm does not stop if there is no answer from the server. As a
+summary, the only thing needed to run an evolutionary algorithm in the browser is to add {\em migration} functions to the original one. 
 
 \subsection{Server side}
 \label{ss:server} 
