@@ -328,16 +328,7 @@ algorithm used is not so important, since we were rather focused on
 the user behavior, although it is quite clear that the selective
 pressure of the algorithm will have an impact in its performance and
 will play for or against its asynchrony in many different and complex
-ways \cite{jj:2008:PPSN}. 
-
-The initial code was only modified to represent the fitness in a chart
-(that uses the {\tt chart.js} JavaScript library) so that the user has
-a visual feedback of what is going on. The {\em migration} part is
-also added: after every 100 generations, a single individual is sent
-to the server and another request is made to the server of a single
-and random individual; this algorithm can be also run locally, the
-algorithm does not stop if there is no answer from the server. As a
-summary, the only thing needed to run an evolutionary algorithm in the browser is to add {\em migration} functions to the original one. 
+ways \cite{jj:2008:PPSN}.
 
 \subsection{Server side}
 \label{ss:server} 
@@ -373,11 +364,11 @@ it does; it includes a configurable termination
 condition that checks for the solution and empties the chromosome pool
 and logs the end of the experiment. This allows us to run continuously
 experiments without restarting the server by hand as we did in the
-previous version. %FERGU: es esta la única innovación al paper de Arxiv? A lo mejor no deberíamos mencionarlo ni usarlo como base
-
-All in all, it amounts to a few hundred lines of code
-including all languages (client and server JavaScript, HTML and CSS). This code can
-be deployed, in principle, in any server that is able to run node.js. 
+previous version. %FERGU: es esta la única innovación al paper de
+                  %Arxiv? A lo mejor no deberíamos mencionarlo ni
+                  %usarlo como base
+% La principal innovación es que es más fácil recoger datos del
+% servidor y que el despliegue es automático - JJ
 
 In this experiment we have used OpenShift (\url{http://openshift.com})
 and Heroku (\url{http://heroku.com}) which are Platform as a Service products with a
@@ -442,35 +433,23 @@ work.
 
 As indicated in the introduction, every part of the experiment and
 data gathered have been released as free software in the GitHub
-repository \url{https://github.com/JJ/splash-volunteer}, and they 
+repository \url{https://git.io/nodio}, and they 
 will be analyzed in the next section.
 
 \section{Results}
 \label{sec:res}
 
-The litmus test that all experiments should pass, that is, that they
-work and found the solution, passed. %FERGU: que quiere decir esta
-                                %primera frase?
-% que funcionan. - JJ
-In fact, the first version of the
-algorithm (until January 2015) used too much memory on the browser,
-which crashed after a while running. A total of seven experiments was
-%el "were" es para los experimento o para el "total" A total was? 
-%Correcto - JJ
-done with this version. After January, a new version of the
-evolutionary algorithm with non-cached fitness was used which did not
-crash the browser and was thus allowed to run as much time as
-needed. That was the version used in a lightning talk at the beginning
-of February. A total of 10 experiments were made with this second
-version. In the first version, finding the solution took a few
-minutes. The second needed around 20 minutes. In the logs used, it was
-not checked that the algorithm had found the solution, but in most
-cases it had. More systematic experimentation would have to wait until
-the next version, since in this first one we were looking for some
-kind of systematic patterns in the behavior of users and the experimental
-%FERGU: systematicity? systematization mejor?
-% patterns mejor - JJ
-apparatus is the minimum possible to have it running.
+The experiments done with the first versions of this framework have
+already been published elsewhere \cite{arxiv:modeling}. We proved that
+up to 20 nodes could participate in a single run if it was
+sufficiently announced; every experiment was individually announced so
+more or less a certain amount of nodes were guaranteed. However, it
+did not run correctly in mobile phones, design of the presentation was
+not adaptive and thus missed a good amount of possible clients. In
+this case the design, which used the Kube CSS framework, was fully
+adaptive and indeed proved to work with mobile phones browsers for
+iPhones and Android phones. 
+
 %
 \begin{figure*}[htb]
         \centering
