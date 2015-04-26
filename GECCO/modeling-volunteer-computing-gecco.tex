@@ -10,7 +10,7 @@
 
 \begin{document}
 
-\title{Designing and modeling a browser-based distributed evolutionary computation systems} 
+\title{Designing and modeling a browser-based distributed evolutionary computation system} 
 
 \numberofauthors{1}
 \author{
@@ -87,7 +87,7 @@ repository sites like GitHub\footnote{\url{http://www.github.com}} and deployed 
 a Service (PaaS) sites such as
 Heroku\footnote{\url{https://www.heroku.com/}} or
 OpenShift\footnote{\url{https://www.openshift.com/}} or even
-Infraestructure as a Service (IaaS) sites such as Microsoft's Azure.
+Infrastructure as a Service (IaaS) sites such as Microsoft's Azure.
 
 
 In general, it should be a requisite for volunteer computing
@@ -105,7 +105,7 @@ product to in-house computation \cite{ycombinator}: there must be a mutual relat
 of trust among the scientist and the person that is running his/her
 code in the browser. As it has been mentioned in the early stages of what
 was then called {\em desktop grid computing} \cite{gc:bausch}, in
-fact CPU cycle selling might not make economic sense since there are
+fact CPU cycle selling might not make economic sense since there is
 not so much demand for it and supply is quite high. However, while
 potential supply is in fact huge, {\em actual} supply will depend on
 the person holding it willing to actually allocate it to a particular
@@ -159,7 +159,7 @@ this paper, that first presents a new version of a platform for
 distributed evolutionary algorithms (EAs) using the browser and a free (as
 in free beer) backend, and second, shows the result from a
 statistical point of view in order to put the basis for a model of the
-metacomputer obtained by joining all volunteers and the free backend
+meta-computer obtained by joining all volunteers and the free backend
 used for the experiment. This has been one of the criterion when
 choosing the different cloud services (hosting and logging, mainly):
 the fact that they are free, and sustainably so
@@ -280,7 +280,7 @@ the {\em presentation} has changed: it uses a single page with several
 panels showing the progress of the algorithm and how many users have
 been contributing to the experiment. To get users, the URL
 (\url{http://nodio-jmerelo.rhcloud.com} and
-\url{http://nodeo-i.herokuapp.com}) where presented, with a short
+\url{http://nodeo-i.herokuapp.com}) were presented, with a short
 message, in Twitter and other social networks, introducing it as a
 ``demo for evolutionary algorithms'', sometimes in Spanish, some in
 English. 
@@ -310,13 +310,13 @@ bits. The fitness falls into a {\em trap} as you increase the number
 of bits, that is why it creates a rugged fitness landscape that is
 difficult to surmount for evolutionary algorithms. Its difficulty is
 increased as the number of  concatenated traps grows, turning it into
-a difficult problem for evolutioanry algorithms. In
+a difficult problem for evolutionary algorithms. In
 our case we have used $l=40$ traps. 
 
 This fitness is implemented as part of the NodEO evolutionary
 algorithm library written in node.js \cite{DBLP:conf/gecco/GuervosVGES14}, a server-based implementation of
 JavaScript, converted to a client-based version via
-``browserification''. The algorithm runs a canonican evolutionary
+``browserification''. The algorithm runs a Canonical evolutionary
 algorithm on a population of 128, which is in fact too small for a
 single node to find the solution; at least a population of 512 has
 been found to be necessary to find the solution with a certain
@@ -358,7 +358,7 @@ experiment, the ordinal number of the experiment that is being performed or the 
 and the JavaScript/CSS
 code also. The main changes to the code from the  the previous paper
 \cite{arxiv:modeling} is, besides the inclusion of logging for a
-better experiment analyis, the function that checks for the algorithm
+better experiment analysis, the function that checks for the algorithm
 termination condition and restarts the chromosome pool when
 it does; it includes a configurable termination
 condition that checks for the solution and empties the chromosome pool
@@ -462,11 +462,11 @@ this case the design, which has used the Kube CSS framework, was fully
 adaptive and indeed proved to work with mobile phones browsers for
 iPhones and Android phones. 
 %
-\begin{figure*}[h!tb]
-  \includegraphics[width=0.90\linewidth]{img/openshift-intervals.png}
+\begin{figure}[h!tb]
+  \includegraphics[width=0.95\linewidth]{img/openshift-intervals.png}
   \caption{Histogram of the intervals between two requests by the same
   IP for all experiments in the OpenShift server.}  \label{fig:intervals}
-\end{figure*}
+\end{figure}
 %
 \begin{figure*}[h!tb]
   \includegraphics[width=0.90\linewidth]{img/openshift-intervals-IP.png}
@@ -566,7 +566,7 @@ participate in a single experiment. However, it is not clear how all
 these computers contribute to the overall performance in terms of
 time, although all experiments were performed until a solution was
 found. In the last experiment, performed mainly in front of a live
-audience using lapto computers, most of the participants in the experiment were in the same
+audience using laptop computers, most of the participants in the experiment were in the same
 performance tier, although a small percentage of them (which will be
 around 25\%) are quite slow. In this experiment the conclusion is
 different: uniform distribution of performance from quite slow to
@@ -620,9 +620,14 @@ future work.
 This work has been supported in part by TIN2011-28627-C04-02 and
 TIN2014-56494-C4-3-P (Spanish Ministry of Economy and Competitivity),
 SPIP2014-01437 (Direcci{\'o}n General de Tr{\'a}fico) and PYR-2014-17
-GENIL project (CEI-BIOTIC Granada). 
+GENIL project (CEI-BIOTIC Granada). We would also like to thank the
+anonymous reviewers of this paper who have really helped us to improve
+this paper (and our work) with their suggestions.
 
 \bibliographystyle{abbrv}
 \bibliography{geneura-latin1,volunteer,javascript,ror-js,GA-general}
 
 \end{document}
+%%% Local Variables:
+%%% ispell-local-dictionary: "english"
+%%% End:

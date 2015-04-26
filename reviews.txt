@@ -87,6 +87,4 @@ The authors describe a browser-based volunteer computing system for evolutionary
  * At the end of the introduction it says that the performance of the browser-based approach is compared "...with other traditional island-based single user client-server experiment using the same setup." This is never done and mentioned again in the conclusion as outlook. It should therefore be removed.
 
 The results section is a little bit short, the conclusion being that the computers that took part in the experiment are heterogeneous, is no surprise. The planned comparison with a standard client-server system would have been interesting.
-Zona de los archivos adjuntos
-Vista previa del archivo adjunto Review1.pdf
-[PDF]
+
