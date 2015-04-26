@@ -1,0 +1,92 @@
+ 
+ 
+Más 
+1 de 71.412
+ 
+EvoSoft Workshop @ GECCO 2015: Submission Accepted (Paper ID wk07-05)
+Recibidos
+	x
+jmerelo@ugr.es
+	x
+Wagner Stefan <stefan.wagner@fh-ooe.at>
+	
+Archivos adjuntos23:57 (hace 10 horas)
+		
+para jmerelo, pablogarcia, evosoft
+Dear Authors,
+
+thank you for your submission to the EvoSoft workshop @ GECCO 2015. We are happy to inform you, that your contribution titled "Designing and Modeling a Browser-based Distributed Evolutionary Computation System" has been accepted. For the preparation of the final version of your contribution, please consider the comments of the reviewers listed below and attached.
+
+You will receive another e-mail with detailed information on the final submission procedure and with your personal submission link within the next days. Please note that the final version of your contribution has to be submitted by May 5th and that at least one author per contribution has to register for GECCO 2015 and has to present the contribution at the EvoSoft workshop.
+
+Best regards and see you in Madrid,
+Stefan Wagner & Michael Affenzeller
+EvoSoft Workshop Organizers
+
+
+Comments Reviewer 1:
+--------------------
+The authors describe an implementation of a distributed evolutionary
+algorithm (island model) in Javascript to be run in browsers.
+
+Most of the content of the paper is already published on the arxiv
+(http://arxiv.org/abs/1503.06424). I'm just mentioning this here
+because I'm not sure if this is OK for GECCO Workshops.
+
+
+Generally the motivation is weak. The authors do not give a good
+motivation why it should be necessary to rely on volunteer computing
+other than "nothing beats free" and "the conjunction of free or
+low/cost cloud computing engines, volunteer computing systems and
+untapped capability of desktop systems can be used for creating
+massive distributed computing experiments". It is hard to imagine an
+example where such a distributed architecture using volunteer
+computing might be feasible and useful. I know that some problems from
+medical research are run via BOINC. I believe the argumentation and
+motivation can be improved by citing some examples of research
+findings or successful scientific projects that used volunteer
+computing.
+
+Especially in business applications one would probably not rely on
+such an infrastructure (also considering the data-security
+problem). Today it is very easy to rent massive resources for a short
+time and a reasonable price form various cloud providers. This fact is
+also mentioned by the authors in the paper.
+
+Please include more references where necessary in the introduction,
+e.g. for the statement "Most theory and experimentation in parallel
+computing..."
+
+It seems the authors gathered data for experiments where up to 20
+volunteer nodes were active at the same time. In total 75 different IP
+addresses visited the demo- page. The conclusions drawn in the paper
+therefore have limited applicability to the "potentially massive
+distributed computing experiments" mentioned in the introduction.
+
+ - Correct the title: "Designing .... a .... system"
+
+ - Remove web-links from affiliation. Web-links are usually not stable
+   enough for archiving purposes
+
+ - Figure 2: this figure is much to large, reduce width of figure so
+   that it fits into one column
+
+ - Figure 3: axis description and axis values are too small and not
+   readable. Values for x-axis overlap so that they are not readable
+
+ - Figure 1: Not readable on printout
+
+
+Comments Reviewer 2:
+--------------------
+The authors describe a browser-based volunteer computing system for evolutionary computation. The state of the art is very well written and presented but the introduction contains sloppy English and some errors:
+* In the abstract the first sentence says that web browsers are nowadays "operating systems that include most services the lower OS layer has...". This is not true. Web browsers today can certainly be viewed as application plattforms, an environment for executing 'web apps'. But they do not contain operating system functionality, after all browsers are just normal programs and therefore ChromeOS, FirefoxOS,... are all based on Linux.
+* Phrases like "Nothing beats free..." or "...at least having a ballpark..." are colloquial and should not be used.
+* "These experiments can be easily created using open-source repository sites like GitHub...": First of all it is nowhere defined what experiments are meant and GitHub is not a site for creating experiments. Secondly, GitHub is not open-source, it is a proprietary service where you can host your git repositories. It just happens that it is free for public repositories, which is not a problem for open-source projects and therefore a lot of projects use it.
+ * You mention a free as in beer backend. I assume that the cloud provider is meant by that. You should clarify this because a backend could also be your server-side code.
+ * At the end of the introduction it says that the performance of the browser-based approach is compared "...with other traditional island-based single user client-server experiment using the same setup." This is never done and mentioned again in the conclusion as outlook. It should therefore be removed.
+
+The results section is a little bit short, the conclusion being that the computers that took part in the experiment are heterogeneous, is no surprise. The planned comparison with a standard client-server system would have been interesting.
+Zona de los archivos adjuntos
+Vista previa del archivo adjunto Review1.pdf
+[PDF]
