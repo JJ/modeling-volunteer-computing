@@ -47,9 +47,9 @@ evolutionary algorithms can be adapted to an environment in which nodes
 come and go, have different computing capabilities and operate in
 complete asynchrony of each other. We will examine the setup needed to
 create a  simple distributed evolutionary algorithm using
-JavaScript and then find a model of how users react to it by
-collecting data from several experiments featuring different classical
-benchmark functions. 
+JavaScript, with the intention of eventually  finding a model of how users react to it by
+collecting data from several experiments featuring a classical
+benchmark function. 
 \end{abstract}
 
 \keywords{Desktop grid, distributed computing, volunteer computing,
@@ -80,21 +80,44 @@ nodes, through how they are connected, to how long are they going to
 be focused on doing what you want them to. That is why some effort is
 needed to first understand the dynamics of the decision to participate
 in an experiment that requires you to click on a link and then stay
-for a while looking at the screen (or just leave it there running).
+for a while looking at the screen (or just leave it there
+running). Volunteer computing experiments were set up for the first
+time in the 90s, in the shape of the SETI@home screensaver
+\cite{david-seti:home} that
+analyzed signals looking for patterns indicating the existence of
+extraterrestrial intelligence due to budget cuts by the US
+congress. They proved \cite{anderson2006computational}
+that 
+\begin{quote}
+... [V]olunteer computing can support
+applications that are significantly more data-intensive,
+or have high memory and storage requirements, than
+those in current projects.
+\end{quote}
+Evolutionary algorithms are that kind of applications. In general,
+real world problems and some combinatorial optimization problems such
+as the MasterMind puzzle \cite{verbatim} do require an amount of
+computational resources unavailable to the average researcher. On the
+other hand, one clear advantage of volunteer computing frameworks is
+its availability: in principle, any one can request volunteers. How
+many she is able to gather, on the other hand, is an issue that we
+will try to approach in this paper. 
+
 
 Besides, since Amazon started selling EC2 several years ago, reliable
 and scalable computing resources are also available for a low price
 and on demand. Recently, Google has also refurbished its offering
 lowering their prices. This means that the conjunction of free or
 low-cost cloud computing engines, volunteer computing systems and
-untapped capability of desktop systems can be used for creating
+untapped capability of other people's desktop systems can be used for creating
 massive, or at least potentially massive, distributed computing
-experiments. These experiments can be easily created using open-source
+experiments. These experiments can be easily set up using open-source
 repository sites like GitHub\footnote{\url{http://www.github.com}} and deployed automatically to Platform as
 a Service (PaaS) sites such as
 Heroku\footnote{\url{https://www.heroku.com/}} or
 OpenShift\footnote{\url{https://www.openshift.com/}} or even
-Infrastructure as a Service (IaaS) sites such as Microsoft's Azure.
+Infrastructure as a Service (IaaS) sites such as Microsoft's Azure or
+Amazon's EC2.
 
 
 In general, it should be a requisite for volunteer computing
@@ -207,8 +230,9 @@ security mechanisms.
 % OK, pero ¿por? - JJ
 In that work, Soares et al. describe JET, a system that supports
 the execution of parallel applications over the Internet. This system has 
-a comprehensive statistics support, allowing its use for science, 
-unlike the other systems compared in that paper.
+a comprehensive statistics support, allowing its use for science,
+since it allows the collection of algorithm analytics by the
+experiment designer, unlike the other systems compared in that paper.
 
 However, Java (and all the other technologies)
 is not universal in the
@@ -363,24 +387,26 @@ different files or services, routes to obtain information from the
 server, such as the anonymized IPs that have participated in the
 experiment, the ordinal number of the experiment that is being performed or the content of the chromosome pool, and code to serve the static pages
 and the JavaScript/CSS
-code also. The main changes to the code from the  the previous paper
-\cite{arxiv:modeling} is, besides the inclusion of logging for a
+code also. 
+
+The system described in this paper is fundamentally different from the
+one published in 
+\cite{arxiv:modeling}. This changes include, besides the inclusion of logging for a
 better experiment analysis, the function that checks for the algorithm
 termination condition and restarts the chromosome pool when
 it does; it includes a configurable termination
 condition that checks for the solution and empties the chromosome pool
 and logs the end of the experiment. This allows us to run continuously
 experiments without restarting the server by hand as we did in the
-previous version. %FERGU: es esta la única innovación al paper de
-                  %Arxiv? A lo mejor no deberíamos mencionarlo ni
-                  %usarlo como base
-% La principal innovación es que es más fácil recoger datos del
-% servidor y que el despliegue es automático - JJ
+previous version. The evolutionary algorithm itself has not changed,
+but the facilities for modelling user behavior have improved, as shown
+later on in the paper. 
 
 In this experiment we have used OpenShift (\url{http://openshift.com})
 and Heroku (\url{http://heroku.com}) which are Platform as a Service products with a
 free tier. It could be also be deployed, with small
-or no modification, to other similar PaaS, maybe with a bit of adaptation. Any of them are
+or no modification, to other similar PaaS such as BlueMix by IBM,
+maybe with a bit of adaptation. Any of them are
 free up to a certain level of use and thus fulfill the requirement of
 using free resources as a sustainable way of performing distributed
 evolutionary computation experiments \cite{Merelo2014,jj:idc:lowcost}.
@@ -393,20 +419,25 @@ evolutionary computation experiments \cite{Merelo2014,jj:idc:lowcost}.
 \end{figure*}
 
 Programming the server so that it can be deployed, without
-modification, to any PaaS is not difficult, but you have to consider
-the different capabilities of each one.\begin{itemize}
+modification, to any PaaS, does not add a lot of overhead to the
+programming of a framework, but you have to consider
+the different capabilities of each one, namely:\begin{itemize}
 \item Heroku does not have a permanent filesystem, so if you want to
   create any directory it has to be done when the server is
-  started. It is only guaranteed to last while the application is
-  running. 
+  started, and it is only guaranteed to last while the application is
+  running; this also implies the need for an external logging system
+  to keep the results.
 \item In order to scale properly, all requests in Openshift are routed
-  through a proxy. This means that the requests all have, as remote
-  address, this IP. Other ways of obtaining the requests must be found
-  out. On the other hand, it does have a permanent directory for data.
+  through a proxy. This means that all requests have, as remote
+  address, the proxy's IP, so other ways of obtaining the requests must be found
+  out. On the other hand, it does have a permanent directory for
+  data. 
 \end{itemize}
 
-Every PaaS has its own way of defining environment variables, which is the way
-used for passing private information such as passwords to the
+Every PaaS has its own way of defining environment variables, which is
+the mechanism 
+used for passing private configuration information such as database
+passwords or, in our case, logging system keys, to the
 server. This can be done usually through a command-line client ({\tt
   heroku} or {\tt rhc}), which is also used to check the logs or
 restart the client. Eventually, we decided to leave the two servers
@@ -548,10 +579,10 @@ page which will, obviously, depend on the popularity of the social
 media and the person announcing it. How this dependency behaves is
 still an open issue. Finally it is also an interesting conclusion
 that, given enough time and free computing power, we can solve a
-difficult optimization problem. Eventually. 
+difficult optimization problem. Eventually. But for free.
 
 
-\section{Conclusion}
+\section{Conclusions}
 \label{sec:conc}
 
 In this paper we have presented our experience on using browser-based
@@ -619,7 +650,7 @@ Twitter or Facebook.
 It also remains to be done a comparison of single-desktop computer
 experiment compared with this parallel setup. It is quite clear that,
 due to overhead, several volunteers will be needed to match the speed
-of a single several-core desktop computer. This will be explored in
+of a single multicore desktop computer. This will be explored in
 future work.
 
 \section{Acknowledgments}
