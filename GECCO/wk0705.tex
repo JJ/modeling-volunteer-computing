@@ -96,7 +96,7 @@ those in current projects.
 \end{quote}
 Evolutionary algorithms are that kind of applications. In general,
 real world problems and some combinatorial optimization problems such
-as the MasterMind puzzle \cite{verbatim} do require an amount of
+as the MasterMind puzzle \cite{DBLP:journals/evi/Maestro-MontojoSG14} do require an amount of
 computational resources unavailable to the average researcher. On the
 other hand, one clear advantage of volunteer computing frameworks is
 its availability: in principle, any one can request volunteers. How
@@ -111,9 +111,10 @@ lowering their prices. This means that the conjunction of free or
 low-cost cloud computing engines, volunteer computing systems and
 untapped capability of other people's desktop systems can be used for creating
 massive, or at least potentially massive, distributed computing
-experiments. These experiments can be easily set up using open-source
+experiments. These experiments can be easily set up hosting the
+sources and data in open-source-friendly
 repository sites like GitHub\footnote{\url{http://www.github.com}} and deployed automatically to Platform as
-a Service (PaaS) sites such as
+a Service (PaaS) hosts such as
 Heroku\footnote{\url{https://www.heroku.com/}} or
 OpenShift\footnote{\url{https://www.openshift.com/}} or even
 Infrastructure as a Service (IaaS) sites such as Microsoft's Azure or
@@ -187,7 +188,7 @@ performance of any experiment you might want to perform.
 These are best practices that have been followed in the experiments in
 this paper, that first presents a new version of a platform for
 distributed evolutionary algorithms (EAs) using the browser and a free (as
-in free beer) backend, and second, shows the result from a
+in free beer) backend host, and second, shows the result from a
 statistical point of view in order to put the basis for a model of the
 meta-computer obtained by joining all volunteers and the free backend
 used for the experiment. This has been one of the criterion when
@@ -489,13 +490,13 @@ will be analyzed in the next section.
 \section{Results}
 \label{sec:res}
 %
-\begin{figure*}[h!tb]
+\begin{figure}[h!tb]
         \centering
         \includegraphics[width=0.95\linewidth]{img/times-base.png}
         \caption{Histogram of time needed to find the solution in the
           command-line client case, with (Y) or without restart (N)
           when the solution is found.}\label{fig:base}
-\end{figure*}
+\end{figure}
 %
 In order to establish a baseline, we wrote an evolutionary algorithm
 in node using the NodEO framework \cite{DBLP:conf/gecco/GuervosVGES14}
@@ -507,7 +508,9 @@ which contains the pool of best individuals every 100 generations,
 when the client had finished without finding the solution, or not;
 this second case is more similar to the asynchronous nature of the
 browser-based experiment. In fact, no difference was found (using
-Wilcoxon test) and the average time to solution was 34.21 seconds. 
+Wilcoxon test) and the average time to solution was 34.21 seconds, the
+distribution of times does not follow a normal, however, and is
+plotted in Figure \ref{fig:base}.
 
 The experiments done with the first versions of this framework have
 already been published elsewhere \cite{arxiv:modeling}. We proved that
@@ -548,9 +551,18 @@ so that accounts for the popularity, not any particular problem with
 the algorithm in one or the other. That is why the data that we have
 obtained and used below, and which is, as usual, available with a free
 license, is mainly processed from the log files stored in Loggly and
-in OpenShift. These 23 experiments took each one a number of hours, so
+in OpenShift. These 23 experiments took, all together, a number of hours, so
 that in many cases the nodes were not accessing at the same time, but
-sequentially, to the server. This means that the island model is, in
+sequentially, to the server. The average time for these experiments
+was 466.4 seconds, with the median on 374 seconds, that is, around 20
+times as much as the baseline experiment mentioned above. It should be
+noted, however, that our intention was not to use distributed
+evolutionary computing to optimize the running time, but the resources
+devoted to them. This measure indicates, at any rate, that there is
+some room for improvement and future research should go, among others,
+in that direction. 
+
+This means that the island model is, in
 fact, behaving partly as a pool-based evolutionary algorithm
 \cite{sofea:evopar2012} with some results, the best from each
 generation, available to future runs. This is clearly noticed when
