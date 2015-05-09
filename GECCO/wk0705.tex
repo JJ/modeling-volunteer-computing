@@ -313,7 +313,7 @@ been contributing to the experiment. To get users, the URL
 (\url{http://nodio-jmerelo.rhcloud.com} and
 \url{http://nodeo-i.herokuapp.com}) were presented, with a short
 message, in Twitter and other social networks, introducing it as a
-``demo for evolutionary algorithms'', sometimes in Spanish, some in
+``demo for evolutionary algorithms'', sometimes in Spanish, some others in
 English. 
 
 Besides visualizing the evolution, the browser is actually running an
@@ -488,16 +488,37 @@ will be analyzed in the next section.
 
 \section{Results}
 \label{sec:res}
+%
+\begin{figure*}[h!tb]
+        \centering
+        \includegraphics[width=0.95\linewidth]{img/times-base.png}
+        \caption{Histogram of time needed to find the solution in the
+          command-line client case, with (Y) or without restart (N)
+          when the solution is found.}\label{fig:base}
+\end{figure*}
+%
+In order to establish a baseline, we wrote an evolutionary algorithm
+in node using the NodEO framework \cite{DBLP:conf/gecco/GuervosVGES14}
+in the command line. Conditions, and, indeed, the code, were the same except for the
+population, which was set to 512 individuals, and the termination
+condition, which included finishing if a sufficient amount of
+generations had passed without finding the solution. We did 50 experiments restarting the server,
+which contains the pool of best individuals every 100 generations,
+when the client had finished without finding the solution, or not;
+this second case is more similar to the asynchronous nature of the
+browser-based experiment. In fact, no difference was found (using
+Wilcoxon test) and the average time to solution was 34.21 seconds. 
 
 The experiments done with the first versions of this framework have
 already been published elsewhere \cite{arxiv:modeling}. We proved that
 up to 20 nodes could participate in a single run if it was
-sufficiently announced; every experiment was individually announced so
-more or less a certain amount of nodes were guaranteed. However, it
-did not run correctly in mobile phones, design of the presentation was
+publicized sufficiently, that is, in a Twitter account with enough number
+of followers; every experiment was individually announced so
+more or less a certain amount of nodes, more than one, at least, were guaranteed. However, it
+did not run correctly in mobile phones, the design of the presentation was
 not adaptive and thus missed a good amount of possible clients. In
 this case the design, which has used the Kube CSS framework, was fully
-adaptive and indeed proved to work with mobile phones browsers for
+adaptive and indeed proved to work with mobile phone browsers for
 iPhones and Android phones. 
 %
 \begin{figure}[h!tb]
@@ -544,7 +565,8 @@ carefully and probably use a randomized parameter setting as we did in
 \cite{sofea:evopar2012}. 
 
 Another interesting result is that we have been able to obtain many
-more different users. At the time of this writing we obtained 75
+more different users. At the time of the submission of the first
+version of this paper we had obtained 75
 different IPs contributing CPU time to the experiment, giving an
 % ¿se podría hacer en el futuro algún tipo de estudio acerca de la procedencia?
 % No estoy seguro de que esa relevante, pero bueno...   [Pedro]
