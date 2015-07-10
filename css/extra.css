@@ -1,0 +1,28 @@
+h1.img {  
+  margin: 20px;
+  border-radius: 25px;
+}
+
+.img {  
+  margin: 10px;
+  padding: 20px;
+  color: #443266;
+  background-color: rgba(241,240,255,0.7);;
+}
+
+code { 
+       font-family: Lekton, Courier, Courier New, monospace;
+       font-size: 1.75em;
+       background-color: black;
+       color: lightgreen;
+       font-weight:bold;
+       margin: 2px;
+       padding: 2px;
+       -moz-border-radius: 5px;
+       border-radius: 5px;
+       line-height: 1.5em;
+}
+
+
+.reveal li { font-size:1.75em }
+.reveal li.credits { font-size:0.9em }
