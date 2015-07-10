@@ -64,19 +64,6 @@ Evolutionary Computation System">
 		  of it.</aside>
 	      </section>
 
-	      <section data-background='old.png' title='tagcloud, old'>
-		<aside class='notes'>This is a tagcloud of the same
-		old. Old tools, old systems, proprietary software.</aside>
-	      </section>
-
-	      <section data-background='new-new-cloud.png' alt='Spark, new stuff, big data, all that'>
-		<aside class='notes'>This is the environment you see
-		today on the edge of the big data/cloud
-		revolution (or maybe just evolution). New languages, new paradigms, new
-		methodologies for developing software. Can we
-		do something about it?</aside>
-	      </section>
-
 	      <section data-background='https://farm1.staticflickr.com/2/2172614_c1a030fd7c_b_d.jpg' title='all kind of grains'>
 		<aside class='notes'>First, we have to realize what's
 	      the nature of this new world. It's no longer fine grain or
@@ -112,19 +99,6 @@ Evolutionary Computation System">
 		  just on computing resources.</aside>
 	      </section>
 
-	      <section data-background='https://farm5.staticflickr.com/4029/4393474025_00492c75ac_b_d.jpg'
-	      title='it's containers all the way down'> 
-		<aside class='notes'>Docker is one of the emerging
-		technologies that are being used for application
-		development and deployment: it allows safe containing
-		of all the context needed for an application. And then
-		there
-		are <a href='http://microservices.io/'>microservices:
-		    independently deployable applications</a> which,
-		together, form an application that is perceived as
-		  such by the user.</aside>
-	      </section>
-
 	      <section data-background='img/clocks.jpg' alt='Bombay
 		clocks by  mybigtrip' >
 
@@ -154,33 +128,6 @@ Evolutionary Computation System">
 		  computing nodes, although very limited in terms of time</aside>
 	      </section>
 
-	      <section data-background='https://farm6.staticflickr.com/5139/5480865026_c76341284d_b_d.jpg'
-		  alt='asterisk'>
-		<aside class='notes'>So what we're looking at is a big
-		pile of self-star properties: self-assembly,
-		self-healing, self-adaptation... the most self-* the
-		  algorithm is, the better.</aside>
-	      </section>
-
-	      <section data-background='https://farm3.staticflickr.com/2371/1898032546_e8741ba3e8_b_d.jpg' alt='autonomously flying'>
-		<aside class='notes'>A way of solving the stuff is
-		using autnomous agents; this basically means, from the
-		point of view of the algorithm, to avoid a central
-		authority: every thread or process has to decide all
-		its lifecycle: when to die, when to give birth, mix,
-		  everything. </aside>
-	      </section>
-
-	      <section data-background='https://farm7.staticflickr.com/6073/6036496849_faac564ab0_b_d.jpg'
-	      alt='string and nails: network'>
-		<aside class='notes'>Then you have to deal with peer
-		to peer, dynamic networks, where there is no fixed
-		topology and where every individual, autonomously,
-		decides to interchange stuff with another, as in this
-		string and nails artifact where strings might
-		  vary... and nails too.</aside>
-	      </section>
-
 	      <section
 		data-background='https://farm8.staticflickr.com/7279/7408451314_e4f6f403a9_k_d.jpg'
 		title='assembly line'>
@@ -188,43 +135,11 @@ Evolutionary Computation System">
 		<aside class='notes'>You
 		  can obtain computing power aplenty this way, but it comes at a cost: you have to change the
 		  methodology for developing software. Team/test/agile
-		  based using infrastructe-as-code/build/deployment
+		  based using infrastructure-as-code/build/deployment
 		  tools. It's a small cost, since it makes your science,
 		  eventually, better and more reprodutible.</aside>
 	      </section>
 	      
-	      <section
-		data-background-transition="concave">
-		<h1><code>package.json</code></h1>
-		<pre><code data-trim>{
-  "scripts": {
-    "start": "node index.js",
-    "test": "mocha"
-  },
-  "dependencies": {
-    "express": "~3.4.x",
-    "mocha": "~2.1.x",
-    "winston-loggly": "^1.0.5"
-  },
-  "repository": {
-    "url": "https://github.com/JJ/splash-volunteer"
-  },
-  "devDependencies": {
-    "supertest": "~0.15.0",
-    "should": "~4.6.2"
-  }
-}</code></pre>
-		<aside class='notes'>For instance, you might have to
-		use something like this to declare the infraestructure
-		needed by a program. This is a very simple
-		<code>package.json</code> for deploying a
-		volunteer-based evolutionary algorithm, Nodio, in a
-		PaaS such as OpenShift or Heroku (both free). It
-		includes instructions for testing and then all
-		dependencies. There are other interesting trends
-		nowadays: using Docker containers to package
-		applications along with all the context. </aside>
-	      </section>
 	      
 	      <section> <!-- Vertical slides -->
 
@@ -239,26 +154,18 @@ Evolutionary Computation System">
 		  not going to be free.</aside>
 	      </section>
 
-		<section data-background='log-log-ips-experiment.png'>
-		  <aside class='notes'>This is what you can obtain in an
-		    experiment a Sunday morning (and afternoon). Several
-		    hundreds of different volunteers, and even more so,
-		    some of then lending hundreds of thousands of
-		    generations to the experiment.</aside>
-		  
-		</section>
+	      <section data-background='log-log-ips-experiment.png'>
+		<aside class='notes'>This is what you can obtain in an
+		  experiment a Sunday morning (and afternoon). Several
+		  hundreds of different volunteers, and even more so,
+		  some of then lending hundreds of thousands of
+		  generations to the experiment.</aside>
+		
+	      </section>
 
 	      </section>
 
-	      <section data-background='nube-fergunet.png'>
-		<aside class='notes'>Cloud is the way to go and the
-		best way to exemplify the current state of
-		computation. Which we will have to embrace,
-		eventually, if we want to suceed implementing
-		  metaheuristics in the large.</aside>
-	      </section>
 	      <!-- Final slide -->
-
 	      <section>
 		<h1>Thanks!</h1>
 		<img src='img/questions.png' alt='any question?'>
@@ -291,7 +198,6 @@ Evolutionary Computation System">
 		    line by Jurvetson</a></li>
 		  <li class='credits'>Tap fountain from Flickr, ID
 		  14843901344_d35e1bce84_k.jpg</li>
-		  <li class='credits'>Containers by Matthew Lee</li>
 		  <li class='credits'>Clocks Flickr image
 		  by <a href='https://flic.kr/p/xjH5'> Nathan Nelson
 		  @<code>flic.kr/p/xjH5</code></a></li>
@@ -299,12 +205,10 @@ Evolutionary Computation System">
 		      low by Richard Miles</a></li>
 		  <li class='credits'><a href='https://www.flickr.com/photos/greenery/2172614'>Corn
 		      by Melanie Bateman</a></li>
-		  <li class='credits'><a href='https://www.flickr.com/photos/stevensnodgrass/5480865026'>Asterisk
-		      by Steve Snodgrass</a></li>
+
 		  <li class='credits'><a href='https://www.flickr.com/photos/statelibraryofnsw/3001194041'>Volunteers
 		      from the State Library of NSW</a></li>
-		  <li class='credits'><a href='https://www.flickr.com/photos/hillaryhcchang/6036496849'>String
-		      and nails by hillary.hc.chang</a></li>
+
 		  <li class='credits'>Cloud
 		  by <a href='http://flickr.com/photos/LordFerguson'>Pablo</a>
 		    while traveling on the bus up to here.</li>
