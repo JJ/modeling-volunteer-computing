@@ -6,8 +6,9 @@
 
 		<title>reveal.js - The HTML Presentation Framework</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="Designing and Modeling a Browser-Based Distributed
+Evolutionary Computation System">
+		<meta name="author" content="Presentation, JJ Merelo, framework by Hakim El Hattab, paper with Pablo García">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -15,7 +16,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/extra.css">
+		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -36,353 +38,289 @@
 
 	<body>
 
-		<div class="reveal">
+	  <div class="reveal">
+	    
+	    <!-- Any section element inside of this container is displayed as a slide -->
+	    <div class="slides">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section>
-					<h1>Reveal.js</h1>
-					<h3>The HTML Presentation Framework</h3>
-					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
-					</p>
-				</section>
+	      <section data-background='https://farm9.staticflickr.com/8609/16062218322_3215a816db_k_d.jpg' title='Grid, with bird'>
+		<aside class='notes'>Most people developing distributed evolutionary
+		algorithms think that the computing world is a little bit
+		like that. Except the cat, that is. Regular,
+		identical, static, always the same. Nothing changes
+		and you can do stuff like parallel evolutionary
+		algorithm of GPGPU or cluster computing or
+		  grid. Pretty straighforward, synchronous,
+		predictable.</aside>
+	      </section>
+	      
+	      <section data-background='https://farm6.staticflickr.com/5533/10905624385_ce43ee8269_k_d.jpg' title='cobweb, with morning droplets'>
+		<aside class='notes'>Of course, it's bit more like
+		this. Nodes have different sizes, they are distributed
+		unevenly and have different number of connections, and
+		are as fragile as this spiderweb. It's also as
+		numerous as the junctions or as the droplets in it,
+		much more massive. And maybe you could take advantage
+		  of it.</aside>
+	      </section>
 
-				<section>
-					<h2>Hello There</h2>
-					<p>
-						reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
-					</p>
-				</section>
+	      <section data-background='old.png' title='tagcloud, old'>
+		<aside class='notes'>This is a tagcloud of the same
+		old. Old tools, old systems, proprietary software.</aside>
+	      </section>
 
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>Slides can be nested inside of each other.</p>
-						<p>Use the <em>Space</em> key to navigate through all slides.</p>
-						<br>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>That's it, time to go back up.</p>
-						<br>
-						<a href="#/2">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
+	      <section data-background='new-new-cloud.png' alt='Spark, new stuff, big data, all that'>
+		<aside class='notes'>This is the environment you see
+		today on the edge of the big data/cloud
+		revolution (or maybe just evolution). New languages, new paradigms, new
+		methodologies for developing software. Can we
+		do something about it?</aside>
+	      </section>
 
-				<section>
-					<h2>Slides</h2>
-					<p>
-						Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slides.com" target="_blank">http://slides.com</a>.
-					</p>
-				</section>
+	      <section data-background='https://farm1.staticflickr.com/2/2172614_c1a030fd7c_b_d.jpg' title='all kind of grains'>
+		<aside class='notes'>First, we have to realize what's
+	      the nature of this new world. It's no longer fine grain or
+	      coarse grain or whatever. There are all kinds of grains,
+	      but in particular we have three different types of
+	      technologies that we might want to address: peer to
+	      peer, cloud computing and cycle scavenging/volunteer
+		  computing.</aside>
+	      </section>
 
-				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview.
-					</p>
-					<p>
-						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
-				</section>
 
-				<section>
-					<h2>Touch Optimized</h2>
-					<p>
-						Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
-					</p>
-				</section>
+	      <section data-background='img/clouds.jpg' alt='clouds from a
+	      plane, picture by me'>
+		<aside class='notes'>The clouds exemplify very well
+		what goes on in this new computing environment. First,
+		because a part of it is literally called
+		cloud. Second, because they are out there and there
+		are lots of them, but they are predictable only in the
+		short term and also ephemeral, here this moment, gone
+		  the next. </aside>
+	      </section>
 
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
+	      <section data-background='img/tap.jpg' alt='flowing
+		tap'>
+		<aside class='notes'>That's another characteristic of
+		this new environment: it's available on tap. You pay
+		cloud computing resources, CPU, storage, other more
+		advanced applications like Map/Reduce, by the hour or
+		minute. This means two things: you can have as much as
+		you want, and second, this comes at a  cost. Your
+		algorithms will have to be scale and cost conscious,
+		because you might be eventually wasting your grant
+		  just on computing resources.</aside>
+	      </section>
 
-						Write content using inline or external Markdown.
-						Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
+	      <section data-background='https://farm5.staticflickr.com/4029/4393474025_00492c75ac_b_d.jpg'
+	      title='it's containers all the way down'> 
+		<aside class='notes'>Docker is one of the emerging
+		technologies that are being used for application
+		development and deployment: it allows safe containing
+		of all the context needed for an application. And then
+		there
+		are <a href='http://microservices.io/'>microservices:
+		    independently deployable applications</a> which,
+		together, form an application that is perceived as
+		  such by the user.</aside>
+	      </section>
 
-						```
-						<section data-markdown>
-						  ## Markdown support
+	      <section data-background='img/clocks.jpg' alt='Bombay
+		clocks by  mybigtrip' >
 
-						  Write content using inline or external Markdown.
-						  Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-						</section>
-						```
-					</script>
-				</section>
+		<aside class='notes'>In many cases, asynchrony is also
+		the norm. First, because you can't expect virtual
+		machines to start at exactly the same time or behave
+		in exactly the same way, and they're spending while
+		they are running. Second, because in the case of
+		volunteer systems they might simply not be
+		available. Even distributed computing can't work in
+		lockstep, and there must be some way of permanently
+		storing the algorithm state (or part of it) so that it
+		  can resume when resources are available.</aside>
+	      </section>
 
-				<section>
-					<section id="fragments">
-						<h2>Fragments</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
+	      <section
+	      data-background='https://farm4.staticflickr.com/3160/2327155978_31004d2ab2_b_d.jpg'
+	      alt='free beer'>
+		<aside class='notes'>The good thing is that you can
+	      gather a incredible amount of resources for free or a
+	      low price. A full month of a server running in Azure or
+	      Amazon can be a few dollars, a little bit more than a
+	      hosting. You can do a lot of things with the free tier
+	      of Platform as a Service or Infrastructure as a
+	      service. And, finally, if you go for volunteer computing
+	      the amount of resources can be unlimited in terms of
+		  computing nodes, although very limited in terms of time</aside>
+	      </section>
 
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's different types of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment current-visible">current-visible</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-					</section>
-				</section>
+	      <section data-background='https://farm6.staticflickr.com/5139/5480865026_c76341284d_b_d.jpg'
+		  alt='asterisk'>
+		<aside class='notes'>So what we're looking at is a big
+		pile of self-star properties: self-assembly,
+		self-healing, self-adaptation... the most self-* the
+		  algorithm is, the better.</aside>
+	      </section>
 
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?transition=fade#/transitions">Fade</a> -
-						<a href="?transition=slide#/transitions">Slide</a> -
-						<a href="?transition=convex#/transitions">Convex</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a>
-					</p>
-				</section>
+	      <section data-background='https://farm3.staticflickr.com/2371/1898032546_e8741ba3e8_b_d.jpg' alt='autonomously flying'>
+		<aside class='notes'>A way of solving the stuff is
+		using autnomous agents; this basically means, from the
+		point of view of the algorithm, to avoid a central
+		authority: every thread or process has to decide all
+		its lifecycle: when to die, when to give birth, mix,
+		  everything. </aside>
+	      </section>
 
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						reveal.js comes with a few themes built in: <br>
-						<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a> <br>
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
-					</p>
-				</section>
+	      <section data-background='https://farm7.staticflickr.com/6073/6036496849_faac564ab0_b_d.jpg'
+	      alt='string and nails: network'>
+		<aside class='notes'>Then you have to deal with peer
+		to peer, dynamic networks, where there is no fixed
+		topology and where every individual, autonomously,
+		decides to interchange stuff with another, as in this
+		string and nails artifact where strings might
+		  vary... and nails too.</aside>
+	      </section>
 
-				<section>
-					<section data-background="#dddddd">
-						<h2>Slide Backgrounds</h2>
-						<p>
-							Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
-						</p>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
-						<h2>Image Backgrounds</h2>
-						<pre><code>&lt;section data-background="image.png"&gt;</code></pre>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
-						<h2>Tiled Backgrounds</h2>
-						<pre><code style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-					</section>
-					<section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
-						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
-							<h2>Video Backgrounds</h2>
-							<pre><code style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
-						</div>
-					</section>
-					<section data-background="http://i.giphy.com/90F8aUepslB84.gif">
-						<h2>... and GIFs!</h2>
-					</section>
-				</section>
+	      <section
+		data-background='https://farm8.staticflickr.com/7279/7408451314_e4f6f403a9_k_d.jpg'
+		title='assembly line'>
 
-				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						Different background transitions are available via the backgroundTransition option. This one's called "zoom".
-					</p>
-					<pre><code>Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
-				</section>
-
-				<section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						You can override background transitions per-slide.
-					</p>
-					<pre><code style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
-				</section>
-
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
+		<aside class='notes'>You
+		  can obtain computing power aplenty this way, but it comes at a cost: you have to change the
+		  methodology for developing software. Team/test/agile
+		  based using infrastructe-as-code/build/deployment
+		  tools. It's a small cost, since it makes your science,
+		  eventually, better and more reprodutible.</aside>
+	      </section>
+	      
+	      <section
+		data-background-transition="concave">
+		<h1><code>package.json</code></h1>
+		<pre><code data-trim>{
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha"
+  },
+  "dependencies": {
+    "express": "~3.4.x",
+    "mocha": "~2.1.x",
+    "winston-loggly": "^1.0.5"
+  },
+  "repository": {
+    "url": "https://github.com/JJ/splash-volunteer"
+  },
+  "devDependencies": {
+    "supertest": "~0.15.0",
+    "should": "~4.6.2"
   }
-}
-					</code></pre>
-					<p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
+}</code></pre>
+		<aside class='notes'>For instance, you might have to
+		use something like this to declare the infraestructure
+		needed by a program. This is a very simple
+		<code>package.json</code> for deploying a
+		volunteer-based evolutionary algorithm, Nodio, in a
+		PaaS such as OpenShift or Heroku (both free). It
+		includes instructions for testing and then all
+		dependencies. There are other interesting trends
+		nowadays: using Docker containers to package
+		applications along with all the context. </aside>
+	      </section>
+	      
+	      <section> <!-- Vertical slides -->
 
-				<section>
-					<h2>Marvelous List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
+	      <section data-background='https://farm4.staticflickr.com/3216/3001194041_49b059670c_o_d.jpg'
+		alt='volunteers'>
+		<aside class='notes'>Volunteer computing is no longer
+		a simple entertainment. It graduated wit SETI@home and
+		there are several patents that cover its use in
+		browsers. And there are browsers everywhere. And, what
+		is more importante, you can achieve a certain amount
+		of computation without paying any money, although it's
+		  not going to be free.</aside>
+	      </section>
 
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
+		<section data-background='log-log-ips-experiment.png'>
+		  <aside class='notes'>This is what you can obtain in an
+		    experiment a Sunday morning (and afternoon). Several
+		    hundreds of different volunteers, and even more so,
+		    some of then lending hundreds of thousands of
+		    generations to the experiment.</aside>
+		  
+		</section>
 
-				<section>
-					<h2>Tabular Tables</h2>
-					<table>
-						<thead>
-							<tr>
-								<th>Item</th>
-								<th>Value</th>
-								<th>Quantity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Apples</td>
-								<td>$1</td>
-								<td>7</td>
-							<tr>
-							<tr>
-								<td>Lemonade</td>
-								<td>$2</td>
-								<td>18</td>
-							<tr>
-							<tr>
-								<td>Bread</td>
-								<td>$3</td>
-								<td>2</td>
-							<tr>
-						</tbody>
-					</table>
-				</section>
+	      </section>
 
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-					</blockquote>
-				</section>
+	      <section data-background='nube-fergunet.png'>
+		<aside class='notes'>Cloud is the way to go and the
+		best way to exemplify the current state of
+		computation. Which we will have to embrace,
+		eventually, if we want to suceed implementing
+		  metaheuristics in the large.</aside>
+	      </section>
+	      <!-- Final slide -->
 
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
+	      <section>
+		<h1>Thanks!</h1>
+		<img src='img/questions.png' alt='any question?'>
+		<p>Download from <a href='http://github.com/JJ/not-the-same-old'><code>git.io/sandbox-jj</code></a>
+	      </section>
 
-				<section>
-					<h2>Speaker View</h2>
-					<p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
-					<p>Press the <em>S</em> key to try it out.</p>
+	      
+	      <!-- Diapo de créditos de las fotos -->
+	      
+	      <section>
+		<h2>Credits #1</h2>
+		
+		<ol>
+		  <li class='credits'><a
+		    href='https://www.flickr.com/photos/hernanpc/16062218322'>Grid
+		    by Hernán Piñera</a>.</li>
+		  <li class='credits'><a href='https://www.flickr.com/photos/ramsd/10905624385'>Spiderweb
+		      by Janet Ramsdem</a></li>
 
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
-				</section>
+		  <li class='credits'><a
+		  href='https://www.flickr.com/photos/16038409@N02/2327155978'>Free
+		    beer by The Art Gallery</a></li>
 
-				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, here's an example:</p>
-					<iframe src="//www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
-				</section>
+		  <li class='credits'>Tag clouds made with Tagul and
+		  <a
+		  href='https://www.jasondavies.com/wordcloud/#%2F%2Fwww.jasondavies.com%2Fwordcloud%2Fabout%2F'>Tag
+		  cloud generator</a></li>
+		  <li class='credits'><a
+		  href='https://www.flickr.com/photos/jurvetson/7408451314'>Assembly
+		    line by Jurvetson</a></li>
+		  <li class='credits'>Tap fountain from Flickr, ID
+		  14843901344_d35e1bce84_k.jpg</li>
+		  <li class='credits'>Containers by Matthew Lee</li>
+		  <li class='credits'>Clocks Flickr image
+		  by <a href='https://flic.kr/p/xjH5'> Nathan Nelson
+		  @<code>flic.kr/p/xjH5</code></a></li>
+		  <li class='credits'><a href='https://www.flickr.com/photos/_f1guy68_/1898032546'>Flying
+		      low by Richard Miles</a></li>
+		  <li class='credits'><a href='https://www.flickr.com/photos/greenery/2172614'>Corn
+		      by Melanie Bateman</a></li>
+		  <li class='credits'><a href='https://www.flickr.com/photos/stevensnodgrass/5480865026'>Asterisk
+		      by Steve Snodgrass</a></li>
+		  <li class='credits'><a href='https://www.flickr.com/photos/statelibraryofnsw/3001194041'>Volunteers
+		      from the State Library of NSW</a></li>
+		  <li class='credits'><a href='https://www.flickr.com/photos/hillaryhcchang/6036496849'>String
+		      and nails by hillary.hc.chang</a></li>
+		  <li class='credits'>Cloud
+		  by <a href='http://flickr.com/photos/LordFerguson'>Pablo</a>
+		    while traveling on the bus up to here.</li>
+		</ol>
+		
+	      </section>
 
-				<section>
-					<h2>Global State</h2>
-					<p>
-						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-						will be added as a class to the document element when the slide is open. This lets you
-						apply broader style changes, like switching the page background.
-					</p>
-				</section>
+	      
+	    </div>
+	    
+	  </div>
 
-				<section data-state="customevent">
-					<h2>State Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
-Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
-					</p>
-				</section>
-
-				<section>
-					<h2>Much more</h2>
-					<ul>
-						<li>Right-to-left support</li>
-						<li><a href="https://github.com/hakimel/reveal.js#api">Extensive JavaScript API</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#auto-sliding">Auto-progression</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#parallax-background">Parallax backgrounds</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#keyboard-bindings">Custom keyboard bindings</a></li>
-					</ul>
-				</section>
-
-				<section style="text-align: left;">
-					<h1>THE END</h1>
-					<p>
-						- <a href="http://slides.com">Try the online editor</a> <br>
-						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
-					</p>
-				</section>
-
-			</div>
-
-		</div>
-
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
-
-		<script>
+	  <script src="lib/js/head.min.js"></script>
+	  <script src="js/reveal.js"></script>
+	  
+	  <script>
 
 			// Full list of configuration options available at:
 			// https://github.com/hakimel/reveal.js#configuration
