@@ -272,3 +272,11 @@ body {
  *********************************************/
 .reveal .slide-number {
   color: #268bd2; }
+
+/* Footer */
+.reveal .footer {
+  position: absolute;
+  bottom: 1em;
+  left: 1em;
+  font-size: 0.5em;
+}
