@@ -193,7 +193,8 @@ Evolutionary Computation System">
 		  if there was some difference between using, or not
 		  using, the persistent population, and also getting
 		  an idea of the distribution of times to solution in
-		    several cases. This provided a baseline time. </aside>
+		    several cases. This provided a baseline time
+		  which we can later on compare with browsers. </aside>
 		</section>
 
 		<section>
@@ -207,10 +208,18 @@ Evolutionary Computation System">
 
 	      <section>
 		<img src='img/openshift-intervals.png'>
+
+		<aside class='notes'>This is an histogram of the
+		  intervals between two diferent requests by a single IP.</aside>
 	      </section>
 
 	      <section>
 		<img src='img/openshift-intervals-IP.png'>
+
+		<aside class='notes'>This is the intervals per IP,
+		that is, the time it takes to compute a fixed amount
+		of generations. Even in a single node, same IP, there
+		  can be a certain variability.</aside>
 	      </section>
 
 	      <!-- Final slide -->
