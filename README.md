@@ -1,4 +1,5 @@
-modeling-volunteer-computing
+Modeling Volunteer Computing
 ============================
 
-Modelling volunteer computing on the web, a paper for we still don't know what. 
+Presentation for the EvoSoft paper, [check it online](https://jj.github.io/modeling-volunteer-computing) 
+ 
