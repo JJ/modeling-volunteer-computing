@@ -195,7 +195,12 @@ used; for instance, Java was pointed out in \cite{soares1998get} as a ``language
 internet'', providing some advantages such as multi-architecture compatibility or 
 security mechanisms and proposed in \cite{chandy1996world} as the
 basis for the creation of a world-wide peer to peer system using Java
-compiled programs. 
+compiled programs. The ATLAS system
+\cite{Baldeschwieler:1996:TIG:504450.504482} also used Java together
+with another language called Cilk; all these papers indicate that
+the introduction of an architecture-independent system such as the
+Java virtual machine opened the doors for ultrascale, Internet-wide,
+metacomputers. 
 
 Using any of these languages allowed the creation
 of client-server applications in the browser, provided the user had
@@ -204,7 +209,7 @@ providing a single and universal way of accessing resources via an
 URI, something that is not guaranteed using desktop applications. However, this style of
 computing presents several issues and challenges which were addressed
 as early as 1996 by Baratloo et al. in their system Charlotte:
-\cite{baratloo1996charlott}. This system, which implemented a
+\cite{baratloo1996charlotte}. This system, which implemented a
 distributed shared memory, was inspired by previous work
 on parallel computing systems PVM and MPI, but solved most issues by
 using the Java virtual machine embedded in browser, which provides
@@ -221,25 +226,36 @@ describe JET, a system that supports
 the execution of parallel applications over the Internet. This system has 
 a comprehensive statistics support, allowing its use for science,
 since it allows the collection of algorithm analytics by the
-experiment designer, unlike the other systems compared in that paper.
-
-However, Java (and all the other technologies)
-is not universal in the
-sense than an extra component, namely, the Java virtual machine, has
-to be installed in the browser. JavaScript
-\cite{flanagan2006javascript} was introduced in 1997 as a
-browser-embedded language and has, since then, become a set of standards
-\cite{ECMA-262} for the language, its components and future versions
-that have been widely adopted by the industry and also by scientists,
-who used them for creating a non-distributed EA on
-the browser as early as 1998 \cite{jj-ppsn98}. 
-
-The potential for volunteer computing using browsers was realized
+experiment designer, unlike the other systems compared in that
+paper. Contemporary proposals, such as SuperWeb
+\cite{alexandrov1997superweb} also propose a translation of classical
+distribution techniques, with complicated architectures that include
+brokers for resource discovery. It is focused, however, in solving the
+issues involved in browser-based computing and also in making a system
+that is able to work across different classes of computers, mentioning
+SPARCstations and Windows-95 computers. Interestingly enough, this
+paper incorporates a discussion on the economic model, paving the way
+for the for-profit distributed computing systems that later on
+arose. On the other hand, the potential for volunteer computing using
+browsers was realized 
 later on \cite{sarmenta-bayanihan} as well as the potential for
 mischief of users with code in their hands
 \cite{sarmenta-sabotagetolerance}. However, these early efforts by
 Sarmenta once again used Java and not JavaScript, making this effort
-less universal. JavaScript can be used either for unwitting
+less universal.
+
+The main problem with Java and all the other browser-embedded
+technologies is that they are not {\em universal} in the
+sense than an extra component, namely, the Java virtual machine, has
+to be installed in the browser. JavaScript, however,
+\cite{flanagan2006javascript} was introduced in 1997 as a
+browser-embedded language and has, since then, become a set of standards
+\cite{ECMA-262} that include the language and its components. Since
+early on it was adopted by the industry and also by scientists,
+who used them for creating a  EA on
+the browser as early as 1998 \cite{jj-ppsn98}. 
+
+JavaScript can be used either for unwitting
 \cite{unwitting-ec} or volunteer
 \cite{langdon:2005:metas,gecco07:workshop:dcor} distributed
 evolutionary computation and it has been used ever since by several
