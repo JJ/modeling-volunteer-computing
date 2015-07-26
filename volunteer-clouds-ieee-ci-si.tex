@@ -335,34 +335,12 @@
 % *** PDF, URL AND HYPERLINK PACKAGES ***
 %
 \usepackage{url}
-% url.sty was written by Donald Arseneau. It provides better support for
-% handling and breaking URLs. url.sty is already installed on most LaTeX
-% systems. The latest version and documentation can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/url/
-% Basically, \url{my_url_here}.
-
-
-
-
-% *** Do not adjust lengths that control margins, column widths, etc. ***
-% *** Do not use packages that alter fonts (such as pslatex).         ***
-% There should be no need to do such things with IEEEtran.cls V1.6 and later.
-% (Unless specifically asked to do so by the journal or conference you plan
-% to submit to, of course. )
-
 
 % correct bad hyphenation here
 \hyphenation{op-tical net-works}
 
-
 \begin{document}
-%
-% paper title
-% Titles are generally capitalized except for words such as a, an, and, as,
-% at, but, by, for, in, nor, of, on, or, the, to and up, which are usually
-% not capitalized unless they are the first or last word of the title.
-% Linebreaks \\ can be used within to get better formatting as desired.
-% Do not put math or special symbols in the title.
+
 \title{Volunteers in the Clouds: an Architecture for Low Cost and Potentially Massively Distributed Evolutionary Computation}
 %
 %
@@ -381,55 +359,6 @@
 e-mail: (jmerelo@ugr.es).}% <-this % stops a space
 %Add the rest here
 
-% note the % following the last \IEEEmembership and also \thanks - 
-% these prevent an unwanted space from occurring between the last author name
-% and the end of the author line. i.e., if you had this:
-% 
-% \author{....lastname \thanks{...} \thanks{...} }
-%                     ^------------^------------^----Do not want these spaces!
-%
-% a space would be appended to the last name and could cause every name on that
-% line to be shifted left slightly. This is one of those "LaTeX things". For
-% instance, "\textbf{A} \textbf{B}" will typeset as "A B" not "AB". To get
-% "AB" then you have to do: "\textbf{A}\textbf{B}"
-% \thanks is no different in this regard, so shield the last } of each \thanks
-% that ends a line with a % and do not let a space in before the next \thanks.
-% Spaces after \IEEEmembership other than the last one are OK (and needed) as
-% you are supposed to have spaces between the names. For what it is worth,
-% this is a minor point as most people would not even notice if the said evil
-% space somehow managed to creep in.
-
-
-
-% The paper headers
-%\markboth{Journal of \LaTeX\ Class Files,~Vol.~13, No.~9, September~2014}%
-%{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Journals}
-% The only time the second header will appear is for the odd numbered pages
-% after the title page when using the twoside option.
-% 
-% *** Note that you probably will NOT want to include the author's ***
-% *** name in the headers of peer review papers.                   ***
-% You can use \ifCLASSOPTIONpeerreview for conditional compilation here if
-% you desire.
-
-
-
-
-% If you want to put a publisher's ID mark on the page you can do it like
-% this:
-%\IEEEpubid{0000--0000/00\$00.00~\copyright~2014 IEEE}
-% Remember, if you use this you must call \IEEEpubidadjcol in the second
-% column for its text to clear the IEEEpubid mark.
-
-
-
-% use for special paper notices
-%\IEEEspecialpapernotice{(Invited Paper)}
-
-
-
-
-% make the title area
 \maketitle
 
 % As a general rule, do not put math, special symbols or citations
@@ -452,25 +381,9 @@ computing models, follow a Weibull distribution.
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
-Evolutionary algorithm, distributed computing, internet computing, social networks, 
+Evolutionary algorithm, distributed computing, internet computing,
+social networks, volunteer computing, metacomputing. 
 \end{IEEEkeywords}
-
-
-
-
-
-
-% For peer review papers, you can put extra information on the cover
-% page as needed:
-% \ifCLASSOPTIONpeerreview
-% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
-% \fi
-%
-% For peerreview papers, this IEEEtran command inserts a page break and
-% creates the second title. It will be ignored for other modes.
-\IEEEpeerreviewmaketitle
-
-
 
 \section{Introduction}
 % The very first letter is a 2 line initial drop letter followed
@@ -507,6 +420,110 @@ Subsection text here.
 
 \subsubsection{Subsubsection Heading Here}
 Subsubsection text here.
+
+\section{State of the art}
+\label{sec:soa}
+
+The web used as a resource for distributed computing has a
+long history, and almost since the beginning it was used for 
+evolutionary computation even before JavaScript was
+introduced as a browser-based scripting language in 1997. Before that
+time other procedures, including Flash animations and VBScript, ActiveX or Java applets were
+used; for instance, Java was pointed out in \cite{soares1998get} as a ``language for
+internet'', providing some advantages such as multi-architecture compatibility or 
+security mechanisms and proposed in \cite{chandy1996world} as the
+basis for the creation of a world-wide peer to peer system using Java
+compiled programs. 
+
+Using any of these languages allowed the creation
+of client-server applications in the browser, provided the user had
+installed the virtual machine plugin in it, but with the advantage of
+providing a single and universal way of accessing resources via an
+URI, something that is not guaranteed using desktop applications. However, this style of
+computing presents several issues and challenges which were addressed
+as early as 1996 by Baratloo et al. in their system Charlotte:
+\cite{baratloo1996charlott}. This system, which implemented a
+distributed shared memory, was inspired by previous work
+on parallel computing systems PVM and MPI, but solved most issues by
+using the Java virtual machine embedded in browser, which provides
+security to the user, uniformity of computing environment
+independently of the operating system and  access to a common data store in the
+server. Other issues such as scheduling are solved on the server. This
+paper was later extended and published in a journal in 1999
+\cite{baratloo1999charlotte}, but it is interesting to note that
+already in the early stages of the web the possibility of
+browser-based distributed computing was already researched. 
+
+One of the first papers by Soares et al. used Java, and in their paper \cite{soares1998get} they
+describe JET, a system that supports 
+the execution of parallel applications over the Internet. This system has 
+a comprehensive statistics support, allowing its use for science,
+since it allows the collection of algorithm analytics by the
+experiment designer, unlike the other systems compared in that paper.
+
+However, Java (and all the other technologies)
+is not universal in the
+sense than an extra component, namely, the Java virtual machine, has
+to be installed in the browser. JavaScript
+\cite{flanagan2006javascript} was introduced in 1997 as a
+browser-embedded language and has, since then, become a set of standards
+\cite{ECMA-262} for the language, its components and future versions
+that have been widely adopted by the industry and also by scientists,
+who used them for creating a non-distributed EA on
+the browser as early as 1998 \cite{jj-ppsn98}. 
+
+The potential for volunteer computing using browsers was realized
+later on \cite{sarmenta-bayanihan} as well as the potential for
+mischief of users with code in their hands
+\cite{sarmenta-sabotagetolerance}. However, these early efforts by
+Sarmenta once again used Java and not JavaScript, making this effort
+less universal. JavaScript can be used either for unwitting
+\cite{unwitting-ec} or volunteer
+\cite{langdon:2005:metas,gecco07:workshop:dcor} distributed
+evolutionary computation and it has been used ever since by several
+authors, including more recent efforts \cite{Desell:2008:AHG:1389095.1389273,duda2013distributed,DBLP:journals/corr/abs-0801-1210} that even
+used the client's GPU \cite{duda2013gpu}. Many other researchers have
+used Java \cite{chong:1999:jDGPi} and others have gone away from the
+server-based paradigm to embrace peer to peer systems
+\cite{jin2006constructing,10.1109/ICICSE.2008.99}. These computing
+platforms avoid single points of failure (the server) but, since they
+need a certain amount of infrastructure installed to start, the
+threshold to join them is much lower. 
+
+There have been relatively few efforts to analyze what is the
+performance that can be obtained from these volunteer computing
+effort. There was some attempt initially to dodge the issue by making
+the algorithm adaptive to the kind of resources allotted to it
+\cite{milani2004online}, which is actually not such a big problem in
+algorithms such as the EA that can easily be
+parallelized via population splitting or farming out evaluations to all
+the nodes available. Lately, several approaches have focused on the
+fault-tolerance of volunteer algorithms
+\cite{gonzalez2010characterizing} which can, of course, be studied in
+a more general distributed computing context
+\cite{nogueras2015studying} or including it in a more general study of
+performance of the EA itself %Con tu permiso lo paso a acrÃ³nimos para
+                             %que no sea tan largo el pÃ¡rrafo. FERGU
+%OK - JJ
+\cite{DBLP:journals/gpem/LaredoBGVAGF14}. But the raw material of
+volunteer computing, number of users and the time spent in the
+computation in browser-based volunteer computing experiments, have only been studied in a limited way in
+\cite{DBLP:journals/gpem/LaredoBGVAGF14} on the basis of a single
+run. Studies using volunteer computing platforms such as SETI@home
+\cite{javadi2009mining} found out that the Weibull, log-normal and Gamma distribution
+modeled quite well the availability of resources in several clusters
+of that framework; the shape of those distributions is a skewed bell
+with more resources in the {\em low} areas than in the high areas:
+there are many users that give a small amount of cycles, while there
+are just a few that give many cycles. This is in concordance with the
+results obtained in \cite{agajaj}.
+
+As far as we know, this paper presents the only experiment that uses computational
+resources that are as dissimilar as smartphones and powerful laptops
+or desktop computers in a research center. The methodology used to
+gather resources and the algorithms used will be described next, as
+well as the results obtained with the setup.
+
 
 
 % An example of a floating figure using the graphicx package.
@@ -613,7 +630,6 @@ The conclusion goes here.
 % use section* for acknowledgment
 \section*{Acknowledgment}
 
-
 This work has been supported in part by TIN2011-28627-C04-02 and
 TIN2014-56494-C4-3-P (Spanish Ministry of Economy and Competitivity),
 SPIP2014-01437 (Direcci{\'o}n General de Tr{\'a}fico) and PYR-2014-17
@@ -622,10 +638,10 @@ anonymous reviewers of previous versions of this paper who have really helped us
 this paper (and our work) with their suggestions.
 
 
-
 \bibliographystyle{IEEEtran}
 \bibliography{geneura-latin1,volunteer,javascript,ror-js,GA-general}
 
 \end{document}
-
-
+%%% Local Variables:
+%%% ispell-local-dictionary: "english"
+%%% End:
