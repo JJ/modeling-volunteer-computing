@@ -119,6 +119,11 @@
 e-mail: (jmerelo@ugr.es).}
 }% <-this % stops a space
 
+\author{Mario Garcia-Valdez, %Add your name here
+  \thanks{M Garcia-Valdez is with the Dept. of Graduate Studies at Instituto Tecnologico de Tijuana
+e-mail: (mario@tectijuana.edu.mx).}
+}% <-this % stops a space
+
 %Add the rest here
 % Thanks to http://www.michaelshell.org/tex/ieeetran/ for the fix 
 \maketitle
@@ -130,7 +135,7 @@ Volunteer computing is used routinely in science and enterprise but it
 still has a long way to go if it is going to become mainstream in the
 same way the cloud in general has. The lack of general purpose tools
 with analytics built in could be one of the reasons why this is so, as
-well ad the lack of proofs of concept. That is why in this paper we
+well as the lack of proofs of concept. That is why in this paper we
 present NodIO, a client-server architecture for distributed
 evolutionary algorithms, written entirely in JavaScript, which needs
 minimal server support to work and is able to support persistent,
@@ -190,21 +195,23 @@ The web used as a resource for distributed computing has a
 long history, and almost since the beginning it was used for 
 evolutionary computation even before JavaScript was
 introduced as a browser-based scripting language in 1997. Before that
-time other procedures, including Flash animations and VBScript, ActiveX or Java applets were
+time other procedures,
+%other technologies?
+ including Flash animations and VBScript, ActiveX or Java applets were
 used; for instance, Java was pointed out in \cite{soares1998get} as a ``language for
 internet'', providing some advantages such as multi-architecture compatibility or 
-security mechanisms and proposed in \cite{chandy1996world} as the
+security mechanisms and was proposed in \cite{chandy1996world} as the
 basis for the creation of a world-wide peer to peer system using Java
 compiled programs. The ATLAS system
 \cite{Baldeschwieler:1996:TIG:504450.504482} also used Java together
-with another language called Cilk; all these papers indicate that
+with another language called Cilk; all these papers indicated that
 the introduction of an architecture-independent system such as the
 Java virtual machine opened the doors for ultrascale, Internet-wide,
 metacomputers. 
 
 Using any of these languages allowed the creation
-of client-server applications in the browser, provided the user had
-installed the virtual machine plugin in it, but with the advantage of
+of client-server applications in the browser, provided that the user had
+installed the required virtual machine plugin first, but with the advantage of
 providing a single and universal way of accessing resources via an
 URI, something that is not guaranteed using desktop applications. However, this style of
 computing presents several issues and challenges which were addressed
@@ -212,13 +219,16 @@ as early as 1996 by Baratloo et al. in their system Charlotte:
 \cite{baratloo1996charlotte}. This system, which implemented a
 distributed shared memory, was inspired by previous work
 on parallel computing systems PVM and MPI, but solved most issues by
-using the Java virtual machine embedded in browser, which provides
+using the Java virtual machine embedded in browser,
+% by using the browser's embedded Java virtual machine,
+which provides
 security to the user, uniformity of computing environment
 independently of the operating system and  access to a common data store in the
 server. Other issues such as scheduling are solved on the server. This
 paper was later extended and published in a journal in 1999
 \cite{baratloo1999charlotte}, but it is interesting to note that
 already in the early stages of the web the possibility of
+%already in the early stages of the web, the possibility of
 browser-based distributed computing was already researched. 
 
 One of the first papers by Soares et al. used Java, and in their paper \cite{soares1998get} they
@@ -227,6 +237,7 @@ the execution of parallel applications over the Internet. This system has
 a comprehensive statistics support, allowing its use for science,
 since it allows the collection of algorithm analytics by the
 experiment designer, unlike the other systems compared in that
+%experiment designer, unlike other systems compared in that
 paper. Contemporary proposals, such as SuperWeb
 \cite{alexandrov1997superweb} also propose a translation of classical
 distribution techniques, with complicated architectures that include
@@ -252,7 +263,7 @@ to be installed in the browser. JavaScript, however,
 browser-embedded language and has, since then, become a set of standards
 \cite{ECMA-262} that include the language and its components. Since
 early on it was adopted by the industry and also by scientists,
-who used them for creating a  EA on
+who used them for creating an EA on
 the browser as early as 1998 \cite{jj-ppsn98}. 
 
 JavaScript can be used either for unwitting
@@ -270,7 +281,9 @@ threshold to join them is much lower.
 
 There have been relatively few efforts to analyze what is the
 performance that can be obtained from these volunteer computing
-effort. There was some attempt initially to dodge the issue by making
+efforts. 
+%Too many efforts?
+There was some attempt initially to dodge the issue by making
 the algorithm adaptive to the kind of resources allotted to it
 \cite{milani2004online}, which is actually not such a big problem in
 algorithms such as the EA that can easily be
@@ -302,7 +315,20 @@ or desktop computers in a research center. The methodology used to
 gather resources and the algorithms used will be described next, as
 well as the results obtained with the setup.
 
+%El último párrafo podría se más preciso. Es el único experimento que utiliza recursos heterogeneos
+%empleando las tecnologías estándar (JavaScript, JSON, Cookies, etc.) mencionadas previamente.
 
+%Si no se extiende mucho se podría también hablar de la conexión con Cloud Computing,
+%se discuten las ventajas de utilizar Javascript para acceder a recursos donados por voluntarios
+%pero falta hablar de como se explotaría el recurso Cloud. Lo digo por el titulo de Volunteers in the Clouds. Tal vez
+%se deba hablar de la posibilidad de escalar los sistemas a bajo costo o según la demanda.
+
+%Algo novedoso es el uso de Javascript no solo en el cliente si no también en el Servidor.
+%Como el tema es el Software creo que esto se tiene que resaltar. En los sistemas anteriores 
+%se tenía lo de Java en el cliente, pero en el server estaba lo grueso del trabajo:
+% Administrar el server - Ahora más fácil con cloud
+% Programar el server side - Ahora se puede usar JavaScript también para eso. 
+ 
 
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
