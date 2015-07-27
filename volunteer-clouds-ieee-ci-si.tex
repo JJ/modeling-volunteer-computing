@@ -208,10 +208,18 @@ compiled programs. The ATLAS system
 with another language called Cilk; all these papers indicated that
 the introduction of an architecture-independent system such as the
 Java virtual machine opened the doors for ultrascale, Internet-wide,
-metacomputers. 
+metacomputers. This paper also establishes the desirable features of
+any {\em global computing} infrastructure, that can also be applied to
+distributed evolutionary computation experiments that rely in
+volunteer computing: Scalability, heterogeneity, fault tolerance,
+adaptive parallelism, safety, anonymity, hierarchy, ease of use and
+reasonable performance. Of all these, probably {\em hierarchy}, that
+is, the capability of using preferentially resources in the same
+organization could be either disregarded or included in adaptivity,
+leaving us with eight desirable properties. 
 
-Using any of these languages allowed the creation
-of client-server applications in the browser, provided that the user had
+Fulfilling these properties could be achieved using any of the
+languages, and associated technologies, mentioned above, provided that the user had
 installed the required virtual machine plugin first, but with the advantage of
 providing a single and universal way of accessing resources via an
 URI, something that is not guaranteed using desktop applications. However, this style of
@@ -230,7 +238,8 @@ paper was later extended and published in a journal in 1999
 already in the early stages of the web the possibility of
 browser-based distributed computing was already researched. 
 
-One of the first papers by Soares et al. used Java, and in their paper \cite{soares1998get} they
+One of the first papers by Soares et al. used Java, and in their paper
+\cite{soares1998get} they 
 describe JET, a system that supports 
 the execution of parallel applications over the Internet. This system has 
 a comprehensive statistics support, allowing its use for science,
