@@ -195,8 +195,9 @@ The web used as a resource for distributed computing has a
 long history, and almost since the beginning it was used for 
 evolutionary computation even before JavaScript was
 introduced as a browser-based scripting language in 1997. Before that
-time other procedures,
+time other technologies,
 %other technologies?
+% changed - JJ
  including Flash animations and VBScript, ActiveX or Java applets were
 used; for instance, Java was pointed out in \cite{soares1998get} as a ``language for
 internet'', providing some advantages such as multi-architecture compatibility or 
@@ -219,8 +220,7 @@ as early as 1996 by Baratloo et al. in their system Charlotte:
 \cite{baratloo1996charlotte}. This system, which implemented a
 distributed shared memory, was inspired by previous work
 on parallel computing systems PVM and MPI, but solved most issues by
-using the Java virtual machine embedded in browser,
-% by using the browser's embedded Java virtual machine,
+using the Java virtual machine embedded in the browser,
 which provides
 security to the user, uniformity of computing environment
 independently of the operating system and  access to a common data store in the
@@ -228,7 +228,6 @@ server. Other issues such as scheduling are solved on the server. This
 paper was later extended and published in a journal in 1999
 \cite{baratloo1999charlotte}, but it is interesting to note that
 already in the early stages of the web the possibility of
-%already in the early stages of the web, the possibility of
 browser-based distributed computing was already researched. 
 
 One of the first papers by Soares et al. used Java, and in their paper \cite{soares1998get} they
@@ -237,7 +236,6 @@ the execution of parallel applications over the Internet. This system has
 a comprehensive statistics support, allowing its use for science,
 since it allows the collection of algorithm analytics by the
 experiment designer, unlike the other systems compared in that
-%experiment designer, unlike other systems compared in that
 paper. Contemporary proposals, such as SuperWeb
 \cite{alexandrov1997superweb} also propose a translation of classical
 distribution techniques, with complicated architectures that include
@@ -279,11 +277,12 @@ platforms avoid single points of failure (the server) but, since they
 need a certain amount of infrastructure installed to start, the
 threshold to join them is much lower. 
 
-There have been relatively few efforts to analyze what is the
+There have been relatively few efforts to analyze the
 performance that can be obtained from these volunteer computing
 efforts. 
 %Too many efforts?
-There was some attempt initially to dodge the issue by making
+% No, too few - JJ
+There were some initial attempts  to dodge the issue by making
 the algorithm adaptive to the kind of resources allotted to it
 \cite{milani2004online}, which is actually not such a big problem in
 algorithms such as the EA that can easily be
@@ -293,9 +292,7 @@ fault-tolerance of volunteer algorithms
 \cite{gonzalez2010characterizing} which can, of course, be studied in
 a more general distributed computing context
 \cite{nogueras2015studying} or including it in a more general study of
-performance of the EA itself %Con tu permiso lo paso a acrÃ³nimos para
-                             %que no sea tan largo el pÃ¡rrafo. FERGU
-%OK - JJ
+performance of the EA itself
 \cite{DBLP:journals/gpem/LaredoBGVAGF14}. But the raw material of
 volunteer computing, number of users and the time spent in the
 computation in browser-based volunteer computing experiments, have only been studied in a limited way in
@@ -321,7 +318,10 @@ well as the results obtained with the setup.
 %Si no se extiende mucho se podría también hablar de la conexión con Cloud Computing,
 %se discuten las ventajas de utilizar Javascript para acceder a recursos donados por voluntarios
 %pero falta hablar de como se explotaría el recurso Cloud. Lo digo por el titulo de Volunteers in the Clouds. Tal vez
-%se deba hablar de la posibilidad de escalar los sistemas a bajo costo o según la demanda.
+%se deba hablar de la posibilidad de escalar los sistemas a bajo costo
+%o según la demanda.
+
+% Si te animas, propón un párrafo - JJ
 
 %Algo novedoso es el uso de Javascript no solo en el cliente si no también en el Servidor.
 %Como el tema es el Software creo que esto se tiene que resaltar. En los sistemas anteriores 
