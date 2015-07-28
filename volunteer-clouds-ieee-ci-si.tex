@@ -131,7 +131,7 @@ e-mail: (mario@tectijuana.edu.mx).}
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
 \begin{abstract}
-Volunteer computing is used routinely in science and enterprise but it
+Volunteer computing is used routinely in science and enterprise, but it
 still has a long way to go if it is going to become mainstream in the
 same way the cloud in general has. The lack of general purpose tools
 with analytics built in could be one of the reasons why this is so, as
@@ -141,7 +141,7 @@ evolutionary algorithms, written entirely in JavaScript, which needs
 minimal server support to work and is able to support persistent,
 asynchronous, distributed evolutionary algorithms running in the
 browser. The architecture, along with some initial results on the expected performance and scaling
-behaviour is presented. We also use the algorithm analytics to try and
+behavior is presented. We also use the algorithm analytics to try and
 create a model of user behavior which, as is usual in this kind of
 computing models, follow a Weibull distribution. 
 \end{abstract}
@@ -210,7 +210,7 @@ the introduction of an architecture-independent system such as the
 Java virtual machine opened the doors for ultrascale, Internet-wide,
 metacomputers. This paper also establishes the desirable features of
 any {\em global computing} infrastructure, that can also be applied to
-distributed evolutionary computation experiments that rely in
+distributed evolutionary computation experiments that rely on
 volunteer computing: Scalability, heterogeneity, fault tolerance,
 adaptive parallelism, safety, anonymity, hierarchy, ease of use and
 reasonable performance. Of all these, probably {\em hierarchy}, that
@@ -272,7 +272,7 @@ to be installed in the browser. JavaScript, however,
 \cite{flanagan2006javascript} was introduced in 1997 as a
 browser-embedded language and has, since then, become a set of standards
 \cite{ECMA-262} that include the language and its components. Since
-early on it was adopted by the industry and also by scientists,
+early on, it was adopted by the industry and also by scientists,
 who used them for creating an EA on
 the browser as early as 1998 \cite{jj-ppsn98}. 
 
@@ -303,7 +303,7 @@ the nodes available. Lately, several approaches have focused on the
 fault-tolerance of volunteer algorithms
 \cite{gonzalez2010characterizing} which can, of course, be studied in
 a more general distributed computing context
-\cite{nogueras2015studying} or including it in a more general study of
+\cite{nogueras2015studying} or including it in a more general study of the
 performance of the EA itself
 \cite{DBLP:journals/gpem/LaredoBGVAGF14}. But the raw material of
 volunteer computing, number of users and the time spent in the
@@ -318,7 +318,14 @@ there are many users that give a small amount of cycles, while there
 are just a few that give many cycles. This is in concordance with the
 results obtained in \cite{agajaj}.
 
-As far as we know, this paper presents the only experiment that uses computational
+%FERGU: añadido el siguiente párrafo y referencia para justificar el uso de JS
+Javascript is also compatible with the functional programming paradigm. According to 
+\cite{swanresearch2015}, the benefits of using this kind of paradigm in 
+metaheuristics optimization allows an improvement in communicability, 
+reproducibility, interoperability, automated assembly, knowledge engineering 
+and efficiency. 
+
+As far as we know, this paper presents the only experiment that uses computational %FERGU: yo no estaría tan seguro de esto
 resources that are as dissimilar as smartphones and powerful laptops
 or desktop computers in a research center. The methodology used to
 gather resources and the algorithms used will be described next, as
