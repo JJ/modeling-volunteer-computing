@@ -131,7 +131,7 @@ e-mail: (mario@tectijuana.edu.mx).}
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
 \begin{abstract}
-Volunteer computing is used routinely in science and enterprise, but it
+Volunteer computing is used routinely in science and industry, but it
 still has a long way to go if it is going to become mainstream in the
 same way the cloud in general has. The lack of general purpose tools
 with analytics built in could be one of the reasons why this is so, as
@@ -153,40 +153,48 @@ social networks, volunteer computing, metacomputing.
 \end{IEEEkeywords}
 
 \section{Introduction}
-% The very first letter is a 2 line initial drop letter followed
-% by the rest of the first word in caps.
-% 
-% form to use if the first word consists of a single letter:
-% \IEEEPARstart{A}{demo} file is ....
-% 
-% form to use if you need the single drop letter followed by
-% normal text (unknown if ever used by IEEE):
-% \IEEEPARstart{A}{}demo file is ....
-% 
-% Some journals put the first two words in caps:
-% \IEEEPARstart{T}{his demo} file is ....
-% 
-% Here we have the typical use of a "T" for an initial drop letter
-% and "HIS" in caps to complete the first word.
-\IEEEPARstart{T}{his} demo file is intended to serve as a ``starter file''
-for IEEE journal papers produced under \LaTeX\ using
-IEEEtran.cls version 1.8a and later.
-% You must have at least 2 lines in the paragraph with the drop letter
-% (should never be an issue)
-I wish you the best of success.
 
-\hfill mds
- 
-\hfill September 17, 2014
+\IEEEPARstart{N}{owadays}, there is a big and increasing  number of
+distributed evolutionary computation software frameworks available on
+the market, usually as open source systems. Most of these systems have
+two features: they are {\em desktop} applications, that is, they must
+be compiled or run directly on the operating system layer and, second,
+they assume that the nodes that are going to run the system are under
+your control or at least you have access to them.
 
-\subsection{Subsection Heading Here}
-Subsection text here.
+There is, then, space for systems that do not have any of those
+assumptions, such as the one presented in this paper, which will be
+provisionally named {\sf NodIO}. NodIO is first an application that
+runs in two tiers, a server and a client that can be possibly run on a
+browser. As such, it can be run in any computer that loads the web
+page where the client is embedded, including possibly many over which
+the scientist has no control. 
 
-% needed in second column of first page if using \IEEEpubid
-%\IEEEpubidadjcol
+When faced with the problem of diminishing funds for buying new
+hardware and continuous hardware failures of existing clusters and
+taking into account our experience of working with web applications,
+including JavaScript, from the beginning and other volunteer and
+unconventional distributed evolutionary computing systems, our group
+decided to create a new free framework that would allow anyone to
+create a volunteer distributed EC experiment using cloud resources as
+servers and browsers as clients. 
 
-\subsubsection{Subsubsection Heading Here}
-Subsubsection text here.
+These systems must solve a series of issues before even starting to
+measure performance; these issues are related to security as well as
+safety, which introduces a {\em social} aspect to the design of a
+computing system that makes it a {\em techno-social system}
+\cite{vespignani2009predicting}. In this paper our intention is to
+present the {\sf NodIO} framework and analyze it from two different
+angles: the purely technical angle, including the decisions that went
+into its features, and the social angle, to account on how the persons
+that voluntarily choose to enter the web page that runs the system
+determine its performance and how it can be modeled and, eventually,
+predicted.
+
+The rest of the paper is organized as follows. Next we present the
+state of the art in web-based distributed computation systems along
+with attempts to predict and model its behavior. 
+
 
 \section{State of the art}
 \label{sec:soa}
