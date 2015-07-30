@@ -411,6 +411,32 @@ system itself.
 
 \section{Description of the system}
 
+In general, a volunteer-based distributed evolutionary computation
+system based on the browser is simply a client-server architecture
+whose client is, or can be, embedded in the browser via
+JavaScript. All parts of the system are free and available with a free
+license from \url{https://github.com/JJ/splash-volunteer}.
+Thus, {\sf NodIO} has two parts:\begin{enumerate}
+\item A REST server, that is, a server that includes several remote
+  requests for storing and retrieving information (the CRUD cycle:
+  create, request, update and delete) from the server. The information
+  is of two kinds: {\em problem} based, that is, related to the
+  evolutionary algorithm such as {\tt PUT}ing a chromosome in or {\tt
+    GET}ing a random chromosome from it. It also peforms logging
+  duties, but is basically a very lightweight and hign performance
+  data store \cite{jj:idc:lowcost}.
+\item A client that includes the evolutionary algorithm as 
+  JavaScript code embedded in a web page that displays graphs and some
+  additional links and information on the experiment. This code runs
+  an evolutionary algorithm {\em island} starting with random
+  population and sending, every 100 generations, the best individual
+  back to the server (via a {\tt PUT} request) and requesting a random
+  individual from the server (via a {\tt GET} request).
+\end{enumerate}
+
+The researcher only has to change a function to solve a different
+problem, in this case the classical Trap function has been
+used. JavaScript is a functional language and 
 
 \section{Conclusion}
 The conclusion goes here.
