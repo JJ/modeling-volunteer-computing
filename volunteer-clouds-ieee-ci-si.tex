@@ -114,6 +114,8 @@
 % was not built to handle multiple paragraphs
 %
 
+% [Pedro] no aparecía el primer autor. En cualquier caso, lo dejo comentado a continuación.
+
 %  \author{Juan-J.~Merelo, %Add your name here
 %  \thanks{JJ Merelo is with the Dept. of Computer Architecture and Technology and CITIC University of Granada
 %  e-mail: (jmerelo@ugr.es).}
@@ -124,11 +126,12 @@
 %  e-mail: (mario@tectijuana.edu.mx).}
 %  }% <-this % stops a space
 
-\author{Juan-J.~Merelo*$^1$, Mario Garcia-Valdez$^2$, Pedro A. Castillo$^1$
+
+\author{Juan-J.~Merelo*$^1$, Mario Garcia-Valdez$^2$, Pedro A. Castillo$^1$, Pablo Garc\'a-S\'anchez$^1$
 \thanks{Manuscript submitted for review on \today.}%
 \thanks{$^1$Dept. of Computer Architecture and Technology and CITIC University of Granada}%
 \thanks{$^2$Dept. of Graduate Studies at Instituto Tecnologico de Tijuana}%
-\thanks{E-mail addresses: jmerelo@ugr.es , mario@tectijuana.edu.mx , pacv@ugr.es}%
+\thanks{E-mail addresses: jmerelo@ugr.es , mario@tectijuana.edu.mx , pacv@ugr.es, pablogarcia@ugr.es}%
 \thanks{*Corresponding author.}%
 }
 
@@ -141,7 +144,7 @@
 \begin{abstract}
 Volunteer computing is used routinely in science and industry, but it
 still has a long way to go if it is going to become mainstream in the
-same way the cloud in general has. The lack of general purpose tools
+same way the cloud technologies in general have. The lack of general purpose tools
 with analytics built in could be one of the reasons why this is so, as
 well as the lack of proofs of concept. That is why in this paper we
 present NodIO, a client-server architecture for distributed
@@ -149,7 +152,7 @@ evolutionary algorithms, written entirely in JavaScript, which needs
 minimal server support to work and is able to support persistent,
 asynchronous, distributed evolutionary algorithms running in the
 browser. The architecture, along with some initial results on the expected performance and scaling
-behavior is presented. We also use the algorithm analytics to try and
+behavior is presented. We also use the algorithm analytics to try and  %[Pedro] I don't understand what "the algorithm analytics" stand for???
 create a model of user behavior which, as is usual in this kind of
 computing models, follow a Weibull distribution. 
 \end{abstract}
@@ -160,6 +163,8 @@ Evolutionary algorithm, distributed computing, internet computing,
 social networks, volunteer computing, metacomputing. 
 \end{IEEEkeywords}
 
+
+%---------------------------------------------------------------
 \section{Introduction}
 
 \IEEEPARstart{N}{owadays}, there is a big and increasing number of
@@ -173,12 +178,12 @@ your control or at least you have access to them.
 There is, then, space for systems that do not have any of those
 assumptions, such as the one presented in this paper, which will be
 provisionally named {\sf NodIO}. NodIO is first an application that
-runs in two tiers, a server and a client that can be possibly run on a
+runs in two tiers, a server and a client that can be possibly run on a  % [Pedro] Both the server and the client in browsers? different browsers as I understand?
 browser. As such, it can be run in any computer that loads the web
 page where the client is embedded, including possibly many over which
 the scientist has no control. 
 
-When faced with the problem of diminishing funds for buying new
+When faced with the problem of diminishing funds for buying new     % [Pedro] This sentence is so so long. I would split it in two sentences.
 hardware and continuous hardware failures of existing clusters and
 taking into account our experience of working with web applications,
 including JavaScript, from the beginning and other volunteer and
@@ -199,11 +204,16 @@ that voluntarily choose to enter the web page that runs the system
 determine its performance and how it can be modeled and, eventually,
 predicted.
 
-The rest of the paper is organized as follows. Next we present the
-state of the art in web-based distributed computation systems along
-with attempts to predict and model its behavior. 
+The rest of the paper is organized as follows: Next we present the
+state of the art (Section \ref{sec:soa}) in web-based distributed 
+computation systems along with attempts to predict and model its behavior. 
+Then, a detailed description of the proposed system is presented 
+in Section \ref{sec:description}, followed by the experiments and 
+obtained results in Section \ref{sec:experiments}.
+Finally, conclusions and future work are presented in Section \ref{sec:conclusion}. 
 
 
+%---------------------------------------------------------------
 \section{State of the art}
 \label{sec:soa}
 
@@ -227,7 +237,7 @@ Java virtual machine opened the doors for ultrascale, Internet-wide,
 metacomputers. This paper also establishes the desirable features of
 any {\em global computing} infrastructure, that can also be applied to
 distributed evolutionary computation experiments that rely on
-volunteer computing: Scalability, heterogeneity, fault tolerance,
+volunteer computing: scalability, heterogeneity, fault tolerance,
 adaptive parallelism, safety, anonymity, hierarchy, ease of use and
 reasonable performance. Of all these, probably {\em hierarchy}, that
 is, the capability of using preferentially resources in the same
@@ -312,18 +322,21 @@ to the cloud provider. Another advantage is that they enable the provisioning of
 is available in most laboratories, allowing researches to 
 scale algorithms at reasonable costs. Researchers have proposed the use of 
 public clouds such as Amazon EC2 \cite{CloudScale}, Google App Engine\cite{di2013towards} 
-and DropBox~\cite{DBLP:conf/cec/ArenasGMCRL11}. The use of JavaScript to implement server side components, 
+and DropBox~\cite{mericloud}. The use of JavaScript to implement server side components, %FERGU: he puesto mejor el de revista en lugar del del CEC
 gives software developers certain advantages in the cloud paradigm. JavaScript is a first-class citizen
-in most Platforms as a Service (PaaS) as many support the nodejs framework. Also many web services
+in most Platforms as a Service (PaaS) as many support the Node.js framework 
+\footnote{\url{https://strongloop.com/strongblog/a-comparison-of-node-js-paas-hosting-providers/}}. Also many web services %FERGU: he validado esta frase con un footnote, pero si quieres lo paso a referencias
 have native JavaScript libraries and use JSON for data interchange. Another advantage is that 
-Developers can use the same software tools for both client and server side development.
-%Ayuda con la mini conclusion
+developers can use the same software tools for both client and server side development. 
+Besides the advantages to deal with the same language in the full stack as previously mentioned, 
+this also facilitates the interoperability of the exchanged data types.
+%Ayuda con la mini conclusion FERGU: mira la última frase de arriba
 
-In the work presented in this paper, JavaScript was used in the full
+In the work presented in this paper, JavaScript was used in the full 
 stack, which has the advantage of using the same code for writing
 desktop or command line and browser clients, both based in the EC
-library NodEO \cite{DBLP:conf/gecco/GuervosVGES14}. This saves time when writing code and leverages
-expertise acquired in the library itself. 
+library NodEO \cite{DBLP:conf/gecco/GuervosVGES14}. This saves time when writing code and leverages %FERGU: párrafo en pasado "was used" y presente "saves"
+expertise acquired in the library itself. %FERGU: tienes info de LoC usadas para la sección experimental y justificar esta frase?
 %The proposed software has the advantage of full stack JavaScript
 %development..
 %FERGU: añadido el siguiente párrafo y referencia para justificar el uso de JS
@@ -409,7 +422,9 @@ paper we will perform different experiments in different setups and
 will try to come up with a more precise model. Next we describe the
 system itself. 
 
+%---------------------------------------------------------------
 \section{Description of the system}
+\label{sec:description}
 
 In general, a volunteer-based distributed evolutionary computation
 system based on the browser is simply a client-server architecture
@@ -438,10 +453,19 @@ The researcher only has to change a function to solve a different
 problem, in this case the classical Trap function has been
 used. JavaScript is a functional language and 
 
+%---------------------------------------------------------------
+\section{Experiments and obtained results}
+\label{sec:experiments}
+
+
+%---------------------------------------------------------------
 \section{Conclusion}
+\label{sec:conclusion}
+
 The conclusion goes here.
 
 
+%---------------------------------------------------------------
 % use section* for acknowledgment
 \section*{Acknowledgment}
 
