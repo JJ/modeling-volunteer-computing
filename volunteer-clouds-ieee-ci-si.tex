@@ -114,6 +114,8 @@
 % was not built to handle multiple paragraphs
 %
 
+% [Pedro] no aparecía el primer autor. En cualquier caso, lo dejo comentado a continuación.
+
 %  \author{Juan-J.~Merelo, %Add your name here
 %  \thanks{JJ Merelo is with the Dept. of Computer Architecture and Technology and CITIC University of Granada
 %  e-mail: (jmerelo@ugr.es).}
@@ -123,6 +125,7 @@
 %    \thanks{M Garcia-Valdez is with the Dept. of Graduate Studies at Instituto Tecnologico de Tijuana
 %  e-mail: (mario@tectijuana.edu.mx).}
 %  }% <-this % stops a space
+
 
 \author{Juan-J.~Merelo*$^1$, Mario Garcia-Valdez$^2$, Pedro A. Castillo$^1$, Pablo Garc\'a-S\'anchez$^1$
 \thanks{Manuscript submitted for review on \today.}%
@@ -141,7 +144,7 @@
 \begin{abstract}
 Volunteer computing is used routinely in science and industry, but it
 still has a long way to go if it is going to become mainstream in the
-same way the cloud in general has. The lack of general purpose tools
+same way the cloud technologies in general have. The lack of general purpose tools
 with analytics built in could be one of the reasons why this is so, as
 well as the lack of proofs of concept. That is why in this paper we
 present NodIO, a client-server architecture for distributed
@@ -149,7 +152,7 @@ evolutionary algorithms, written entirely in JavaScript, which needs
 minimal server support to work and is able to support persistent,
 asynchronous, distributed evolutionary algorithms running in the
 browser. The architecture, along with some initial results on the expected performance and scaling
-behavior is presented. We also use the algorithm analytics to try and
+behavior is presented. We also use the algorithm analytics to try and  %[Pedro] I don't understand what "the algorithm analytics" stand for???
 create a model of user behavior which, as is usual in this kind of
 computing models, follow a Weibull distribution. 
 \end{abstract}
@@ -173,12 +176,12 @@ your control or at least you have access to them.
 There is, then, space for systems that do not have any of those
 assumptions, such as the one presented in this paper, which will be
 provisionally named {\sf NodIO}. NodIO is first an application that
-runs in two tiers, a server and a client that can be possibly run on a
-browser. As such, it can be run on any computer that loads the web
+runs in two tiers, a server and a client that can be possibly run on a  % [Pedro] Both the server and the client in browsers? different browsers as I understand?
+browser. As such, it can be run in any computer that loads the web
 page where the client is embedded, including possibly many over which
 the scientist has no control. 
 
-When faced with the problem of diminishing funds for buying new
+When faced with the problem of diminishing funds for buying new     % [Pedro] This sentence is so so long. I would split it in two sentences.
 hardware and continuous hardware failures of existing clusters and
 taking into account our experience of working with web applications,
 including JavaScript, from the beginning and other volunteer and
