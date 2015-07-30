@@ -350,18 +350,7 @@ fault-tolerance of volunteer algorithms
 a more general distributed computing context
 \cite{nogueras2015studying} or including it in a more general study of the
 performance of the EA itself
-\cite{DBLP:journals/gpem/LaredoBGVAGF14}. But the raw material of
-volunteer computing, number of users and the time spent in the
-computation in browser-based volunteer computing experiments, have only been studied in a limited way in
-\cite{DBLP:journals/gpem/LaredoBGVAGF14} on the basis of a single
-run. Studies using volunteer computing platforms such as SETI@home
-\cite{javadi2009mining} found out that the Weibull, log-normal and Gamma distribution
-modeled quite well the availability of resources in several clusters
-of that framework; the shape of those distributions is a skewed bell
-with more resources in the {\em low} areas than in the high areas:
-there are many users that give a small amount of cycles, while there
-are just a few that give many cycles. This is in concordance with the
-results obtained in \cite{agajaj}.
+\cite{DBLP:journals/gpem/LaredoBGVAGF14}. 
 
 %Mario: Estaba pensando que otra justificación muy fuerte para el uso de JS sobre plug-ins 
 %ha sido la seguridad ya que estos presentan otra fuente de vulnerabilidad. Para complicar las cosas a veces (Flash, ActiveX) 
@@ -402,103 +391,23 @@ On the other hand, measuring performance of the resulting metacomputer
 involves understanding the dynamics of this kind of systems. Initial
 work was done for peer to peer systems by Stutzbach et
 al. \cite{stutzbach2006understanding} and extended to volunteer
-computing by Laredo et al. \cite{churn08,laredo2008rcp}.
-
-%------------------------------------------------------------------------------------
-% An example of a floating figure using the graphicx package.
-% Note that \label must occur AFTER (or within) \caption.
-% For figures, \caption should occur after the \includegraphics.
-% Note that IEEEtran v1.7 and later has special internal code that
-% is designed to preserve the operation of \label within \caption
-% even when the captionsoff option is in effect. However, because
-% of issues like this, it may be the safest practice to put all your
-% \label just after \caption rather than within \caption{}.
-%
-% Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
-% option should be used if it is desired that the figures are to be
-% displayed while in draft mode.
-%
-%\begin{figure}[!t]
-%\centering
-%\includegraphics[width=2.5in]{myfigure}
-% where an .eps filename suffix will be assumed under latex, 
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-%\caption{Simulation results for the network.}
-%\label{fig_sim}
-%\end{figure}
-
-% Note that IEEE typically puts floats only at the top, even when this
-% results in a large percentage of a column being occupied by floats.
-
-
-% An example of a double column floating figure using two subfigures.
-% (The subfig.sty package must be loaded for this to work.)
-% The subfigure \label commands are set within each subfloat command,
-% and the \label for the overall figure must come after \caption.
-% \hfil is used as a separator to get equal spacing.
-% Watch out that the combined width of all the subfigures on a 
-% line do not exceed the text width or a line break will occur.
-%
-%\begin{figure*}[!t]
-%\centering
-%\subfloat[Case I]{\includegraphics[width=2.5in]{box}%
-%\label{fig_first_case}}
-%\hfil
-%\subfloat[Case II]{\includegraphics[width=2.5in]{box}%
-%\label{fig_second_case}}
-%\caption{Simulation results for the network.}
-%\label{fig_sim}
-%\end{figure*}
-%
-% Note that often IEEE papers with subfigures do not employ subfigure
-% captions (using the optional argument to \subfloat[]), but instead will
-% reference/describe all of them (a), (b), etc., within the main caption.
-% Be aware that for subfig.sty to generate the (a), (b), etc., subfigure
-% labels, the optional argument to \subfloat must be present. If a
-% subcaption is not desired, just leave its contents blank,
-% e.g., \subfloat[].
-
-
-% An example of a floating table. Note that, for IEEE style tables, the
-% \caption command should come BEFORE the table and, given that table
-% captions serve much like titles, are usually capitalized except for words
-% such as a, an, and, as, at, but, by, for, in, nor, of, on, or, the, to
-% and up, which are usually not capitalized unless they are the first or
-% last word of the caption. Table text will default to \footnotesize as
-% IEEE normally uses this smaller font for tables.
-% The \label must come after \caption as always.
-%
-%\begin{table}[!t]
-%% increase table row spacing, adjust to taste
-%\renewcommand{\arraystretch}{1.3}
-% if using array.sty, it might be a good idea to tweak the value of
-% \extrarowheight as needed to properly center the text within the cells
-%\caption{An Example of a Table}
-%\label{table_example}
-%\centering
-%% Some packages, such as MDW tools, offer better commands for making tables
-%% than the plain LaTeX2e tabular which is used here.
-%\begin{tabular}{|c||c|}
-%\hline
-%One & Two\\
-%\hline
-%Three & Four\\
-%\hline
-%\end{tabular}
-%\end{table}
-
-
-% Note that the IEEE does not put floats in the very first column
-% - or typically anywhere on the first page for that matter. Also,
-% in-text middle ("here") positioning is typically not used, but it
-% is allowed and encouraged for Computer Society conferences (but
-% not Computer Society journals). Most IEEE journals/conferences use
-% top floats exclusively. 
-% Note that, LaTeX2e, unlike IEEE journals/conferences, places
-% footnotes above bottom floats. This can be corrected via the
-% \fnbelowfloat command of the stfloats package.
-
+computing by Laredo et al. \cite{churn08,laredo2008rcp}. But the raw material of
+volunteer computing, number of users and the time spent in the
+computation in browser-based volunteer computing experiments, have only been studied in a limited way in
+\cite{DBLP:journals/gpem/LaredoBGVAGF14} on the basis of a single
+run. Studies using volunteer computing platforms such as SETI@home
+\cite{javadi2009mining} found out that the Weibull, log-normal and Gamma distribution
+modeled quite well the availability of resources in several clusters
+of that framework; the shape of those distributions is a skewed bell
+with more resources in the {\em low} areas than in the high areas:
+there are many users that give a small amount of cycles, while there
+are just a few that give many cycles. This is in concordance with the
+results obtained in \cite{agajaj}. Our initial tests indicate that
+this kind of distribution might be the most appropriate to describe
+user participation in several different metrics. However, in this
+paper we will perform different experiments in different setups and
+will try to come up with a more precise model. Next we describe the
+system itself. 
 
 \section{Description of the system}
 
