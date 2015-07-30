@@ -167,7 +167,7 @@ social networks, volunteer computing, metacomputing.
 %---------------------------------------------------------------
 \section{Introduction}
 
-\IEEEPARstart{N}{owadays}, there is a big and increasing number of
+\IEEEPARstart{N}{owadays} there is a big and increasing number of
 distributed evolutionary computation software frameworks available on
 the market, usually as open source systems. Most of these systems have
 two features: they are {\em desktop} applications, that is, they must
@@ -280,7 +280,7 @@ distribution techniques, with complicated architectures that include
 brokers for resource discovery. It is focused, however, in solving the
 issues involved in browser-based computing and also in making a system
 that is able to work across different classes of computers, mentioning
-SPARCstations and Windows-95 computers. Interestingly enough, this
+SPARCstations and PCs with Windows-95. Interestingly enough, this
 paper incorporates a discussion on the economic model, paving the way
 for the for-profit distributed computing systems that later on
 arose. On the other hand, the potential for volunteer computing using
@@ -371,8 +371,6 @@ performance of the EA itself
 
 As far as we know, this paper presents one of the few experiments that
 uses computational 
-%FERGU: yo no estaría tan seguro de esto
-% Changed - JJ
 resources that are as dissimilar as smartphones and powerful laptops
 or desktop computers in a research center. The methodology used to
 gather resources and the algorithms used will be described next, as
@@ -439,19 +437,68 @@ Thus, {\sf NodIO} has two parts:\begin{enumerate}
   evolutionary algorithm such as {\tt PUT}ing a chromosome in or {\tt
     GET}ing a random chromosome from it. It also peforms logging
   duties, but is basically a very lightweight and hign performance
-  data store \cite{jj:idc:lowcost}.
+  data store \cite{jj:idc:lowcost}. The server has the capability to
+  run a single experiment, storing the chromosomes in a data structure
+  that is reset when the solution is found. 
 \item A client that includes the evolutionary algorithm as 
   JavaScript code embedded in a web page that displays graphs and some
   additional links and information on the experiment. This code runs
   an evolutionary algorithm {\em island} starting with random
   population and sending, every 100 generations, the best individual
   back to the server (via a {\tt PUT} request) and requesting a random
-  individual from the server (via a {\tt GET} request).
+  individual from the server (via a {\tt GET} request). Apart from
+  these constants, the algorithm can be run in many different ways:
+  stopping when solution is found or, as we have done in this paper,
+  using WebWorkers, which run in the background even if the webpage
+  with the experiment is not currently on focus. 
 \end{enumerate}
 
 The researcher only has to change a function to solve a different
 problem, in this case the classical Trap function has been
-used. JavaScript is a functional language and 
+used. JavaScript is a functional language and declaring a different
+function and handling at the creation of the algorithm object, called
+{\tt Classic} is the only change needed to work with a different
+problem. Let us see how this system addresses the different challenges
+outlined in the State of the Art:\begin{itemize}
+\item {\em Scalability} is provided via the use of a lightweight and
+  high-peformance, single-threaded, server based in NodeJS and
+  Express.js. Although this single server is a bottleneck since it
+  will eventually saturate, the fact that it runs as a single thread
+  allows the service of many requests. In fact, a limit with the
+  number of simultaneous requests will be reached but so far it has
+  not been found, unlike what we found in our previous systems, DCoR,
+  \cite{gecco07:workshop:dcor}, which had a low scalability.
+\item The system is {\em heterogeneous} since it does not need any
+  performance, operating system or even browser requirement: anyone
+  visiting the page can load the algorithm.
+\item {\em Fault tolerance} is always an issue, and in this case, the
+  single point of failure would be the server: the system, as such,
+  would break down if the server fails. However, the individual
+  islands in every browser would continue running, and having access
+  to just one of them would allow the local algorithm to proceed. In
+  fact, the island does not need the server to run: it runs locally if
+  needed, with the only exception that it is obviously unable to
+  communicate with the rest of the islands.
+\item {\em Adaptiveness} is achieved simply through autonomous
+  operation of every individual island and no synchronization
+  mechanism. The islands in the system are, in fact, unaware of each
+  other, communicating only through the server.
+\item Since the algorithm is run on the browser, {\em safety} is
+  achieved through its sandbox mechanisms. The user is thus assured
+  that there is no unsafe access either to their local files or even
+  to more resources that the browser should be allotted.
+\item Running the algorithm is just a matter of loading the page,
+  which means that operation is totally {\em anonymous}. For the same
+  reason, {\em ease of use} is optimal, being as easy as simply
+  clicking on an URL and available to anyone with access to a browser.
+\item {\em Reasonable performance} is not ensured. In fact, we should
+  make sure that there is a reasonable amount of clients over which
+  the performance achieved is bigger than what you would obtain in
+  your own desktop system. If that is not done, it is a pointless
+  academic exercise.
+\end{itemize}
+
+This last point is what we will try to prove next.
 
 %---------------------------------------------------------------
 \section{Experiments and obtained results}
