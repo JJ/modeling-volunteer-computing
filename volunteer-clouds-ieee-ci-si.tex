@@ -219,8 +219,6 @@ long history, and almost since the beginning it was used for
 evolutionary computation even before JavaScript was
 introduced as a browser-based scripting language in 1997. Before that
 time other technologies,
-%other technologies?
-% changed - JJ
  including Flash animations and VBScript, ActiveX or Java applets were
 used; for instance, Java was pointed out in \cite{soares1998get} as a ``language for
 internet'', providing some advantages such as multi-architecture compatibility or 
@@ -502,6 +500,14 @@ This last point is what we will try to prove next.
 \section{Experiments and obtained results}
 \label{sec:experiments}
 
+\begin{figure}[!t]
+\centering
+\includegraphics[width=2.5in]{myfigure}
+\caption{Comparison of time to solution for the baseline system, using a {\tt
+    node.js} client, for different population sizes. They only compare
+runs in which solution has been found.}
+%\label{fig_sim}
+%\end{figure}
 First we establish the baseline performance by running the
 evolutionary algorithm in a desktop client written using {\sf NodEO},
 the node.js evolutionary algorithm library. This experiment tries to
@@ -512,7 +518,11 @@ time. The algorithm was run until the solution (a string with all
 ones) was found or five millions evaluations had been performed. It
 took around a minute, on average, that is $68.9694$ seconds, to
 perform the fifty runs. In this experiment only 33, that is, 66\% were
-successful. 
+successful. The experiments were repeated for population $p=1024$,
+with success rate upgraded to 100\%. Results for these two experiments
+are shown in Figure \ref{fig:baseline}.
+
+
 
 
 %---------------------------------------------------------------
