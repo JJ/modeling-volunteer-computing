@@ -460,23 +460,23 @@ Figure \ref{fig:system} describes the general system architecture.
 
 
 The researcher only has to change a function to solve a different
-problem, in this case the classical Trap function has been
+problem, in this case the classical Trap function has been %FERGU: cita a Trap function
 used. JavaScript is a functional language and declaring a different
-function and handling at the creation of the algorithm object, called
+function and handling at the creation of the algorithm object, called %FERGU: poner algo tras el handling: handling it?
 {\tt Classic} is the only change needed to work with a different
 problem. Let us see how this system addresses the different challenges
 outlined in the State of the Art:\begin{itemize}
 \item {\em Scalability} is provided via the use of a lightweight and
-  high-peformance, single-threaded, server based in NodeJS and
+  high-performance, single-threaded, server based in NodeJS and
   Express.js. Although this single server is a bottleneck since it
   will eventually saturate, the fact that it runs as a single thread
   allows the service of many requests. In fact, a limit with the
-  number of simultaneous requests will be reached but so far it has
+  number of simultaneous requests will be reached, but so far it has
   not been found, unlike what we found in our previous systems, DCoR,
   \cite{gecco07:workshop:dcor}, which had a low scalability.
 \item The system is {\em heterogeneous} since it does not need any
   performance, operating system or even browser requirement: anyone
-  visiting the page can load the algorithm.
+  visiting the page, even from mobile devices, can load the algorithm. %Fergu: puesto lo de mobile devices para venderlo aún mejor
 \item {\em Fault tolerance} is always an issue, and in this case, the
   single point of failure would be the server: the system, as such,
   would break down if the server fails. However, the individual
