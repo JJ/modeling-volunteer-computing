@@ -175,19 +175,23 @@ your control or at least you have access to them.
 There is, then, space for systems that do not have any of those
 assumptions, such as the one presented in this paper, which will be
 provisionally named {\sf NodIO}. NodIO is first an application that
-runs in two tiers, a server and a client that can be possibly run on a  % [Pedro] Both the server and the client in browsers? different browsers as I understand?
+runs in two tiers, a server and a client, the latter  can be possibly
+run on a  % [Pedro] Both the server and the client in browsers?
+          % different browsers as I understand?  No, server in
+          % server, client in browser, although there's nothing that
+          % can't be done in a browser. 
 browser. As such, it can be run in any computer that loads the web
 page where the client is embedded, including possibly many over which
 the scientist has no control. 
 
-When faced with the problem of diminishing funds for buying new     % [Pedro] This sentence is so so long. I would split it in two sentences.
-hardware and continuous hardware failures of existing clusters and
-taking into account our experience of working with web applications,
-including JavaScript, from the beginning and other volunteer and
-unconventional distributed evolutionary computing systems, our group
-decided to create a new free framework that would allow anyone to
+Some time ago, our group faced  the problem of diminishing funds for buying new     % [Pedro] This sentence is so so long. I would split it in two sentences.
+hardware and continuous hardware failures of existing
+clusters. Considering this, we leveraged our experience of working
+with web applications, including JavaScript, since their inception and other volunteer and
+unconventional distributed evolutionary computing systems, and we 
+decided to designd and relase a new free framework that would allow anyone to
 create a volunteer distributed EC experiment using cloud resources as
-servers and browsers as clients. 
+servers and browsers as clients.
 
 These systems must solve a series of issues before even starting to
 measure performance; these issues are related to security as well as
