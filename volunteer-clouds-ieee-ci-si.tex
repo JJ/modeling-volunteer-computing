@@ -492,7 +492,7 @@ This last point is what we will try to prove next.
 \centering
 \includegraphics[width=12cm]{img/baseline-times.png}
 \caption{Comparison of time to solution for the baseline system, using a {\tt
-    node.js} client, for different population sizes. They only compare
+    node.js} client, for different population sizes. They only compaonre
 runs in which solution has been found.}
 \label{fig:baseline}
 \end{figure}
@@ -507,8 +507,19 @@ ones) was found or five millions evaluations had been performed. It
 took around a minute, on average, that is $68.9694$ seconds, to
 perform the fifty runs. In this experiment only 33, that is, 66\% were
 successful. The experiments were repeated for population $p=1024$,
-with success rate upgraded to 100\%. Results for these two experiments
+with success rate upgraded to 100\% and average duration $3.46
+seconds$. Results for these two experiments 
 are shown in Figure \ref{fig:baseline}.
+
+These two experiments establish first a baseline result, which will
+depend on the population. The volunteer computing experiments that we
+will describe next do not and can not have the same conditions, but
+the baseline is that if they eventually take longer than a basic
+destktop, their interest will be purely academic. We will try and
+prove next that that target performance can be achieved by carrying
+out several experiments in different conditions.
+
+\subsection{Volunteer evolutionary computation: first experiments and results}
 
 
 
