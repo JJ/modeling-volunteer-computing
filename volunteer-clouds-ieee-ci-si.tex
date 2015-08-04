@@ -421,8 +421,15 @@ system itself.
 
 In general, a volunteer-based distributed evolutionary computation
 system based on the browser is simply a client-server architecture
-whose client is, or can be, embedded in the browser via
-JavaScript. All parts of the system are free and available with a free
+whose client is, or can be, embedded in the browser via JavaScript. 
+
+% [Pedro] desde el abstract no se había nombrado "NodIO". 
+% Creo que en este párrafo debería introducirse, principalmente el nombre.
+% Añado una frase presentándolo:
+In this sense, in this paper we propose {\sf NodIO}, a PaaS based 
+volunteer computing system, whose architecture
+has been developed using JavaScript on both the client and server sides.
+All parts of the system are free and available with a free
 license from \url{https://github.com/JJ/splash-volunteer}.
 Thus, {\sf NodIO} has two parts:\begin{enumerate}
 \item A REST server, that is, a server that includes several remote
@@ -453,19 +460,19 @@ Figure \ref{fig:system} describes the general system architecture.
 \begin{figure}[!t]
 \centering
 \includegraphics[width=4in]{img/system.pdf}
-\caption{Description of the used system. Clients execute a JS EA in the browser, which, every 100 generations, sends the best individual and receives a random one from the server. } 
+\caption{Description of the proposed system. Clients execute a JS EA in the browser, which, every 100 generations, sends the best individual and receives a random one from the server. } 
 \label{fig:system}
 \end{figure}
 
 
 
 The researcher only has to change a function to solve a different
-problem, in this case the classical Trap function has been %FERGU: cita a Trap function
+problem, in this case the classical Trap function \cite{Ackley1987} has been 
 used. JavaScript is a functional language and declaring a different
 function and handling at the creation of the algorithm object, called %FERGU: poner algo tras el handling: handling it?
 {\tt Classic} is the only change needed to work with a different
 problem. Let us see how this system addresses the different challenges
-outlined in the State of the Art:\begin{itemize}
+outlined in the State of the Art (Section \ref{sec:soa}):\begin{itemize}
 \item {\em Scalability} is provided via the use of a lightweight and
   high-performance, single-threaded, server based in NodeJS and
   Express.js. Although this single server is a bottleneck since it
