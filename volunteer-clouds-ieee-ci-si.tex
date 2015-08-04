@@ -86,10 +86,10 @@
 \title{Volunteers in the Clouds: an Architecture for Low Cost and
   Potentially Massive Distributed Evolutionary Computation} 
 
-\author{Juan-J.~Merelo*$^1$, Mario Garcia-Valdez$^2$, Pedro A. Castillo$^1$, Pablo Garc\'ia-S\'anchez$^1$
+\author{Juan-J.~Merelo*$^1$, Mario Garc\'ia-Valdez$^2$, Pedro A. Castillo$^1$, Pablo Garc\'ia-S\'anchez$^1$
 \thanks{Manuscript submitted for review on \today.}%
 \thanks{$^1$Dept. of Computer Architecture and Technology and CITIC University of Granada}%
-\thanks{$^2$Dept. of Graduate Studies at Instituto Tecnologico de Tijuana}%
+\thanks{$^2$Dept. of Graduate Studies at Instituto Tecnol\'ogico de Tijuana}%
 \thanks{E-mail addresses: {\tt jmerelo@ugr.es}, {\tt
     mario@tectijuana.edu.mx}, {\tt pacv@ugr.es}, {\tt pablogarcia@ugr.es}}%
 \thanks{*Corresponding author.}%
@@ -131,7 +131,7 @@ be compiled or run directly on the operating system layer and, second,
 they assume that the nodes that are going to run the system are under
 your control or at least you have access to them.
 
-There is, then, space for systems that do not have any of those
+There is, then, space for systems that do not have any of those %[Mario] these assumptions? 
 assumptions, such as the one presented in this paper, which will be
 provisionally named {\sf NodIO}. NodIO is first an application that
 runs in two tiers, a server and a client, the latter  can be possibly
@@ -140,14 +140,18 @@ run on a  % [Pedro] Both the server and the client in browsers?
           % server, client in browser, although there's nothing that
           % can't be done in a browser. 
 browser. As such, it can be run in any computer that loads the web
-page where the client is embedded, including possibly many over which
+page where the client is embedded, including possibly many over which%[Mario]Quitar el possibly?   
 the scientist has no control. 
 
-Some time ago, our group faced  the problem of diminishing funds for
+Some time ago, our group faced the problem of diminishing funds for
 buying new     % [Pedro] This sentence is so so long. I would split it
                % in two sentences. [JJ] Done.
 hardware and continuous hardware failures of existing
-clusters. Considering this, we leveraged our experience of working
+clusters. 
+%[Mario] Otra opción: Some time ago, our group faced the problem of diminishing funds 
+%for buying new hardware. This was aggravated by the increasing maintance costs 
+%resulting from the continuous failures of existing clusters.
+Considering this, we leveraged our experience of working
 with web applications, including JavaScript, since their inception and other volunteer and
 unconventional distributed evolutionary computing systems, and we 
 decided to designd and relase a new free framework that would allow anyone to
@@ -155,7 +159,7 @@ create a volunteer distributed EC experiment using cloud resources as
 servers and browsers as clients.
 
 These systems must solve a series of issues before even starting to
-measure performance; these issues are related to security as well as
+measure their performance; these issues are related to security as well as
 safety, which introduces a {\em social} aspect to the design of a
 computing system that makes it a {\em techno-social system}
 \cite{vespignani2009predicting}. In this paper our intention is to
@@ -399,20 +403,23 @@ whose client is, or can be, embedded in the browser via JavaScript.
 % [Pedro] desde el abstract no se había nombrado "NodIO". 
 % Creo que en este párrafo debería introducirse, principalmente el nombre.
 % Añado una frase presentándolo:
+% [Mario] Nota: se menciona también en el segundo párrafo de la Introducción.
 In this sense, in this paper we propose {\sf NodIO}, a cloud or metal based 
 volunteer computing system, whose architecture
 has been developed using JavaScript on both the client and server sides.
 All parts of the system are free and available with a free
 license from \url{https://github.com/JJ/splash-volunteer}.
 Thus, {\sf NodIO} has two parts:\begin{enumerate}
-\item A REST server, that is, a server that includes several remote
+\item A REST server, that is, a server that includes several remote %remote requests suena raro, propongo algo como: remote procedures o web interfaces   
   requests for storing and retrieving information (the CRUD cycle:
   create, request, update and delete) from the server. The information
   is of two kinds: {\em problem} based, that is, related to the
   evolutionary algorithm such as {\tt PUT}ing a chromosome in or {\tt
     GET}ing a random chromosome from it. It also peforms logging
   duties, but is basically a very lightweight and hign performance
-  data store \cite{jj:idc:lowcost}. The server has the capability to
+  data store \cite{jj:idc:lowcost}. 
+  %The information is of two kinds: Problem Based y ¿Cual otra? ¿Logging? No se entiende bien. ¿Podría ser problem domain?   
+  The server has the capability to
   run a single experiment, storing the chromosomes in a data structure
   that is reset when the solution is found. 
 \item A client that includes the evolutionary algorithm as 
@@ -492,7 +499,7 @@ This last point is what we will try to prove next.
 \centering
 \includegraphics[width=12cm]{img/baseline-times.png}
 \caption{Comparison of time to solution for the baseline system, using a {\tt
-    node.js} client, for different population sizes. They only compaonre
+    node.js} client, for different population sizes. They only compare on
 runs in which solution has been found.}
 \label{fig:baseline}
 \end{figure}
