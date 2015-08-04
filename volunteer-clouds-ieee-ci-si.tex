@@ -136,14 +136,16 @@ assumptions, such as the one presented in this paper, which will be
 provisionally named {\sf NodIO}. NodIO is first an application that
 runs in two tiers, a server and a client, the latter  can be possibly
 run on a  % [Pedro] Both the server and the client in browsers?
-          % different browsers as I understand?  No, server in
+          % different browsers as I understand? [JJ]  No, server in
           % server, client in browser, although there's nothing that
           % can't be done in a browser. 
 browser. As such, it can be run in any computer that loads the web
 page where the client is embedded, including possibly many over which
 the scientist has no control. 
 
-Some time ago, our group faced  the problem of diminishing funds for buying new     % [Pedro] This sentence is so so long. I would split it in two sentences.
+Some time ago, our group faced  the problem of diminishing funds for
+buying new     % [Pedro] This sentence is so so long. I would split it
+               % in two sentences. [JJ] Done.
 hardware and continuous hardware failures of existing
 clusters. Considering this, we leveraged our experience of working
 with web applications, including JavaScript, since their inception and other volunteer and
@@ -282,7 +284,7 @@ is available in most laboratories, allowing researches to
 scale algorithms at reasonable costs. Researchers have proposed the use of 
 public clouds such as Amazon EC2 \cite{CloudScale}, Google App Engine\cite{di2013towards} 
 and DropBox~\cite{mericloud}. The use of JavaScript to implement server side components, %FERGU: he puesto mejor el de revista en lugar del del CEC
-gives software developers certain advantages in the cloud paradigm. JavaScript is a first-class citizen
+gives software developers certain advantages in the cloud paradigm. JavaScript is a first-classe citizen
 in most Platforms as a Service (PaaS) as many support the Node.js framework \cite{wood13:nodejs:paas}. Also many web services %FERGU: he validado esta frase con un footnote, pero si quieres lo paso a referencias
 have native JavaScript libraries and use JSON for data interchange. Another advantage is that 
 developers can use the same software tools for both client and server side development. 
@@ -290,11 +292,18 @@ Besides the advantages to deal with the same language in the full stack as previ
 this also facilitates the interoperability of the exchanged data types.
 %Ayuda con la mini conclusion FERGU: mira la última frase de arriba
 
-In the work presented in this paper, JavaScript was used in the full 
-stack, which has the advantage of using the same code for writing
+In the work presented in this paper, JavaScript has been used throughout the full 
+stack, which has the advantage of using the same lines of code for
+writing an evolutionary algorithm for the
 desktop or command line and browser clients, both based in the EC
-library NodEO \cite{DBLP:conf/gecco/GuervosVGES14}. This saves time when writing code and leverages %FERGU: párrafo en pasado "was used" y presente "saves"
-expertise acquired in the library itself. %FERGU: tienes info de LoC usadas para la sección experimental y justificar esta frase?
+library NodEO \cite{DBLP:conf/gecco/GuervosVGES14}. This saves time
+when writing code and leverages %FERGU: párrafo en pasado "was used" y
+                                %presente "saves" 
+% done - JJ
+expertise acquired in the library itself. %FERGU: tienes info de LoC
+                                %usadas para la sección experimental y
+                                %justificar esta frase?
+% Es el mismo código - JJ
 %The proposed software has the advantage of full stack JavaScript
 %development..
 %FERGU: añadido el siguiente párrafo y referencia para justificar el uso de JS
@@ -306,11 +315,12 @@ and efficiency.
 
 There have been relatively few efforts to analyze the
 performance that can be obtained from these volunteer computing
-efforts. 
+experiments. 
 %Too many efforts?
 % No, too little - JJ 
 % Digo efforts en la oración anterior :) - Mario
-There were some initial attempts  to dodge the issue by making
+% Visto :-) Gracias- JJ
+There were some initial attempts to simply dodge the issue by making
 the algorithm adaptive to the kind of resources allotted to it
 \cite{milani2004online}, which is actually not such a big problem in
 algorithms such as the EA that can easily be
@@ -389,7 +399,7 @@ whose client is, or can be, embedded in the browser via JavaScript.
 % [Pedro] desde el abstract no se había nombrado "NodIO". 
 % Creo que en este párrafo debería introducirse, principalmente el nombre.
 % Añado una frase presentándolo:
-In this sense, in this paper we propose {\sf NodIO}, a PaaS based 
+In this sense, in this paper we propose {\sf NodIO}, a cloud or metal based 
 volunteer computing system, whose architecture
 has been developed using JavaScript on both the client and server sides.
 All parts of the system are free and available with a free
@@ -426,8 +436,6 @@ Figure \ref{fig:system} describes the general system architecture.
 \caption{Description of the proposed system. Clients execute a JS EA in the browser, which, every 100 generations, sends the best individual and receives a random one from the server. } 
 \label{fig:system}
 \end{figure}
-
-
 
 The researcher only has to change a function to solve a different
 problem, in this case the classical Trap function \cite{Ackley1987} has been 
