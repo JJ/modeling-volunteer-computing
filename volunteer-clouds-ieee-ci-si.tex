@@ -99,8 +99,8 @@
 
 \begin{abstract}
 Volunteer computing is used routinely in science and industry, but it
-still has a long way to go if it is going to become mainstream in the
-same way the cloud technologies in general have. The lack of general purpose tools
+still has a long way to go if it is going to become a mainstream technology in the
+same way the cloud technologies in general have. The lack of general purpose and open source tools
 with analytics built in could be one of the reasons why this is so, as
 well as the lack of proofs of concept. That is why in this paper we
 present NodIO, a client-server architecture for distributed
@@ -108,9 +108,9 @@ evolutionary algorithms, written entirely in JavaScript, which needs
 minimal server support to work and is able to support persistent,
 asynchronous, distributed evolutionary algorithms running in the
 browser. The architecture, along with some initial results on the expected performance and scaling
-behavior is presented. We also use the algorithm analytics to try and  %[Pedro] I don't understand what "the algorithm analytics" stand for???
-create a model of user behavior which, as is usual in this kind of
-computing models, follow a Weibull distribution. 
+behavior is presented. We also use the algorithm data to  %[Pedro] I don't understand what "the algorithm analytics" stand for???
+% data - JJ
+find out what kind of patterns the user behaviour follow and try to fit them to some statistical distribution.
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
@@ -131,7 +131,7 @@ be compiled or run directly on the operating system layer and, second,
 they assume that the nodes that are going to run the system are under
 your control or at least you have access to them.
 
-There is, then, space for systems that do not have any of those %[Mario] these assumptions? 
+There is, then, space for systems that do not have any of these %[Mario] these assumptions? [JJ] OK
 assumptions, such as the one presented in this paper, which will be
 provisionally named {\sf NodIO}. NodIO is first an application that
 runs in two tiers, a server and a client, the latter  can be possibly
@@ -140,19 +140,20 @@ run on a  % [Pedro] Both the server and the client in browsers?
           % server, client in browser, although there's nothing that
           % can't be done in a browser. 
 browser. As such, it can be run in any computer that loads the web
-page where the client is embedded, including possibly many over which%[Mario]Quitar el possibly?   
+page where the client is embedded, including many over which%[Mario]Quitar el possibly?   [JJ] Done
 the scientist has no control. 
 
 Some time ago, our group faced the problem of diminishing funds for
 buying new     % [Pedro] This sentence is so so long. I would split it
                % in two sentences. [JJ] Done.
-hardware and continuous hardware failures of existing
-clusters. 
+hardware. This was aggravated by the increasing maintance costs and extended downtime resulting from the continuous failures of existing clusters.
 %[Mario] Otra opción: Some time ago, our group faced the problem of diminishing funds 
 %for buying new hardware. This was aggravated by the increasing maintance costs 
 %resulting from the continuous failures of existing clusters.
-Considering this, we leveraged our experience of working
-with web applications, including JavaScript, since their inception and other volunteer and
+% [JJ] Done 
+Considering this, we leveraged our experience in the design of web
+applications, including JavaScript, since their inception and other
+volunteer and 
 unconventional distributed evolutionary computing systems, and we 
 decided to designd and relase a new free framework that would allow anyone to
 create a volunteer distributed EC experiment using cloud resources as
@@ -320,10 +321,6 @@ and efficiency.
 There have been relatively few efforts to analyze the
 performance that can be obtained from these volunteer computing
 experiments. 
-%Too many efforts?
-% No, too little - JJ 
-% Digo efforts en la oración anterior :) - Mario
-% Visto :-) Gracias- JJ
 There were some initial attempts to simply dodge the issue by making
 the algorithm adaptive to the kind of resources allotted to it
 \cite{milani2004online}, which is actually not such a big problem in
@@ -339,7 +336,9 @@ performance of the EA itself
 
 %Mario: Estaba pensando que otra justificación muy fuerte para el uso de JS sobre plug-ins 
 %ha sido la seguridad ya que estos presentan otra fuente de vulnerabilidad. Para complicar las cosas a veces (Flash, ActiveX) 
-%son tecnologías cerradas y propietarias. Por lo menos creo que esas fueron las razones que se dieron para eliminar a Flash del iPhone.
+%son tecnologías cerradas y propietarias. Por lo menos creo que esas
+%fueron las razones que se dieron para eliminar a Flash del iPhone.
+% [JJ] Escribe algo...
 
 As far as we know, this paper presents one of the few experiments that
 uses computational 
@@ -403,22 +402,27 @@ whose client is, or can be, embedded in the browser via JavaScript.
 % [Pedro] desde el abstract no se había nombrado "NodIO". 
 % Creo que en este párrafo debería introducirse, principalmente el nombre.
 % Añado una frase presentándolo:
-% [Mario] Nota: se menciona también en el segundo párrafo de la Introducción.
+% [Mario] Nota: se menciona también en el segundo párrafo de la
+% Introducción.
+% OK [JJ]
 In this sense, in this paper we propose {\sf NodIO}, a cloud or metal based 
 volunteer computing system, whose architecture
 has been developed using JavaScript on both the client and server sides.
 All parts of the system are free and available with a free
 license from \url{https://github.com/JJ/splash-volunteer}.
-Thus, {\sf NodIO} has two parts:\begin{enumerate}
+Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
 \item A REST server, that is, a server that includes several remote %remote requests suena raro, propongo algo como: remote procedures o web interfaces   
   requests for storing and retrieving information (the CRUD cycle:
   create, request, update and delete) from the server. The information
   is of two kinds: {\em problem} based, that is, related to the
   evolutionary algorithm such as {\tt PUT}ing a chromosome in or {\tt
-    GET}ing a random chromosome from it. It also peforms logging
+    GET}ing a random chromosome from it, and {\em information} related
+  to performance and state of the experiments. It also peforms logging
   duties, but is basically a very lightweight and hign performance
   data store \cite{jj:idc:lowcost}. 
-  %The information is of two kinds: Problem Based y ¿Cual otra? ¿Logging? No se entiende bien. ¿Podría ser problem domain?   
+  %The information is of two kinds: Problem Based y ¿Cual otra?
+  %¿Logging? No se entiende bien. ¿Podría ser problem domain?   
+% info. Añadido [JJ]
   The server has the capability to
   run a single experiment, storing the chromosomes in a data structure
   that is reset when the solution is found. 
@@ -440,14 +444,18 @@ Figure \ref{fig:system} describes the general system architecture.
 \begin{figure}[!t]
 \centering
 \includegraphics[width=4in]{img/system.pdf}
-\caption{Description of the proposed system. Clients execute a JS EA in the browser, which, every 100 generations, sends the best individual and receives a random one from the server. } 
+\caption{Description of the proposed system. Clients execute a JS EA
+  in the browser, which, every 100 generations, sends the best
+  individual and receives a random one from the server. }  
 \label{fig:system}
 \end{figure}
 
 The researcher only has to change a function to solve a different
 problem, in this case the classical Trap function \cite{Ackley1987} has been 
 used. JavaScript is a functional language and declaring a different
-function and handling at the creation of the algorithm object, called %FERGU: poner algo tras el handling: handling it?
+function and handing at the creation of the algorithm object, called
+%FERGU: poner algo tras el handling: handling it?
+%handing - JJ
 {\tt Classic} is the only change needed to work with a different
 problem. Let us see how this system addresses the different challenges
 outlined in the State of the Art (Section \ref{sec:soa}):\begin{itemize}
