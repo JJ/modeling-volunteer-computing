@@ -88,7 +88,7 @@ asynchronous, distributed evolutionary algorithms running in the
 browser. The architecture, along with some initial results on the expected performance and scaling
 behavior is presented. We also use the algorithm data to  %[Pedro] I don't understand what "the algorithm analytics" stand for???
 % data - JJ
-find out what kind of patterns the user behaviour follow and try to fit them to some statistical distribution.
+find out what kind of patterns the user behavior follow and try to fit them to some statistical distribution.
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
@@ -103,7 +103,7 @@ social networks, volunteer computing, metacomputing.
 
 \IEEEPARstart{N}{owadays} there is a big and increasing number of
 distributed evolutionary computation software frameworks available on
-the market, usually as open source systems. Most of these systems have
+the market, usually as open source systems \cite{Parejo12Survey}. Most of these systems have %FERGU: añadida referencia
 two features: they are {\em desktop} applications, that is, they must
 be compiled or run directly on the operating system layer and, second,
 they assume that the nodes that are going to run the system are under
@@ -124,7 +124,7 @@ the scientist has no control.
 Some time ago, our group faced the problem of diminishing funds for
 buying new     % [Pedro] This sentence is so so long. I would split it
                % in two sentences. [JJ] Done.
-hardware. This was aggravated by the increasing maintance costs and extended downtime resulting from the continuous failures of existing clusters.
+hardware. This was aggravated by the increasing maintenance costs and extended downtime resulting from the continuous failures of existing clusters.
 %[Mario] Otra opción: Some time ago, our group faced the problem of diminishing funds 
 %for buying new hardware. This was aggravated by the increasing maintance costs 
 %resulting from the continuous failures of existing clusters.
@@ -133,11 +133,11 @@ Considering this, we leveraged our experience in the design of web
 applications, including JavaScript, since their inception and other
 volunteer and 
 unconventional distributed evolutionary computing systems, and we 
-decided to designd and relase a new free framework that would allow anyone to
+decided to design and release a new free framework that would allow anyone to
 create a volunteer distributed EC experiment using cloud resources as
 servers and browsers as clients.
 
-These systems must solve a series of issues before even starting to
+This kind of systems must solve a series of issues before even starting to %FERGU: cambiado el "these systems" porque parecía que hacía referencia a "los anteriores" 
 measure their performance; these issues are related to security as well as
 safety, which introduces a {\em social} aspect to the design of a
 computing system that makes it a {\em techno-social system}
@@ -147,11 +147,11 @@ angles: the purely technical angle, including the decisions that went
 into its features, and the social angle, to account on how the persons
 that voluntarily choose to enter the web page that runs the system
 determine its performance and how it can be modeled and, eventually,
-predicted.
+predicted. 
 
 The rest of the paper is organized as follows: Next we present the
 state of the art (Section \ref{sec:soa}) in web-based distributed 
-computation systems along with attempts to predict and model its behavior. 
+computation systems along with attempts to predict and model its behavior. %FERGU: El IEEE es americano
 Then, a detailed description of the proposed system is presented 
 in Section \ref{sec:description}, followed by the experiments and 
 obtained results in Section \ref{sec:experiments}.
@@ -268,7 +268,7 @@ scale algorithms at reasonable costs. Researchers have proposed the use of
 public clouds such as Amazon EC2 \cite{CloudScale}, Google App Engine\cite{di2013towards} 
 and DropBox~\cite{mericloud}. The use of JavaScript to implement server side components, %FERGU: he puesto mejor el de revista en lugar del del CEC
 gives software developers certain advantages in the cloud paradigm. JavaScript is a first-classe citizen
-in most Platforms as a Service (PaaS) as many support the Node.js framework \cite{wood13:nodejs:paas}. Also many web services %FERGU: he validado esta frase con un footnote, pero si quieres lo paso a referencias
+in most Platforms as a Service (PaaS) as many support the Node.js framework \cite{wood13:nodejs:paas}. Also many web services 
 have native JavaScript libraries and use JSON for data interchange. Another advantage is that 
 developers can use the same software tools for both client and server side development. 
 Besides the advantages to deal with the same language in the full stack as previously mentioned, 
@@ -280,16 +280,14 @@ stack, which has the advantage of using the same lines of code for
 writing an evolutionary algorithm for the
 desktop or command line and browser clients, both based in the EC
 library NodEO \cite{DBLP:conf/gecco/GuervosVGES14}. This saves time
-when writing code and leverages %FERGU: párrafo en pasado "was used" y
-                                %presente "saves" 
-% done - JJ
+when writing code and leverages %FERGU: qué diferencias hay entre NodIO y NodEO??
 expertise acquired in the library itself. %FERGU: tienes info de LoC
                                 %usadas para la sección experimental y
                                 %justificar esta frase?
 % Es el mismo código - JJ
 %The proposed software has the advantage of full stack JavaScript
 %development..
-%FERGU: añadido el siguiente párrafo y referencia para justificar el uso de JS
+
 Javascript is also compatible with the functional programming paradigm \cite{Cousineau1998,MacLennan1990,Thompson1996}. 
 According to \cite{swanresearch2015}, the benefits of using this kind of paradigm in 
 metaheuristics optimization allows an improvement in communicability, 
@@ -396,8 +394,8 @@ Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
   is of two kinds: {\em problem} based, that is, related to the
   evolutionary algorithm such as {\tt PUT}ing a chromosome in or {\tt
     GET}ing a random chromosome from it, and {\em information} related
-  to performance and state of the experiments. It also peforms logging
-  duties, but is basically a very lightweight and hign performance
+  to performance and state of the experiments. It also performs logging
+  duties, but is basically a very lightweight and high performance
   data store \cite{jj:idc:lowcost}. 
   %The information is of two kinds: Problem Based y ¿Cual otra?
   %¿Logging? No se entiende bien. ¿Podría ser problem domain?   
@@ -418,11 +416,15 @@ Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
   browser tab with the experiment is not currently on focus.  
 \end{enumerate}
 
-Figure \ref{fig:system} describes the general system architecture.
+Figure \ref{fig:system} describes the general system architecture and
+algorithm behavior. Different web technologies, such as JQuery or chart.js have
+been used to build the elements of the system. 
+%FERGU: Mario, explica en el texto de abajo qué es winston en la figura también. 
+%Vamos, que todo lo que salga en la figura tiene que ir en el texto en alguna parte :)
 %
 \begin{figure}[!t]
 \centering
-\includegraphics[width=4in]{img/system.pdf}
+\includegraphics[width=4in]{img/Algorithm.pdf}
 \caption{Description of the proposed system. Clients execute a JS EA
   in the browser, which, every 100 generations, sends the best
   individual and receives a random one from the server. }  
@@ -433,8 +435,6 @@ The researcher only has to change a function to solve a different
 problem, in this case the classical Trap function \cite{Ackley1987} has been 
 used. JavaScript is a functional language and declaring a different
 function and handing at the creation of the algorithm object, called
-%FERGU: poner algo tras el handling: handling it?
-%handing - JJ
 {\tt Classic} is the only change needed to work with a different
 problem. Let us see how this system addresses the different challenges
 outlined in the State of the Art (Section \ref{sec:soa}):\begin{itemize}
@@ -448,7 +448,7 @@ outlined in the State of the Art (Section \ref{sec:soa}):\begin{itemize}
   \cite{gecco07:workshop:dcor}, which had a low scalability.
 \item The system is {\em heterogeneous} since it does not need any
   performance, operating system or even browser requirement: anyone
-  visiting the page, even from mobile devices, can load the algorithm. %Fergu: puesto lo de mobile devices para venderlo aún mejor
+  visiting the page, even from mobile devices, can load the algorithm. 
 \item {\em Fault tolerance} is always an issue, and in this case, the
   single point of failure would be the server: the system, as such,
   would break down if the server fails. However, the individual
@@ -491,11 +491,17 @@ runs in which solution has been found.}
 \label{fig:baseline}
 \end{figure}
 First we establish the baseline performance by running the
-evolutionary algorithm in a desktop client written using {\sf NodEO},
-the node.js evolutionary algorithm library. This experiment tries to
+evolutionary algorithm in a desktop client written using NodEO, 
+%FERGU: es NodEO o NodIO? Quito el \sf, por cierto, que queda feo
+%Por qué usamos NodEO aquí y no NodIO, vamos a compararlos? 
+%Qué diferencias hay entre los dos? (ponerlo en el SOA)
+the node.js evolutionary algorithm library. This experiment tries to 
+%FERGU: quitar el "the node.js evolutionary algorithm library", si ya lo hemos dicho
+%o explicarlo mejor: "the basic js library we have used as base to built NodIO", por ejemplo
 find the solution to the 40-trap function with parameters $l=4, a=1,
 b=2, z=3$, a population size equal 512, which was found in previous
 experiments to be the correct one for finding the solution 95\% of the
+%Fergu: cita a esos experimentos?
 time. The algorithm was run until the solution (a string with all
 ones) was found or five millions evaluations had been performed. It
 took around a minute, on average, that is $68.9694$ seconds, to
@@ -509,7 +515,7 @@ These two experiments establish first a baseline result, which will
 depend on the population. The volunteer computing experiments that we
 will describe next do not and can not have the same conditions, but
 the baseline is that if they eventually take longer than a basic
-destktop, their interest will be purely academic. We will try and
+desktop, their interest will be purely academic. We will try and
 prove next that that target performance can be achieved by carrying
 out several experiments in different conditions.
 
