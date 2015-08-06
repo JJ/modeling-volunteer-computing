@@ -412,10 +412,11 @@ been used to build the elements of the system.
 %FERGU: Mario, explica en el texto de abajo qué es winston en la figura también. 
 %Vamos, que todo lo que salga en la figura tiene que ir en el texto en alguna parte :)
 % [Mario] Ok voy a explicar la figura. Quería saber primero su opinión tal vez se les hacía mucho detalle.
-
+% Creo que esta figura va mejor en la sección donde hablamos de
+% webworkers. La anterior era más adecuada como visión general. [JJ]
 \begin{figure}[!t]
 \centering
-\includegraphics[width=4in]{img/Algorithm.pdf}
+\includegraphics[width=4in]{img/system.pdf}
 \caption{Description of the proposed system. Clients execute a JS EA
   in the browser, which, every 100 generations, sends the best
   individual and receives a random one from the server. }  
@@ -558,7 +559,16 @@ Date & Median \#IPs & Median time (s) & Median \#{\tt PUT}s & $<$ 69s & $<$ 3.46
 A summary of the characteristics of each run is also shown in Table
 \ref{tab:summary}. 
 
+\subsection{{\sf NodIO-W$^2$}, a WebWorker-based architecture}
 
+\begin{figure}[!t]
+\centering
+\includegraphics[width=4in]{img/Algorithm.pdf}
+\caption{Description of the W$^2$ version of {\sf NodIO}. In this
+  version, clientts use WebWorkers to run the evolutionary algorithm,
+  with two of them per browser.}  
+\label{fig:system:w2}
+\end{figure}
 
 %---------------------------------------------------------------
 \section{Conclusion}
