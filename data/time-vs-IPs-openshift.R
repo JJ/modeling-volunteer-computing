@@ -23,5 +23,7 @@ for ( i in suffix ) {
     ips.time <- read.csv(paste0("ips-duration-openshift-",i,".dat"))
     time.vs.IPs(ips.time, i)
     print(paste(i, summary(ips.time)))
+    print(paste("< 69s", length(ips.time[ips.time$milliseconds < 69000,]$milliseconds)/length(ips.time$milliseconds)))
+    print(paste("< 3.46s", length(ips.time[ips.time$milliseconds < 3460,]$milliseconds)/length(ips.time$milliseconds)))
 }
  

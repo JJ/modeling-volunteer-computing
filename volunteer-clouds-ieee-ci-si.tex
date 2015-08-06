@@ -501,8 +501,8 @@ ones) was found or five millions evaluations had been performed. It
 took around a minute, on average, that is $68.9694$ seconds, to
 perform the fifty runs. In this experiment only 33, that is, 66\% were
 successful. The experiments were repeated for population $p=1024$,
-with success rate upgraded to 100\% and average duration $3.46
-seconds$. Results for these two experiments 
+with success rate upgraded to 100\% and average duration $3.46$
+seconds. Results for these two experiments 
 are shown in Figure \ref{fig:baseline}.
 
 These two experiments establish first a baseline result, which will
@@ -529,32 +529,33 @@ Table \ref{tab:runs}.
 \begin{table*}
 \caption{Characteristics of the volunteer computing initial runs. \label{tab:runs}}
 \begin{center}
-\begin{tabular}{l|r}
+\begin{tabular}{l|rr}
 \hline
-Date & Number of experiments & Different IPs \\
-\hline
-April 4th 4/4& & 57 & 191\\
+Date & \# experiments & Different IPs \\
+\hline 
+April 4th 4/4 & 57 & 191 \\
 April 24th 4/24 &  231 & 559 \\
-July 31th 7/31 & 97 & 179\\
-\hline
+July 31th 7/31 & 97 & 179 \\
+\hline 
 \end{tabular}
-\end{table}
+\end{center}
+\end{table*}
 %
-
 \begin{table*}
 \caption{Summary of time per run, number of IPS and number of {\tt
-    PUT}s per IP in the initial runs. \label{tab:runs}}
+    PUT}s per IP in the initial runs. \label{tab:summary}}
 \begin{center}
-\begin{tabular}{l|rrr}
+\begin{tabular}{l|ccccc}
 \hline
-Date & Median IPs & Median time (s) & Median #{\tt PUT}s  \\
-\hline
-4/4& & 5 & 2040 & 18\\
-April 24th 4/24 &  5 & 732 & 11\\
-July 31th 7/31 & 5 & 260 & 23 \\
-\hline
+Date & Median \#IPs & Median time (s) & Median \#{\tt PUT}s & $<$ 69s & $<$ 3.46s \\
+\hline 
+4/4 & 5 & 2040 & 18 & 14.29\% & 5.36\% \\
+4/24 &  5 & 732 & 11 & 47.39\% & 3.91\% \\
+7/31 & 5 & 260 & 23 & 27.08\% & 1.04\%  \\
+\hline 
 \end{tabular}
-\end{table}
+\end{center}
+\end{table*}
 %
 A summary of the characteristics of each run is also shown in Table
 \ref{tab:summary}. 
