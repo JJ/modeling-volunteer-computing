@@ -25,5 +25,10 @@ for ( i in suffix ) {
     print(paste(i, summary(ips.time)))
     print(paste("< 69s", length(ips.time[ips.time$milliseconds < 69000,]$milliseconds)/length(ips.time$milliseconds)))
     print(paste("< 3.46s", length(ips.time[ips.time$milliseconds < 3460,]$milliseconds)/length(ips.time$milliseconds)))
+    ips.time.minus1 <- ips.time[c(1:length(ips.time$IPs)-1),]
+    ips.time.plus1 <- ips.time[c(2:length(ips.time$IPs)),]
+    print(length(ips.time.minus1$IPs))
+    print(length(ips.time.plus1$IPs))
+    print(cor(ips.time.minus1, ips.time.plus1))
 }
  
