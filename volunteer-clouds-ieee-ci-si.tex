@@ -685,7 +685,25 @@ just a few of them, and with diminishing probability as time
 decreases. This exponential distribution also appears in the
 distribution of HTTP {\tt PUT}s, equivalent to the number of
 generations divided by 100, contributed by every user, which is shown
-in Figure \ref{fig:put:os}.   
+in Figure \ref{fig:put:os}. The results related to user contributions
+are shown in Table \ref{tab:put:os}.
+%
+\begin{table*}
+\caption{Summary of fit to Generalized Extreme Value distribution of
+  the number of {\tt PUT}s per unique IP. \label{tab:puts:os}}
+\begin{center}
+\begin{tabular}{l|ccc}
+\hline
+Date  & Location $\mu$ & Scale $\sigma$ & Shape $\xi$ \\
+\hline 
+4/4 &  8.541 $\pm$ 1.0926  &    12.442 $\pm$ 1.7302 &  1.388 $\pm$
+0.1377 \\  
+4/24 &  6.148 $\pm$ 0.3782 & 7.354 $\pm$ 0.5105 & 1.090 $\pm$  0.0697  \\    
+7/31 &  11.645 $\pm$ 1.475 & 16.365 $\pm$ 2.201 &  1.265 $\pm$ 0.132   \\   
+\hline 
+\end{tabular}
+\end{center}
+\end{table*}
 
 \subsection{{\sf NodIO-W$^2$}, a Web Worker-based architecture}
 
