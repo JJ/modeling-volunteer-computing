@@ -746,21 +746,51 @@ workers are expected to be long-lived, they have a high start-up performance cos
 and a high per-instance memory cost. The Web Worker API is implemented in current
 versions of both desktop and mobile web browsers. For volunteer computing using the Web Worker API   
 brings several advantages over a single threaded implementation:
+
 \begin{itemize}
 \item If the browser uses a tabbed document interface, the worker script 
 keeps running in the background even it the user brings forward another tabbed window.
-\item Several instances of the NodEO script can be executed in parallel in a single web page. 
+\item Several instances of NodEO can be executed in parallel in a single web page. 
 \item Many immplemantations of the Web Worker API can use multiple CPUs for the execution
 of worker scripts, in particular the execution in multiple CPUs was tested in desktop verions of
 Chrome, FireFox and Safari.
-
+\item Each NodEO instance can be restarted independenly.
 \end{itemize}
+
+ 
+A sequence diagram of the W$^2$ version of {\sf NodIO} is presented in Figure~\ref{fig:system:w2}. In this
+version, clients use the Web Workers API to run two NodEO instances per browser. The sequence diagram shows
+the interaction between processess in a time sequence. In this system there are two kinds of asynchronus
+messages: HTTP Requests shown as bold arrows between the client and the server where PUT and GET HTTP Methods
+are represented by red and blue arrows respectively. There are also messages between workers and the main thread in
+locally in the client, this are shown as thin solid arrows. There are three processes involved:
+
+\begin{itemize}
+\item {\em nodejs} This is the server side process, implented in the nodejs framework. Web request handlers are
+implemented using the Express web framework. For keeping a log of the execution the Winston library is used, and finally
+the NodeIO framework is responsible for keeping the shared pool.
+\item {\em Client main thread}  This process handles the user interaction using the JQuery framwork. The Chart.js library
+is used to display a chart of the best fitness in the population over time. The main script also creates 
+worker instances and handles the user interface.  
+\item {\em Worker global scope} The worker execution space does not have access to the Document Object Model (DOM) 
+or JQuery objects in the main thread. Asynchronus HTTP requests to the server are implemented using the XHR object. 
+\end{itemize}
+
+The sequence of events are:
+\begin{enumerate}
+\item First the NodIO process is started in nodejs. As part of the initialization procedure the number
+of experiment is initialised and a log file is created. The shared pool implemented as an array is reset.
+\item A volunteer follows the link of the experiment triggering a GET HTTP request and the page is 
+loaded.
+\item The main script renders the page and creates the worker 
+\end{enumerate}
+
 
 \begin{figure}[!t]
 \centering
 \includegraphics[width=4in]{img/Algorithm.pdf}
 \caption{Description of the W$^2$ version of {\sf NodIO}. In this
-  version, clientts use WebWorkers to run the evolutionary algorithm,
+  version, clients use Web Workers to run the evolutionary algorithm,
   with two of them per browser.}  
 \label{fig:system:w2}
 \end{figure}
