@@ -662,6 +662,17 @@ with a bigger size to check this hypothesis; however, at this point we
 have not found this convenient since there are several other issues
 that will be solved. 
 
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.32\linewidth]{img/puts-openshift-4-4.png}
+\includegraphics[width=0.32\linewidth]{img/puts-openshift-4-24.png}
+\includegraphics[width=0.32\linewidth]{img/puts-openshift-7-31.png}
+\caption{Number of {\tt PUT}s per unique IP and fit to a Generalized
+  Extreme Value distribution (in red). From left to right, experiments 4/4, 4/24 and 7/31.}
+\label{fig:puts:os}
+\end{figure}
+%
+
 It is interesting also to check the distribution of the experiment
 duration, shown in Figure \ref{fig:zipf:os} and which roughly follows
 a Zipf's law, with similar distribution along all three runs. The 4/24
@@ -671,7 +682,10 @@ seconds. The most interesting part is the {\em tail}, which shows how
 many experiments took a desirable amount of time, and of the order of
 10 seconds. As it can be seen, it drops sharply implying there are
 just a few of them, and with diminishing probability as time
-decreases.  
+decreases. This exponential distribution also appears in the
+distribution of HTTP {\tt PUT}s, equivalent to the number of
+generations divided by 100, contributed by every user, which is shown
+in Figure \ref{fig:put:os}.   
 
 \subsection{{\sf NodIO-W$^2$}, a Web Worker-based architecture}
 
