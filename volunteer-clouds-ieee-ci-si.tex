@@ -685,8 +685,9 @@ just a few of them, and with diminishing probability as time
 decreases. This exponential distribution also appears in the
 distribution of HTTP {\tt PUT}s, equivalent to the number of
 generations divided by 100, contributed by every user, which is shown
-in Figure \ref{fig:put:os}. The results related to user contributions
-are shown in Table \ref{tab:put:os}.
+in Figure \ref{fig:put:os}. These results show a Zipf-like behavior,
+so we have fitted it to the Generalized Extreme Value distribution,
+with the resulting parameters shown in Table \ref{tab:put:os}.
 %
 \begin{table*}
 \caption{Summary of fit to Generalized Extreme Value distribution of
@@ -698,12 +699,37 @@ Date  & Location $\mu$ & Scale $\sigma$ & Shape $\xi$ \\
 \hline 
 4/4 &  8.541 $\pm$ 1.0926  &    12.442 $\pm$ 1.7302 &  1.388 $\pm$
 0.1377 \\  
-4/24 &  6.148 $\pm$ 0.3782 & 7.354 $\pm$ 0.5105 & 1.090 $\pm$  0.0697  \\    
-7/31 &  11.645 $\pm$ 1.475 & 16.365 $\pm$ 2.201 &  1.265 $\pm$ 0.132   \\   
+4/24 & 6.148 $\pm$ 0.3782 & 7.354 $\pm$ 0.5105 & 1.090 $\pm$  0.0697  \\    
+7/31 & 11.645 $\pm$ 1.475 & 16.365 $\pm$ 2.201 &  1.265 $\pm$ 0.132   \\   
 \hline 
 \end{tabular}
 \end{center}
 \end{table*}
+%
+This distribution was originally proposed to fit extreme values
+\cite{resnick2013extreme} and contains, as a special case, the inverse
+Weibull distribution which was fitted to volunteer computing
+frameworks such as SETI@home \cite{javadi2009mining}. This
+distribution is governed by three parameters, the usual location $\mu$
+which is related to where it has its {\em center} and  scale $\sigma$,
+related to the size, but also a third shape $\xi$ parameter that is
+related to its skewness, that is, how skewed it is around the central
+location. Positive parameters indicate that the distribution {\em
+  leans} towards the origin, negative towards the other extreme
+value. In this case, Table \cite{tab:puts:os} shows $\xi$ values
+greater than one and between one and 1.4, which indicates that the
+three experiment share this origin-leaning pattern, with many users
+donating a few cycles and just a few donating extreme values. Random
+distributions with these parameters have been plotted in red in
+\ref{fig:put:os}, indicating that the fit is good enough. The
+predictive value of these fits, however, is limited, over all taking
+into account the low correlation between successive events shown
+above. 
+
+At any rate, this also shows that a convenient way of increasing the
+computing power would be increasing this minimum amount per user. This
+issue led us to create the next version of the framework, which is
+presented next. 
 
 \subsection{{\sf NodIO-W$^2$}, a Web Worker-based architecture}
 
