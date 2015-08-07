@@ -124,7 +124,9 @@ the scientist has no control.
 Some time ago, our group faced the problem of diminishing funds for
 buying new     % [Pedro] This sentence is so so long. I would split it
                % in two sentences. [JJ] Done.
-hardware. This was aggravated by the increasing maintenance costs and extended downtime resulting from the continuous failures of existing clusters.
+hardware. This was aggravated by the increasing maintenance costs and
+extended downtime resulting from the continuous failures of existing
+clusters.  
 Considering this, we leveraged our experience in the design of web
 applications, including JavaScript, since their inception and other
 volunteer and 
@@ -553,13 +555,14 @@ July 31th 7/31 & 97 & 179 \\
 \caption{Summary of time per run, number of IPS and number of {\tt
     PUT}s per IP in the initial runs. \label{tab:summary:os}}
 \begin{center}
-\begin{tabular}{l|cccccc}
+\begin{tabular}{l|ccccccc}
 \hline
-Date & Median \#IPs & Max \#IPs & Median time (s) & Median \#{\tt PUT}s & $<$ 69s & $<$ 3.46s \\
+Date & Median \#IPs & Max \#IPs & Median time (s) & Median \#{\tt
+  PUT}s & $<$ 69s & $<$ 3.46s & Inter-experiment correlation\\
 \hline 
-4/4 & 5 & 16 & 2040 & 18 & 14.29\% & 5.36\% \\
-4/24 &  5 & 29 & 732 & 11 & 47.39\% & 3.91\% \\
-7/31 & 5 & 14 & 260 & 23 & 27.08\% & 1.04\%  \\
+4/4 & 5 & 16 & 2040 & 18 & 14.29\% & 5.36\% & 0.0082 \\
+4/24 &  5 & 29 & 732 & 11 & 47.39\% & 3.91\% & 0.0934\\
+7/31 & 5 & 14 & 260 & 23 & 27.08\% & 1.04\%  & 0.1741\\
 \hline 
 \end{tabular}
 \end{center}
@@ -599,12 +602,21 @@ allowed to run evolutionary computation experiments {\em faster} than
 in our very own computer. And the results is that although it will
 happen, one out of roughly 5 or roughly 20, depending on what baseline
 experiment you choose, it will not happen always or even a majority of
-the time.
+the time. One of the problems is shown in the last column, which
+indicates the statistical correlation between the number of IPs
+participating in one experiment and the next. In all cases,
+correlation is so low as to affirm that there is almost no
+relationship between them, that is, computing nodes are not {\em
+  staying} after the solution has been found; this is a feature of
+this implementation: the user has to actively reload the page to make
+the evolutionary algorithm start again. However, it puts a probably
+unnecesary cap on the time, or number of experiments, that an user
+will voluntarily perform.
 
 We will have to analyze experiment data a bit further to find out why
 this happens and also if there is some pattern in the three sets of
 experiments. An interesting question to ask, for instance, is if
-adding more computers makes the experiment take less. 
+adding more computers makes the experiment take less.  
 
 \subsection{{\sf NodIO-W$^2$}, a Web Worker-based architecture}
 
