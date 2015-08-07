@@ -1,18 +1,19 @@
 library(ggplot2)
-library(MASS)
-library(fitdistrplus)
+library(evd)
 
 process.puts <- function(suffix ) {
     these.puts <- read.csv(paste0("ips-puts-openshift-",suffix,".dat"))
     this.df <- data.frame(x=1:nrow(these.puts),
                           puts=sort(these.puts$puts,decreasing=T))
-    this.hist <- hist(this.df$puts)
-    this.fit <- fitdistr(this.hist$density,"weibull")
-    this.weibull <- rweibull(length(this.hist$density),this.fit$estimate["shape"],this.fit$estimate["scale"])
-    this.w.df <- data.frame(x=1:length(this.weibull),fit=this.weibull)
-    ggplot(this.df,aes(x=x,y=puts))+geom_point(this.w.df,aes(x=x,y=fit))
+    this.fit <- fgev(this.df$puts)
     print(this.fit)
-
+    this.fit.plot <- data.frame(x=1:length(this.df$puts),
+                                y=sort(rgev(length(this.df$puts),
+                                    this.fit$estimate["loc"],
+                                    this.fit$estimate["scale"],
+                                    this.fit$estimate["shape"]),decreasing=T))
+    ggplot()+geom_point(data=this.df,aes(x=x,y=puts))+geom_point(data=this.fit.plot,aes(x=x,y=y,color='red'))+scale_y_log10()
+    ggsave(paste0("puts-openshift-",suffix,".png"))
     return(this.df)
 }
     
