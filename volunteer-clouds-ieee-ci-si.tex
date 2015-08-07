@@ -613,21 +613,58 @@ the evolutionary algorithm start again. However, it puts a probably
 unnecesary cap on the time, or number of experiments, that an user
 will voluntarily perform.
 
-\begin{figure}[!t]
+\begin{figure}[!htb]
 \centering
 \includegraphics[width=0.32\linewidth]{img/time-vs-ips-OS-4-4.png}
 \includegraphics[width=0.32\linewidth]{img/time-vs-ips-OS-4-24.png}
 \includegraphics[width=0.32\linewidth]{img/time-vs-ips-OS-7-31.png}
 \caption{Duration of experiments vs. number of different IPs (nodes)
   participating in it, with averages and standard deviation shown as
-  red dots. From left to right, experiments 4/4, 4/24 and 7/31.}
+  red dots. From left to right, experiments 4/4, 4/24 and 7/31. Shades
+of blue indicate how many experiments included that many unique IPs.}
 \label{fig:duration}
+\end{figure}
+%
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.32\linewidth]{img/time-vs-rank-OS-4-4.png}
+\includegraphics[width=0.32\linewidth]{img/time-vs-rank-OS-4-24.png}
+\includegraphics[width=0.32\linewidth]{img/time-vs-rank-OS-7-31.png}
+\caption{Duration of experiments vs rank, with $y$ axis in a
+  logarithmic scale. Dot color is related to the number of IPs
+  participating in the experiment. From left to right, experiments 4/4, 4/24 and 7/31.}
+\label{fig:zipf:os}
 \end{figure}
 %
 We will have to analyze experiment data a bit further to find out why
 this happens and also if there is some pattern in the three sets of
 experiments. An interesting question to ask, for instance, is if
-adding more computers makes the experiment take less.  
+adding more computers makes the experiment take less. In fact, as
+shown in Figure \ref{fig:duration}, {\em adding} more computers does
+not seem to contribute to decreasing the time needed to finish the
+experiment. However, the cause-effect relationship is not clear at
+all. It might be the opposite: since experiments take longer to finish
+and might in fact be abandoned with no one contributing for some time,
+that increases the probability of someone new joining them. In fact,
+wit experiments taking a few seconds and due to the way the
+experiments are announced, it is quite difficult that several
+volunteers join in in such a short period of time, even more so taking
+into account that volunteers are not {\em carried over} from previous
+experiments. This implies that it would be convenient to use a problem
+with a bigger size to check this hypothesis; however, at this point we
+have not found this convenient since there are several other issues
+that will be solved. 
+
+It is interesting also to check the distribution of the experiment
+duration, shown in Figure \ref{fig:zipf:os} and which roughly follows
+a Zipf's law, with similar distribution along all three runs. The 4/24
+run is the most complete and shows a S-shape, which implies an
+accumulation of experiments taking similar time and around 100
+seconds. The most interesting part is the {\em tail}, which shows how
+many experiments took a desirable amount of time, and of the order of
+10 seconds. As it can be seen, it drops sharply implying there are
+just a few of them, and with diminishing probability as time
+decreases.  
 
 \subsection{{\sf NodIO-W$^2$}, a Web Worker-based architecture}
 
@@ -638,7 +675,6 @@ the page. The Web Workers specification \cite{hickson2012web} defines an API tha
 to execute scripts in parallel with user interaction scripts of the main page. 
 Worker scripts are spawned in the background allowing a thread-like operation with 
 message-passing as the coordination mechanism. 
-
 
 
 \begin{figure}[!t]
