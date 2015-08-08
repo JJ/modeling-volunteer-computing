@@ -493,10 +493,7 @@ the node.js evolutionary algorithm library. This experiment tries to
 %FERGU: quitar el "the node.js evolutionary algorithm library", si ya lo hemos dicho
 %o explicarlo mejor: "the basic js library we have used as base to built NodIO", por ejemplo
 find the solution to the 40-trap function with parameters $l=4, a=1,
-b=2, z=3$, a population size equal 512, which was found in previous
-experiments to be the correct one for finding the solution 95\% of the
-%Fergu: cita a esos experimentos?
-time. The algorithm was run until the solution (a string with all
+b=2, z=3$, a population size equal 512. The algorithm was run until the solution (a string with all
 ones) was found or five millions evaluations had been performed. It
 took around a minute, on average, that is $68.9694$ seconds, to
 perform the fifty runs. In this experiment only 33, that is, 66\% were
@@ -505,13 +502,20 @@ with success rate upgraded to 100\% and average duration $3.46$
 seconds. Results for these two experiments 
 are shown in Figure \ref{fig:baseline}.
 
-These two experiments establish first a baseline result, which will
-depend on the population. The volunteer computing experiments that we
+These two experiments establish first a baseline result and show that
+it depends on the population. The volunteer computing experiments that we
 will describe next do not and can not have the same conditions, but
 the baseline is that if they eventually take longer than a basic
 desktop, their interest will be purely academic. We will try and
 prove next that that target performance can be achieved by carrying
-out several experiments in different conditions.
+out several experiments in different conditions. Second, they act also
+as a basic performance test for the server, and also prove that the
+basic server can be used for many kind of different set-ups, as long
+as they follow the REST protocolo to deposit and obtain individuals
+from the pool. It is obvious that, in this case, the server is not
+really needed, since there is a single client and no interaction
+between them, but there is a cost in sending and obtaining chromosomes
+from the server so it is included for the sake of fairer comparison. 
 
 \subsection{Volunteer evolutionary computation: first experiments and results}
 
