@@ -1,3 +1,5 @@
 load(ggplot2)
-
+library(evd)
 ips.puts.ww <- read.csv("ips-puts-ww.dat")
+this.fit <- fgev(ips.puts.ww$puts)
+print(this.fit)
