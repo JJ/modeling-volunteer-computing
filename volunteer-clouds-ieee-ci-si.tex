@@ -226,8 +226,15 @@ less widespread.
 
 The main problem with Java and all the other browser-embedded
 technologies is that they are not {\em universal} in the
-sense than an extra component, namely, the Java virtual machine, has
-to be installed in the browser. JavaScript, however,
+sense than an extra component, namely, the Java virtual machine or another
+virtual environment has to be installed in the browser. 
+Also these virtual environments have become targets of malicious attacks; % [Mario] Aqui empieza 
+for instance numerous vulnerabilities have been discovered in % lo que decía de la seguridad.
+the propietary Adobe Flash runtime environment and 
+video player \cite{ford2009analyzing,watanabe2010new}. The need for
+these additional environments has been mitigated with the 
+adoption of the HTML5 standard \cite{anthes2012html5}.
+JavaScript, however,
 \cite{flanagan2006javascript} was introduced in 1997 as a
 browser-embedded language and has, since then, become a set of standards
 \cite{ECMA-262} that include the language and its components. Since
@@ -268,7 +275,7 @@ have native JavaScript libraries too, and use JSON (JavaScript Object Notation) 
 interchange. Another advantage is that  
 developers can use the same software tools for both client and server
 side development.
-%Ayuda con la mini conclusion FERGU: mira la última frase de arriba
+% Ayuda con la mini conclusion FERGU: mira la última frase de arriba
 % Borrada por iterativa - JJ
 
 JavaScript is also compatible with the functional programming paradigm \cite{Cousineau1998,MacLennan1990,Thompson1996}. 
@@ -281,7 +288,10 @@ In the work presented in this paper, JavaScript has been used throughout the ful
 stack, which has the advantage of using the self-same lines of code for
 writing an evolutionary algorithm for the
 desktop or command line and browser clients, both based in the EC
-library NodEO \cite{DBLP:conf/gecco/GuervosVGES14}. This saves time
+library NodEO \cite{DBLP:conf/gecco/GuervosVGES14}. This saves time % [Mario] Creo que si se debería
+% dedicar una oración para recordar la diferencia y relación entre NodIO y NodEO
+% En mi mente los digo igual, NodEO como Rodeo y NodIO como Radio y me costó trabajo ver la diferencia
+% Pero igual un lector que llegue a leer sin vicios, si vea claramente la relación. 
 when writing code and leverages %FERGU: qué diferencias hay entre NodIO y NodEO??
 expertise acquired in the library itself. %FERGU: tienes info de LoC
                                 %usadas para la sección experimental y
@@ -289,7 +299,10 @@ expertise acquired in the library itself. %FERGU: tienes info de LoC
 % Es el mismo código - JJ
 %The proposed software has the advantage of full stack JavaScript
 %development..
-% Ya se ha dicho, ¿no? - JJ
+% Ya se ha dicho, ¿no? - JJ 
+% Si, eso ya quedó - Mario
+
+
 
 On the other hand, we are also interested in measuring the performance
 of volunteer computing systems, an area in which there have been
@@ -312,7 +325,8 @@ performance of the EA itself
 %ha sido la seguridad ya que estos presentan otra fuente de vulnerabilidad. Para complicar las cosas a veces (Flash, ActiveX) 
 %son tecnologías cerradas y propietarias. Por lo menos creo que esas
 %fueron las razones que se dieron para eliminar a Flash del iPhone.
-% [JJ] Escribe algo...
+% [JJ] Escribe algo... 
+% [Mario] Ok, aunque va unos párrafos antes.
 
 As far as we know, this paper presents one of the few experiments that
 uses computational 
@@ -323,6 +337,7 @@ well as the results obtained with the setup.
 
 %El último párrafo podría ser más preciso. Es el único experimento que utiliza recursos heterogeneos
 %empleando las tecnologías estándar (JavaScript, JSON, Cookies, etc.) mencionadas previamente.
+%[Mario] Ya quedó esto
 
 %Si no se extiende mucho se podría también hablar de la conexión con Cloud Computing,
 %se discuten las ventajas de utilizar JavaScript para acceder a recursos donados por voluntarios
@@ -330,12 +345,14 @@ well as the results obtained with the setup.
 %se deba hablar de la posibilidad de escalar los sistemas a bajo costo
 %o según la demanda.
 % Ya se ha hablado. Revísalo - JJ
+% Si, ya quedó -Mario 
 
 % Si te animas, propón un párrafo - JJ
 % Ok, lo escribo. - Mario
 % Voy escribiendo algo de HTML5 y Web Workers?, no necesariemente para
 % esta sección. 
 % Para la intro o esta sección - JJ
+% Ya se hizo - Mario
 
 On the other hand, measuring performance of the resulting metacomputer
 involves understanding the dynamics of this kind of systems. Initial
@@ -415,6 +432,7 @@ been used to build the elements of the system.
 % [Mario] Ok voy a explicar la figura. Quería saber primero su opinión tal vez se les hacía mucho detalle.
 % Creo que esta figura va mejor en la sección donde hablamos de
 % webworkers. La anterior era más adecuada como visión general. [JJ]
+% [Mario] Ok
 \begin{figure}[!t]
 \centering
 \includegraphics[width=4in]{img/system.pdf}
@@ -488,7 +506,8 @@ evolutionary algorithm in a desktop client written using NodEO,
 %FERGU: es NodEO o NodIO? Quito el \sf, por cierto, que queda feo
 %Por qué usamos NodEO aquí y no NodIO, vamos a compararlos? 
 %Qué diferencias hay entre los dos? (ponerlo en el SOA)
-%[Mario] Creo que es NodEO y NodIO fué mi error.
+%[Mario] Creo que es NodEO y NodIO fué mi error. 
+%[Mario] Ok, ya me quedó claro. Pero no sé si quede claro en el paper, sin leer el otro.
 the node.js evolutionary algorithm library. This experiment tries to 
 %FERGU: quitar el "the node.js evolutionary algorithm library", si ya lo hemos dicho
 %o explicarlo mejor: "the basic js library we have used as base to built NodIO", por ejemplo
