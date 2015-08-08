@@ -769,7 +769,6 @@ was tested in desktop verions of Chrome, FireFox and Safari.
 \item Each NodEO instance can be restarted independenly.
 \end{itemize}
 
- 
 A sequence diagram of the W$^2$ version of {\sf NodIO} is presented 
 in Figure~\ref{fig:system:w2}. In this version, clients use the Web Workers
 API to run two NodEO instances per browser. The sequence diagram shows the 
@@ -834,9 +833,7 @@ loop, that worker is reinitialized. The worker process is not ended, to
 avoid the cost, only the parameters and population is reset and a new UIID 
 assigned.
 \end{enumerate}
-
-
-
+%
 \begin{figure}[!t]
 \centering
 \includegraphics[width=4in]{img/Algorithm.pdf}
@@ -845,7 +842,24 @@ assigned.
   with two of them per browser.}  
 \label{fig:system:w2}
 \end{figure}
+%
 
+\begin{table*}
+\caption{Summary of {\sf NodIO-W$^2$} and comparison with the previous
+  experiments, which have been aggregated to compute central measures. \label{tab:summary:ww}}
+\begin{center}
+\begin{tabular}{l|ccccccc}
+\hline
+Date & Median \#IPs & Max \#IPs & Median time (s) & Median \#{\tt
+  PUT}s & $<$ 69s & $<$ 3.46s & Inter-experiment correlation\\
+\hline 
+{\sf NodIO} & 5 & 29 & 123 & 14 & 37.43\% & 3.40\% & 0.10 \\
+{\sf NodIO-W$^2$} & 4  & 16 & 7.36 & 89\% & 36.90\% &  & 0.4336061 \\
+\hline 
+\end{tabular}
+\end{center}
+\end{table*}
+%
 %---------------------------------------------------------------
 \section{Conclusion}
 \label{sec:conclusion}

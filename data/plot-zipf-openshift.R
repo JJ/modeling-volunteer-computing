@@ -24,3 +24,15 @@ dt.puts.7.31 <- process.puts("7-31")
 
 
 ggplot()+ scale_x_continuous("Normalized # runs")+scale_y_log10()+scale_colour_hue(name = '# Runs') +geom_point(data=dt.puts.4.4,aes(x=x/length(dt.puts.4.4$x),y=puts,color='4/4'),stat='Identity')+geom_point(data=dt.puts.4.24,aes(x=x/length(dt.puts.4.24$x),y=puts,color='4/24'),stat='Identity')+geom_point(data=dt.puts.7.31,aes(x=x/length(dt.puts.7.31$x),y=puts,color='7/31'),stat='Identity')
+
+all.puts <- data.frame(Experiment=rep("4-4",length(dt.puts.4.4$puts)),
+                       x = dt.puts.4.4$x,
+                       puts = dt.puts.4.4$puts )
+all.puts <- rbind(all.puts,
+                  data.frame(Experiment=rep("4-24",length(dt.puts.4.24$puts)),
+                             x = dt.puts.4.24$x,
+                             puts = dt.puts.4.24$puts ))
+all.puts <- rbind(all.puts,
+                  data.frame(Experiment=rep("7-31",length(dt.puts.7.31$puts)),
+                             x = dt.puts.7.31$x,
+                             puts = dt.puts.7.31$puts ))
