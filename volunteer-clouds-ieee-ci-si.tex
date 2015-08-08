@@ -729,6 +729,17 @@ presented next.
 
 \subsection{{\sf NodIO-W$^2$}, a Web Worker-based architecture}
 
+In order to improve the number of cycles per user, we improved the
+basic architecture in several different aspects. By using WebWorkers
+the algorithm kept running on the background even if the {\sf NodIO}
+tab was not in focus. It also allowed to run several clients per
+browser, as opposed to a single one as we did previously. Another
+improvement involved restart of the client once the solution was
+found, so that as long as the user was visiting the page it was
+running an evolutionary algorithm. Finally, a small algorithmic
+improvement was included: instead of having a fixed population,
+population size was random and different for each client. 
+
 JavaScript has commonly been used to develop client-side scripts
 that handle the user interface, communicate asynchronously with servers and 
 update the content that is displayed \cite{flanagan2006javascript}.
