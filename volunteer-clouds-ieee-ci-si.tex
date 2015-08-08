@@ -700,9 +700,9 @@ just a few of them, and with diminishing probability as time
 decreases. This exponential distribution also appears in the
 distribution of HTTP {\tt PUT}s, equivalent to the number of
 generations divided by 100, contributed by every user, which is shown
-in Figure \ref{fig:put:os}. These results show a Zipf-like behavior,
+in Figure \ref{fig:puts:os}. These results show a Zipf-like behavior,
 so we have fitted it to the Generalized Extreme Value distribution,
-with the resulting parameters shown in Table \ref{tab:put:os}.
+with the resulting parameters shown in Table \ref{tab:puts:os}.
 %
 \begin{table*}
 \caption{Summary of fit to Generalized Extreme Value distribution of
@@ -731,12 +731,12 @@ related to the size, but also a third shape $\xi$ parameter that is
 related to its skewness, that is, how skewed it is around the central
 location. Positive parameters indicate that the distribution {\em
   leans} towards the origin, negative towards the other extreme
-value. In this case, Table \cite{tab:puts:os} shows $\xi$ values
+value. In this case, Table \ref{tab:puts:os} shows $\xi$ values
 greater than one and between one and 1.4, which indicates that the
 three experiment share this origin-leaning pattern, with many users
 donating a few cycles and just a few donating extreme values. Random
 distributions with these parameters have been plotted in red in
-\ref{fig:put:os}, indicating that the fit is good enough. The
+\ref{fig:puts:os}, indicating that the fit is good enough. The
 predictive value of these fits, however, is limited, over all taking
 into account the low correlation between successive events shown
 above. 
@@ -873,7 +873,7 @@ Date & Median \#IPs & Max \#IPs & Median time (s) & Median \#{\tt
   PUT}s & $<$ 69s & $<$ 3.46s & Inter-experiment correlation\\
 \hline 
 {\sf NodIO} & 5 & 29 & 123 & 14 & 37.43\% & 3.40\% & 0.10 \\
-{\sf NodIO-W$^2$} & 4  & 16 & 7.36 & 89\% & 36.90\% &  & 0.4336061 \\
+{\sf NodIO-W$^2$} & 4  & 16 & 7.36 & 40 & 89\% & 36.90\% & 0.4336061 \\
 \hline 
 \end{tabular}
 \end{center}
