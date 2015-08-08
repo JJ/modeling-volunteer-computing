@@ -18,29 +18,6 @@
 
 \usepackage{array}
 
-% *** SUBFIGURE PACKAGES ***
-%\ifCLASSOPTIONcompsoc
-%  \usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
-%\else
-%  \usepackage[caption=false,font=footnotesize]{subfig}
-%\fi
-% subfig.sty, written by Steven Douglas Cochran, is the modern replacement
-% for subfigure.sty, the latter of which is no longer maintained and is
-% incompatible with some LaTeX packages including fixltx2e. However,
-% subfig.sty requires and automatically loads Axel Sommerfeldt's caption.sty
-% which will override IEEEtran.cls' handling of captions and this will result
-% in non-IEEE style figure/table captions. To prevent this problem, be sure
-% and invoke subfig.sty's "caption=false" package option (available since
-% subfig.sty version 1.3, 2005/06/28) as this is will preserve IEEEtran.cls
-% handling of captions.
-% Note that the Computer Society format requires a larger sans serif font
-% than the serif footnote size font used in traditional IEEE formatting
-% and thus the need to invoke different subfig.sty package options depending
-% on whether compsoc mode has been enabled.
-%
-% The latest version and documentation of subfig.sty can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/subfig/
-
 % *** PDF, URL AND HYPERLINK PACKAGES ***
 %
 \usepackage{url}
@@ -82,12 +59,10 @@ find out what kind of patterns the user behavior follow and try to fit
 them to some statistical distribution. 
 \end{abstract}
 
-% Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
 Evolutionary algorithms, evolutionary computation, distributed computing, internet computing,
 social networks, volunteer computing, metacomputing, performance evaluation. 
 \end{IEEEkeywords}
-
 
 %---------------------------------------------------------------
 \section{Introduction}
@@ -487,7 +462,7 @@ outlined in the State of the Art (Section \ref{sec:soa}):\begin{itemize}
   academic exercise.
 \end{itemize}
 
-This last point is what we will try to prove next.
+This last point is what we will try to prove in the next section.
 
 %---------------------------------------------------------------
 \section{Experiments and obtained results}
@@ -497,23 +472,15 @@ This last point is what we will try to prove next.
 \centering
 \includegraphics[width=12cm]{img/baseline-times.png}
 \caption{Comparison of time to solution for the baseline system, using a {\tt
-    node.js} client, for different population sizes. They only compare on
-runs in which solution has been found.}
+    node.js} client, for different population sizes. Only
+runs in which solution has been found are used for this graph.}
 \label{fig:baseline}
 \end{figure}
 First we establish the baseline performance by running the
-evolutionary algorithm in a desktop client written using NodEO, 
-%FERGU: es NodEO o NodIO? Quito el \sf, por cierto, que queda feo
-%Por qué usamos NodEO aquí y no NodIO, vamos a compararlos? 
-%Qué diferencias hay entre los dos? (ponerlo en el SOA)
-%[Mario] Creo que es NodEO y NodIO fué mi error. 
-%[Mario] Ok, ya me quedó claro. Pero no sé si quede claro en el paper, sin leer el otro.
-the node.js evolutionary algorithm library. This experiment tries to 
-%FERGU: quitar el "the node.js evolutionary algorithm library", si ya lo hemos dicho
-%o explicarlo mejor: "the basic js library we have used as base to built NodIO", por ejemplo
+evolutionary algorithm in a desktop client written using NodEO \cite{figshare:nodeo}, the basic JavaScript library we have used as base to built {\sf NodIO}. This experiment tries to 
 find the solution to the 40-trap function with parameters $l=4, a=1,
-b=2, z=3$, a population size equal 512. The algorithm was run until the solution (a string with all
-ones) was found or five millions evaluations had been performed. It
+b=2, z=3$ and a population size equal 512. The algorithm was run until the solution (a string with all
+ones) was found or five million evaluations had been performed. It
 took around a minute, on average, that is $68.9694$ seconds, to
 perform the fifty runs. In this experiment only 33, that is, 66\% were
 successful. The experiments were repeated for population $p=1024$,
