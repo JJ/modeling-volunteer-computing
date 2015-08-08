@@ -48,7 +48,7 @@ same way the cloud technologies in general have. The lack of general
 purpose and open source tools 
 with analytics built in could be one of the reasons why this is so, as
 well as the lack of proofs of concept. That is why in this paper we
-present NodIO, a client-server architecture for distributed
+present {\sf NodIO}, a client-server architecture for distributed
 evolutionary algorithms, written entirely in JavaScript, which needs
 minimal server support to work and is able to support persistent,
 asynchronous, distributed evolutionary algorithms running in the
@@ -77,7 +77,7 @@ your control or at least you have access to them.
 
 There is, then, space for systems that do not have any of these 
 assumptions, such as the one presented in this paper, which will be
-provisionally named {\sf NodIO}. NodIO is first an application that
+provisionally named {\sf NodIO}. {\sf NodIO} is first an application that
 runs in two tiers, a server and a client, the latter  can be possibly
 run on a  % [Pedro] Both the server and the client in browsers?
           % different browsers as I understand? [JJ]  No, server in
@@ -477,7 +477,7 @@ runs in which solution has been found are used for this graph.}
 \label{fig:baseline}
 \end{figure}
 First we establish the baseline performance by running the
-evolutionary algorithm in a desktop client written using NodEO \cite{figshare:nodeo}, the basic JavaScript library we have used as base to built {\sf NodIO}. This experiment tries to 
+evolutionary algorithm in a desktop client written using NodEO \cite{nodeo2014}, the basic JavaScript library we have used as base to built {\sf NodIO}. This experiment tries to 
 find the solution to the 40-trap function with parameters $l=4, a=1,
 b=2, z=3$ and a population size equal 512. The algorithm was run until the solution (a string with all
 ones) was found or five million evaluations had been performed. It
@@ -770,17 +770,26 @@ framework. Web request handlers are implemented using the Express web
 framework. For keeping a log of the execution the Winston library is used, and 
 finally the NodeIO framework is responsible for keeping the shared pool.
 \item {\em Client main thread}  This process handles the user interaction
-using the JQuery framwork. The Chart.js library is used to display a chart of
+using the JQuery framework. The Chart.js library is used to display a chart of
 the best fitness in the population over time. The main script also creates 
 worker instances and handles the user interface.
 \item {\em Worker global scope} The worker execution space does not have 
 access to the Document Object Model (DOM) or JQuery objects in the main thread.
 Asynchronus HTTP requests to the server are implemented using the XHR object. 
 \end{itemize}
+%
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=4in]{img/Algorithm.pdf}
+\caption{Description of the W$^2$ version of {\sf NodIO}. In this
+  version, clients use Web Workers to run the evolutionary algorithm,
+  with two of them per browser.}  
+\label{fig:system:w2}
+\end{figure}
 
-The sequence of events are:
+The sequence of events is as follows:
 \begin{enumerate}
-\item First the NodIO process is started in nodejs. As part of the 
+\item First the {\sf NodIO} process is started in nodejs. As part of the 
 initialization procedure the number of experiment is initialised and a log 
 file is created. The shared pool implemented as an array is reset.
 \item A volunteer follows the link of the experiment triggering a GET HTTP 
@@ -820,17 +829,7 @@ avoid the cost, only the parameters and population is reset and a new UIID
 assigned.
 \end{enumerate}
 %
-\begin{figure}[!t]
-\centering
-\includegraphics[width=4in]{img/Algorithm.pdf}
-\caption{Description of the W$^2$ version of {\sf NodIO}. In this
-  version, clients use Web Workers to run the evolutionary algorithm,
-  with two of them per browser.}  
-\label{fig:system:w2}
-\end{figure}
-%
-
-\begin{table*}
+\begin{table*}[!htb]
 \caption{Summary of {\sf NodIO-W$^2$} and comparison with the previous
   experiments, which have been aggregated to compute central measures. \label{tab:summary:ww}}
 \begin{center}
@@ -846,6 +845,41 @@ Date & Median \#IPs & Max \#IPs & Median time (s) & Median \#{\tt
 \end{center}
 \end{table*}
 %
+
+The experiments were run in the same way as before, using several
+Twitter announcements throughout several days by the end of July
+2015. Eventually, more than one thousand experiments were completed in
+a matter of days. A summary of results are shown in Table
+\ref{tab:summary:ww}, comparing it with the aggregate of the results
+obtained with the initial version of {\sf NodIO}. These results are
+remarkably different, being similar only in the median and maximum
+number of IPs, although in this case it would be combination
+IP-worker, being considered every worker a different IP. The median
+number of seconds is almost 80\% better than the previous version, and
+the median number of PUTs is three times better; this causes that most
+of experiment take less time than one of the baselines, and one third
+less than the second baseline. Thus, the conclusion in this case is
+that we can obtain, through volunteer computation, a result that is,
+most of the times, better than we would using a similar, non-parallel,
+desktop setup, which makes this system suitable for massively
+distributed evolutionary algorithms.
+
+However, it is interesting to note why this is so, and the first hint
+is the inter-experiment correlation between the number of IPs in
+succesive experiments. While before it was an unremarkable 10\%, it is
+now more than 43\%, making the numbef of IPs in contiguous experiments
+highly correlated. The main reason for this is the setup in {\sf
+  NodIO-W$^2$}, which restarts an island after a solution has been
+found and also is running even if the tab is not on the
+foreground. This means that volunteers can leave the experiment
+running for as long as they want and they will be contributing to
+experiment after experiment, unlike the previous version, where they
+stopped contributing after the solution was found. This is also
+reflected in the number of PUTs, which is the number of generations
+divided by 100; more than 50\% of the volunteers run for more than
+4000 generations. All things considered, this means than there are
+many more computers running {\em simultaneously}, leading to this
+almost 5-fold increase in running time. 
 %---------------------------------------------------------------
 \section{Conclusion}
 \label{sec:conclusion}
@@ -863,7 +897,7 @@ SPIP2014-01437 (Direcci{\'o}n General de Tr{\'a}fico) and PYR-2014-17
 GENIL project (CEI-BIOTIC Granada). We would also like to thank the
 anonymous reviewers of previous versions of this paper who have really helped us to improve
 this paper (and our work) with their suggestions. We are also grateful
-to Anna Saéz de Tejada for her help with the data processing scripts. 
+to Anna S\'aez de Tejada for her help with the data processing scripts. 
 
 
 \bibliographystyle{IEEEtran}
