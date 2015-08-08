@@ -6,21 +6,10 @@
 %
 \ifCLASSINFOpdf
   \usepackage[pdftex]{graphicx}
-  % declare the path(s) where your graphic files are
-  % \graphicspath{{../pdf/}{../jpeg/}}
-  % and their extensions so you won't have to specify these with
-  % every instance of \includegraphics
-  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+  \graphicspath{{img/}}
 \else
-  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
-  % will default to the driver specified in the system graphics.cfg if no
-  % driver is specified.
   \usepackage[dvips]{graphicx}
-  % declare the path(s) where your graphic files are
-  % \graphicspath{{../eps/}}
-  % and their extensions so you won't have to specify these with
-  % every instance of \includegraphics
-  % \DeclareGraphicsExtensions{.eps}
+  \graphicspath{{img/}}
 \fi
 
 % *** SPECIALIZED LIST PACKAGES ***
@@ -78,23 +67,25 @@
 \begin{abstract}
 Volunteer computing is used routinely in science and industry, but it
 still has a long way to go if it is going to become a mainstream technology in the
-same way the cloud technologies in general have. The lack of general purpose and open source tools
+same way the cloud technologies in general have. The lack of general
+purpose and open source tools 
 with analytics built in could be one of the reasons why this is so, as
 well as the lack of proofs of concept. That is why in this paper we
 present NodIO, a client-server architecture for distributed
 evolutionary algorithms, written entirely in JavaScript, which needs
 minimal server support to work and is able to support persistent,
 asynchronous, distributed evolutionary algorithms running in the
-browser. The architecture, along with some initial results on the expected performance and scaling
-behavior is presented. We also use the algorithm data to  %[Pedro] I don't understand what "the algorithm analytics" stand for???
-% data - JJ
-find out what kind of patterns the user behavior follow and try to fit them to some statistical distribution.
+browser. The architecture, along with some initial results on the
+expected performance and scaling 
+behavior is presented. We also use the algorithm data to 
+find out what kind of patterns the user behavior follow and try to fit
+them to some statistical distribution. 
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
 Evolutionary algorithms, evolutionary computation, distributed computing, internet computing,
-social networks, volunteer computing, metacomputing. 
+social networks, volunteer computing, metacomputing, performance evaluation. 
 \end{IEEEkeywords}
 
 
@@ -109,7 +100,7 @@ be compiled or run directly on the operating system layer and, second,
 they assume that the nodes that are going to run the system are under
 your control or at least you have access to them.
 
-There is, then, space for systems that do not have any of these %[Mario] these assumptions? [JJ] OK
+There is, then, space for systems that do not have any of these 
 assumptions, such as the one presented in this paper, which will be
 provisionally named {\sf NodIO}. NodIO is first an application that
 runs in two tiers, a server and a client, the latter  can be possibly
@@ -166,7 +157,8 @@ evolutionary computation even before JavaScript was
 introduced as a browser-based scripting language in 1997. Before that
 time other technologies,
  including Flash animations and VBScript, ActiveX or Java applets were
-used; for instance, Java was pointed out in \cite{soares1998get} as a ``language for
+used; for instance, Java was pointed out in \cite{soares1998get} as a
+``language for the
 internet'', providing some advantages such as multi-architecture compatibility or 
 security mechanisms and was proposed in \cite{chandy1996world} as the
 basis for the creation of a world-wide peer to peer system using Java
@@ -215,7 +207,7 @@ the execution of parallel applications over the Internet and features
 a comprehensive statistics collection subsystem, allowing its use for science,
 since it allows the collection of algorithm analytics by the
 experiment designer, unlike the other systems mentioned
-above. Other proposals contemporary to Jet, such as SuperWeb
+above. Other proposals contemporary to Jet, such as {\em SuperWeb}
 \cite{alexandrov1997superweb} are roughly a translation of classical
 distribution techniques, with complicated architectures that include
 brokers for resource discovery. It is focused, however, in solving the
@@ -247,7 +239,9 @@ JavaScript can be used either for unwitting
 \cite{unwitting-ec} or volunteer
 \cite{langdon:2005:metas,gecco07:workshop:dcor} distributed
 evolutionary computation and it has been used ever since by several
-authors, including more recent efforts \cite{Desell:2008:AHG:1389095.1389273,duda2013distributed,DBLP:journals/corr/abs-0801-1210} that even
+authors, including more recent efforts
+\cite{Desell:2008:AHG:1389095.1389273,duda2013distributed,DBLP:journals/corr/abs-0801-1210}
+that even 
 used the client's GPU \cite{duda2013gpu} or create an object-oriented
 framework for evolution in the browser \cite{EvoStar2014:jsEO}. Many other researchers have
 used Java \cite{chong:1999:jDGPi} and others have gone away from the
@@ -265,23 +259,26 @@ is available in most laboratories, allowing researches to
 scale algorithms at reasonable costs. Researchers have proposed the use of 
 public clouds such as Amazon EC2 \cite{CloudScale}, Google App Engine\cite{di2013towards} 
 and DropBox~\cite{mericloud}. The use of JavaScript to implement
-server side components, %FERGU: he puesto mejor el de revista en lugar
-                        %del del CEC 
+server side components 
 gives software developers certain advantages in the cloud
-paradigm. JavaScript is a first-classe citizen 
-in most Platforms as a Service (PaaS) as many support the Node.js
-framework \cite{wood13:nodejs:paas}. Also many web services  
-have native JavaScript libraries and use JSON for data
+paradigm, since is a first-classe citizen 
+in most Platforms as a Service (PaaS) products as most support the Node.js
+framework \cite{wood13:nodejs:paas}. Many web services  
+have native JavaScript libraries too, and use JSON (JavaScript Object Notation) for data
 interchange. Another advantage is that  
 developers can use the same software tools for both client and server
-side development.  
-Besides the advantages to deal with the same language in the full
-stack as previously mentioned,  
-this also facilitates the interoperability of the exchanged data types.
+side development.
 %Ayuda con la mini conclusion FERGU: mira la última frase de arriba
+% Borrada por iterativa - JJ
+
+JavaScript is also compatible with the functional programming paradigm \cite{Cousineau1998,MacLennan1990,Thompson1996}. 
+According to \cite{swanresearch2015}, the benefits of using this kind of paradigm in 
+metaheuristics optimization allows an improvement in communicability, 
+reproducibility, interoperability, automated assembly, knowledge engineering 
+and efficiency. 
 
 In the work presented in this paper, JavaScript has been used throughout the full 
-stack, which has the advantage of using the same lines of code for
+stack, which has the advantage of using the self-same lines of code for
 writing an evolutionary algorithm for the
 desktop or command line and browser clients, both based in the EC
 library NodEO \cite{DBLP:conf/gecco/GuervosVGES14}. This saves time
@@ -292,16 +289,11 @@ expertise acquired in the library itself. %FERGU: tienes info de LoC
 % Es el mismo código - JJ
 %The proposed software has the advantage of full stack JavaScript
 %development..
+% Ya se ha dicho, ¿no? - JJ
 
-JavaScript is also compatible with the functional programming paradigm \cite{Cousineau1998,MacLennan1990,Thompson1996}. 
-According to \cite{swanresearch2015}, the benefits of using this kind of paradigm in 
-metaheuristics optimization allows an improvement in communicability, 
-reproducibility, interoperability, automated assembly, knowledge engineering 
-and efficiency. 
-
-There have been relatively few efforts to analyze the
-performance that can be obtained from these volunteer computing
-experiments. 
+On the other hand, we are also interested in measuring the performance
+of volunteer computing systems, an area in which there have been
+relatively few efforts.  
 There were some initial attempts to avoid the differences in performance
 that could be obtained from volunteers  by making
 the algorithm adaptive to the kind of resources allotted to it
@@ -337,13 +329,13 @@ well as the results obtained with the setup.
 %pero falta hablar de como se explotaría el recurso Cloud. Lo digo por el titulo de Volunteers in the Clouds. Tal vez
 %se deba hablar de la posibilidad de escalar los sistemas a bajo costo
 %o según la demanda.
+% Ya se ha hablado. Revísalo - JJ
 
 % Si te animas, propón un párrafo - JJ
 % Ok, lo escribo. - Mario
 % Voy escribiendo algo de HTML5 y Web Workers?, no necesariemente para
 % esta sección. 
 % Para la intro o esta sección - JJ
-
 
 On the other hand, measuring performance of the resulting metacomputer
 involves understanding the dynamics of this kind of systems. Initial
