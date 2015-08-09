@@ -888,10 +888,33 @@ almost 5-fold increase in running time.
 \label{fig:ipstime:w2}
 \end{figure}
 %
+%
+\begin{table*}
+\caption{Summary of fit to Generalized Extreme Value distribution of
+  the number of {\tt PUT}s per worker. \label{tab:puts:ww}}
+\begin{center}
+\begin{tabular}{ccc}
+\hline
+Location $\mu$ & Scale $\sigma$ & Shape $\xi$ \\
+\hline 
+18.275 $\pm$ 0.83719  &  25.962  $\pm$ 1.22015 & 1.242   $\pm$ 0.04746 \\       
+\hline 
+\end{tabular}
+\end{center}
+\end{table*}
+%
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.9\linewidth]{img/gev-fit-ww.png}
+\caption{Ranked number of {\tt PUT}s per worker and GEV fit (in red)
+  for the {\sf NodIO$^2$} model. }  
+\label{fig:gev:w2}
+\end{figure}
+%
 It is also interesting to measure the scaling properties in this
 model, that is, the relationship between the number of IPs
 participating in an experiment and the time it takes to complete
-it. This is shown in Figure \ref{fig:ipstime:ww}, which shows every
+it. This is shown in Figure \ref{fig:ipstime:w2}, which shows every
 experiment in a time (in milliseconds) vs. number of workers participating
 in it. Although there is not a clear trend, the graph seems to say
 that the time needed for finding the solution in this evolutionary 
@@ -903,6 +926,25 @@ standard deviation in the time, with more volunteers adding {\em
   robustness} to an experiment and certainty in the time it is taking;
 however, more experiments would be needed to check this hypothesis. 
 
+As we did in the previous subsection, we have fitted also the number
+of HTTP {\tt PUT}s per worker to a GEV function, with the result shown
+in Table \ref{tab:puts:ww}. Comparing this table with what we obtained
+in the previous experiment, \ref{tab:puts:os}, we find higher values
+for the location $\mu$ and scale $\sigma$ parameters, accounting for
+the higher number of contributions per volunteer that has been
+previously observed; however, the shape $\xi$ parameter is
+substantially similar, with a {\em bell} shape leaning towards the
+origin, indicating a pattern of a few users with many contributions
+and many with few contributions. If we plot the model and the data
+side by side, as shown in Figure \ref{fig:gev:w2} we see that the fit
+is not so tight as in the previous case, with the model overestimating
+the number of individuals with a high number contributions. This is
+probably due to the fact that in the previous case, the user needed to
+voluntarily reload the page to contribute the most generations, with a
+{\em phase change} between the people that did so and the people that
+just run the experiment until completion. In this case, however, the
+user just needs to let it run, without that phase change and thus a
+more {\em equalitarian} distribution of contributions. 
 
 %---------------------------------------------------------------
 \section{Conclusion}
