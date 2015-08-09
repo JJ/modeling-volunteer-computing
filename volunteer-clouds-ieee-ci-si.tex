@@ -880,6 +880,30 @@ divided by 100; more than 50\% of the volunteers run for more than
 4000 generations. All things considered, this means than there are
 many more computers running {\em simultaneously}, leading to this
 almost 5-fold increase in running time. 
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.9\linewidth]{img/ips-time-ww.png}
+\caption{Time employed in every experiment vs. number of IPs (in abscises). The red dot and line show the average and standard deviation, the shade of blue the number of experiments with the same number of IPs. }  
+\label{fig:ipstime:w2}
+\end{figure}
+%
+It is also interesting to measure the scaling properties in this
+model, that is, the relationship between the number of IPs
+participating in an experiment and the time it takes to complete
+it. This is shown in Figure \ref{fig:ipstime:ww}, which shows every
+experiment in a time (in milliseconds) vs. number of workers participating
+in it. Although there is not a clear trend, the graph seems to say
+that the time needed for finding the solution in this evolutionary 
+algorithm does not depend on the number of workers participating in
+it. This does not mean that it is independent on the number of {\em
+  simultaneous} users, which is probably the case although it is more
+difficult to measure. There seems to be a trend towards a decreasing
+standard deviation in the time, with more volunteers adding {\em
+  robustness} to an experiment and certainty in the time it is taking;
+however, more experiments would be needed to check this hypothesis. 
+
+
 %---------------------------------------------------------------
 \section{Conclusion}
 \label{sec:conclusion}
