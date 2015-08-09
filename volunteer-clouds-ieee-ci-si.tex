@@ -936,7 +936,7 @@ however, more experiments would be needed to check this hypothesis.
 As we did in the previous subsection, we have fitted also the number
 of HTTP {\tt PUT}s per worker to a GET function, with the result shown %FERGU: he cambiado GEV por GET (lo de GEV era un error, no? vayamos a que sea algo nuevo que no conozco...)
 in Table \ref{tab:puts:ww}. Comparing this table with what we obtained
-in the previous experiment, \ref{tab:puts:os}, we find higher values
+in the previous experiment, Table \ref{tab:puts:os}, we find higher values
 for the location $\mu$ and scale $\sigma$ parameters, accounting for
 the higher number of contributions per volunteer that has been
 previously observed; however, the shape $\xi$ parameter is
@@ -957,7 +957,17 @@ more {\em equalitarian} distribution of contributions.
 \section{Conclusion}
 \label{sec:conclusion}
 
-The conclusion goes here.
+% The conclusion goes here.
+
+In this paper a client-server architecture for distributed evolutionary algorithms, termed {\sf NodIO}, for volunteer computing has been presented.
+
+
+In order to establish a baseline performance, the evolutionary algorithm was run in a desktop client-program written in JavaScript using NodEO to solve the 40-trap function.
+In this first experiment, it could be observed how many users donated a few cycles and just a few donated a high amount of CPU to the experiment.
+
+As a second experiment, and trying to improve the number of cycles per user, the system architecture was modified. In this case, Web Workers were used so that several clients per browers could be executed.
+As a result, in this case a higher number of contributions per volunteer could be observed, although as in the previous experiments a pattern of a few users with many contributions and many with few contributions was obtained.
+
 
 
 %---------------------------------------------------------------
