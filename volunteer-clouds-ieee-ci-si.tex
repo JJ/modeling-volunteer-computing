@@ -897,14 +897,16 @@ almost 5-fold increase in running time.
 %
 %
 \begin{table*}
-\caption{Summary of fit to Generalized Extreme Value distribution of
+\caption{Summary of fit to Generalized Extreme Value (GEV) and Weibull distribution of
   the number of {\tt PUT}s per worker. \label{tab:puts:ww}}
 \begin{center}
-\begin{tabular}{ccc}
+\begin{tabular}{cccc}
 \hline
-Location $\mu$ & Scale $\sigma$ & Shape $\xi$ \\
+Distribution & Location $\mu$ & Scale $\sigma$ & Shape $\xi$ \\
 \hline
-18.275 $\pm$ 0.83719  &  25.962  $\pm$ 1.22015 & 1.242   $\pm$ 0.04746 \\
+GEV & 18.275 $\pm$ 0.83719  &  25.962  $\pm$ 1.22015 & 1.242   $\pm$
+0.04746 \\
+Weibull & ND & 75.11457519 $\pm$ 2.97470251  & 0.69714410 $\pm$ 0.01383976 \\
 \hline
 \end{tabular}
 \end{center}
@@ -952,7 +954,15 @@ voluntarily reload the page to contribute the most generations, with a
 {\em phase change} between the people that did so and the people that
 just run the experiment until completion. In this case, however, the
 user just needs to let it run, without that phase change and thus a
-more {\em equalitarian} distribution of contributions.
+more {\em equalitarian} distribution of contributions, which rather
+corresponds to a Weibull function, as shown in Figure
+\ref{fig:ipstime:w2} (right hand side). The fitted parameters for this
+distribution, shown in Table \ref{tab:puts:ww}, show a shape parameter
+equal to 0.69, a value that is remarkably similar to the 0.5 value
+found for time devoted to games in Chambers et
+al. \cite{chambers2005measurement}.
+
+
 
 %---------------------------------------------------------------
 \section{Conclusion}
