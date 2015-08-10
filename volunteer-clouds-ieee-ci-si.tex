@@ -119,8 +119,8 @@ computation systems along with attempts to predict and model its behavior. %FERG
 Then, a detailed description of the proposed system is presented
 in Section \ref{sec:description}, followed by the experiments and
 obtained results in Section \ref{sec:experiments}.
-Finally, conclusions and future work are presented in Section \ref{sec:conclusion}.
-
+Finally, conclusions and future lines of work are presented in Section
+\ref{sec:conclusion}. 
 
 %---------------------------------------------------------------
 \section{State of the art}
@@ -152,9 +152,10 @@ is, the capability of using preferentially resources in the same
 organization could be either disregarded or included in adaptivity,
 leaving us with eight desirable properties.
 
-Fulfilling these properties could be achieved using any of the
-languages, and associated technologies, mentioned above, provided that the user had
-installed the required virtual machine plugin first, but with the advantage of
+The fulfillment of these properties could be achieved using any of the
+languages and associated technologies, mentioned above, provided that the user had
+installed the required virtual machine plugin first, but embedding a
+ditributed computation client in the browser has the advantage of
 providing a single and universal way of accessing resources via an
 URI, something that is not guaranteed using desktop
 applications. Baratloo et al. tried in 1996 to create a system with
@@ -250,8 +251,6 @@ have native JavaScript libraries too, and use JSON (JavaScript Object Notation) 
 interchange. Another advantage is that
 developers can use the same software tools for both client and server
 side development.
-% Ayuda con la mini conclusion FERGU: mira la última frase de arriba
-% Borrada por iterativa - JJ
 
 JavaScript is also compatible with the functional programming paradigm \cite{Cousineau1998,MacLennan1990,Thompson1996}.
 According to \cite{swanresearch2015}, the benefits of using this kind of paradigm in
@@ -266,18 +265,14 @@ desktop or command line and browser clients, both based in the EC
 library NodEO \cite{DBLP:conf/gecco/GuervosVGES14}. This saves time % [Mario] Creo que si se debería
 % dedicar una oración para recordar la diferencia y relación entre NodIO y NodEO
 % En mi mente los digo igual, NodEO como Rodeo y NodIO como Radio y me costó trabajo ver la diferencia
-% Pero igual un lector que llegue a leer sin vicios, si vea claramente la relación.
+% Pero igual un lector que llegue a leer sin vicios, si vea claramente
+% la relación.
+% OK, lo hago más adelante - JJ
 when writing code and leverages %FERGU: qué diferencias hay entre NodIO y NodEO??
 expertise acquired in the library itself. %FERGU: tienes info de LoC
                                 %usadas para la sección experimental y
                                 %justificar esta frase?
 % Es el mismo código - JJ
-%The proposed software has the advantage of full stack JavaScript
-%development..
-% Ya se ha dicho, ¿no? - JJ
-% Si, eso ya quedó - Mario
-
-
 
 On the other hand, we are also interested in measuring the performance
 of volunteer computing systems, an area in which there have been
@@ -296,38 +291,12 @@ a more general distributed computing context
 performance of the EA itself
 \cite{DBLP:journals/gpem/LaredoBGVAGF14}.
 
-%Mario: Estaba pensando que otra justificación muy fuerte para el uso de JS sobre plug-ins
-%ha sido la seguridad ya que estos presentan otra fuente de vulnerabilidad. Para complicar las cosas a veces (Flash, ActiveX)
-%son tecnologías cerradas y propietarias. Por lo menos creo que esas
-%fueron las razones que se dieron para eliminar a Flash del iPhone.
-% [JJ] Escribe algo...
-% [Mario] Ok, aunque va unos párrafos antes.
-
 As far as we know, this paper presents one of the few experiments that
 uses computational
 resources that are as dissimilar as smartphones and powerful laptops
 or desktop computers in a research center. The methodology used to
 gather resources and the algorithms used will be described next, as
 well as the results obtained with the setup.
-
-%El último párrafo podría ser más preciso. Es el único experimento que utiliza recursos heterogeneos
-%empleando las tecnologías estándar (JavaScript, JSON, Cookies, etc.) mencionadas previamente.
-%[Mario] Ya quedó esto
-
-%Si no se extiende mucho se podría también hablar de la conexión con Cloud Computing,
-%se discuten las ventajas de utilizar JavaScript para acceder a recursos donados por voluntarios
-%pero falta hablar de como se explotaría el recurso Cloud. Lo digo por el titulo de Volunteers in the Clouds. Tal vez
-%se deba hablar de la posibilidad de escalar los sistemas a bajo costo
-%o según la demanda.
-% Ya se ha hablado. Revísalo - JJ
-% Si, ya quedó -Mario
-
-% Si te animas, propón un párrafo - JJ
-% Ok, lo escribo. - Mario
-% Voy escribiendo algo de HTML5 y Web Workers?, no necesariemente para
-% esta sección.
-% Para la intro o esta sección - JJ
-% Ya se hizo - Mario
 
 On the other hand, measuring performance of the resulting metacomputer
 involves understanding the dynamics of this kind of systems. Initial
