@@ -204,8 +204,8 @@ The main problem with Java and all the other browser-embedded
 technologies is that they are not {\em universal} in the
 sense than an extra component, namely, the Java virtual machine or another
 virtual environment has to be installed in the browser.
-Also these virtual environments have become targets of malicious attacks; % [Mario] Aqui empieza
-for instance numerous vulnerabilities have been discovered in % lo que decía de la seguridad.
+Also these virtual environments have become targets of malicious attacks; 
+for instance numerous vulnerabilities have been discovered in 
 the proprietary Adobe Flash runtime environment and
 video player \cite{ford2009analyzing,watanabe2010new}. The need for
 these additional environments has been mitigated with the
@@ -223,7 +223,7 @@ JavaScript can be used either for unwitting
 \cite{langdon:2005:metas,gecco07:workshop:dcor} distributed
 evolutionary computation and it has been used ever since by several
 authors, including more recent efforts
-\cite{Desell:2008:AHG:1389095.1389273,duda2013distributed,DBLP:journals/corr/abs-0801-1210}
+\cite{Desell:2008:AHG:1389095.1389273,duda2013distributed,DBLP:journals/corr/abs-0801-1210} 
 that even
 used the client's GPU \cite{duda2013gpu} or create an object-oriented
 framework for evolution in the browser \cite{EvoStar2014:jsEO}. Many other researchers have
@@ -245,7 +245,7 @@ and DropBox~\cite{mericloud}. The use of JavaScript to implement
 server side components
 gives software developers certain advantages in the cloud
 paradigm, since is a first-classe citizen
-in most Platforms as a Service (PaaS) products as most support the Node.js
+in most Platforms as a Service (PaaS) products as most support the {\tt node.js}
 framework \cite{wood13:nodejs:paas}. Many web services
 have native JavaScript libraries too, and use JSON (JavaScript Object Notation) for data
 interchange. Another advantage is that
@@ -262,17 +262,9 @@ In the work presented in this paper, JavaScript has been used throughout the ful
 stack, which has the advantage of using the self-same lines of code for
 writing an evolutionary algorithm for the
 desktop or command line and browser clients, both based in the EC
-library NodEO \cite{DBLP:conf/gecco/GuervosVGES14}. This saves time % [Mario] Creo que si se debería
-% dedicar una oración para recordar la diferencia y relación entre NodIO y NodEO
-% En mi mente los digo igual, NodEO como Rodeo y NodIO como Radio y me costó trabajo ver la diferencia
-% Pero igual un lector que llegue a leer sin vicios, si vea claramente
-% la relación.
-% OK, lo hago más adelante - JJ
-when writing code and leverages %FERGU: qué diferencias hay entre NodIO y NodEO??
-expertise acquired in the library itself. %FERGU: tienes info de LoC
-                                %usadas para la sección experimental y
-                                %justificar esta frase?
-% Es el mismo código - JJ
+library NodEO \cite{DBLP:conf/gecco/GuervosVGES14}. This saves time 
+when writing code and leverages 
+expertise acquired in the library itself. 
 
 On the other hand, we are also interested in measuring the performance
 of volunteer computing systems, an area in which there have been
@@ -291,23 +283,18 @@ a more general distributed computing context
 performance of the EA itself
 \cite{DBLP:journals/gpem/LaredoBGVAGF14}.
 
-As far as we know, this paper presents one of the few experiments that
-uses computational
-resources that are as dissimilar as smartphones and powerful laptops
-or desktop computers in a research center. The methodology used to
-gather resources and the algorithms used will be described next, as
-well as the results obtained with the setup.
-
 On the other hand, measuring performance of the resulting metacomputer
 involves understanding the dynamics of this kind of systems. Initial
 work was done for peer to peer systems by Stutzbach et
 al. \cite{stutzbach2006understanding} and extended to volunteer
 computing by Laredo et al. \cite{churn08,laredo2008rcp}. But the raw material of
-volunteer computing, number of users and the time spent in the
-computation in browser-based volunteer computing experiments, have only been studied in a limited way in
+volunteer computing, number of users and the time spent by every one in the
+computation in browser-based volunteer computing experiments, have
+only been studied in a limited way in 
 \cite{DBLP:journals/gpem/LaredoBGVAGF14} on the basis of a single
 run. Studies using volunteer computing platforms such as SETI@home
-\cite{javadi2009mining} found out that the Weibull, log-normal and Gamma distribution
+\cite{javadi2009mining} found out that the Weibull, log-normal and
+Gamma distribution 
 modeled quite well the availability of resources in several clusters
 of that framework; the shape of those distributions is a skewed bell
 with more resources in the {\em low} areas than in the high areas:
@@ -320,6 +307,14 @@ paper we will perform different experiments in different setups and
 will try to come up with a more precise model. Next we describe the
 system itself.
 
+
+As far as we know, this paper presents one of the few experiments that
+uses computational resources that are as dissimilar as smartphones and
+powerful laptops 
+or desktop computers in a research center. The methodology used to
+gather resources and the algorithms used will be described next, as
+well as the results obtained with the setup.
+
 %---------------------------------------------------------------
 \section{Description of the system}
 \label{sec:description}
@@ -328,20 +323,20 @@ In general, a volunteer-based distributed evolutionary computation
 system based on the browser is simply a client-server architecture
 whose client is, or can be, embedded in the browser via JavaScript.
 
-% [Pedro] desde el abstract no se había nombrado "NodIO".
-% Creo que en este párrafo debería introducirse, principalmente el nombre.
-% Añado una frase presentándolo:
-% [Mario] Nota: se menciona también en el segundo párrafo de la
-% Introducción.
-% OK [JJ]
-In this sense, in this paper we propose {\sf NodIO}, a cloud or metal based
-volunteer computing system, whose architecture
-has been developed using JavaScript on both the client and server sides.
+In this sense, in this paper we propose {\sf NodIO}, a cloud or metal
+based 
+volunteer evolutionary computing system based on the {\sf NodEO}
+library, whose architecture 
+has been developed using JavaScript on the client as well as the
+server sides. 
 All parts of the system are free and available with a free
 license from \url{https://github.com/JJ/splash-volunteer}.
 Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
-\item A REST server, that is, a server that includes several remote %remote requests suena raro, propongo algo como: remote procedures o web interfaces
-  requests for storing and retrieving information (the CRUD cycle:
+\item A REST server, that is, a server that includes several {\em
+  routes} %remote requests suena raro, propongo algo como: remote
+          %procedures o web interfaces [jj] changed to routes, its
+          %proper name.
+  that can be called for storing and retrieving information (the CRUD cycle:
   create, request, update and delete) from the server. The information
   is of two kinds: {\em problem} based, that is, related to the
   evolutionary algorithm such as {\tt PUT}ing a chromosome in or {\tt
@@ -349,9 +344,6 @@ Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
   to performance and state of the experiments. It also performs logging
   duties, but is basically a very lightweight and high performance
   data store \cite{jj:idc:lowcost}.
-  %The information is of two kinds: Problem Based y ¿Cual otra?
-  %¿Logging? No se entiende bien. ¿Podría ser problem domain?
-% info. Añadido [JJ]
   The server has the capability to
   run a single experiment, storing the chromosomes in a data structure
   that is reset when the solution is found.
@@ -369,14 +361,9 @@ Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
 \end{enumerate}
 
 Figure \ref{fig:system} describes the general system architecture and
-algorithm behavior. Different web technologies, such as JQuery or chart.js have
+algorithm behavior. Different web technologies, such as JQuery or {\tt
+  chart.js} have
 been used to build the elements of the system.
-%FERGU: Mario, explica en el texto de abajo qué es winston en la figura también.
-%Vamos, que todo lo que salga en la figura tiene que ir en el texto en alguna parte :)
-% [Mario] Ok voy a explicar la figura. Quería saber primero su opinión tal vez se les hacía mucho detalle.
-% Creo que esta figura va mejor en la sección donde hablamos de
-% webworkers. La anterior era más adecuada como visión general. [JJ]
-% [Mario] Ok
 \begin{figure}[!t]
 \centering
 \includegraphics[width=4in]{img/system.pdf}
@@ -446,9 +433,12 @@ runs in which solution has been found are used for this graph.}
 \label{fig:baseline}
 \end{figure}
 First, we establish the baseline performance by running the
-evolutionary algorithm in a desktop client written using NodEO \cite{nodeo2014}, the basic JavaScript library we have used as base to build {\sf NodIO}. This experiment tries to
+evolutionary algorithm in a desktop client written using NodEO
+\cite{nodeo2014}, the basic JavaScript library we have used as base to
+build {\sf NodIO}, the framework. This experiment tries to 
 find the solution to the 40-trap function with parameters $l=4, a=1,
-b=2, z=3$ and a population size equal 512. The algorithm was run until the solution (a string with all
+b=2, z=3$ and a population size equal to 512. The algorithm in a
+single island was run until the solution (a string with all
 ones) was found or five million evaluations had been performed. It
 took around a minute, on average, that is $68.9694$ seconds, to
 perform the fifty runs. In this experiment only 33, that is, 66\% were
@@ -458,10 +448,13 @@ seconds. Results for these two experiments
 are shown in Figure \ref{fig:baseline}. %Fergu: dejar claro que es solo una isla
 
 These two experiments establish first a baseline result and show that
-it depends on the population. The volunteer computing experiments that we
+time to success depends on the population, with bigger population
+contributing more diversity and thus speeding up the solution \cite{DBLP:conf/lion/LaredoDFGB13}. The volunteer computing
+experiments that we 
 %FERGU: explicar un poco más lo de "depends on the population"?, por ejemplo añadiendo
 %as this is a deceptive problem, and low levels or diversity may not help to
 %find the solution \cite{} o algo parecido.
+%hecho [JJ]
 will describe next do not and can not have the same conditions, but
 the baseline is that if they eventually take longer than a basic
 desktop, their interest will be purely academic. We will try and
@@ -529,7 +522,12 @@ Date & Median \#IPs & Max \#IPs & Median time (s) & Median \#{\tt
 \end{center}
 \end{table*}
 %
-The table shows that every run included more than 50 experiments. The %FERGU: No debería ser mejor al revés? Cada experimento está compuesto de varias runs. De todas maneras arriba lo has definido así, así que si no quieres no lo cambies. Pero me parece más correcto que un experimento tenga runs, en vez de al revés
+The table shows that every run included more than 50 experiments. The
+%FERGU: No debería ser mejor al revés? Cada experimento está compuesto
+%de varias runs. De todas maneras arriba lo has definido así, así que
+%si no quieres no lo cambies. Pero me parece más correcto que un
+%experimento tenga runs, en vez de al revés [jj] Pues no lo sé. Habría
+%que cambiarlo todo. Yo creo que con que sea consisente...
 number of different IPs intervening in them varied from more than one
 hundred to more than five hundred in the second experiment.
 
@@ -561,7 +559,8 @@ remote server, not a local server as in the baseline experiment. But
 fair is fair, and we were looking for creating a framework that
 allowed to run evolutionary computation experiments {\em faster} than
 in our very own computer. And the results is that although it will
-happen, one out of roughly 5 or roughly 20, depending on what baseline %FERGU: one->1?
+happen, 1 out of roughly 5 or roughly 20, depending on what baseline
+%FERGU: one->1? OK [JJ]
 experiment you choose, it will not happen always or even a majority of
 the time. One of the problems is shown in the last column, which
 indicates the statistical correlation between the number of IPs
@@ -571,7 +570,9 @@ relationship between them, that is, computing nodes are not {\em
   staying} after the solution has been found; this is a feature of
 this implementation: the user has to actively reload the page to make
 the evolutionary algorithm start again. However, it puts a probably
-unnecessary cap on the time, or number of experiments, that a user %Fergu: user no tiene "an", me lo dijo paloma. es "yuser", no "iuser", por eso no lo tiene :P
+unnecessary cap on the time, or number of experiments, that a user
+%Fergu: user no tiene "an", me lo dijo paloma. es "yuser", no "iuser",
+%por eso no lo tiene :P 
 will voluntarily perform.
 
 \begin{figure}[!htb]
@@ -593,12 +594,13 @@ of blue indicate how many experiments included that many unique IPs.}
 \includegraphics[width=0.32\linewidth]{img/time-vs-rank-OS-7-31.png}
 \caption{Duration of experiments vs. rank, with $y$ axis in a
   logarithmic scale. Dot color is related to the number of IPs
-  participating in the experiment. From left to right, experiments 4/4, 4/24 and 7/31.}
+  participating in the experiment. From left to right, experiments
+  4/4, 4/24 and 7/31.} 
 \label{fig:zipf:os}
 \end{figure}
 %
 We will have to analyze experiment data a bit further to find out why
-this happens and also if there is some pattern in the three sets of
+this happens and also if there are some patterns in the three sets of
 experiments. An interesting question to ask, for instance, is if
 adding more computers makes the experiment take less. In fact, as
 shown in Figure \ref{fig:duration}, {\em adding} more computers does
@@ -614,7 +616,10 @@ into account that volunteers are not {\em carried over} from previous
 experiments. This implies that it would be convenient to use a problem
 with a bigger size to check this hypothesis; however, at this point we
 have not found this convenient since there are several other issues
-that will be solved. %FERGU: and that will be explained next? Algún ejemplo?
+that have to be solved, as it will be shown next. %FERGU: and that
+                                %will be explained next? Algún
+                                %ejemplo? 
+% A ver si así - JJ
 
 \begin{figure}[!htb]
 \centering
@@ -622,7 +627,8 @@ that will be solved. %FERGU: and that will be explained next? Algún ejemplo?
 \includegraphics[width=0.32\linewidth]{img/puts-openshift-4-24.png}
 \includegraphics[width=0.32\linewidth]{img/puts-openshift-7-31.png}
 \caption{Number of {\tt PUT}s per unique IP and fit to a Generalized
-  Extreme Value distribution (in red). From left to right, experiments 4/4, 4/24 and 7/31.}
+  Extreme Value distribution (in red). From left to right, experiments
+  4/4, 4/24 and 7/31.} 
 \label{fig:puts:os}
 \end{figure}
 %
@@ -683,7 +689,9 @@ above.
 At any rate, this also shows that a convenient way of increasing the
 computing power would be increasing this minimum amount per user. This
 issue led us to create the next version of the framework, which is
-presented next. %Fergu: esto mola, métele más caña en otras secciones para que se vea que es una conclusión util
+presented next. %Fergu: esto mola, métele más caña en otras secciones
+                %para que se vea que es una conclusión util 
+% Está en las conclusiones - JJ
 
 \subsection{{\sf NodIO-W$^2$}, a Web Worker-based architecture}
 
@@ -719,8 +727,10 @@ over a single threaded implementation:
 \item If the browser uses a tabbed document interface, the worker script
 keeps running in the background even it the user brings forward another tabbed
 window.
-\item Several instances of NodEO can be executed in parallel in a single web
-page. %FERGU: NodEO o NodIO? (es NodEO la instancia, creo pero por si acaso :P)
+\item Several evolutionary algorithms can be executed in parallel in a single web
+page. %FERGU: NodEO o NodIO? (es NodEO la instancia, creo pero por si
+      %acaso :P)
+% Mejor evolutionary algorithms - JJ
 \item Many implementations of the Web Worker API can use multiple CPUs for
 the execution of worker scripts, in particular the execution in multiple CPUs
 was tested in desktop versions of Chrome, FireFox and Safari.
@@ -737,10 +747,9 @@ red and blue arrows respectively. There are also messages between workers and
 the main thread in locally in the client, these are shown as thin solid arrows.
 There are three processes involved:
 \begin{itemize}
-\item {\em nodejs} This is the server side process, implemented in the nodejs %FERGU: creo que oficialmente es Node.js, homogeneizar en el paper
-framework. Web request handlers are implemented using the Express web
-framework. For keeping a log of the execution the Winston library is used, and
-finally the NodeIO framework is responsible for keeping the shared pool.
+\item {\em nodejs} This is the server side process which is basically
+  the same as used previously, except for some minor log-related
+  changes. 
 \item {\em Client main thread}  This process handles the user interaction
 using the JQuery framework. The Chart.js library is used to display a chart of
 the best fitness in the population over time. The main script also creates
@@ -931,24 +940,44 @@ equal to 0.69, a value that is remarkably similar to the 0.5 value
 found for time devoted to games in Chambers et
 al. \cite{chambers2005measurement}.
 
-
+In general, this second version of the {\sf NodIO} framework and the
+single experiment performed prove that it can be the foundation for a
+high-server-performance distributed evolutionary computation platform,
+providing reasonable algorithmic performance and being, in general,
+easy to use with a straightforward modification of the fitness
+function. 
 
 %---------------------------------------------------------------
 \section{Conclusion}
 \label{sec:conclusion}
 
-% The conclusion goes here.
+In this paper a client-server architecture for volunteer and distributed
+evolutionary algorithms that uses the browser, termed {\sf NodIO} and
+based on the {\sf NodEO} evolutionary algorithm library has been evaluated. 
 
-In this paper a client-server architecture for distributed evolutionary algorithms, termed {\sf NodIO}, for volunteer computing has been presented. 
+In order to establish a baseline performance, the evolutionary
+algorithm was run in a desktop client-program written in JavaScript
+using NodEO to solve the 40-trap function. The first experiments with
+{\sf NodIO} proved that, although obtaining better performance than de
+baseline was possible, it did not happen, mainly because of the
+difficulty in carrying over volunteers to other experiments when the
+one they were participating on was finished, shown in the low
+correlation between the number of IPs in successive experiments. This
+also resulted in a low number of generations allotted by users. 
 
-
-In order to establish a baseline performance, the evolutionary algorithm was run in a desktop client-program written in JavaScript using NodEO to solve the 40-trap function.
-In this first experiment, it could be observed how many users donated a few cycles and just a few donated a high amount of CPU to the experiment.
-
-As a second experiment, and trying to improve the number of cycles per user, the system architecture was modified. In this case, Web Workers were used so that several clients per browers could be executed.
-As a result, in this case a higher number of contributions per volunteer could be observed, although as in the previous experiments a pattern of a few users with many contributions and many with few contributions was obtained.
-
-
+In the second implementation, {\sf NodIO$^2$}, Web Workers
+were used so that several clients per browser could be executed and
+they could run in the background, so that the the number of
+generations per user could be improved. The number of generations per
+user increased to the point that baseline performance was overcome in
+most cases. The architectural changes led to a high correlation
+between successive experiments, so that, even as the median number of
+volunteers per experiment decreased, they were probably contributing
+to the experiment at the same time, so that our objective was
+achieved. In general, one of the first conclusion for this paper is
+that the browser technologies should be used to its full extent so
+that the user time is leveraged to its full potential, and this was
+achieved with {\sf NodIO$^2$}.
 
 %---------------------------------------------------------------
 % use section* for acknowledgment
