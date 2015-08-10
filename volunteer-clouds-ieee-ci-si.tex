@@ -84,7 +84,7 @@ run on a  % [Pedro] Both the server and the client in browsers?
           % server, client in browser, although there's nothing that
           % can't be done in a browser.
 browser. As such, it can be run in any computer that loads the web
-page where the client is embedded, including many over which%[Mario]Quitar el possibly?   [JJ] Done
+page where the client is embedded, including many over which %[Mario]Quitar el possibly?   [JJ] Done
 the scientist has no control.
 
 Some time ago, our group faced the problem of diminishing funds for
@@ -211,8 +211,11 @@ video player \cite{ford2009analyzing,watanabe2010new}. The need for
 these additional environments has been mitigated with the
 adoption of the HTML5 standard \cite{anthes2012html5}.
 JavaScript, however,
-\cite{flanagan2006javascript} was introduced in 1997 as a
-browser-embedded language and has, since then, become a set of standards
+\cite{flanagan2006javascript} 
+%was introduced in 1997 as a 
+%browser-embedded language and has, since then,
+%Ya se había dicho  
+has become a set of standards
 \cite{ECMA-262} that include the language and its components. Since
 early on, it was adopted by the industry and also by scientists,
 who used them for creating an EA on
@@ -744,14 +747,14 @@ interaction between processes in a time sequence. In this system there are
 two kinds of asynchronous messages: HTTP Requests shown as bold arrows between
 the client and the server where PUT and GET HTTP Methods are represented by
 red and blue arrows respectively. There are also messages between workers and
-the main thread in locally in the client, these are shown as thin solid arrows.
+the main thread locally in the client, these are shown as thin solid arrows.
 There are three processes involved:
 \begin{itemize}
-\item {\em nodejs} This is the server side process which is basically
+\item {\em node.js} This is the server side process which is basically
   the same as used previously, except for some minor log-related
   changes. 
 \item {\em Client main thread}  This process handles the user interaction
-using the JQuery framework. The Chart.js library is used to display a chart of
+using the JQuery framework. The chart.js library is used to display a chart of
 the best fitness in the population over time. The main script also creates
 worker instances and handles the user interface.
 \item {\em Worker global scope} The worker execution space does not have
@@ -1007,7 +1010,7 @@ area, it is an interesting challenge to explore in the future.
 
 Although we think that, in general, the results presented in this
 paper are independent of the problem chosen, it is true that even if
-it a difficult problem for evolutionary algorithms, it takes a few
+it is a difficult problem for evolutionary algorithms, it takes a few
 seconds with the right settings to solve. This makes it difficult also
 for this kind of asynchronous framework, but it would be interesting
 to check the performance for more computationally demanding
