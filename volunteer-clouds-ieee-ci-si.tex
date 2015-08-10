@@ -979,6 +979,55 @@ that the browser technologies should be used to its full extent so
 that the user time is leveraged to its full potential, and this was
 achieved with {\sf NodIO$^2$}.
 
+The second objective of this paper was to model the user behavior in a
+first attempt to try and predict performance. As should be expected,
+the model depends on the implementation, with contributions following
+a General Extreme Values distribution in the case of {\sf NodIO} and a
+Weibull distribution for {\sf NodIO$^2$}. These distributions are
+close enough to each other and, in the second case, reflect the fact
+that all time spent in the page is actually devoted to computing,
+which is why the time spent (represented by the number of
+contributions to the pool) follows a model quite similar to that found
+for games or other online activities. The reverse might be true: if we
+want to have returning users for the experiments, it is probable that
+we should {\em gamify} the experience so that once they've done it
+once, they might do it more times. In the spirit of Open Science, this
+gamification might involve computing in real time data such as the one
+presented in this paper and showing it in the same page. 
+
+In general, linking and finding correlations between user choices and
+performance is an interesting avenue to explore in the future. Even if
+the three previous experiments were published in a similar, way, one
+obtained up to 5 times more total cycles  that the one with the least
+number of cycles. It is also essential to obtain volunteers as
+simultaneously as possible, so it is possible that the features of the
+social network in terms of real-time use will also play a big
+role. Even as it is difficult to create controlled experiments in this
+area, it is an interesting challenge to explore in the future.
+
+Although we think that, in general, the results presented in this
+paper are independent of the problem chosen, it is true that even if
+it a difficult problem for evolutionary algorithms, it takes a few
+seconds with the right settings to solve. This makes it difficult also
+for this kind of asynchronous framework, but it would be interesting
+to check the performance for more computationally demanding
+tasks. Besides, the two versions of the framework include as an
+algorithmc variant using random population size. We do not think this
+has had a big influence on the result, but it would be interesting to
+measure exactly what this influence has been. Adding a bit of more
+control to the user might contribute also to gamification. Right now
+the user has only two webworkers. It is a matter of a single click to
+open more tabs in the browser, giving more webworkers, but it would be
+interesting to put everything in a single page and under our control,
+to check how often this happens and under which conditions. 
+
+Finally, the implementation needs some refinement in terms of
+programming and also ease of use. Tools such as Yeoman might be used
+to create a generator in which the user just has to create a fitness
+function, with the rest of the framework wrapped around
+automatically. All this, as the data used for this paper and the paper
+itself, will be published with a free license in GitHub.
+
 %---------------------------------------------------------------
 % use section* for acknowledgment
 \section*{Acknowledgment}
@@ -990,7 +1039,6 @@ GENIL project (CEI-BIOTIC Granada). We would also like to thank the
 anonymous reviewers of previous versions of this paper who have really helped us to improve
 this paper (and our work) with their suggestions. We are also grateful
 to Anna S\'aez de Tejada for her help with the data processing scripts.
-
 
 \bibliographystyle{IEEEtran}
 \bibliography{geneura,volunteer,javascript,ror-js,GA-general}
