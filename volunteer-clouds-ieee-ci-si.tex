@@ -155,7 +155,7 @@ leaving us with eight desirable properties.
 The fulfillment of these properties could be achieved using any of the
 languages and associated technologies, mentioned above, provided that the user had
 installed the required virtual machine plugin first, but embedding a
-ditributed computation client in the browser has the advantage of
+distributed computation client in the browser has the advantage of
 providing a single and universal way of accessing resources via an
 URI, something that is not guaranteed using desktop
 applications. Baratloo et al. tried in 1996 to create a system with
@@ -247,7 +247,7 @@ public clouds such as Amazon EC2 \cite{CloudScale}, Google App Engine\cite{di201
 and DropBox~\cite{mericloud}. The use of JavaScript to implement
 server side components
 gives software developers certain advantages in the cloud
-paradigm, since is a first-classe citizen
+paradigm, since is a first-class citizen
 in most Platforms as a Service (PaaS) products as most support the {\tt node.js}
 framework \cite{wood13:nodejs:paas}. Many web services
 have native JavaScript libraries too, and use JSON (JavaScript Object Notation) for data
@@ -759,7 +759,10 @@ the best fitness in the population over time. The main script also creates
 worker instances and handles the user interface.
 \item {\em Worker global scope} The worker execution space does not have
 access to the Document Object Model (DOM) or JQuery objects in the main thread.
-Asynchronous HTTP requests to the server are implemented using the XHR object. %FERGU: Qué es el objeto XHR? Alguna referencia/justificación de por qué se usa?
+Asynchronous HTTP requests to the server are implemented using the
+XMLHttpRequest (XHR) object. %FERGU: Qué es el objeto XHR? Alguna
+                             %referencia/justificación de por qué se
+                             %usa? 
 \end{itemize}
 %
 \begin{figure}[!htb]
@@ -773,7 +776,7 @@ Asynchronous HTTP requests to the server are implemented using the XHR object. %
 
 The sequence of events is as follows:
 \begin{enumerate}
-\item First the {\sf NodIO} process is started in nodejs. As part of the
+\item First the {\sf NodIO} process is started in NodeJS. As part of the
 initialization procedure the number of experiment is initialized and a log
 file is created. The shared pool implemented as an array is reset.
 \item A volunteer follows the link of the experiment triggering a GET HTTP
@@ -809,7 +812,7 @@ fitness, and a representation of the chromosome is also generated.
 ends, the experiment number is incremented and the population array is reset.
 \item When the main thread receives a message the a worker has ended the EA
 loop, that worker is reinitialized. The worker process is not ended, to
-avoid the cost, only the parameters and population is reset and a new UIID
+avoid the cost, only the parameters and population is reset and a new UUID
 assigned.
 \end{enumerate}
 %
@@ -872,7 +875,7 @@ almost 5-fold increase in running time.
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=0.9\linewidth]{img/ips-time-ww.png}
-\caption{Time employed in every experiment vs. number of IPs (in abscises). The red dot and line show the average and standard deviation, the shade of blue the number of experiments with the same number of IPs. }
+\caption{Time employed in every experiment vs. number of IPs (in abscissas). The red dot and line show the average and standard deviation, the shade of blue the number of experiments with the same number of IPs. }
 \label{fig:ipstime:w2}
 \end{figure}
 %
@@ -935,7 +938,7 @@ voluntarily reload the page to contribute the most generations, with a
 {\em phase change} between the people that did so and the people that
 just run the experiment until completion. In this case, however, the
 user just needs to let it run, without that phase change and thus a
-more {\em equalitarian} distribution of contributions, which rather
+more {\em egalitarian} distribution of contributions, which rather
 corresponds to a Weibull function, as shown in Figure
 \ref{fig:ipstime:w2} (right hand side). The fitted parameters for this
 distribution, shown in Table \ref{tab:puts:ww}, show a shape parameter
@@ -1015,12 +1018,12 @@ seconds with the right settings to solve. This makes it difficult also
 for this kind of asynchronous framework, but it would be interesting
 to check the performance for more computationally demanding
 tasks. Besides, the two versions of the framework include as an
-algorithmc variant using random population size. We do not think this
+algorithmic variant using random population size. We do not think this
 has had a big influence on the result, but it would be interesting to
 measure exactly what this influence has been. Adding a bit of more
 control to the user might contribute also to gamification. Right now
-the user has only two webworkers. It is a matter of a single click to
-open more tabs in the browser, giving more webworkers, but it would be
+the user has only two WebWorkers. It is a matter of a single click to
+open more tabs in the browser, giving more WebWorkers, but it would be
 interesting to put everything in a single page and under our control,
 to check how often this happens and under which conditions. 
 
