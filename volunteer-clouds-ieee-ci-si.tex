@@ -248,7 +248,7 @@ and DropBox~\cite{mericloud}. The use of JavaScript to implement
 server side components
 gives software developers certain advantages in the cloud
 paradigm, since is a first-class citizen
-in most Platforms as a Service (PaaS) products as most support the {\tt node.js}
+in most Platforms as a Service (PaaS) products as most support the {\tt Node.js}
 framework \cite{wood13:nodejs:paas}. Many web services
 have native JavaScript libraries too, and use JSON (JavaScript Object Notation) for data
 interchange. Another advantage is that
@@ -365,7 +365,7 @@ Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
 
 Figure \ref{fig:system} describes the general system architecture and
 algorithm behavior. Different web technologies, such as JQuery or {\tt
-  chart.js} have
+  Chart.js} have
 been used to build the elements of the system.
 \begin{figure}[!t]
 \centering
@@ -384,7 +384,7 @@ function and handing at the creation of the algorithm object, called
 problem. Let us see how this system addresses the different challenges
 outlined in the State of the Art (Section \ref{sec:soa}):\begin{itemize}
 \item {\em Scalability} is provided via the use of a lightweight and
-  high-performance, single-threaded, server based in NodeJS and
+  high-performance, single-threaded, server based in Node.js and
   Express.js. Although this single server is a bottleneck since it
   will eventually saturate, the fact that it runs as a single thread
   allows the service of many requests. In fact, a limit with the
@@ -431,7 +431,7 @@ This last point is what we will try to prove in the next section.
 \centering
 \includegraphics[width=12cm]{img/baseline-times.png}
 \caption{Comparison of time to solution for the baseline system, using a {\tt
-    node.js} client, for different population sizes. Only
+    Node.js} client, for different population sizes. Only
 runs in which solution has been found are used for this graph.}
 \label{fig:baseline}
 \end{figure}
@@ -750,11 +750,11 @@ red and blue arrows respectively. There are also messages between workers and
 the main thread locally in the client, these are shown as thin solid arrows.
 There are three processes involved:
 \begin{itemize}
-\item {\em node.js} This is the server side process which is basically
+\item {\em Node.js} This is the server side process which is basically
   the same as used previously, except for some minor log-related
   changes. 
 \item {\em Client main thread}  This process handles the user interaction
-using the JQuery framework. The chart.js library is used to display a chart of
+using the JQuery framework. The Chart.js library is used to display a chart of
 the best fitness in the population over time. The main script also creates
 worker instances and handles the user interface.
 \item {\em Worker global scope} The worker execution space does not have
@@ -776,7 +776,7 @@ XMLHttpRequest (XHR) object. %FERGU: Qué es el objeto XHR? Alguna
 
 The sequence of events is as follows:
 \begin{enumerate}
-\item First the {\sf NodIO} process is started in NodeJS. As part of the
+\item First the {\sf NodIO} process is started in Node.js. As part of the
 initialization procedure the number of experiment is initialized and a log
 file is created. The shared pool implemented as an array is reset.
 \item A volunteer follows the link of the experiment triggering a GET HTTP
