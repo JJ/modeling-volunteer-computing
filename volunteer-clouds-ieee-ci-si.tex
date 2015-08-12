@@ -674,7 +674,7 @@ This distribution was originally proposed to fit extreme values
 Weibull distribution which was fitted to volunteer computing
 frameworks such as SETI@home \cite{javadi2009mining}. This
 distribution is governed by three parameters, the usual location $\mu$
-which is related to where it has its {\em center} and  scale $\sigma$,
+which is related to where it has its {\em center} and scale $\sigma$,
 related to the size, but also a third shape $\xi$ parameter that is
 related to its skewness, that is, how skewed it is around the central
 location. Positive parameters indicate that the distribution {\em
@@ -784,14 +784,14 @@ request and the page is loaded.
 \item The main script renders the page and creates the worker instance. In
 order to create a dedicated worker instance, another GET request is sent to the
 server in order to receive the worker implementation script.
-Each worker instance executes one or more evolutionary algorithms
-{\em islands}. Each starts with random population and it is assigned a
+Each worker instance executes over time one or more evolutionary algorithms
+{\em islands}. Each starts with a random population and it is assigned a
 universally unique  identifier (UUID). The UUID is included in each of the HTTP
 requests sent to the server.
 The initial parameters for each island
 can be distinct. Once the worker is created and the parameters have been set,
 a message is sent to the worker to start the algorithm.
-\item The worker first creates the population following with the previously
+\item The worker first creates the population following the previously
 specified parameters. Once the population has been initialized, the EA
 generation loop is started. After {\em n} generations the state of the population
 is evaluated. First the chromosome with the best fitness is sent to the shared
@@ -800,8 +800,8 @@ the EA loop must continue, but first a chromosome is randomly selected from
 the shared population. Also the current generation number and the best
 chromosome is sent to the client main thread in order to update the DOM to
 display the current state of the island (described next). These messages are
-all asynchronous, so even before a message is received by target the EA loop of
-the worker could continue. If the best fitness is a global best the best
+all asynchronous, so even before a message is received by the target, the EA loop of
+the worker continues. If the best fitness is a global best the best
 chromosome is sent to the server and the loop ends. A message is sent to the
 main thread indicating that the best individual has been found.
 \item The main thread receives messages from workers as events handled by
@@ -812,7 +812,7 @@ fitness, and a representation of the chromosome is also generated.
 ends, the experiment number is incremented and the population array is reset.
 \item When the main thread receives a message the a worker has ended the EA
 loop, that worker is reinitialized. The worker process is not ended, to
-avoid the cost, only the parameters and population is reset and a new UUID
+avoid the start-up cost, only the parameters and population are reset and a new UUID
 assigned.
 \end{enumerate}
 %
@@ -863,7 +863,7 @@ highly correlated. The main reason for this is the setup in {\sf
   NodIO-W$^2$}, which restarts an island after a solution has been
 found and also is running even if the tab is not on the
 foreground. This means that volunteers can leave the experiment
-running for as long as they want and they will be contributing to
+running for as long as they want and they will be contributing %borrado un to
 experiment after experiment, unlike the previous version, where they
 stopped contributing after the solution was found. This is also
 reflected in the number of PUTs, which is the number of generations
@@ -964,7 +964,7 @@ based on the {\sf NodEO} evolutionary algorithm library has been evaluated.
 In order to establish a baseline performance, the evolutionary
 algorithm was run in a desktop client-program written in JavaScript
 using NodEO to solve the 40-trap function. The first experiments with
-{\sf NodIO} proved that, although obtaining better performance than de
+{\sf NodIO} proved that, although obtaining better performance than the
 baseline was possible, it did not happen, mainly because of the
 difficulty in carrying over volunteers to other experiments when the
 one they were participating on was finished, shown in the low
