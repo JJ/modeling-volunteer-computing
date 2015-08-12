@@ -359,7 +359,7 @@ Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
   individual from the server (via a {\tt GET} request). Apart from
   these constants, the algorithm can be run in many different ways:
   stopping when solution is found or, as we have done in this paper,
-  using WebWorkers, which run in the background even if the webpage or
+  using Web Workers, which run in the background even if the webpage or
   browser tab with the experiment is not currently on focus.
 \end{enumerate}
 
@@ -1022,8 +1022,8 @@ algorithmic variant using random population size. We do not think this
 has had a big influence on the result, but it would be interesting to
 measure exactly what this influence has been. Adding a bit of more
 control to the user might contribute also to gamification. Right now
-the user has only two WebWorkers. It is a matter of a single click to
-open more tabs in the browser, giving more WebWorkers, but it would be
+the user has only two Web Workers. It is a matter of a single click to
+open more tabs in the browser, giving more Web Workers, but it would be
 interesting to put everything in a single page and under our control,
 to check how often this happens and under which conditions. 
 
