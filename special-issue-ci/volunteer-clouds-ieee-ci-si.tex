@@ -6,10 +6,10 @@
 %
 \ifCLASSINFOpdf
   \usepackage[pdftex]{graphicx}
-  \graphicspath{{img/}}
+  \graphicspath{{../img/}}
 \else
   \usepackage[dvips]{graphicx}
-  \graphicspath{{img/}}
+  \graphicspath{{../img/}}
 \fi
 
 % *** SPECIALIZED LIST PACKAGES ***
@@ -356,7 +356,7 @@ algorithm behavior. Different web technologies, such as JQuery or {\tt
 been used to build the elements of the system.
 \begin{figure}[!t]
 \centering
-\includegraphics[width=4in]{img/system.pdf}
+\includegraphics[width=4in]{system.pdf}
 \caption{Description of the proposed system. Clients execute a JS EA
   in the browser, which, every 100 generations, sends the best
   individual and receives a random one from the server. }
@@ -416,7 +416,7 @@ This last point is what we will try to prove in the next section.
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=12cm]{img/baseline-times.png}
+\includegraphics[width=12cm]{baseline-times.png}
 \caption{Comparison of time to solution for the baseline system, using a {\tt
     Node.js} client, for different population sizes. Only
 runs in which solution has been found are used for this graph.}
@@ -555,9 +555,9 @@ will voluntarily perform.
 
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=0.32\linewidth]{img/time-vs-ips-OS-4-4.png}
-\includegraphics[width=0.32\linewidth]{img/time-vs-ips-OS-4-24.png}
-\includegraphics[width=0.32\linewidth]{img/time-vs-ips-OS-7-31.png}
+\includegraphics[width=0.32\linewidth]{time-vs-ips-OS-4-4.png}
+\includegraphics[width=0.32\linewidth]{time-vs-ips-OS-4-24.png}
+\includegraphics[width=0.32\linewidth]{time-vs-ips-OS-7-31.png}
 \caption{Duration of experiments vs. number of different IPs (nodes)
   participating in it, with averages and standard deviation shown as
   red dots. From left to right, experiments 4/4, 4/24 and 7/31. Shades
@@ -567,9 +567,9 @@ of blue indicate how many experiments included that many unique IPs.}
 %
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=0.32\linewidth]{img/time-vs-rank-OS-4-4.png}
-\includegraphics[width=0.32\linewidth]{img/time-vs-rank-OS-4-24.png}
-\includegraphics[width=0.32\linewidth]{img/time-vs-rank-OS-7-31.png}
+\includegraphics[width=0.32\linewidth]{time-vs-rank-OS-4-4.png}
+\includegraphics[width=0.32\linewidth]{time-vs-rank-OS-4-24.png}
+\includegraphics[width=0.32\linewidth]{time-vs-rank-OS-7-31.png}
 \caption{Duration of experiments vs. rank, with $y$ axis in a
   logarithmic scale. Dot color is related to the number of IPs
   participating in the experiment. From left to right, experiments
@@ -598,9 +598,9 @@ that have to be solved, as it will be shown next.
 
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=0.32\linewidth]{img/puts-openshift-4-4.png}
-\includegraphics[width=0.32\linewidth]{img/puts-openshift-4-24.png}
-\includegraphics[width=0.32\linewidth]{img/puts-openshift-7-31.png}
+\includegraphics[width=0.32\linewidth]{puts-openshift-4-4.png}
+\includegraphics[width=0.32\linewidth]{puts-openshift-4-24.png}
+\includegraphics[width=0.32\linewidth]{puts-openshift-7-31.png}
 \caption{Number of {\tt PUT}s per unique IP and fit to a Generalized
   Extreme Value distribution (in red). From left to right, experiments
   4/4, 4/24 and 7/31.} 
@@ -732,7 +732,7 @@ XMLHttpRequest (XHR) object.
 %
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=4in]{img/Algorithm.pdf}
+\includegraphics[width=4in]{Algorithm.pdf}
 \caption{Description of the W$^2$ version of {\sf NodIO}. In this
   version, clients use Web Workers to run the evolutionary algorithm,
   with two of them per browser.}
@@ -843,7 +843,7 @@ almost 5-fold increase in running time.
 
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=0.9\linewidth]{img/ips-time-ww.png}
+\includegraphics[width=0.9\linewidth]{ips-time-ww.png}
 \caption{Time employed in every experiment vs. number of IPs (in
   abscissas). The red dot and line show the average and standard
   deviation, the shade of blue the number of experiments with the same
@@ -870,8 +870,8 @@ Weibull & ND & 75.11457519 $\pm$ 2.97470251  & 0.69714410 $\pm$ 0.01383976 \\
 %
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=0.49\linewidth]{img/gev-fit-ww.png}
-\includegraphics[width=0.49\linewidth]{img/weibull-fit-ww.png}
+\includegraphics[width=0.49\linewidth]{gev-fit-ww.png}
+\includegraphics[width=0.49\linewidth]{weibull-fit-ww.png}
 \caption{Ranked number of {\tt PUT}s per worker and GEV fit (in red, right) and Weibull (in red, left) for the {\sf NodIO$^2$} model.}  
 \label{fig:gev:w2}
 \end{figure}
