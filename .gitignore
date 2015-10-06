@@ -9,3 +9,11 @@
 
 # RStudio files
 .Rproj.user/
+
+#Latex
+*.log
+*.blg
+*.aux
+
+#Backups
+*~
