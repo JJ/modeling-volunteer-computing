@@ -14,6 +14,10 @@
 *.log
 *.blg
 *.aux
+*.dvi
+*.bbl
+*.zip
+auto/
 
 #Backups
 *~
