@@ -3,7 +3,7 @@
 """
 Script para convertir los ficheros *.log en *.csv.
 
-Sólo extrae las filas con campo "chromosome", y sólo parte de los campos (Los que incho necesita)
+Sólo extrae las filas con los campos "chromosome", fitness","IP" y "timestap"'; y sólo parte de los campos (Los que incho necesita)
 """
 
 
@@ -60,7 +60,7 @@ def procesa(input_file, output_file):
             fh1, fh2 = diccionario["timestamp"].split("T")
             fh = '"' + fh1 + '","' + fh2 + '"'
 
-            elemento = '"' + str(diccionario["chromosome"]) + '","' + str(diccionario["fitness"]) + '","' + str(diccionario["IP"]) + '","' + fh + '"\n'
+            elemento = '"' + str(diccionario["chromosome"]) + '","' + str(diccionario["fitness"]) + '","' + str(diccionario["IP"]) + '",' + fh + '\n'
             fichero_salida.write(elemento)
         except:
             pass
