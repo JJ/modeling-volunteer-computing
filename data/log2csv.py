@@ -30,9 +30,9 @@ Sólo extrae las filas con campo "chromosome", y sólo parte de los campos (Los 
 import ast, sys
 
 def procesa(input_file, output_file):
-"""
-El primer argumento es El archivo *.log de entrada, el segundo el *.csv de salida
-"""
+    """
+    El primer argumento es El archivo *.log de entrada, el segundo el *.csv de salida
+    """
 
     ruta_log = input_file
     ruta_csv = output_file
