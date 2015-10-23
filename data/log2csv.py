@@ -1,10 +1,31 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 """
-Script parq convertir los ficheros *.log en *.csv.
+Script para convertir los ficheros *.log en *.csv.
 
 Sólo extrae las filas con campo "chromosome", y sólo parte de los campos (Los que incho necesita)
 """
+
+
+"""
+    Copyright 2015 psicobyte@gmail.com
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+"""
+
+
 
 import ast, sys
 
@@ -12,7 +33,6 @@ def procesa(input_file, output_file):
 """
 El primer argumento es El archivo *.log de entrada, el segundo el *.csv de salida
 """
-
 
     ruta_log = input_file
     ruta_csv = output_file
