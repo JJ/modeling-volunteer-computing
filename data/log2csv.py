@@ -3,9 +3,23 @@
 """
 Script para convertir los ficheros *.log en *.csv.
 
-Sólo extrae las filas con los campos "chromosome", fitness","IP" y "timestap"'; y sólo parte de los campos (Los que incho necesita)
-"""
+Usage: log2.csv input_file output_file [field1 [field2 [...]]]
 
+Toma los dato de un archivo *.log y crea un *.csv con ellos.
+
+Al ejecutar el programa es necesario indicar el nombre del archivo *.log de
+entrada y el del *.cvs de salida, por ese orden.
+
+Opcionalmente, a continuación se pueden indicar por orden los campos que se
+desean extraer par el *.csv. Si no se indica ninguno se usaran los siguientes:
+
+"chromosome","fitness","IP","timestamp"
+
+Las filas en las que falte uno o más de esos campos serán ignoradas.
+
+Si se usa el campo "timestamp", este se divide automáticamente en un campo
+"date" y un campo "time".
+"""
 
 """
     Copyright 2015 psicobyte@gmail.com
@@ -25,24 +39,27 @@ Sólo extrae las filas con los campos "chromosome", fitness","IP" y "timestap"';
 
 """
 
-
-
 import ast, sys
 
-def procesa(input_file, output_file):
-    """
-    El primer argumento es El archivo *.log de entrada, el segundo el *.csv de salida
-    """
+# Campos que se extraerán si no se indica ninguno
+campos_por_defecto = ["chromosome","fitness","IP","timestamp"]
 
+def procesa(input_file, output_file, campos):
+    """
+    El primer argumento es El archivo *.log de entrada,
+    el segundo el *.csv de salida,
+    el tercero es la lista de campos que se extraerán.
+    """
+    
     ruta_log = input_file
     ruta_csv = output_file
 
     lista_lineas = list()
 
     #Abrimos el fichero de entrada en modo lectura
-    fichero = open(ruta_log,"r")
+    fichero_entrada = open(ruta_log,"r")
 
-    for linea in fichero:
+    for linea in fichero_entrada:
 
         lista_lineas.append(ast.literal_eval(linea))
 
@@ -50,27 +67,61 @@ def procesa(input_file, output_file):
     fichero_salida = open(ruta_csv,"w")
 
     # Cabecera del CSV
-    elemento = '"chromosome","fitness","IP","date","time"\n'
-    fichero_salida.write(elemento)
+
+    fila_csv_actual = ""
+
+    for item in campos:
+
+        if item == "timestamp":
+            item = 'date","time'
+
+        if fila_csv_actual == "":
+            fila_csv_actual += '"' + item + '"'
+        else:
+            fila_csv_actual += ',"' + item + '"'
+
+    fila_csv_actual += "\n"
+    fichero_salida.write(fila_csv_actual)
+
+
+    # Vamos procesando e imprimiendo cada fila del CSV
 
     for diccionario in lista_lineas:
 
         try:
- 
-            fh1, fh2 = diccionario["timestamp"].split("T")
-            fh = '"' + fh1 + '","' + fh2 + '"'
+            fila_csv_actual = ""
 
-            elemento = '"' + str(diccionario["chromosome"]) + '","' + str(diccionario["fitness"]) + '","' + str(diccionario["IP"]) + '",' + fh + '\n'
-            fichero_salida.write(elemento)
+            for item in campos:
+
+                if item == "timestamp":
+                    fh1, fh2 = diccionario["timestamp"].split("T")
+                    diccionario["timestamp"] = fh1 + '","' + fh2
+
+                if fila_csv_actual == "":
+                    fila_csv_actual += '"' + str(diccionario[item]) + '"'
+                else:
+                    fila_csv_actual += ',"' + str(diccionario[item]) + '"'
+
+            if fila_csv_actual != "":
+                fila_csv_actual += "\n"
+
+            fichero_salida.write(fila_csv_actual)
         except:
             pass
 
-    fichero.close()
+    fichero_entrada.close()
     fichero_salida.close()
+
+if len(sys.argv) > 3:
+    campos = sys.argv[3:]
+else:
+    campos = campos_por_defecto
 
 if len(sys.argv) > 2:
 
-    procesa(sys.argv[1],sys.argv[2])
+    procesa(sys.argv[1],sys.argv[2],campos)
 
 else:
-    print "Usage: log2.csv input_file output_file"
+
+    print __doc__
+
