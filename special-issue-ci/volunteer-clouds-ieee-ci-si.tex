@@ -771,7 +771,7 @@ XMLHttpRequest (XHR) object.
 The sequence of events is as follows:
 \begin{enumerate}
 \item First the {\sf NodIO} process is started in Node.js. As part of the
-initialization procedure the number of experiment is initialized and a log
+initialization procedure the secuential number of experiment is initialized and a log
 file is created. The shared pool implemented as an array is reset.
 \item A volunteer follows the link of the experiment triggering a GET HTTP
 request and the page is loaded.
@@ -789,7 +789,7 @@ a message is sent to the worker to start the algorithm.
 specified parameters. Once the population has been initialized, the EA
 generation loop is started. After {\em n} generations the state of the population
 is evaluated. First the chromosome with the best fitness is sent to the shared
-population with a PUT HTTP request. If the best fitness is not a global best,
+population with a PUT HTTP request. If the best fitness is not the global best,
 the EA loop must continue, but first a chromosome is randomly selected from
 the shared population. Also the current generation number and the best
 chromosome is sent to the client main thread in order to update the DOM to
@@ -804,7 +804,7 @@ updated by displaying a dynamic plot of the generation number and best
 fitness, and a representation of the chromosome is also generated.
 \item When a global best is received from an island the current experiment
 ends, the experiment number is incremented and the population array is reset.
-\item When the main thread receives a message the a worker has ended the EA
+\item When the main thread receives a message indicating that a worker has ended the EA
 loop, that worker is reinitialized. The worker process is not ended, to
 avoid the start-up cost, only the parameters and population are reset and a new UUID
 assigned.
@@ -983,7 +983,7 @@ In the second implementation, {\sf NodIO$^2$}, Web Workers
 were used so that several clients per browser could be executed and
 they could run in the background, so that the the number of
 generations per user could be improved. The number of generations per
-user increased to the point that baseline performance was overcome in
+user increased to the point that baseline performance was improved in
 most cases. The architectural changes led to a high correlation
 between successive experiments, so that, even as the median number of
 volunteers per experiment decreased, they were probably contributing
