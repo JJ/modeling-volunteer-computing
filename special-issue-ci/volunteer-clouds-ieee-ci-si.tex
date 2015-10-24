@@ -107,12 +107,11 @@ be compiled or run directly on the operating system layer and, second,
 they assume that the nodes that are going to run the system are under
 your control or at least you have access to them.
 
-There is, then, space for systems that do not have any of these
+There is, then, space for systems that do not make any of these
 assumptions, such as the one presented in this paper, which will be
-provisionally named {\sf NodIO}. {\sf NodIO} is first an application that
-runs in two tiers, a server and a client, the latter  can be possibly
-run on a browser. As such, it can be run in any computer that loads the web
-page where the client is embedded, including many over which 
+provisionally named {\sf NodIO}. {\sf NodIO} is first a two tier client/server 
+application, in which clients can possibly run in a browser. 
+Therefore, it can be run in any web-enabled device, including many over which 
 the scientist has no control.
 
 Some time ago, our group faced the problem of diminishing funds for
@@ -143,8 +142,8 @@ The rest of the paper is organized as follows: Next we present the
 state of the art (Section \ref{sec:soa}) in web-based distributed
 computation systems along with attempts to predict and model its behavior. 
 Then, a detailed description of the proposed system is presented
-in Section \ref{sec:description}, followed by the experiments and
-obtained results in Section \ref{sec:experiments}.
+in Section \ref{sec:description}, followed by the experiments and 
+results obtained in Section \ref{sec:experiments}.
 Finally, conclusions and future lines of work are presented in Section
 \ref{sec:conclusion}. 
 
@@ -187,17 +186,17 @@ URI, something that is not guaranteed using desktop
 applications. Baratloo et al. tried in 1996 to create a system with
 the aforementioned qualities called {\em Charlotte}
 \cite{baratloo1996charlotte}. This system, which implemented a
-distributed shared memory, was inspired by previous work
-on parallel computing systems PVM and MPI and solved most issues by
+distributed shared memory, was inspired by a previous work
+on parallel computing systems PVM and MPI and solved most of the issues by
 using the Java virtual machine embedded in the browser,
-which provides
+which provided
 security to the user, uniformity of computing environment
 independently of the operating system and access to a common data store in the
-server. Since the virtual machine is a sandbox, it is safe to the user
+server. Since the Java virtual machine is a sandbox, it is safe to the user
 and running a compiled bytecode guarantees a certain level of
 performance.
- Other issues such as scheduling, which are related to adaptive
- parallelism, are solved on the server. This
+Other issues such as scheduling, which are related to adaptive 
+parallelism, were solved on the server. This
 paper was later extended and published in a journal in 1999
 \cite{baratloo1999charlotte}, but it is interesting to note that
 already in the early stages of the web the possibility of
@@ -209,16 +208,16 @@ the execution of parallel applications over the Internet and features
 a comprehensive statistics collection subsystem, allowing its use for science,
 since it allows the collection of algorithm analytics by the
 experiment designer, unlike the other systems mentioned
-above. Other proposals contemporary to Jet, such as {\em SuperWeb}
+above. Other proposals contemporary to JET, such as {\em SuperWeb}
 \cite{alexandrov1997superweb} are roughly a translation of classical
-distribution techniques, with complicated architectures that include
+distribution techniques, with overly complicated architectures that include
 brokers for resource discovery. It is focused, however, in solving the
 issues involved in browser-based computing and also in making a system
-that is able to work across different classes of computers, mentioning
+that is able to work across different types of computers, mentioning
 SPARCstations and PCs with Windows-95. Interestingly enough, this
 paper incorporates a discussion on the economic model, paving the way
-for the for-profit distributed computing systems that later on
-arose. On the other hand, the potential for volunteer computing using
+for the for-profit distributed computing systems that arose later on. 
+On the other hand, the potential for volunteer computing using
 browsers was realized
 later on \cite{sarmenta-bayanihan} as well as the potential for
 mischief of users with code in their hands
@@ -268,17 +267,15 @@ public clouds such as Amazon EC2 \cite{CloudScale}, Google App Engine\cite{di201
 and DropBox~\cite{mericloud}. The use of JavaScript to implement
 server side components
 gives software developers certain advantages in the cloud
-paradigm, since is a first-class citizen
-in most Platforms as a Service (PaaS) products as most support the {\tt Node.js}
-framework \cite{wood13:nodejs:paas}. Many web services
-have native JavaScript libraries too, and use JSON (JavaScript Object Notation) for data
-interchange. Another advantage is that
+paradigm, since it is a first-class citizen
+in most Platforms as a Service (PaaS) products as the {\tt Node.js} framework is supported by most. \cite{wood13:nodejs:paas}. Many web services
+have native JavaScript libraries too, and also use JSON (JavaScript Object Notation) for data interchange. Another advantage is that
 developers can use the same software tools for both client and server
 side development.
 
 JavaScript is also compatible with the functional programming paradigm \cite{Cousineau1998,MacLennan1990,Thompson1996}.
-According to \cite{swanresearch2015}, the benefits of using this kind of paradigm in
-metaheuristics optimization allows an improvement in communicability,
+According to \cite{swanresearch2015}, the benefit of using this kind of paradigm in
+metaheuristics optimization is that it allows an improvement in communicability,
 reproducibility, interoperability, automated assembly, knowledge engineering
 and efficiency.
 
@@ -372,14 +369,14 @@ Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
 \item A client that includes the evolutionary algorithm as
   JavaScript code embedded in a web page that displays graphs and some
   additional links and information on the experiment. This code runs
-  an evolutionary algorithm {\em island} starting with random
+  an evolutionary algorithm {\em island} starting with a random
   population and sending, every 100 generations, the best individual
   back to the server (via a {\tt PUT} request) and requesting a random
   individual from the server (via a {\tt GET} request). Apart from
   these constants, the algorithm can be run in many different ways:
-  stopping when solution is found or, as we have done in this paper,
+  stopping when a solution is found or, as we have done in this paper,
   using Web Workers, which run in the background even if the webpage or
-  browser tab with the experiment is not currently on focus.
+  browser tab having the experiment is not currently on focus.
 \end{enumerate}
 
 Figure \ref{fig:system} describes the general system architecture and
@@ -409,7 +406,7 @@ outlined in the State of the Art (Section \ref{sec:soa}):\begin{itemize}
   allows the service of many requests. In fact, a limit with the
   number of simultaneous requests will be reached, but so far it has
   not been found, unlike what we found in our previous systems, DCoR,
-  \cite{gecco07:workshop:dcor}, which had a low scalability.
+  \cite{gecco07:workshop:dcor}, which had a low scalability. 
 \item The system is {\em heterogeneous} since it does not need any
   performance, operating system or even browser requirement: anyone
   visiting the page, even from mobile devices, can load the algorithm.
@@ -425,7 +422,7 @@ outlined in the State of the Art (Section \ref{sec:soa}):\begin{itemize}
   operation of every individual island and no synchronization
   mechanism. The islands in the system are, in fact, unaware of each
   other, communicating only through the server.
-\item Since the algorithm is run on the browser, {\em safety} is
+\item Since the algorithm runs in the browser, {\em safety} is
   achieved through its sandbox mechanisms. The user is thus assured
   that there is no unsafe access either to their local files or even
   to more resources that the browser should be allotted.
@@ -435,8 +432,8 @@ outlined in the State of the Art (Section \ref{sec:soa}):\begin{itemize}
   clicking on an URL and available to anyone with access to a browser.
 \item {\em Reasonable performance} is not ensured. In fact, we should
   make sure that there is a reasonable amount of clients over which
-  the performance achieved is bigger than what you would obtain in
-  your own desktop system. If that is not done, it is a pointless
+  the performance achieved is better than what you would obtain in
+  your own desktop system. If this is not the case, it is a pointless
   academic exercise.
 \end{itemize}
 
@@ -639,7 +636,7 @@ that have to be solved, as it will be shown next.
 \label{fig:puts:os}
 \end{figure}
 %
-It is interesting also to check the distribution of the experiment
+It is also interesting to check the distribution of the experiment
 duration, shown in Figure \ref{fig:zipf:os} and which roughly follows
 a Zipf's law, with similar distribution along all three runs. The 4/24
 run is the most complete and shows a S-shape, which implies an
@@ -701,9 +698,9 @@ presented next.
 In order to improve the number of cycles per user, we improved the
 basic architecture in several different aspects. By using Web Workers 
 the algorithm kept running on the background even if the {\sf NodIO}
-tab was not in focus. It also allowed to run several clients per
+tab was not in focus. It also allowed several clients to run per
 browser, as opposed to a single one as we did previously. Another
-improvement involved restart of the client once the solution was
+improvement involved restarting the client once the solution was
 found, so that as long as the user was visiting the page it was
 running an evolutionary algorithm. Finally, a small algorithmic
 improvement was included: instead of having a fixed population,
@@ -733,8 +730,8 @@ keeps running in the background even it the user brings forward another tabbed
 window.
 \item Several evolutionary algorithms can be executed in parallel in a single web
 page. 
-\item Many implementations of the Web Worker API can use multiple CPUs for
-the execution of worker scripts, in particular the execution in multiple CPUs
+\item Many implementations of the Web Worker API can use multiple-core CPUs for
+the execution of worker scripts, in particular the execution in multiple-core CPUs
 was tested in desktop versions of Chrome, FireFox and Safari.
 \item Each NodEO instance can be restarted independently.
 \end{itemize}
