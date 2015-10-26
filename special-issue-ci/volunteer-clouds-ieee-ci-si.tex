@@ -410,8 +410,12 @@ outlined in the State of the Art (Section \ref{sec:soa}):\begin{itemize}
   not been found, unlike what we found in our previous systems, DCoR,
   \cite{gecco07:workshop:dcor}, which had a low scalability. 
 \item The system is {\em heterogeneous} since it does not need any
-  performance, operating system or even browser requirement: anyone
+  performance, operating system or even browser requirement (as long
+  as Javascript is enabled): anyone
   visiting the page, even from mobile devices, can load the algorithm.
+  In case the browser does not support HTML5 Web workers (e.g., 
+  Windows Phone or some version of Android) or their use
+  has been disabled, a basic version of NodIO can be used.
 \item {\em Fault tolerance} is always an issue, and in this case, the
   single point of failure would be the server: the system, as such,
   would break down if the server fails. However, the individual
@@ -420,10 +424,13 @@ outlined in the State of the Art (Section \ref{sec:soa}):\begin{itemize}
   fact, the island does not need the server to run: it runs locally if
   needed, with the only exception that it is obviously unable to
   communicate with the rest of the islands.
-\item {\em Adaptiveness} is achieved simply through autonomous
-  operation of every individual island and no synchronization
+\item {\em Adaptiveness} is achieved simply through the autonomous
+  operation of every individual island with out any synchronization
   mechanism. The islands in the system are, in fact, unaware of each
-  other, communicating only through the server.
+  other, communicating only through the server. This architecture 
+  has been tested in other high demand systems with success, but 
+  in the case of NodIO, additional experiments are need to asses 
+  the scalability of the system. 
 \item Since the algorithm runs in the browser, {\em safety} is
   achieved through its sandbox mechanisms. The user is thus assured
   that there is no unsafe access either to their local files or even
