@@ -126,6 +126,10 @@ decided to design and release a new free framework that would allow anyone to
 create a volunteer distributed EC experiment using cloud resources as
 servers and browsers as clients.
 
+%PABLO: He añadido el siguiente párrafo para el issue #31
+There exist other volunteer frameworks written in compiled languages, such as C++ or Java, that can achieve more performance than JavaScript. However, one of the advantages of our system is that clients do not need to install anything in their machines, just to open a regular web page. Javascript is the only language that can be executed in this way without any installation, besides the default modern browsers, such as Chrome, Safari or Firefox, that are available in almost every desktop or mobile device. Other advantage is that the source code can be directly examined by the volunteer, not being compiled as other options (such as Java Applets or ActiveX). Also, as we discuss in this paper, it can provide some extra features such as safety or operating system independence.
+
+%PABLO: hay que enlazar con el siguiente párrafo
 This kind of systems must solve a series of issues before even starting to 
 measure their performance; these issues are related to security as well as
 safety, which introduces a {\em social} aspect to the design of a
@@ -370,6 +374,9 @@ has been developed using JavaScript on the client as well as the
 server sides. 
 All parts of the system are free and available with a free
 license from \url{https://github.com/JJ/splash-volunteer}.
+
+%PABLO: el siguiente párrafo justifica Javascript
+
 
 Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
 \item A REST server, that is, a server that includes several {\em
