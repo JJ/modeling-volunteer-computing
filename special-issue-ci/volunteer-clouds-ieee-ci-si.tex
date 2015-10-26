@@ -375,8 +375,10 @@ Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
 \item A REST server, that is, a server that includes several {\em
   routes} 
   that can be called for storing and retrieving information (the CRUD cycle:
-  create, request, update and delete) from the server. The information
-  is of two kinds: {\em problem} based, that is, related to the
+  create, request, update and delete) from the server. 
+  A JSON data format is used for the communication between 
+  clients and the server. There are two kinds of information:
+  {\em problem} based, that is, related to the
   evolutionary algorithm such as {\tt PUT}ing a chromosome in or {\tt
     GET}ing a random chromosome from it, and {\em information} related
   to performance and state of the experiments. It also performs logging
@@ -391,7 +393,11 @@ Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
   an evolutionary algorithm {\em island} starting with a random
   population and sending, every 100 generations, the best individual
   back to the server (via a {\tt PUT} request) and requesting a random
-  individual from the server (via a {\tt GET} request). Apart from
+  individual from the server (via a {\tt GET} request).
+
+
+
+  Apart from
   these constants, the algorithm can be run in many different ways:
   stopping when a solution is found or, as we have done in this paper,
   using Web Workers, which run in the background even if the webpage or
@@ -784,6 +790,8 @@ access to the Document Object Model (DOM) or JQuery objects in the main thread.
 Asynchronous HTTP requests to the server are implemented using the
 XMLHttpRequest (XHR) object.  
 \end{itemize}
+
+
 %
 \begin{figure}[!htb]
 \centering
