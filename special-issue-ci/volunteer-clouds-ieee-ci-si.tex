@@ -346,6 +346,19 @@ In general, a volunteer-based distributed evolutionary computation
 system based on the browser is simply a client-server architecture
 whose client is, or can be, embedded in the browser via JavaScript.
 
+As a volunteer based system, there are some issues worth 
+noting:\begin{enumerate}
+\item Volunteers are anonymous, only the IP address sent in 
+each request is known.
+\item As anonymous entities, volunteers are not accountable. 
+If a volunteer  misbehaves in some way the provider cannot 
+prosecute or discipline the volunteer.
+\item Participants must also trust the application provider, 
+regarding invation of privacy, the integrity of their devices 
+and intended application. 
+\end{enumerate}
+
+
 In this sense, in this paper we propose {\sf NodIO}, a cloud or metal
 based 
 volunteer evolutionary computing system based on the {\sf NodEO}
@@ -354,6 +367,7 @@ has been developed using JavaScript on the client as well as the
 server sides. 
 All parts of the system are free and available with a free
 license from \url{https://github.com/JJ/splash-volunteer}.
+
 Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
 \item A REST server, that is, a server that includes several {\em
   routes} 
