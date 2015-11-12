@@ -1008,6 +1008,38 @@ providing reasonable algorithmic performance and being, in general,
 easy to use with a straightforward modification of the fitness
 function. 
 
+
+\subsection{$F_{15}:\frac{D}{m}$-group Shifted and $m$-rotated Rastrigins Function}
+The most common use of JavaScript is in the development of
+asynchronous Web applications. Scripts are embedded in HTML pages and change
+the state of with the Document Object Model (DOM) of the page, by sending or
+retrieveing data asynchronously from a server. For these purpose JavaScript has
+been traditionally implemented as an interpreted language not designed for the
+development of high performance systems. Current JavaScript virtual machines (VMs)
+are closing the gap, for instance the Google V8 is an engine specifically designed
+for fast execution of large JavaScript applications. Also V8 compiles JavaScript
+source code directly into machine code when it is first executed. 
+There are no intermediate byte codes or interpreter.
+[\url{ https://developers.google.com/v8/design#mach_code}].
+JavaScript has gained popularity in server-side development using runtime
+environments such as Node.js and is also used in desktop and mobile applications.
+To further evaluate how a current JavaScript implemantation can be used by a
+computer scientist for the development of complex optimization problems,
+a benchmark function, which was provided by CEC2010 Special Session on
+Large-Scale Global Optimization [], is used in this section.  
+
+\begin{equation}
+F_{rastrigin}(x)=\sum\limits_{i=1}^\frac{D} [x_{i}^{2}-10\cos(2\pi x_i)+10  ] 
+\end{equation}
+
+\begin{equation}
+F_{rot_rastrigin}(x)=F_{rastrigin}(\textbf{z}), \textbf{z}= \textbf{x} * \textbf{M}
+\end{equation}
+
+\begin{equation}
+F_{15}(x)=\sum\limits_{k=1}^\frac{D}{m}F_{rot_rastrigin}[\textbf{z}(F_{(k-1)*m+1}:P_{k*m})] 
+\end{equation}
+
 %---------------------------------------------------------------
 \section{Conclusion}
 \label{sec:conclusion}
