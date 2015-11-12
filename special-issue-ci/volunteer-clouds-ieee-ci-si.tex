@@ -1026,20 +1026,39 @@ environments such as Node.js and is also used in desktop and mobile applications
 To further evaluate how a current JavaScript implemantation can be used by a
 computer scientist for the development of complex optimization problems,
 a benchmark function, which was provided by CEC2010 Special Session on
-Large-Scale Global Optimization [], is used in this section.  
+Large-Scale Global Optimization [] as Function 15 is used in this section. 
+The function is described next.
 
+
+The basic Rastrigins function is separable[], and is defined as follows;
 \begin{equation}
 F_{rastrigin}(x)=\sum\limits_{i=1}^\frac{D} [x_{i}^{2}-10\cos(2\pi x_i)+10  ] 
 \end{equation}
-
+where $D$ is the dimension and $x = (x1, x2, · · · , x_{D})$ is a
+$D$-dimensional row vector (i.e., a $1 × D$ matrix). Rastrigin’s function 
+is a classical multimodal problem. It is difficult since the number of local
+optima grows exponentially with the increase of dimensionality. To make it 
+nonseparable, an orthogonal matrix is also used for coordinate rotation.
+The rotated Rastrgin’s function is defined as follows:
 \begin{equation}
 F_{rot_rastrigin}(x)=F_{rastrigin}(\textbf{z}), \textbf{z}= \textbf{x} * \textbf{M}
 \end{equation}
+Where \textbf{M}_{is} a $D×D$ orthogonal matrix. 
 
+The benchmark  emulates real-world optimization problems that most likely will consist 
+of different groups of parameters with strong dependencies within
+but little interaction between the groups. This issue is reflected in the benchmark
+problems by first randomly dividing the objective variables
+into several groups, each of which contains a number of variables. The parameter $m$ 
+is used to control the number of variables in each group and hence, defining the degree
+of separability:
 \begin{equation}
 F_{15}(x)=\sum\limits_{k=1}^\frac{D}{m}F_{rot_rastrigin}[\textbf{z}(F_{(k-1)*m+1}:P_{k*m})] 
 \end{equation}
-
+For the benchmark $D = 1000$, Group size $m = 50$, $\textbf{x} = (x_1, x_2, · · · , x_{D})$ is the
+candidate solution, $\textbf{o} = (o_1, o_2, · · · , o_{D})$ is the shifted global optimum,
+$\textbf{z} = \textbf{x} − \textbf{o}$ is the shifted candidate solution and
+finally $\textbf{P}$ is a random permutation of ${1, 2, · · · ,D}$.
 %---------------------------------------------------------------
 \section{Conclusion}
 \label{sec:conclusion}
