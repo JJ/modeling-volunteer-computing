@@ -1011,22 +1011,21 @@ function.
 
 \subsection{$F_{15}:\frac{D}{m}$-group Shifted and $m$-rotated Rastrigins Function}
 The most common use of JavaScript is in the development of
-asynchronous Web applications. Scripts are embedded in HTML pages and change
-the state of with the Document Object Model (DOM) of the page, by sending or
-retrieveing data asynchronously from a server. For these purpose JavaScript has
+asynchronous Web applications. For this purpose JavaScript has
 been traditionally implemented as an interpreted language not designed for the
-development of high performance systems. Current JavaScript virtual machines (VMs)
-are closing the gap, for instance the Google V8 is an engine specifically designed
-for fast execution of large JavaScript applications. Also V8 compiles JavaScript
-source code directly into machine code when it is first executed. 
-There are no intermediate byte codes or interpreter.
+development of high performance systems. On the other hand, current JavaScript 
+virtual machines (VMs) are closing the gap, for instance the Google V8 
+is an engine specifically designed for fast execution of 
+large JavaScript applications. In order to increase performance
+V8 compiles JavaScript source code directly into machine code when it is first executed. 
+There are no intermediate byte codes or an interpreter.
 [\url{ https://developers.google.com/v8/design#mach_code}].
 JavaScript has gained popularity in server-side development using runtime
 environments such as Node.js and is also used in desktop and mobile applications.
-To further evaluate how a current JavaScript implemantation can be used by a
-computer scientist for the development of complex optimization problems,
-a benchmark function, which was provided by CEC2010 Special Session on
-Large-Scale Global Optimization [] as Function 15 is used in this section. 
+To further evaluate how a current JavaScript implemantation could be used by a
+computer scientist to develop complex optimization problems,
+a benchmark function, which was provided by the CEC2010 Special Session on
+Large-Scale Global Optimization [] is used in this section. 
 The function is described next.
 
 
@@ -1058,6 +1057,15 @@ For the benchmark $D = 1000$, Group size $m = 50$, $\textbf{x} = (x_1, x_2, \ldo
 candidate solution, $\textbf{o} = (o_1, o_2, \ldots  , o_{D})$ is the shifted global optimum,
 $\textbf{z} = \textbf{x} - \textbf{o}$ is the shifted candidate solution and
 finally $\textbf{P}$ is a random permutation of $\lbrace1, 2, \ldots  ,D\rbrace$.
+
+This optimization problem was selected because is representative of the kind of
+algorithms, data types and structures employed in large scale optimization problems. 
+The function was implemented in both matlab and Java languages as part of  the
+Test Suite of the companion competition. To give competitors an idea of the
+computationa cost of the challenge, the runtime required for 10,000 function 
+evaluations (FEs) was published for a particular configuration, where the Java
+implementation took 7596ms and the Matlab version 1115ms. The whole experiment had
+as termination condition 3,000,000 FEs. 
 %---------------------------------------------------------------
 \section{Conclusion}
 \label{sec:conclusion}
