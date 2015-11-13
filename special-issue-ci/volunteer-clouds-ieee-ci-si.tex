@@ -1032,7 +1032,7 @@ The function is described next.
 
 The basic Rastrigins function is separable[], and is defined as follows;
 \begin{equation}
-F_{rastrigin}(x)=\sum\limits_{i=1}^\frac{D} [x_{i}^{2}-10\cos(2\pi x_i)+10  ] 
+F_{rastrigin}(x)=\sum\limits_{i=1}^D [ x_{i}^{2}-10\cos(2\pi x_i)+10  ] 
 \end{equation}
 where $D$ is the dimension and $x = (x1, x2, · · · , x_{D})$ is a
 $D$-dimensional row vector (i.e., a $1 × D$ matrix). Rastrigin’s function 
@@ -1041,11 +1041,10 @@ optima grows exponentially with the increase of dimensionality. To make it
 nonseparable, an orthogonal matrix is also used for coordinate rotation.
 The rotated Rastrgin’s function is defined as follows:
 \begin{equation}
-F_{rot_rastrigin}(x)=F_{rastrigin}(\textbf{z}), \textbf{z}= \textbf{x} * \textbf{M}
+F_{rot\_rastrigin}(x)=F_{rastrigin}(\textbf{z}), \textbf{z}= \textbf{x} * \textbf{M}
 \end{equation}
-Where \textbf{M}_{is} a $D×D$ orthogonal matrix. 
-
-The benchmark  emulates real-world optimization problems that most likely will consist 
+Where $\textbf{M}$ is  a $D \times{D}$ orthogonal matrix. The benchmark
+emulates real-world optimization problems that most likely will consist 
 of different groups of parameters with strong dependencies within
 but little interaction between the groups. This issue is reflected in the benchmark
 problems by first randomly dividing the objective variables
@@ -1053,12 +1052,12 @@ into several groups, each of which contains a number of variables. The parameter
 is used to control the number of variables in each group and hence, defining the degree
 of separability:
 \begin{equation}
-F_{15}(x)=\sum\limits_{k=1}^\frac{D}{m}F_{rot_rastrigin}[\textbf{z}(F_{(k-1)*m+1}:P_{k*m})] 
+F_{15}(x)=\sum\limits_{k=1}^\frac{D}{m}F_{rot\_rastrigin}[\textbf{z}(P_{(k-1)*m+1}:P_{k*m})] 
 \end{equation}
-For the benchmark $D = 1000$, Group size $m = 50$, $\textbf{x} = (x_1, x_2, · · · , x_{D})$ is the
-candidate solution, $\textbf{o} = (o_1, o_2, · · · , o_{D})$ is the shifted global optimum,
-$\textbf{z} = \textbf{x} − \textbf{o}$ is the shifted candidate solution and
-finally $\textbf{P}$ is a random permutation of ${1, 2, · · · ,D}$.
+For the benchmark $D = 1000$, Group size $m = 50$, $\textbf{x} = (x_1, x_2, \ldots , x_{D})$ is the
+candidate solution, $\textbf{o} = (o_1, o_2, \ldots  , o_{D})$ is the shifted global optimum,
+$\textbf{z} = \textbf{x} - \textbf{o}$ is the shifted candidate solution and
+finally $\textbf{P}$ is a random permutation of $\lbrace1, 2, \ldots  ,D\rbrace$.
 %---------------------------------------------------------------
 \section{Conclusion}
 \label{sec:conclusion}
