@@ -1074,14 +1074,27 @@ how practical and mature is the language for developing complex mathematical fun
 as well as some limitations.
 
 \begin{itemize}
-\item {\em Randomize}
+\item {\em Randomize} Both Malab and Java implementations rely on a 
+Java Randomizer library as a standardized implementation of the 
+randomization of shift vectors and matrices used for the experiments.
+The library included the generation of pseudorandom Gaussian of type
+double and uniformly distributed integers. Generators used a single
+{\tt long} seed. In order to implement the same functionality in
+JavaScript, the library random-js was used, as there are inconsistencies 
+in the implementation of {\tt Math.random()} between engines in the
+number of bits used in the generation and results are non-deterministic. 
+The library random-js, implements a Mersenne Twister algorithm producing 
+consistent results across all JavaScript implementations assuming the same seed.
 \item {\em Arrays} 
 \item {\em Timing functions}
 \item {\em Tools} 
 \end{itemize}
 
-The performance of the time required for 10,000 FEs presented in \ref{fig:f15_times}
-
+The performance of the time required for 10,000 FEs is presented in Figure \ref{fig:f15_times}.
+The test was run on an 3.7 GHz Quad-Core Intel Xeon E5 processor running OS X 10.10.5, 
+using Java(TM) SE Runtime Environment (build 1.8.0_25-b17), 
+MatLab version R2015a for Mac OSX, Node FrameWork version 0.12.2, Google Chrome Version 46.0.2490.86 (64-bit) 
+and Firefox version 41.0.2.  
 
 \begin{figure}[!htb]
 \centering
