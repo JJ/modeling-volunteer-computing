@@ -41,5 +41,5 @@ xtickNames = plt.setp(ax1, xticklabels= ["Java","Matlab","node.js","chrome","chr
 plt.setp(xtickNames, rotation=30, fontsize=8)
 #plt.setp(xtickNames)
 plt.ylim((0,1600))
-show()
+#show()
 plt.savefig('../f15_times.eps')
