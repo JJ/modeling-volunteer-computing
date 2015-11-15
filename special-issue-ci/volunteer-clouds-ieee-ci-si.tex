@@ -29,6 +29,18 @@
 
 \title{Volunteers in the Clouds: an Architecture for Low Cost and
   Potentially Massive Distributed Evolutionary Computation}
+% The word massive in the title is giving us problems.
+% Why not change it to something about sharing resources?.
+% Also lets not forget about volunteers, they can be a resource too
+% and they cannot be replaced by any super computer
+
+%  I propose something like:
+% A Web Based Architecture to Harness Volunteer Computational Resources 
+% for Low Cost Distributed Evolutionary Computation
+
+% Some keywords missing: Cloud, Asynchronous, Pool-Based, Javascript-Based
+% Open Source software.
+% Lets not forget this issue is about software.
 
 \author{Juan-J.~Merelo*$^1$, Mario Garc\'ia-Valdez$^2$, Pedro A. Castillo$^1$, Pablo Garc\'ia-S\'anchez$^1$
 \thanks{Manuscript submitted for review on \today.}%
@@ -52,12 +64,32 @@ present {\sf NodIO}, a client-server architecture for distributed
 evolutionary algorithms, written entirely in JavaScript, which needs
 minimal server support to work and is able to support persistent,
 asynchronous, distributed evolutionary algorithms running in the
-browser. The architecture, along with some initial results on the
+browser.  The architecture, along with some initial results on the
 expected performance and scaling
 behavior is presented. We also use the algorithm data to
 find out what kind of patterns the user behavior follow and try to fit
 them to some statistical distribution.
 \end{abstract}
+
+% Work in progress..
+%Volunteer computing is used routinely in science and industry, but it
+%still has a long way to go if it is going to become a mainstream technology 
+%in the same way the cloud technologies in general have. In one hand, projects 
+%lack special purpose and open source tools with analytics builtin and
+%in the other there are still barriers that keep users from sharing their computing 
+%resources like the need to install software applications or plugins in order 
+%to cooperate. That is why in this paper we present {\sf NodIO}, a client-server
+%architecture for distributed
+%evolutionary algorithms, written entirely in JavaScript, which needs
+%minimal server support to work and is able to support persistent,
+%asynchronous, distributed evolutionary algorithms running in the
+%browser.  The architecture, along with some initial results on the
+%expected performance and scaling
+%behavior is presented. We also use the algorithm data to
+%find out what kind of patterns the user behavior follow and try to fit
+%them to some statistical distribution.
+
+
 
 \begin{IEEEkeywords}
 Evolutionary algorithms, evolutionary computation, distributed computing, internet computing,
@@ -75,12 +107,11 @@ be compiled or run directly on the operating system layer and, second,
 they assume that the nodes that are going to run the system are under
 your control or at least you have access to them.
 
-There is, then, space for systems that do not have any of these
+There is, then, space for systems that do not make any of these
 assumptions, such as the one presented in this paper, which will be
-provisionally named {\sf NodIO}. {\sf NodIO} is first an application that
-runs in two tiers, a server and a client, the latter  can be possibly
-run on a browser. As such, it can be run in any computer that loads the web
-page where the client is embedded, including many over which 
+provisionally named {\sf NodIO}. {\sf NodIO} is first a two tier client/server 
+application, in which clients can possibly run in a browser. 
+Therefore, it can be run in any web-enabled device, including many over which 
 the scientist has no control.
 
 Some time ago, our group faced the problem of diminishing funds for
@@ -95,6 +126,14 @@ decided to design and release a new free framework that would allow anyone to
 create a volunteer distributed EC experiment using cloud resources as
 servers and browsers as clients.
 
+%PABLO: He añadido el siguiente párrafo para el issue #31
+There exist other volunteer frameworks written in compiled languages, such as C++ or Java, that can achieve more performance than JavaScript. However, one of the advantages of our system is that clients do not need to install anything in their machines, they just need to open a regular web page  
+% Somewhat redundant 
+% Javascript is the only language that can be executed in this way without any installation, 
+% also removed the default, redundant with next sentence
+in modern browsers, such as Chrome, Safari or Firefox, that are available in almost every desktop or mobile device. Other advantage is that the source code can be directly examined by the volunteer, not being compiled as other options (such as Java Applets or ActiveX). Also, as we discuss in this paper, it can provide some extra features such as enhanced security or operating system independence.
+
+%PABLO: hay que enlazar con el siguiente párrafo
 This kind of systems must solve a series of issues before even starting to 
 measure their performance; these issues are related to security as well as
 safety, which introduces a {\em social} aspect to the design of a
@@ -111,8 +150,8 @@ The rest of the paper is organized as follows: Next we present the
 state of the art (Section \ref{sec:soa}) in web-based distributed
 computation systems along with attempts to predict and model its behavior. 
 Then, a detailed description of the proposed system is presented
-in Section \ref{sec:description}, followed by the experiments and
-obtained results in Section \ref{sec:experiments}.
+in Section \ref{sec:description}, followed by the experiments and 
+results obtained in Section \ref{sec:experiments}.
 Finally, conclusions and future lines of work are presented in Section
 \ref{sec:conclusion}. 
 
@@ -155,17 +194,17 @@ URI, something that is not guaranteed using desktop
 applications. Baratloo et al. tried in 1996 to create a system with
 the aforementioned qualities called {\em Charlotte}
 \cite{baratloo1996charlotte}. This system, which implemented a
-distributed shared memory, was inspired by previous work
-on parallel computing systems PVM and MPI and solved most issues by
+distributed shared memory, was inspired by a previous work
+on parallel computing systems PVM and MPI and solved most of the issues by
 using the Java virtual machine embedded in the browser,
-which provides
+which provided
 security to the user, uniformity of computing environment
 independently of the operating system and access to a common data store in the
-server. Since the virtual machine is a sandbox, it is safe to the user
+server. Since the Java virtual machine is a sandbox, it is safe to the user
 and running a compiled bytecode guarantees a certain level of
 performance.
- Other issues such as scheduling, which are related to adaptive
- parallelism, are solved on the server. This
+Other issues such as scheduling, which are related to adaptive 
+parallelism, were solved on the server. This
 paper was later extended and published in a journal in 1999
 \cite{baratloo1999charlotte}, but it is interesting to note that
 already in the early stages of the web the possibility of
@@ -177,16 +216,16 @@ the execution of parallel applications over the Internet and features
 a comprehensive statistics collection subsystem, allowing its use for science,
 since it allows the collection of algorithm analytics by the
 experiment designer, unlike the other systems mentioned
-above. Other proposals contemporary to Jet, such as {\em SuperWeb}
+above. Other proposals contemporary to JET, such as {\em SuperWeb}
 \cite{alexandrov1997superweb} are roughly a translation of classical
-distribution techniques, with complicated architectures that include
+distribution techniques, with overly complicated architectures that include
 brokers for resource discovery. It is focused, however, in solving the
 issues involved in browser-based computing and also in making a system
-that is able to work across different classes of computers, mentioning
+that is able to work across different types of computers, mentioning
 SPARCstations and PCs with Windows-95. Interestingly enough, this
 paper incorporates a discussion on the economic model, paving the way
-for the for-profit distributed computing systems that later on
-arose. On the other hand, the potential for volunteer computing using
+for the for-profit distributed computing systems that arose later on. 
+On the other hand, the potential for volunteer computing using
 browsers was realized
 later on \cite{sarmenta-bayanihan} as well as the potential for
 mischief of users with code in their hands
@@ -236,17 +275,15 @@ public clouds such as Amazon EC2 \cite{CloudScale}, Google App Engine\cite{di201
 and DropBox~\cite{mericloud}. The use of JavaScript to implement
 server side components
 gives software developers certain advantages in the cloud
-paradigm, since is a first-class citizen
-in most Platforms as a Service (PaaS) products as most support the {\tt Node.js}
-framework \cite{wood13:nodejs:paas}. Many web services
-have native JavaScript libraries too, and use JSON (JavaScript Object Notation) for data
-interchange. Another advantage is that
+paradigm, since it is a first-class citizen
+in most Platforms as a Service (PaaS) products as the {\tt Node.js} framework is supported by most. \cite{wood13:nodejs:paas}. Many web services
+have native JavaScript libraries too, and also use JSON (JavaScript Object Notation) for data interchange. Another advantage is that
 developers can use the same software tools for both client and server
 side development.
 
 JavaScript is also compatible with the functional programming paradigm \cite{Cousineau1998,MacLennan1990,Thompson1996}.
-According to \cite{swanresearch2015}, the benefits of using this kind of paradigm in
-metaheuristics optimization allows an improvement in communicability,
+According to \cite{swanresearch2015}, the benefit of using this kind of paradigm in
+metaheuristics optimization is that it allows an improvement in communicability,
 reproducibility, interoperability, automated assembly, knowledge engineering
 and efficiency.
 
@@ -292,7 +329,9 @@ of that framework; the shape of those distributions is a skewed bell
 with more resources in the {\em low} areas than in the high areas:
 there are many users that give a small amount of cycles, while there
 are just a few that give many cycles. This is in concordance with the
-results obtained in \cite{agajaj}. Our initial tests indicate that
+results obtained in \cite{agajaj}. Although SETI@home works
+at larger scale in both quantity of volunteers and scope of projects, 
+our initial tests indicate that
 this kind of distribution might be the most appropriate to describe
 user participation in several different metrics. However, in this
 paper we will perform different experiments in different setups and
@@ -315,6 +354,22 @@ In general, a volunteer-based distributed evolutionary computation
 system based on the browser is simply a client-server architecture
 whose client is, or can be, embedded in the browser via JavaScript.
 
+As a volunteer based system, there are some issues worth 
+noting \cite{sarmenta2001volunteer,web:BOINC} :\begin{enumerate}
+\item Volunteers are anonymous, only the IP address sent in 
+each request is known.
+\item As anonymous entities, volunteers are not accountable. 
+If a volunteer  misbehaves in some way the provider cannot 
+prosecute or discipline the volunteer. In the case of JavaScript,
+this issue is agravated because even if it is obfuscated, sorce code
+and data is sent to clients. 
+\item Participants must also trust the application provider, 
+regarding invation of privacy, the integrity of their devices 
+and intended application. 
+\end{enumerate}
+In this work security aspects related to sabotage and 
+trust management (e.g. \cite{domingues2007sabotage}) have not been addressed.
+
 In this sense, in this paper we propose {\sf NodIO}, a cloud or metal
 based 
 volunteer evolutionary computing system based on the {\sf NodEO}
@@ -323,14 +378,20 @@ has been developed using JavaScript on the client as well as the
 server sides. 
 All parts of the system are free and available with a free
 license from \url{https://github.com/JJ/splash-volunteer}.
+
+%PABLO: el siguiente párrafo justifica Javascript
+
+
 Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
 \item A REST server, that is, a server that includes several {\em
   routes} 
   that can be called for storing and retrieving information (the CRUD cycle:
-  create, request, update and delete) from the server. The information
-  is of two kinds: {\em problem} based, that is, related to the
+  create, request, update and delete) from the server. 
+  A JSON data format is used for the communication between 
+  clients and the server. There are two kinds of information:
+  {\em problem} based, that is, related to the
   evolutionary algorithm such as {\tt PUT}ing a chromosome in or {\tt
-    GET}ing a random chromosome from it, and {\em information} related
+  GET}ing a random chromosome from it, and {\em information} related
   to performance and state of the experiments. It also performs logging
   duties, but is basically a very lightweight and high performance
   data store \cite{jj:idc:lowcost}.
@@ -340,14 +401,20 @@ Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
 \item A client that includes the evolutionary algorithm as
   JavaScript code embedded in a web page that displays graphs and some
   additional links and information on the experiment. This code runs
-  an evolutionary algorithm {\em island} starting with random
+  an evolutionary algorithm {\em island} starting with a random
   population and sending, every 100 generations, the best individual
   back to the server (via a {\tt PUT} request) and requesting a random
-  individual from the server (via a {\tt GET} request). Apart from
+  individual from the server (via a {\tt GET} request).
+
+
+
+  Apart from
   these constants, the algorithm can be run in many different ways:
-  stopping when solution is found or, as we have done in this paper,
-  using Web Workers, which run in the background even if the webpage or
-  browser tab with the experiment is not currently on focus.
+  stopping when a solution is found or, as we have done in this paper,
+  using Web Workers. 
+  % Repeated
+  %which run in the background even if the webpage or
+  %browser tab having the experiment is not currently on focus.
 \end{enumerate}
 
 Figure \ref{fig:system} describes the general system architecture and
@@ -377,10 +444,14 @@ outlined in the State of the Art (Section \ref{sec:soa}):\begin{itemize}
   allows the service of many requests. In fact, a limit with the
   number of simultaneous requests will be reached, but so far it has
   not been found, unlike what we found in our previous systems, DCoR,
-  \cite{gecco07:workshop:dcor}, which had a low scalability.
+  \cite{gecco07:workshop:dcor}, which had a low scalability. 
 \item The system is {\em heterogeneous} since it does not need any
-  performance, operating system or even browser requirement: anyone
+  performance, operating system or even browser requirement (as long
+  as Javascript is enabled): anyone
   visiting the page, even from mobile devices, can load the algorithm.
+  In case the browser does not support HTML5 Web workers (e.g., 
+  Windows Phone or some version of Android) or their use
+  has been disabled, a basic version of NodIO can be used.
 \item {\em Fault tolerance} is always an issue, and in this case, the
   single point of failure would be the server: the system, as such,
   would break down if the server fails. However, the individual
@@ -389,11 +460,14 @@ outlined in the State of the Art (Section \ref{sec:soa}):\begin{itemize}
   fact, the island does not need the server to run: it runs locally if
   needed, with the only exception that it is obviously unable to
   communicate with the rest of the islands.
-\item {\em Adaptiveness} is achieved simply through autonomous
-  operation of every individual island and no synchronization
+\item {\em Adaptiveness} is achieved simply through the autonomous
+  operation of every individual island with out any synchronization
   mechanism. The islands in the system are, in fact, unaware of each
-  other, communicating only through the server.
-\item Since the algorithm is run on the browser, {\em safety} is
+  other, communicating only through the server. This architecture 
+  has been tested in other high demand systems with success, but 
+  in the case of NodIO, additional experiments are need to asses 
+  the scalability of the system. 
+\item Since the algorithm runs in the browser, {\em safety} is
   achieved through its sandbox mechanisms. The user is thus assured
   that there is no unsafe access either to their local files or even
   to more resources that the browser should be allotted.
@@ -403,8 +477,8 @@ outlined in the State of the Art (Section \ref{sec:soa}):\begin{itemize}
   clicking on an URL and available to anyone with access to a browser.
 \item {\em Reasonable performance} is not ensured. In fact, we should
   make sure that there is a reasonable amount of clients over which
-  the performance achieved is bigger than what you would obtain in
-  your own desktop system. If that is not done, it is a pointless
+  the performance achieved is better than what you would obtain in
+  your own desktop system. If this is not the case, it is a pointless
   academic exercise.
 \end{itemize}
 
@@ -537,8 +611,8 @@ place in a browser, and in fact most of the time is devoted to
 presenting the charts; the server is not the same since it is run in a
 PaaS instead of a high-performance desktop computer, and it is also a
 remote server, not a local server as in the baseline experiment. But
-fair is fair, and we were looking for creating a framework that
-allowed to run evolutionary computation experiments {\em faster} than
+even if that is the case, we were looking for creating a framework that
+allowed us to run evolutionary computation experiments {\em faster} than
 in our very own computer. And the results is that although it will
 happen, 1 out of roughly 5 or roughly 20, depending on what baseline
 experiment you choose, it will not happen always or even a majority of
@@ -607,7 +681,7 @@ that have to be solved, as it will be shown next.
 \label{fig:puts:os}
 \end{figure}
 %
-It is interesting also to check the distribution of the experiment
+It is also interesting to check the distribution of the experiment
 duration, shown in Figure \ref{fig:zipf:os} and which roughly follows
 a Zipf's law, with similar distribution along all three runs. The 4/24
 run is the most complete and shows a S-shape, which implies an
@@ -664,19 +738,18 @@ At any rate, this also shows that a convenient way of increasing the
 computing power would be increasing this minimum amount per user. This
 issue led us to create the next version of the framework, which is
 presented next. 
-\subsection{{\sf NodIO-W$^2$}, a Web Worker-based architecture}
+
+\section{{\sf NodIO-W$^2$}, a Web Worker-based architecture}
 
 In order to improve the number of cycles per user, we improved the
-basic architecture in several different aspects. By using Web Workers 
-the algorithm kept running on the background even if the {\sf NodIO}
-tab was not in focus. It also allowed to run several clients per
-browser, as opposed to a single one as we did previously. Another
-improvement involved restart of the client once the solution was
+basic architecture in several different aspects.  One improvement 
+involved restarting the client once the solution was
 found, so that as long as the user was visiting the page it was
-running an evolutionary algorithm. Finally, a small algorithmic
-improvement was included: instead of having a fixed population,
+running an evolutionary algorithm. Another was a small algorithmic
+improvement: instead of having a fixed population,
 population size was randomly distributed between 128 and 256 and
-different for each client. 
+different for each client.  The other improvment was the 
+use the Web Worker API as described next.
 
 JavaScript has been commonly used to develop client-side scripts
 that handle the user interface, communicate asynchronously with servers and
@@ -701,11 +774,12 @@ keeps running in the background even it the user brings forward another tabbed
 window.
 \item Several evolutionary algorithms can be executed in parallel in a single web
 page. 
-\item Many implementations of the Web Worker API can use multiple CPUs for
-the execution of worker scripts, in particular the execution in multiple CPUs
+\item Many implementations of the Web Worker API can use multiple-core CPUs for
+the execution of worker scripts, in particular the execution in multiple-core CPUs
 was tested in desktop versions of Chrome, FireFox and Safari.
 \item Each NodEO instance can be restarted independently.
 \end{itemize}
+
 
 A sequence diagram of the W$^2$ version of {\sf NodIO} is presented
 in Figure~\ref{fig:system:w2}. In this version, clients use the Web Workers
@@ -729,6 +803,8 @@ access to the Document Object Model (DOM) or JQuery objects in the main thread.
 Asynchronous HTTP requests to the server are implemented using the
 XMLHttpRequest (XHR) object.  
 \end{itemize}
+
+
 %
 \begin{figure}[!htb]
 \centering
@@ -742,7 +818,7 @@ XMLHttpRequest (XHR) object.
 The sequence of events is as follows:
 \begin{enumerate}
 \item First the {\sf NodIO} process is started in Node.js. As part of the
-initialization procedure the number of experiment is initialized and a log
+initialization procedure the secuential number of experiment is initialized and a log
 file is created. The shared pool implemented as an array is reset.
 \item A volunteer follows the link of the experiment triggering a GET HTTP
 request and the page is loaded.
@@ -760,7 +836,7 @@ a message is sent to the worker to start the algorithm.
 specified parameters. Once the population has been initialized, the EA
 generation loop is started. After {\em n} generations the state of the population
 is evaluated. First the chromosome with the best fitness is sent to the shared
-population with a PUT HTTP request. If the best fitness is not a global best,
+population with a PUT HTTP request. If the best fitness is not the global best,
 the EA loop must continue, but first a chromosome is randomly selected from
 the shared population. Also the current generation number and the best
 chromosome is sent to the client main thread in order to update the DOM to
@@ -775,7 +851,7 @@ updated by displaying a dynamic plot of the generation number and best
 fitness, and a representation of the chromosome is also generated.
 \item When a global best is received from an island the current experiment
 ends, the experiment number is incremented and the population array is reset.
-\item When the main thread receives a message the a worker has ended the EA
+\item When the main thread receives a message indicating that a worker has ended the EA
 loop, that worker is reinitialized. The worker process is not ended, to
 avoid the start-up cost, only the parameters and population are reset and a new UUID
 assigned.
@@ -932,6 +1008,106 @@ providing reasonable algorithmic performance and being, in general,
 easy to use with a straightforward modification of the fitness
 function. 
 
+
+\subsection{$F_{15}:\frac{D}{m}$-group Shifted and $m$-rotated Rastrigins Function}
+The most common use of JavaScript is in the development of
+asynchronous Web applications. For this purpose JavaScript has
+been traditionally implemented as an interpreted language not designed for the
+development of high performance systems. On the other hand, current JavaScript 
+virtual machines (VMs) are closing the gap, for instance the Google V8 
+is an engine specifically designed for fast execution of 
+large JavaScript applications. In order to increase performance
+V8 compiles JavaScript source code directly into machine code when it is first executed. 
+There are no intermediate byte codes or an interpreter.
+[\url{ https://developers.google.com/v8/design#mach_code}].
+JavaScript has gained popularity in server-side development using runtime
+environments such as Node.js and is also used in desktop and mobile applications.
+To further evaluate how a current JavaScript implemantation could be used by a
+computer scientist to develop complex optimization problems,
+a benchmark function, which was provided by the CEC2010 Special Session on
+Large-Scale Global Optimization [] is used in this section. 
+The function is described next.
+
+
+The basic Rastrigins function is separable[], and is defined as follows;
+\begin{equation}
+F_{rastrigin}(x)=\sum\limits_{i=1}^D [ x_{i}^{2}-10\cos(2\pi x_i)+10  ] 
+\end{equation}
+where $D$ is the dimension and $x = (x1, x2, · · · , x_{D})$ is a
+$D$-dimensional row vector (i.e., a $1 × D$ matrix). Rastrigin’s function 
+is a classical multimodal problem. It is difficult since the number of local
+optima grows exponentially with the increase of dimensionality. To make it 
+nonseparable, an orthogonal matrix is also used for coordinate rotation.
+The rotated Rastrgin’s function is defined as follows:
+\begin{equation}
+F_{rot\_rastrigin}(x)=F_{rastrigin}(\textbf{z}), \textbf{z}= \textbf{x} * \textbf{M}
+\end{equation}
+Where $\textbf{M}$ is  a $D \times{D}$ orthogonal matrix. The benchmark
+emulates real-world optimization problems that most likely will consist 
+of different groups of parameters with strong dependencies within
+but little interaction between the groups. This issue is reflected in the benchmark
+problems by first randomly dividing the objective variables
+into several groups, each of which contains a number of variables. The parameter $m$ 
+is used to control the number of variables in each group and hence, defining the degree
+of separability:
+\begin{equation}
+F_{15}(x)=\sum\limits_{k=1}^\frac{D}{m}F_{rot\_rastrigin}[\textbf{z}(P_{(k-1)*m+1}:P_{k*m})] 
+\end{equation}
+For the benchmark $D = 1000$, Group size $m = 50$, $\textbf{x} = (x_1, x_2, \ldots , x_{D})$ is the
+candidate solution, $\textbf{o} = (o_1, o_2, \ldots  , o_{D})$ is the shifted global optimum,
+$\textbf{z} = \textbf{x} - \textbf{o}$ is the shifted candidate solution and
+finally $\textbf{P}$ is a random permutation of $\lbrace1, 2, \ldots  ,D\rbrace$.
+
+This optimization problem was selected because is representative of the kind of
+algorithms, data types and structures employed in large scale optimization problems. 
+The function was implemented in both matlab and Java languages as part of  the
+Test Suite of the companion competition. To give competitors an idea of the
+computationa cost of the challenge, the runtime required for 10,000 function 
+evaluations (FEs) was published for a particular configuration, where the Java
+implementation took 7596ms and the Matlab version 1115ms. The whole experiment had
+3,000,000 FEs as the termination condition. Using the Java implementation as
+a guide, the function described above was implemented to compare the performence against
+both implementations, again using the test of time required for 10,000 FEs. 
+Before discussing the setup and performance results, certain details of
+the implementation in JavaScript are presented, to give readers an idea of 
+how practical and mature is the language for developing complex mathematical functions
+as well as some limitations.
+
+\begin{itemize}
+\item {\em Randomize} Both Malab and Java implementations rely on a 
+Java Randomizer library as a standardized implementation of the 
+randomization of shift vectors and matrices used for the experiments.
+The library included the generation of pseudorandom Gaussian of type
+double and uniformly distributed integers. Generators used a single
+{\tt long} seed. In order to implement the same functionality in
+JavaScript, the library random-js was used, as there are inconsistencies 
+in the implementation of {\tt Math.random()} between engines in the
+number of bits used in the generation and results are non-deterministic. 
+The library random-js, implements a Mersenne Twister algorithm producing 
+consistent results across all JavaScript implementations assuming the same seed.
+\item {\em Arrays} 
+\item {\em Timing functions}
+\item {\em Tools} 
+\end{itemize}
+
+The performance of the time required for 10,000 FEs is presented in Figure \ref{fig:f15_times}.
+The test was run on an 3.7 GHz Quad-Core Intel Xeon E5 processor running OS X 10.10.5, 
+using Java(TM) SE Runtime Environment (build 1.8.0_25-b17), 
+MatLab version R2015a for Mac OSX, Node FrameWork version 0.12.2, Google Chrome Version 46.0.2490.86 (64-bit) 
+and Firefox version 41.0.2.  
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.9\linewidth]{f15_times.png}
+\caption{ Runtime of 10,000 function evaluations (FEs) for $F_{15}$} 
+\label{fig:f15_times}
+\end{figure}
+
+
+\subsubsection{Setup of experiment in NodIO-W$^2$ }
+
+\subsubsection{Results}
+
 %---------------------------------------------------------------
 \section{Conclusion}
 \label{sec:conclusion}
@@ -954,7 +1130,7 @@ In the second implementation, {\sf NodIO$^2$}, Web Workers
 were used so that several clients per browser could be executed and
 they could run in the background, so that the the number of
 generations per user could be improved. The number of generations per
-user increased to the point that baseline performance was overcome in
+user increased to the point that baseline performance was improved in
 most cases. The architectural changes led to a high correlation
 between successive experiments, so that, even as the median number of
 volunteers per experiment decreased, they were probably contributing
