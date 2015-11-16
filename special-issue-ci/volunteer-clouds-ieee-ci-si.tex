@@ -1156,16 +1156,43 @@ in the implementation of {\tt Math.random()} between engines in the
 number of bits used in the generation and results are non-deterministic. 
 The library random-js, implements a Mersenne Twister algorithm producing 
 consistent results across all JavaScript implementations assuming the same seed.
-\item {\em Arrays} 
-\item {\em Timing functions}
-\item {\em Tools} 
+\item {\em Timing functions} In order to compare the performance of 
+each implementation, an accurate and consistent way of measuring 
+the runtime is needed. In JavaScript the {\tt Date class} is often used 
+to measure execution time, but the maximum resolution is given in miliseconds.
+In order to measure the runtime intervals with higher precission two functions
+where used: for Node.js we used the native {\tt process.hrtime()} function
+which returns a high-resolution measure in a {\tt [seconds, nanoseconds]} array.
+For testing in the browser the {\tt Performance.now()} function was used, this
+function uses floating-point numbers with up to microsecond precision. 
+A drawback found is that the {\tt Performance.now()} function is only implemented
+in Firefox and Chrome browsers. Both functions are independent of the system clock. 
+\item {\em Tools} An important consideration when chosing certain language to 
+to write non-trivial programs is the availability of development tools. When developing
+the experiments, we used a comprehensive set of developer tools available in both
+browsers and desktop. These tools included package managers, debbugers, logs, 
+network monitors, editors and even debugging of the multi-threaded execution of Web Workers.
+A drawback found is that developer tools very from browser to browser, 
+but they all have the same functionality.
+\item {\em Data Types} JavaScript uses floating point numbers with a 
+limited precision of 64 bits that partialy implements the functionality of
+the {\tt StrictMath} library used by the Java implemantation. If more precision
+is needed developers could use {\tt math.js}, an extensive math library with support for matrices, big and complex numbers.
+
 \end{itemize}
 
-The performance of the time required for 10,000 FEs is presented in Figure \ref{fig:f15_times}.
+We found that the JavaScript ecosystem is mature enough for developing non-trivial 
+code, but developers have to consider the differences betwwen VMs implementations
+and use certain libraries in order to increase the precision and repeatability of
+algorithms. To test the performance of JavaScript against Java and Matlab 
+
+
+
 The test was run on an 3.7 GHz Quad-Core Intel Xeon E5 processor running OS X 10.10.5, 
 using Java(TM) SE Runtime Environment (build 1.8.0\_25-b17), 
 MatLab version R2015a for Mac OSX, Node FrameWork version 0.12.2, Google Chrome Version 46.0.2490.86 (64-bit) 
-and Firefox version 41.0.2.  
+and Firefox version 41.0.2.  The performance of the time required for 10,000 FEs is presented in Figure \ref{fig:f15_times}.
+
 
 \begin{figure}[!htb]
 \centering
