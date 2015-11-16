@@ -1086,7 +1086,7 @@ asynchronous Web applications. For this purpose JavaScript has
 been traditionally implemented as an interpreted language not designed for the
 development of high performance systems. On the other hand, current JavaScript 
 virtual machines (VMs) are closing the gap, for instance the Google V8 
-is an engine specifically designed for fast execution of 
+is an engine specifically designed for the fast execution of 
 large JavaScript applications. In order to increase performance
 V8 compiles JavaScript source code directly into machine code when it is first executed. 
 There are no intermediate byte codes or an interpreter.
@@ -1116,8 +1116,8 @@ F_{rot\_rastrigin}(x)=F_{rastrigin}(\textbf{z}), \textbf{z}= \textbf{x} * \textb
 Where $\textbf{M}$ is  a $D \times{D}$ orthogonal matrix. The benchmark
 emulates real-world optimization problems that most likely will consist 
 of different groups of parameters with strong dependencies within
-but little interaction between the groups. This issue is reflected in the benchmark
-problems by first randomly dividing the objective variables
+but little interaction between the groups. This issue is reflected in the benchmark 
+by first randomly dividing the objective variables
 into several groups, each of which contains a number of variables. The parameter $m$ 
 is used to control the number of variables in each group and hence, defining the degree
 of separability:
@@ -1130,68 +1130,70 @@ $\textbf{z} = \textbf{x} - \textbf{o}$ is the shifted candidate solution and
 finally $\textbf{P}$ is a random permutation of $\lbrace1, 2, \ldots  ,D\rbrace$.
 
 This optimization problem was selected because is representative of the kind of
-algorithms, data types and structures employed in large scale optimization problems. 
-The function was implemented in both matlab and Java languages as part of  the
-Test Suite of the companion competition. To give competitors an idea of the
-computationa cost of the challenge, the runtime required for 10,000 function 
-evaluations (FEs) was published for a particular configuration, where the Java
-implementation took 7596ms and the Matlab version 1115ms. The whole experiment had
+algorithm, data types and structures employed in large scale optimization problems. 
+The function was implemented in both Matlab and Java languages as part of  the
+Test Suite of the companion competition of the Special Session. To give competitors an idea of the
+computational cost of the challenge, the runtime required for 10,000 function 
+evaluations (FEs) for a particular configuration was published by organizers. The Java
+implementation took 7596ms and the Matlab version 1115ms. The whole experiment had the value of
 3,000,000 FEs as the termination condition. Using the Java implementation as
-a guide, the function described above was implemented to compare the performence against
-both implementations, again using the test of time required for 10,000 FEs. 
+a guide, the function described above was implemented to compare the performence of JavaScript against
+both implementations, again using as a test, the time required for doing a 10,000 FEs. 
 Before discussing the setup and performance results, certain details of
 the implementation in JavaScript are presented, to give readers an idea of 
 how practical and mature is the language for developing complex mathematical functions
 as well as some limitations.
 
 \begin{itemize}
-\item {\em Randomize} Both Malab and Java implementations rely on a 
-Java Randomizer library as a standardized implementation of the 
-randomization of shift vectors and matrices used for the experiments.
-The library included the generation of pseudorandom Gaussian of type
+\item {\em Randomize} Both Malab and Java programs rely on a 
+Java Randomizer library for the implementation of the 
+randomization of shift vectors and matrices used for by the function.
+The library included the generation of pseudorandom Gaussians of type
 double and uniformly distributed integers. Generators used a single
 {\tt long} seed. In order to implement the same functionality in
-JavaScript, the library random-js was used, as there are inconsistencies 
-in the implementation of {\tt Math.random()} between engines in the
-number of bits used in the generation and results are non-deterministic. 
-The library random-js, implements a Mersenne Twister algorithm producing 
-consistent results across all JavaScript implementations assuming the same seed.
+JavaScript, the library {\tt random-js} was used, as there are inconsistencies 
+in the implementation of {\tt Math.random()} between engines and their results are non-deterministic. 
+The library {\tt random-js}, implements a Mersenne Twister algorithm producing 
+consistent results across all JavaScript VMs assuming the same seed.
 \item {\em Timing functions} In order to compare the performance of 
 each implementation, an accurate and consistent way of measuring 
 the runtime is needed. In JavaScript the {\tt Date class} is often used 
-to measure execution time, but the maximum resolution is given in miliseconds.
-In order to measure the runtime intervals with higher precission two functions
+to measure execution time, but has the limitaoun of having a maximum resolution given in miliseconds.
+In order to measure the runtime intervals with a higher precission two functions
 where used: for Node.js we used the native {\tt process.hrtime()} function
 which returns a high-resolution measure in a {\tt [seconds, nanoseconds]} array.
-For testing in the browser the {\tt Performance.now()} function was used, this
+For testing in the browser, the {\tt Performance.now()} function was used, this
 function uses floating-point numbers with up to microsecond precision. 
-A drawback found is that the {\tt Performance.now()} function is only implemented
+A drawback found is that the {\tt Performance.now()} function is that is only implemented
 in Firefox and Chrome browsers. Both functions are independent of the system clock. 
 \item {\em Tools} An important consideration when chosing certain language to 
 to write non-trivial programs is the availability of development tools. When developing
 the experiments, we used a comprehensive set of developer tools available in both
-browsers and desktop. These tools included package managers, debbugers, logs, 
+browsers and desktop. These tools included package managers, debbugers, logging, 
 network monitors, editors and even debugging of the multi-threaded execution of Web Workers.
 A drawback found is that developer tools very from browser to browser, 
 but they all have the same functionality.
 \item {\em Data Types} JavaScript uses floating point numbers with a 
-limited precision of 64 bits that partialy implements the functionality of
+limited precision of 64 bits that partialy implement the functionality of
 the {\tt StrictMath} library used by the Java implemantation. If more precision
-is needed developers could use {\tt math.js}, an extensive math library with support for matrices, big and complex numbers.
-
+is needed developers could use {\tt math.js}, an extensive math library with support
+for matrices, big and complex numbers.
 \end{itemize}
 
 We found that the JavaScript ecosystem is mature enough for developing non-trivial 
 code, but developers have to consider the differences betwwen VMs implementations
-and use certain libraries in order to increase the precision and repeatability of
-algorithms. To test the performance of JavaScript against Java and Matlab 
-
-
-
-The test was run on an 3.7 GHz Quad-Core Intel Xeon E5 processor running OS X 10.10.5, 
+and also use certain libraries in order to increase the precision and repeatability of
+algorithms. As for the performance of the JavaScript implementaion against Java and Matlab
+we conducted first the basic test described earlier in a 3.7 GHz Quad-Core Intel Xeon E5 processor running OS X 10.10.5, 
 using Java(TM) SE Runtime Environment (build 1.8.0\_25-b17), 
 MatLab version R2015a for Mac OSX, Node FrameWork version 0.12.2, Google Chrome Version 46.0.2490.86 (64-bit) 
-and Firefox version 41.0.2.  The performance of the time required for 10,000 FEs is presented in Figure \ref{fig:f15_times}.
+and Firefox version 41.0.2. The performance of the time required for 10,000 FEs is presented in Figure \ref{fig:f15_times}.
+In our test the Matlab implementation had the best performance with an average of 935ms, followed by Java with
+991ms, JavaScipt took 35\% more time than Java with 1,270ms using Node.js and 1279ms in Chrome. 
+The results also show that there is not much difference between the Node.Js implemenation an that of a
+browser. There is also not much difference between running the code in the main thread or as workers, but
+when running the experiment in Firefox a dialog alerted of the script taking to long, showing that this
+kind of processing is not intended for the main thread.
 
 
 \begin{figure}[!htb]
