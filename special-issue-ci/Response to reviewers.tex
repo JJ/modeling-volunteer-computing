@@ -62,9 +62,7 @@ does not affect the performance in the rest of the system, which is a
 concern in this kind of systems. We have performed speed tests on
 JavaScript and other compiled languages resulting that, in fact,
 JavaScript uses a JIT compiler that provides a good performance; we
-have published these tests as an open access technical report. This
-fact, along these explanations, have now been added to the first
-paragraph of the {\em Description of the system} section. 
+have published these tests as an open access technical report. 
 
 JavaScript is probably the most popular language nowadays, and this
 has inspired the appearance of many compilers, so that the fitness
@@ -78,7 +76,11 @@ a JavaScript application, running in the browser, can gather in
 seconds dozens of users. That would be, in practice, impossible with
 other kind of native clients, who would have to download and maybe
 compile the application, losing many seconds or minutes for the
-optimization problem that has to be solved. 
+optimization problem that has to be solved.
+
+These facts, along the explanations, have now been added to the first
+paragraph of the {\em Description of the system} section, as well as
+to the introduction.
 
 \begin{quote}
 The paper organization is not clear. Some comments about this:
@@ -102,7 +104,6 @@ eliminate that part of the title if the reviewer think it is
 necessary.
 
 \begin{quote}
-
 - The paper abstract does not properly summarize the paper contents. It says that "That is why in this
 paper we present NodIO, a client-server architecture for distributed evolutionary algorithms !", but there
 are two versions of the architecture, as stated later in the conclusions: "In this paper two versions of a
@@ -110,8 +111,12 @@ client-server architecture for volunteer and distributed evolutionary !". That s
 commented in the introduction.
 \end{quote}
 
+In fact {\sf NodIO} is a framework that can be used to generate
+different client-server architectures. This has been clarified in the
+abstract and conclusions section. 
+
 \begin{quote}
-- According the last paragraph of the introduction, ÒThen, a detailed description of the proposed system is
+- According the last paragraph of the introduction, ``Then, a detailed description of the proposed system is
 presented in Section III, followed by the experiments and obtained results in Section IV.", but Section IV
 does not only contains experimental result but also the full description of the second version of the
 architecture.
