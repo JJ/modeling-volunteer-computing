@@ -21,9 +21,9 @@ Dear Sirs,\\
 
 We really appreciate the opportunity you have given us for improving
 our work. Following the reviewers' requests and suggestions we have
-deeply changed the contents, and  thus, the quality of the paper. 
+deeply changed the contents, and thus, the quality of the paper. 
 
-In the next paragraphs you can find these comments and our responses
+In the next sections you can find these comments and our responses
 to every one, along with the changes done.\\ 
 
 \noindent
@@ -41,8 +41,8 @@ The volunteer computing model appeared some years ago and it has been used in ma
 model is effective to solve problems demanding high computational capabilities, and at this point is where
 this paper proposal introduces some concerns. The choice of Javascript code running on browsers has
 some advantages, as is pointed out in the paper, but some important drawbacks. Given that the
-motivation of these kinds of distributed models is to solve complex problems, using Javascript doesnÕt
-appear a right choice. ItÕs true that is a very commonly used programming language, but in the context of
+motivation of these kinds of distributed models is to solve complex problems, using Javascript doesn\'{}t
+appear a right choice. It\'{}s true that is a very commonly used programming language, but in the context of
 Web applications, not in high performance ones. Apart from the fact of being an interpreted language
 designed for the Web, it is difficult to think on a computer scientist writing a complex math code in
 Javascrip. If the authors would have used as a case study a complex optimization problem then they
@@ -52,18 +52,18 @@ be formulated in the paper) seems a rather academic one.
 
 \begin{quote}
 The paper organization is not clear. Some comments about this:
-- The title ÒVolunteers in the Clouds: an Architecture for Low Cost and Potentially Massive Distributed
-Evolutionary ComputationÓ seems to suggest that the volunteers run in the cloud, but that is not the case:
-the server run􀀀 in the cloud and the volunteers do in the browsers of common PCs and laptops.
-- The paper abstract does not properly summarize the paper contents. It says that ÒThat is why in this
-paper we present NodIO, a client-server architecture for distributed evolutionary algorithms !Ó, but there
-are two versions of the architecture, as stated later in the conclusions: ÒIn this paper two versions of a
-client-server architecture for volunteer and distributed evolutionary !Ó. That second version is neither
+- The title "Volunteers in the Clouds: an Architecture for Low Cost and Potentially Massive Distributed
+Evolutionary Computation" seems to suggest that the volunteers run in the cloud, but that is not the case:
+the server run in the cloud and the volunteers do in the browsers of common PCs and laptops.
+- The paper abstract does not properly summarize the paper contents. It says that "That is why in this
+paper we present NodIO, a client-server architecture for distributed evolutionary algorithms !", but there
+are two versions of the architecture, as stated later in the conclusions: "In this paper two versions of a
+client-server architecture for volunteer and distributed evolutionary !". That second version is neither
 commented in the introduction.
 \end{quote}
 
 \begin{quote}
-presented in Section III, followed by the experiments and obtained results in Section IV.Ó, but Section IV
+presented in Section III, followed by the experiments and obtained results in Section IV.", but Section IV
 does not only contains experimental result but also the full description of the second version of the
 architecture.
 Summarizing the review, the authors should provide a convincing example showing the advantages of
@@ -91,10 +91,10 @@ recommendation of acceptance with minor changes.
 However, the paper still has plenty of room for improvement in three main areas: the experimentation, the
 organization and description of the platform, and the presentation and writing style.
 Regarding the experimentation, I miss:
-• a section discussing the threats to validity of the experiments
-• an experiment with a more difficult problem (please use the well-known benchmark problems
+-  a section discussing the threats to validity of the experiments
+-  an experiment with a more difficult problem (please use the well-known benchmark problems
 described in literature).
-• A comparison in similar conditions of the two implementations of the architecture (the algorithms
+-  A comparison in similar conditions of the two implementations of the architecture (the algorithms
 used in the experiments are slightly different, but this could lead to dramatic changes in
 performance, and consequently, invalidate the comparison performed in the paper). This would
 enable a measurement of the actual improvement in performance obtained by the use of web
@@ -108,10 +108,10 @@ improved in detail in section 3, and focus on the experiments, its results and t
 Another issue is that some details are described twice, for instance, the advantages of the use of web
 workers. Fixing this issue can reduce the paper size and improve its readability.
 Regarding the presentation:
-• Figures should be readable even in gray-scale, so do not use red and blue to denote different
+-  Figures should be readable even in gray-scale, so do not use red and blue to denote different
 elements, use a different shade or texture.
-• The axis labels and legends in most of the figures are unreadable, please increase its font size.
-• There are some typos and phrases that need rewriting.
+-  The axis labels and legends in most of the figures are unreadable, please increase its font size.
+-  There are some typos and phrases that need rewriting.
 \end{quote}
 
 \section{Response to Reviewer \#3}
@@ -217,16 +217,16 @@ solved by the systems are of different nature and complexity.
 
 \begin{quote}
 This paper presents a very challenging proposal. Namely, authors introduce a novel client-server
-architecture for low cost and “potentially” massive distributed evolutionary algorithms. The main novelty
+architecture for low cost and "potentially" massive distributed evolutionary algorithms. The main novelty
 turns up from the fact that the architecture is developed in JavaScript.
 However, JavaScript is well-known because of its lack of capability to deal with high performance
 applications like the ones that are addressed in this paper. Thus, the use of JavaScript makes hard to
-believe in the possibility of “potentially” massive computation as sketched by the authors.
+believe in the possibility of "potentially" massive computation as sketched by the authors.
 The paper is well written and organized. State of the art is quite complete. Nevertheless, the experimental
 section must be carefully checked and extended in order to fully validate the goodness of the proposed
 architecture. At least, authors should show the behavior of the architecture in a real-world problem
 demanding high computational performance.
-Finally, English must be double-checked in order to correct minor typos such as “in the sense than[that]”
+Finally, English must be double-checked in order to correct minor typos such as "in the sense than[that]"
 (in page 2).
 \end{quote}
 
