@@ -358,7 +358,7 @@ gather resources and the algorithms used will be described next, as
 well as the results obtained with the setup.
 
 %---------------------------------------------------------------
-\section{Description of the system}
+\section{Description of the framework}
 \label{sec:description}
 
 In general, a volunteer-based distributed evolutionary computation
@@ -396,8 +396,25 @@ and data is sent to clients.
 regarding invation of privacy, the integrity of their devices 
 and intended application. 
 \end{enumerate}
-In this work security aspects related to sabotage and 
-trust management (e.g. \cite{domingues2007sabotage}) have not been addressed.
+
+Two kind of threats are possible in this environment; first, since the
+API is open and it is an open source system, it is relatively easy to
+sabotage the system, as indicated in \cite{domingues2007sabotage}, by
+crafting a fake request which, for instance, assigns a fake fitness to
+a particular chromosome. Another two different attacks are also
+possible: a denial of service attack as well as penetration
+testing. We have approached this threat in a pragmatic way: all
+sources, client and server, for the application, are released
+openly. We also release as open access experiments performed
+\cite{DBLP:journals/corr/GuervosG15} and all data is also, after
+cleaning it from personal information, released as open data. This
+builds trust between the user and the scientist, which indeed has an
+impact on the performance of the system, since there is no need to
+include cheating checks or other functions that would degrade the
+performance of the system. This socio-technical approach is, indeed,
+coherent with our whole approach to the study of a volunteer
+distributed system which can only be study approaching it from the
+technical as well as the social, as in social media, angle. 
 
 In this sense, in this paper we propose the {\sf NodIO} framework, a
 cloud or bare metal based volunteer evolutionary computing system
@@ -455,7 +472,7 @@ been used to build the elements of the system.
 \includegraphics[width=4in]{system.pdf}
 \caption{Description of the proposed system. Clients execute a JS EA
   in the browser, which, every 100 generations, sends the best
-  individual and receives a random one from the server. }
+  individual and receives a random one from the server.}
 \label{fig:system}
 \end{figure}
 
@@ -468,7 +485,8 @@ problem. JavaScript is a functional language and declaring a different
 function and handing at the creation of the algorithm object, called
 {\tt Classic} is the only change needed to work with a different
 problem. Let us see how this system addresses the different challenges
-outlined in the State of the Art (Section \ref{sec:soa}):\begin{itemize}
+outlined in the State of the Art (Section \ref{sec:soa}):
+\begin{itemize}
 \item {\em Scalability} is provided via the use of a lightweight and
   high-performance, single-threaded, server based in Node.js and
   Express.js. Although this single server is a bottleneck since it
@@ -514,7 +532,21 @@ outlined in the State of the Art (Section \ref{sec:soa}):\begin{itemize}
   academic exercise.
 \end{itemize}
 
-This last point is what we will try to prove in the next section.
+There are many different ways to validate a framework that intends to
+address these challenges. Some of them are included by design: it is
+anonymous, since no accounts are needed to participate in the
+experiment, it is safe for the user, since we are using a the browser
+black box, and it is also heterogeneous. We have designed the
+experiments so that they show adaptability to different types of
+experiments and clients, scalability with the number of clients and
+the problem size, and also measured its performance comparing it with
+a baseline configuration, with which, as indicated above, is
+compatible and can be used in a complementary way. Fault tolerance
+will be experimented by dropping the server and check the continuity
+of the experiments. 
+
+All these points will be established in the next two sections,
+starting with the baseline, single worker system next. 
 
 %---------------------------------------------------------------
 \section{Experiments and obtained results}
