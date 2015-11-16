@@ -160,8 +160,9 @@ The rest of the paper is organized as follows: Next we present the
 state of the art (Section \ref{sec:soa}) in web-based distributed
 computation systems along with attempts to predict and model its behavior. 
 Then, a detailed description of the proposed system is presented
-in Section \ref{sec:description}, followed by the experiments and 
-results obtained in Section \ref{sec:experiments}.
+in Section \ref{sec:description}, followed by the baseline experiments
+in Section \ref{sec:experiments} and experiments using a new client
+architecture that uses web workers in Section \ref{sec:w2}.
 Finally, conclusions and future lines of work are presented in Section
 \ref{sec:conclusion}. 
 
@@ -768,6 +769,7 @@ issue led us to create the next version of the framework, which is
 presented next. 
 
 \section{{\sf NodIO-W$^2$}, a Web Worker-based architecture}
+\section{sec:w2}
 
 In order to improve the number of cycles per user, we improved the
 basic architecture in several different aspects.  One improvement 
