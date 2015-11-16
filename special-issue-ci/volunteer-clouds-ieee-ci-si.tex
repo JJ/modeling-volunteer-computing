@@ -573,7 +573,12 @@ perform the fifty runs. In this experiment only 33, that is, 66\% were
 successful. The experiments were repeated for population $p=1024$,
 with success rate upgraded to 100\% and average duration $3.46$
 seconds. Results for these two experiments
-are shown in Figure \ref{fig:baseline}. 
+are shown in Figure \ref{fig:baseline}. The baseline system has these
+characteristics: \begin{verbatim}
+Linux penny 3.13.0-34-generic #60-Ubuntu SMP Wed Aug 13 15:45:27 UTC
+2014 x86_64 x86_64 x86_64 GNU/Linux
+\end{verbatim}
+with an 8-core {\tt Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz}.
 
 These two experiments establish first a baseline result and show that
 time to success depends on the population, with bigger population
@@ -595,7 +600,7 @@ from the server so it is included for the sake of fairer comparison.
 \subsection{Volunteer evolutionary computation: first experiments and results}
 
 Initial experiments were set up using the OpenShift
-PaaS, which provides a free tier within which this 
+PaaS, which provide a free tier within which this 
 experiment could be performed. That way, and as required, the hardware
 and cloud cost for this experiment were zero. Experiments were
 announced through a post in Twitter and other social networks, and

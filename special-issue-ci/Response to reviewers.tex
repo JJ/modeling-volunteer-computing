@@ -272,7 +272,8 @@ machine. Our intention was more to prove what kind of performance can
 be expected and how this performance is distributed, although we have
 also proved in the last section how the performance achieved by a
 volunteer computer system can, in fact, be better than a desktop, even
-a powerful one. 
+a powerful one. This has also been clarified in the introduction and
+conclusions. 
 
 At any rate, we have also performed a new experiment with the
 Rasrtrigin function, which in fact cannot be solved in a few minutes
@@ -286,7 +287,18 @@ code (this is a great plus!). Technical description of the system is also clear,
 details like parameters of the machine used to determine baselines for the experiments or the format of
 messages sent between the server and the clients. The only thing I noticed is that the authors used the
 term "multiple CPUs" in the description of Web Worker API advantages (page 8) instead of "multi-core
-CPUs". As far as I know, contemporary web browsers do not support multiple CPUs architecture.
+CPUs". As far as I know, contemporary web browsers do not support
+multiple CPUs architecture.
+\end{quote}
+
+This has been clarified in the new version of the paper, third
+paragraph from the beginning of the section that explains the web
+worker-based architecture. In fact, most browsers can use multi-core
+CPUs running web workers as independent processes in each one of them.
+The base system has been now described in the first paragraph of the
+section on the experiments, it a desktop Intel i7-4770. 
+
+\begin{quote}
 
 4. Style: Paper is generally written in a clear way. Statements like "But fair is fair," (page 6), sound a bit
 colloquially in a scientific paper and may be omitted. However, my main concern is the readability of the
