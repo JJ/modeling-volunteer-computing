@@ -132,6 +132,27 @@ by the researchers needing high computational resources to run an evolutionary a
 problem.
 \end{quote}
 
+We have added a new experiment, a more complex and taxing problem
+using a web-worker architecture, in order to prove how this can be
+used in real-life problems. In fact, our architecture {\sf NodIO} is
+not a exclusively browser-based one. Its pool-based architeture allows
+any other kind of client, including local ones, to be incorporated to
+the experiment, with the lightweight overhead of doing asynchronous
+HTTP requests, which being local are indeed negligible. 
+
+Our framework, in fact, does not prevent any other kind of
+experiments. If there is a very efficient local algorithm, it only
+needs to be able to do HTTP requests to work alongside a {\em
+  volunteer cloud}. What our framework ensures is that all work done
+by volunteers can be integrated with local, cloud or other kind of
+resources. This explanation has been also added as a paragraph in the
+Introduction to the paper.
+
+We would like to thanks this reviewer for the helpful comments and
+suggestion made. We expect to have addressed them properly, but in any
+case are grateful because it has allowed us to improve the quality of
+our work. 
+
 \section{Response to Reviewer \#2}
 
 \begin{quote}
