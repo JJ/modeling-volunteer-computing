@@ -180,7 +180,7 @@ J.~Duda and W.~Dlubacz, ``{GPU} acceleration for the web browser based
 \BIBentryALTinterwordspacing
 V.~M. Rivas, J.~J. Merelo-Guerv{\'{o}}s, G.~Romero-L{\'{o}}pez,
   M.~Arenas-Garc{\'{i}}a, and A.~M. Mora, ``\BIBforeignlanguage{English}{An
-  object-oriented library in javascript to build modular and flexible
+  object-oriented library in {JavaScript} to build modular and flexible
   cross-platform evolutionary algorithms},'' in
   \emph{\BIBforeignlanguage{English}{Applications of Evolutionary
   Computation}}, ser. Lecture Notes in Computer Science, A.~I.
@@ -215,10 +215,11 @@ X.~Wang and S.~Xu, ``{P2HP}: Construction of a cooperative server group based
   389--395.
 
 \bibitem{DBLP:conf/3pgcic/GuervosMFEL12}
-J.~J.~M. Guerv{\'o}s, A.~M. Mora, C.~M. Fernandes, A.~I. Esparcia-Alc{\'a}zar,
-  and J.~L.~J. Laredo, ``Pool vs. island based evolutionary algorithms: An
-  initial exploration,'' in \emph{3PGCIC}, F.~Xhafa, L.~Barolli, and K.~F. Li,
-  Eds.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 2012, pp. 19--24.
+J.-J. Merelo-Guerv{\'o}s, A.-M. Mora, C.-M. Fernandes, A.-I.
+  Esparcia-Alc{\'a}zar, and J.-L. Jim{\'e}nez-Laredo, ``Pool vs. island based
+  evolutionary algorithms: An initial exploration,'' in \emph{3PGCIC},
+  F.~Xhafa, L.~Barolli, and K.~F. Li, Eds.\hskip 1em plus 0.5em minus
+  0.4em\relax IEEE, 2012, pp. 19--24.
 
 \bibitem{CloudScale}
 D.~Wilson, K.~Veeramachaneni, and U.-M. O'Reilly, ``Cloud scale distributed
@@ -265,13 +266,14 @@ J.~Swan, S.~Adriaensen, M.~Bishr, E.~K. Burke, J.~A. Clark, P.~De~Causmaecker,
 
 \bibitem{DBLP:conf/gecco/GuervosVGES14}
 \BIBentryALTinterwordspacing
-J.~J.~M. Guerv{\'{o}}s, P.~A.~C. Valdivieso, A.~M. Garc{\'{\i}}a,
-  A.~Esparcia{-}Alc{\'{a}}zar, and V.~M.~R. Santos, ``Nodeo, a multi-paradigm
-  distributed evolutionary algorithm platform in javascript,'' in \emph{Genetic
-  and Evolutionary Computation Conference, {GECCO} '14, Vancouver, BC, Canada,
-  July 12-16, 2014, Companion Material Proceedings}, D.~V. Arnold and E.~Alba,
-  Eds.\hskip 1em plus 0.5em minus 0.4em\relax {ACM}, 2014, pp. 1155--1162.
-  [Online]. Available: \url{http://doi.acm.org/10.1145/2598394.2605688}
+J.-J. Merelo-Guerv{\'{o}}s, P.-A. Castillo-Valdivieso, A.~Mora-Garc{\'{\i}}a,
+  A.~Esparcia{-}Alc{\'{a}}zar, and V.-M. Rivas-Santos, ``{NodEO, a
+  multi-paradigm distributed evolutionary algorithm platform in JavaScript},''
+  in \emph{Genetic and Evolutionary Computation Conference, {GECCO} '14,
+  Vancouver, BC, Canada, July 12-16, 2014, Companion Material Proceedings},
+  D.~V. Arnold and E.~Alba, Eds.\hskip 1em plus 0.5em minus 0.4em\relax {ACM},
+  2014, pp. 1155--1162. [Online]. Available:
+  \url{http://doi.acm.org/10.1145/2598394.2605688}
 \BIBentrySTDinterwordspacing
 
 \bibitem{milani2004online}
@@ -337,6 +339,22 @@ J.~J. Merelo, P.~Castillo, J.~Laredo, A.~Mora, and A.~Prieto, ``Asynchronous
   \url{http://atc.ugr.es/I+D+i/congresos/2008/CEC_2008_1372.pdf}
 \BIBentrySTDinterwordspacing
 
+\bibitem{sarmenta2001volunteer}
+L.~F. Sarmenta, ``Volunteer computing,'' Ph.D. dissertation, Massachusetts
+  Institute of Technology, 2001.
+
+\bibitem{web:BOINC}
+\BIBentryALTinterwordspacing
+B.~Wiki, ``What is volunteer computing?'' 2012, [Internet; download
+  25-octubre-2013]. [Online]. Available:
+  \url{\url{http://boinc.berkeley.edu/trac/wiki/VolunteerComputing}}
+\BIBentrySTDinterwordspacing
+
+\bibitem{domingues2007sabotage}
+P.~Domingues, B.~Sousa, and L.~M. Silva, ``Sabotage-tolerance and trust
+  management in desktop grid computing,'' \emph{Future Generation Computer
+  Systems}, vol.~23, no.~7, pp. 904--912, 2007.
+
 \bibitem{jj:idc:lowcost}
 \BIBentryALTinterwordspacing
 J.~J. Merelo, ``\BIBforeignlanguage{English}{Low or no cost distributed
@@ -370,12 +388,12 @@ J.~L.~J. Laredo, B.~D. D\'{\i}az, C.~Fernandes, J.~J.~M. Guerv{\'o}s, and
 
 \bibitem{DBLP:conf/gecco/GuervosG15}
 \BIBentryALTinterwordspacing
-J.~J.~M. Guerv{\'{o}}s and P.~Garc{\'{\i}}a{-}S{\'{a}}nchez, ``Designing and
-  modeling a browser-based distributedevolutionary computation system,'' in
-  \emph{Genetic and Evolutionary Computation Conference, {GECCO} 2015, Madrid,
-  Spain, July 11-15, 2015, Companion Material Proceedings}, J.~L.~J. Laredo,
-  S.~Silva, and A.~I. Esparcia{-}Alc{\'{a}}zar, Eds.\hskip 1em plus 0.5em minus
-  0.4em\relax {ACM}, 2015, pp. 1117--1124. [Online]. Available:
+J.-J. Merelo-Guerv{\'{o}}s and P.~Garc{\'{\i}}a{-}S{\'{a}}nchez, ``Designing
+  and modeling a browser-based distributed evolutionary computation system,''
+  in \emph{Genetic and Evolutionary Computation Conference, {GECCO} 2015,
+  Madrid, Spain, July 11-15, 2015, Companion Material Proceedings}, J.~L.~J.
+  Laredo, S.~Silva, and A.~I. Esparcia{-}Alc{\'{a}}zar, Eds.\hskip 1em plus
+  0.5em minus 0.4em\relax {ACM}, 2015, pp. 1117--1124. [Online]. Available:
   \url{http://doi.acm.org/10.1145/2739482.2768465}
 \BIBentrySTDinterwordspacing
 

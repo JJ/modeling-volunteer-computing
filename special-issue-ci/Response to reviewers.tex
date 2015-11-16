@@ -72,7 +72,7 @@ by the researchers needing high computational resources to run an evolutionary a
 problem.
 \end{quote}
 
-\section{Response to Reviewer \#1}
+\section{Response to Reviewer \#2}
 
 \begin{quote}
 Contribution:
@@ -115,6 +115,103 @@ elements, use a different shade or texture.
 \end{quote}
 
 \section{Response to Reviewer \#3}
+
+\begin{quote}
+1. Contribution: The paper presents the idea of a web browser based distributed evolutionary computing.
+the system called NodIO consists of a REST server (coded in Node.js) and clients performing
+evolutionary algorithm coded in JavaScript and embedded in a web page. Although the idea is not
+entirely new, the authors show how Web Workers (introduced in HTML5) and the mechanism of
+automatic restart of computations on the client's side can improve the performance of the system. The
+state of the art is comprehensive and provides good introduction into the subject.
+
+2. Relevance: In my opinion the system described in the paper is relevant to "Computational Intelligence
+Software" special issue. Thanks to both development of Internet technology and continuous increase in
+computing power of electronic devices, including mobile devices, the web browser based distributed
+computing can be a cheap alternative for grid and high-performance computing systems that require
+high capital expenditures and consume a lot of energy. Evolutionary computing system based on the
+architecture presented inthe paper can be potentially used for solving many different time consuming
+problems, however, the authors limited their experiments to a simple "Trap" function that can be easily
+solved on a desktop machine, what may not be convincing for a reader looking for an effective
+optimization tool.
+
+3. Correctness: The system works correctly - it is not very complex and the authors provide its source
+code (this is a great plus!). Technical description of the system is also clear, however it lacks some
+details like parameters of the machine used to determine baselines for the experiments or the format of
+messages sent between the server and the clients. The only thing I noticed is that the authors used the
+term "multiple CPUs" in the description of Web Worker API advantages (page 8) instead of "multi-core
+CPUs". As far as I know, contemporary web browsers do not support multiple CPUs architecture.
+
+4. Style: Paper is generally written in a clear way. Statements like "But fair is fair," (page 6), sound a bit
+colloquially in a scientific paper and may be omitted. However, my main concern is the readability of the
+graphs. General remark - font used for description of axes should be significantly larger. In Fig. 2 the
+authors can change scale for axe Y, as the box for the population of 1024 individuals is very small.
+What do the authors mean by "times"? Time in seconds? I am not sure if this Figure is necessary at all
+as the description is understandable without it. In Fig.4 all graphs are similar and only the one in the
+middle is analyzed, so maybe others are not necessary? The same is with Fig. 5. What does "x" stand
+for in the description of axe X? (the same is with Fig. 8).
+
+5. Length: As I mentioned above the authors should think of removing some of the unnecessary graphs
+in order to improve readability. They admit themselves that it is hard to conclude from some of the
+graphs (Fig. 5 and Fig. 8). Nevertheless, overall length of the paper is fine.
+
+6. Abstract: Abstract is adequate, moreover it puts an accent on the analysis of volunteers' behavior in a
+distributed computing system, contrary to the description in the main text of the paper. However, it
+lacks the information about the second version of the system called NodIO-W2 based on the Web
+Worker architecture.
+
+Comments to Authors:
+
+1) I like the state of the art which includes comprehensive overview of the most important papers related
+to the subject presented in the paper. I also like the description of the system, but I cannot fully agree
+with its characteristic provided on page 4. Namely:
+ 
+ - Heterogeneity - it is true that almost all devices can participate in the web browser based
+ distributed computing system, providing that a user did not disable Java Script in its browser.
+ However if the authors plan to use HTML5 WebWorkers only modern web browsers can
+ participate in such computing system, and some devices (e.g. based on Android 2.2-4.3 or
+ Windows Phone) are also excluded.
+ 
+ - Adaptiveness - this, beside safety, is the main drawback of the system. Although it is possible to
+ implement evolutionary algorithm in that way that it wil automatically adopt to the problem type
+ and the environment in which it is computed, the authors do not mention about how real
+ adaptiveness of the system can be achieved. The same is with scalability. Only 5 different users
+ that permanently participated in the experiments are not enough to assess the scalability of the
+ system, what is a crucial parameter for distributed computing.
+ 
+ - Safety - in my opinion is the biggest concern in such kind of distributed systems. First of all the
+ code of evolutionary algorithm is sent to the client as a source code in Java Script, so some
+ experienced user may quite simple decode what has to be computed. It can may come into
+ possession of sensitive data or/and alter this code in order to disrupt the computations or make
+ them worhless. The results send to the server may also be captured and/or altered without any
+ problem since the transmission is not secure.
+
+ In my opinion you should at least highlight above issues.
+
+2) Regarding the experiments I am very skeptical about their real value. You chose the "Trap"
+funcion. in which setting all bits to zero gives local maximum and setting all bits to one gives global
+maximum. In the experiments you counted how many times evolutionary algorithm was able to find
+global maximum for the problem of size n=40. Initially you have found that if the population in an
+evolutionary algorithm is bit enough (1024 individuals) the algorithm returned global maximum
+within 3.46 sec. divided by 50 runs - i.e. 0.692 sec. for a single run (page 4, if I understood it correctly).
+Thus, what was the point of using distributed computing to solve such simple problem? Why the
+authors did not perform their experiments for larger values of n, what could justify distributed problem
+solution. You admit that the NodIO system rarely beats a high-performance desktop computer (page
+6). Situation is better for the NodIO-W2 using JS Web Workers and automatic restarts, nevertheless,
+it is still behind the desktop computer in more than 60% cases (when compared to the second
+baseline). I suggest to perform additional computing experiments for some higher value of n in the
+"Trap" function or to choose another type of problem like some NP-hard problem. Otherwise I suggest
+to focus the paper on the behavior analysis of volunteers participating in a distributed computing
+system, what may be also interesting an valuable for the potential readers.
+
+3) Regarding the graphs I ahve already put my comments in Style section, but I have one question. In
+Fig. 3 in the middle graph (for experiments conducted on 4/24/2015) the is a lot of red dots,
+meaning probably that IPs from 16 to 29 did not performed any computations. What was the reason
+for that?
+
+For Fig. 5 I would also avoid comparisons between the NodIO system with the SETI@home of BOINC
+systems - the number of participants is completely incomparable and also the type of problems
+solved by the systems are of different nature and complexity.
+\end{quote}
 
 \section{Response to Reviewer \#4}
 
