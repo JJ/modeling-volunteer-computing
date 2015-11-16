@@ -352,14 +352,32 @@ well as the results obtained with the setup.
 
 In general, a volunteer-based distributed evolutionary computation
 system based on the browser is simply a client-server architecture
-whose client is, or can be, embedded in the browser via JavaScript.
+whose client is, or can be, embedded in the browser via
+JavaScript. Since JavaScript is  the only language that is present
+across all browsers, the choice was quite clear. Even so, there might
+be some issues with the performance of the language itself; that is
+why we have made a comparison between JavaScript and other languages
+\cite{2015arXiv151101088M}, resulting that, in fact, JavaScript can be
+faster than compiled languages such as Scala and, in any case, provide
+a performance that is comparable to other languages employed usually
+in evolutionary computation and numerical optimization such as Python. Compiled languages such as
+Java or C might be, in fact, faster, but the fact that a single-user
+performance is higher is more than offset by the fact that the number
+of spontaneous volunteers we can gather at whim, including people
+using their mobile phones or tablets, is several orders of magnitude
+higher, which is the objective in this kind of systems. JavaScript is
+quite a popular language nowadays, providing compilers from a number
+of languages, many of them in their family (like CoffeeScript), but
+many other outside, so researchers can, in fact, write their fitness
+function in Python, Erlang, Scala or even Java, and them compile it to
+JavaScript. 
 
 As a volunteer based system, there are some issues worth 
 noting \cite{sarmenta2001volunteer,web:BOINC} :\begin{enumerate}
 \item Volunteers are anonymous, only the IP address sent in 
 each request is known.
 \item As anonymous entities, volunteers are not accountable. 
-If a volunteer  misbehaves in some way the provider cannot 
+If a volunteer misbehaves in some way the provider cannot 
 prosecute or discipline the volunteer. In the case of JavaScript,
 this issue is agravated because even if it is obfuscated, sorce code
 and data is sent to clients. 

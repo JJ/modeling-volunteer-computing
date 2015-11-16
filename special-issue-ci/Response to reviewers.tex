@@ -50,6 +50,36 @@ could have provided numerical data to sustain their claims; however, the selecte
 be formulated in the paper) seems a rather academic one.
 \end{quote}
 
+We thank the reviewer for the comment. The only reason why JavaScript
+was chosen was because it is the only language that is native to the
+browser, allowing to carry out precisely this kind of experiments
+where the user is invited to click on an URL and start giving CPU to
+it. Although there are many other volunteer frameworks, written in
+other languages, that a priori would offer a higher performance, the
+key is that they would {\em while they are running}, that is, as soon
+as it has been installed, the user has decided to fire it up, and it
+does not affect the performance in the rest of the system, which is a
+concern in this kind of systems. We have performed speed tests on
+JavaScript and other compiled languages resulting that, in fact,
+JavaScript uses a JIT compiler that provides a good performance; we
+have published these tests as an open access technical report. This
+fact, along these explanations, have now been added to the first
+paragraph of the {\em Description of the system} section. 
+
+JavaScript is probably the most popular language nowadays, and this
+has inspired the appearance of many compilers, so that the fitness
+function can, in fact, be written in any language and compiled to
+JavaScript, as is shown in this list:
+\url{https://github.com/jashkenas/coffeescript/wiki/list-of-languages-that-compile-to-js}. This
+has also been added to the text.
+
+In a nutshell, what we are saying is that, as is proven in the paper,
+a JavaScript application, running in the browser, can gather in
+seconds dozens of users. That would be, in practice, impossible with
+other kind of native clients, who would have to download and maybe
+compile the application, losing many seconds or minutes for the
+optimization problem that has to be solved. 
+
 \begin{quote}
 The paper organization is not clear. Some comments about this:
 - The title "Volunteers in the Clouds: an Architecture for Low Cost and Potentially Massive Distributed
