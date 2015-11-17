@@ -374,13 +374,34 @@ with its characteristic provided on page 4. Namely:
  participate in such computing system, and some devices (e.g. based on Android 2.2-4.3 or
  Windows Phone) are also excluded.
  
+\end{quote}
+
+That is true, but it makes it anyway the most inclusive system so
+far, as we have tested it with smartphones, tablets and computers. In
+general, nowadays with rich internet applications disabling JavaScript
+is not common, but anyway we do not aim for {\em all} clients, we have
+enough with {\em most}. Windows Phone, for instance and maybe
+fortunately, is not too common.
+
+\begin{quote}
  - Adaptiveness - this, beside safety, is the main drawback of the system. Although it is possible to
  implement evolutionary algorithm in that way that it wil automatically adopt to the problem type
  and the environment in which it is computed, the authors do not mention about how real
  adaptiveness of the system can be achieved. The same is with scalability. Only 5 different users
  that permanently participated in the experiments are not enough to assess the scalability of the
  system, what is a crucial parameter for distributed computing.
- 
+\end{quote}
+
+We have performed a new experiments in which we have had hundreds of
+simultaneous users. In fact, with the experiments already in the
+previous version of the papers 5 was a central measure, but there were
+peaks of dozens. 
+Adaptativity is by design, since it uses any browser and does not need
+any special provision for new systems. This has also been explained in
+th expanded text.
+
+\begin{quote} 
+
  - Safety - in my opinion is the biggest concern in such kind of distributed systems. First of all the
  code of evolutionary algorithm is sent to the client as a source code in Java Script, so some
  experienced user may quite simple decode what has to be computed. It can may come into
@@ -389,13 +410,25 @@ with its characteristic provided on page 4. Namely:
  problem since the transmission is not secure.
 
  In my opinion you should at least highlight above issues.
+\end{quote}
 
+We have also justified our {\em pragmatic} approach to security
+increasing trust by the user, but also monitoring their behavior to
+detect it and eventually ban users. So far, this has not happened. 
+
+\begin{quote{
 2) Regarding the experiments I am very skeptical about their real value. You chose the "Trap"
 funcion. in which setting all bits to zero gives local maximum and setting all bits to one gives global
 maximum. In the experiments you counted how many times evolutionary algorithm was able to find
 global maximum for the problem of size n=40. Initially you have found that if the population in an
 evolutionary algorithm is bit enough (1024 individuals) the algorithm returned global maximum
-within 3.46 sec. divided by 50 runs - i.e. 0.692 sec. for a single run (page 4, if I understood it correctly).
+within 3.46 sec. divided by 50 runs - i.e. 0.692 sec. for a single run
+(page 4, if I understood it correctly).
+\end{quote}
+I fact 3.46 is the average for all 50 runs. We have enphasized the
+word average to make that clearer.
+
+\begin{quote}
 Thus, what was the point of using distributed computing to solve such simple problem? Why the
 authors did not perform their experiments for larger values of n, what could justify distributed problem
 solution. You admit that the NodIO system rarely beats a high-performance desktop computer (page
@@ -404,8 +437,24 @@ it is still behind the desktop computer in more than 60% cases (when compared to
 baseline). I suggest to perform additional computing experiments for some higher value of n in the
 "Trap" function or to choose another type of problem like some NP-hard problem. Otherwise I suggest
 to focus the paper on the behavior analysis of volunteers participating in a distributed computing
-system, what may be also interesting an valuable for the potential readers.
+system, what may be also interesting an valuable for the potential
+readers.
+\end{quote}
 
+In fact, that was never the point of the paper. We have chosen Trap as
+a relatively difficult problem that allows us mainly to test scaling
+and measure behavior. In a production environment, a volunteer-only
+environment would only be used if there is absolutely no other
+resource available; in general, it would be combined with the rest of
+the resources available to the experimenter: cloud or local; it would
+make no sense to not use them if they are available and in fact, NodIO
+allows to combine them seamlessly in a single system. That has been
+explained a bit better in the introduction and conclusions
+section. Besides, we have added a more difficult probmem, the shifted
+Rastrigin function, to make measures in a different scenario (one in
+which the problem is not solved in a few seconds). 
+
+\begin{quote}
 3) Regarding the graphs I ahve already put my comments in Style section, but I have one question. In
 Fig. 3 in the middle graph (for experiments conducted on 4/24/2015) the is a lot of red dots,
 meaning probably that IPs from 16 to 29 did not performed any computations. What was the reason
