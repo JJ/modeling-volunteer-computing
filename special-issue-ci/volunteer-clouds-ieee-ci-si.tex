@@ -577,7 +577,8 @@ successful. The experiments were repeated for population $p=1024$,
 with a success rate upgraded to 100\% and an average duration of $3.46$
 seconds. Results for these two experiments
 are shown in Figure \ref{fig:baseline}. The baseline hardware system has these
-characteristics: \begin{verbatim}
+characteristics: 
+\begin{verbatim}
 Linux penny 3.13.0-34-generic #60-Ubuntu SMP Wed Aug 13 15:45:27 UTC
 2014 x86_64 x86_64 x86_64 GNU/Linux
 \end{verbatim}
@@ -763,7 +764,8 @@ run is the most complete and shows a S-shape, which implies an
 accumulation of experiments taking similar time and around 100
 seconds. The most interesting part is the {\em tail}, which shows how
 many experiments took a desirable amount of time, and of the order of
-10 seconds. As it can be seen, it drops sharply implying there are
+10 seconds, and which appears in all three graphs. As it can be seen,
+it drops sharply implying there are 
 just a few of them, and with diminishing probability as time
 decreases. This exponential distribution also appears in the
 distribution of HTTP {\tt PUT}s, equivalent to the number of
