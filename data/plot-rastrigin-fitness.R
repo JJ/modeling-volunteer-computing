@@ -1,5 +1,4 @@
 library(ggplot2)
-library(scales)
 
 rastrigin.fitness <- read.csv("rastrigin-fitness.csv")
 rastrigin.fitness$date <-  as.POSIXct(rastrigin.fitness$timestamp, "%Y-%m-%d %H:%M:%S")
