@@ -55,8 +55,8 @@
 
 \begin{abstract}
 Volunteer computing is used routinely in science and industry, but it
-still has a long way to go if it is going to become a mainstream technology in the
-same way the cloud technologies in general have. The lack of general
+still has a long way to go if it is going to become a mainstream technology in
+the same way the cloud technologies in general have. The lack of general
 purpose and open source tools
 with analytics built in could be one of the reasons why this is so, as
 well as the lack of proofs of concept. That is why in this paper we
@@ -105,14 +105,14 @@ the market, usually as open source systems \cite{Parejo12Survey}. Most of these 
 two features: they are {\em desktop} applications, that is, they must
 be compiled or run directly on the operating system layer and, second,
 they assume that the nodes that are going to run the system are under
-your control or at least you have access to them.
+the control of developers or they at least have access to them.
 
 There is, then, space for systems that do not make any of these
 assumptions, such as the one presented in this paper, which will be
 provisionally named {\sf NodIO}. {\sf NodIO} is first a two tier client/server 
-application, in which clients can possibly run in a browser. 
-Therefore, it can be run in any web-enabled device, including many over which 
-the scientist has no control.
+application, in which clients can run in a browser. 
+Therefore, they can embedded any web-enabled device, including many over which 
+the developers have no control.
 
 Some time ago, our group faced the problem of diminishing funds for
 buying new hardware. This was aggravated by the increasing maintenance costs and
@@ -128,25 +128,25 @@ servers and browsers as clients.
 
 %PABLO: He añadido el siguiente párrafo para el issue #31
 There exist other volunteer frameworks written in compiled languages,
-such as C++ or Java, that can achieve more performance than
+such as C++ or Java, that can achieve better performance than
 JavaScript. However, one of the advantages of our system is that
 clients do not need to install anything in their machines, they just
-need to open a regular web page  
+need to open a web page  
 % Somewhat redundant 
 % Javascript is the only language that can be executed in this way without any installation, 
 % also removed the default, redundant with next sentence
-in most browsers, such as Chrome, Safari or Firefox, that are
+in a compatible browser, such as Chrome, Safari or Firefox, which are
 available in almost every desktop or mobile device. Other advantage is
-that the source code can be directly examined by the volunteer, not
-being compiled as other options (such as Java Applets, Flash scripts or
+that the source code can be directly examined by volunteers, because is not
+compiled as other options (such as Java Applets, Flash scripts or
 ActiveX). Also, as we discuss in this paper, it can provide some extra
 features such as enhanced security or operating system independence. 
 
 %PABLO: hay que enlazar con el siguiente párrafo
-Those desktop clients have also the same issues as any kind of
-volunteer computing system, including our own:  these issues are
+Desktop clients have the same issues as any 
+volunteer computing system, including our own: these issues are
 related to security as well as
-safety, which introduces a {\em social} aspect to the design of a
+safety, which introduce a {\em social} aspect to the design of a
 computing system that makes it a {\em techno-social system}
 \cite{vespignani2009predicting}. In this paper our intention is to
 present the {\sf NodIO} framework and analyze it from two different
@@ -180,8 +180,8 @@ used; for instance, Java was pointed out in \cite{soares1998get} as a
 ``language for the
 internet'', providing some advantages such as multi-architecture compatibility or
 security mechanisms and was proposed in \cite{chandy1996world} as the
-basis for the creation of a world-wide peer to peer system using Java
-compiled programs. The ATLAS system
+basis for the creation of a world-wide peer to peer system using compiled Java
+programs. The ATLAS system
 \cite{Baldeschwieler:1996:TIG:504450.504482} also used Java together
 with another language called Cilk; all these papers indicated that
 the introduction of an architecture-independent system such as the
@@ -201,7 +201,7 @@ languages and associated technologies, mentioned above, provided that the user h
 installed the required virtual machine plugin first, but embedding a
 distributed computation client in the browser has the advantage of
 providing a single and universal way of accessing resources via an
-URI, something that is not guaranteed using desktop
+URI, something that is not guaranteed by using desktop
 applications. Baratloo et al. tried in 1996 to create a system with
 the aforementioned qualities called {\em Charlotte}
 \cite{baratloo1996charlotte}. This system, which implemented a
@@ -212,7 +212,7 @@ which provided
 security to the user, uniformity of computing environment
 independently of the operating system and access to a common data store in the
 server. Since the Java virtual machine is a sandbox, it is safe to the user
-and running a compiled bytecode guarantees a certain level of
+and as it runs compiled bytecode it also guarantees a certain level of
 performance.
 Other issues such as scheduling, which are related to adaptive 
 parallelism, were solved on the server. This
@@ -287,8 +287,8 @@ and DropBox~\cite{mericloud}. The use of JavaScript to implement
 server side components
 gives software developers certain advantages in the cloud
 paradigm, since it is a first-class citizen
-in most Platforms as a Service (PaaS) products as the {\tt Node.js} framework is supported by most. \cite{wood13:nodejs:paas}. Many web services
-have native JavaScript libraries too, and also use JSON (JavaScript Object Notation) for data interchange. Another advantage is that
+in most Platforms as a Service (PaaS) products as the {\tt Node.js} framework is supported by most of them. \cite{wood13:nodejs:paas}. Many web services
+have native JavaScript libraries too, and also use the JSON (JavaScript Object Notation) format for data interchange. Another advantage is that
 developers can use the same software tools for both client and server
 side development.
 
@@ -317,13 +317,13 @@ algorithms such as the EA that can easily be
 parallelized via population splitting or farming out evaluations to all
 the nodes available. Lately, several approaches have focused on the
 fault-tolerance of volunteer algorithms
-\cite{gonzalez2010characterizing} which can, of course, be studied in
-a more general distributed computing context
+\cite{gonzalez2010characterizing} which it can, of course, be studied in
+the more general context of distributed computing 
 \cite{nogueras2015studying} or including it in a more general study of the
 performance of the EA itself
 \cite{DBLP:journals/gpem/LaredoBGVAGF14}.
 
-On the other hand, measuring performance of the resulting metacomputer
+On the other hand, measuring the performance of the resulting metacomputer
 involves understanding the dynamics of this kind of systems. Initial
 work was done for peer to peer systems by Stutzbach et
 al. \cite{stutzbach2006understanding} and extended to volunteer
@@ -341,7 +341,7 @@ with more resources in the {\em low} areas than in the high areas:
 there are many users that give a small amount of cycles, while there
 are just a few that give many cycles. This is in concordance with the
 results obtained in \cite{agajaj}. Although SETI@home works
-at larger scale in both quantity of volunteers and scope of projects, 
+at a larger scale in both quantity of volunteers and the scope of projects, 
 our initial tests indicate that
 this kind of distribution might be the most appropriate to describe
 user participation in several different metrics. However, in this
@@ -353,17 +353,17 @@ system itself.
 As far as we know, this paper presents one of the few experiments that
 uses computational resources that are as dissimilar as smartphones and
 powerful laptops 
-or desktop computers in a research center. The methodology used to
+or workstation computers in a research center. The methodology used to
 gather resources and the algorithms used will be described next, as
-well as the results obtained with the setup.
+well as the results obtained with the initial setup.
 
 %---------------------------------------------------------------
 \section{Description of the framework}
 \label{sec:description}
 
 In general, a volunteer-based distributed evolutionary computation
-system based on the browser is simply a client-server architecture
-whose client is, or can be, embedded in the browser via
+system based on the browser is simply a client-server system
+whose client is, or it can be, embedded in the browser via
 JavaScript. Since JavaScript is  the only language that is present
 across all browsers, the choice was quite clear. Even so, there might
 be some issues with the performance of the language itself; that is
@@ -381,7 +381,9 @@ quite a popular language nowadays, providing compilers from a number
 of languages, many of them in their family (like CoffeeScript), but
 many other outside, so researchers can, in fact, write their fitness
 function in Python, Erlang, Scala or even Java, and them compile it to
-JavaScript. 
+JavaScript. For completness, an experiment comparing the performance of
+a JavaScript implementation versus Java and Matlab is included in section
+\ref{sec:w2}.
 
 As a volunteer based system, there are some issues worth 
 noting \cite{sarmenta2001volunteer,web:BOINC} :\begin{enumerate}
@@ -390,10 +392,10 @@ each request is known.
 \item As anonymous entities, volunteers are not accountable. 
 If a volunteer misbehaves in some way the provider cannot 
 prosecute or discipline the volunteer. In the case of JavaScript,
-this issue is agravated because even if it is obfuscated, sorce code
+this issue is aggravated because even if it is obfuscated, source code
 and data is sent to clients. 
 \item Participants must also trust the application provider, 
-regarding invation of privacy, the integrity of their devices 
+regarding invasion of privacy, the integrity of their devices 
 and intended application. 
 \end{enumerate}
 
@@ -419,7 +421,7 @@ technical as well as the social, as in social media, angle.
 In this sense, in this paper we propose the {\sf NodIO} framework, a
 cloud or bare metal based volunteer evolutionary computing system
 based on the {\sf NodEO} library, whose architecture has been
-developed using JavaScript on the client as well as the server sides.
+developed using JavaScript on the client as well as the server.
 All parts of the system are free and available with a free license
 from \url{https://github.com/JJ/splash-volunteer}.
 
@@ -436,7 +438,7 @@ Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
   {\em problem} based, that is, related to the
   evolutionary algorithm such as {\tt PUT}ing a chromosome in or {\tt
   GET}ing a random chromosome from it, and {\em information} related
-  to performance and state of the experiments. It also performs logging
+  to the performance and state of the experiments. It also performs logging
   duties, but is basically a very lightweight and high performance
   data store \cite{jj:idc:lowcost}.
   The server has the capability to
@@ -446,7 +448,7 @@ Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
   JavaScript code embedded in a web page that displays graphs and some
   additional links and information on the experiment. This code runs
   an evolutionary algorithm {\em island} starting with a random
-  population and sending, every 100 generations, the best individual
+  population and then sending, every 100 generations, the best individual
   back to the server (via a {\tt PUT} request) and requesting a random
   individual from the server (via a {\tt GET} request).
 \end{enumerate}
@@ -1189,11 +1191,11 @@ using Java(TM) SE Runtime Environment (build 1.8.0\_25-b17),
 MatLab version R2015a for Mac OSX, Node FrameWork version 0.12.2, Google Chrome Version 46.0.2490.86 (64-bit) 
 and Firefox version 41.0.2. The performance of the time required for 10,000 FEs is presented in Figure \ref{fig:f15_times}.
 In our test the Matlab implementation had the best performance with an average of 935ms, followed by Java with
-991ms, JavaScipt took 32\% more time than Java with 1240ms in Chrome using a Web Worker and 1,270ms using Node.js. 
-The results also show that there is not much difference between the Node.Js implemenation an that of a
+991ms, JavaScript took 32\% more time than Java with 1240ms in Chrome using a Web Worker and 1,270ms using Node.js. 
+The results also show that there is not much difference between the Node.Js implementation an that of a
 browser. There is also not much difference between running the code in the main thread or as workers, but
 when running the experiment in Firefox a dialog alerted of the script taking to long, showing that this
-kind of processing is not intended for the main thread. Also there is not much diference when running two
+kind of processing is not intended for the main thread. Also there is not much difference when running two
 Web Workers in parallel taking 1279ms each. This experiment shows that JavaScript is viable 
 language for developing complex mathematical functions for running in the browser. 
 \begin{figure}[!htb]
