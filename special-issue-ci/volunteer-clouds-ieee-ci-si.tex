@@ -55,20 +55,28 @@
 
 \begin{abstract}
 Volunteer computing is used routinely in science and industry, but it
-still has a long way to go if it is going to become a mainstream technology in
-the same way the cloud technologies in general have. The lack of general
-purpose and open source tools
-with analytics built in could be one of the reasons why this is so, as
-well as the lack of proofs of concept. That is why in this paper we
-present {\sf NodIO}, a framework used to create client-server architectures for distributed
+still has a long way to go if it is going to become a mainstream
+technology in the same way the cloud technologies in general have. The
+lack of general purpose and open source tools with analytics built in
+could be one of the reasons why this is so, as well as the lack of
+proofs of concept. That is why in this paper we present {\sf NodIO}, a
+framework used to create client-server architectures for distributed
 evolutionary algorithms, written entirely in JavaScript, which needs
 minimal server support to work and is able to support persistent,
 asynchronous, distributed evolutionary algorithms running in the
-browser.  The architecture, along with some initial results on the
-expected performance and scaling
-behavior is presented. We also use the algorithm data to
-find out what kind of patterns the user behavior follow and try to fit
-them to some statistical distribution.
+browser, as well as any other client consuming its REST application
+programming interface.  The architecture, along with some initial
+results on the expected performance and scaling behavior when the
+number of users is increased is presented. We also use
+the algorithm data to find out what kind of patterns the user behavior
+follow by examining the resources they devote to our experiment, and
+try to fit them to some statistical distribution to create the bases
+of a model of user behavior in volunteer computing experiments of this
+kind that can be used by researchers to predict its performance. 
+In general, our experiments prove first that NodIO is a flexible and
+low-overhead platform to perform distributed computation experiments
+that include volunteers and that user behaviour follows some patterns,
+and, thus, are amenable to a model.
 \end{abstract}
 
 % Work in progress..
