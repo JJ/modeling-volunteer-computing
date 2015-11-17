@@ -468,7 +468,7 @@ Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
 Figure \ref{fig:system} describes the general system architecture and
 algorithm behavior. Different web technologies, such as JQuery or {\tt
   Chart.js} have
-been used to build the elements of the system.
+been used to build the user interface elements of the system.
 \begin{figure}[!t]
 \centering
 \includegraphics[width=4in]{system.pdf}
@@ -482,7 +482,7 @@ The researcher only has to change a function, which can be written in
 JavaScript or in any other language with cross-compilation to
 JavaScript \cite{web:compilersjs} to solve a different
 problem. In this case the classical Trap function \cite{Ackley1987} has been
-used as well as the Rastrigin floating-point optimization
+used as well as the Rastrigin's floating-point optimization
 problem. JavaScript is a functional language and declaring a different 
 function and handing at the creation of the algorithm object, called
 {\tt Classic} is the only change needed to work with a different
@@ -492,8 +492,8 @@ outlined in the State of the Art (Section \ref{sec:soa}):
 \item {\em Scalability} is provided via the use of a lightweight and
   high-performance, single-threaded, server based in Node.js and
   Express.js. Although this single server is a bottleneck since it
-  will eventually saturate, the fact that it runs as a single thread
-  allows the service of many requests. In fact, a limit with the
+  will eventually saturate, the fact that it runs as a non-blocking single thread
+  allows the service of many requests. In fact, a limit in the
   number of simultaneous requests will be reached, but so far it has
   not been found, unlike what we found in our previous systems, DCoR,
   \cite{gecco07:workshop:dcor}, which had a low scalability. 
@@ -503,7 +503,7 @@ outlined in the State of the Art (Section \ref{sec:soa}):
   visiting the page, even from mobile devices, can load the algorithm.
   In case the browser does not support HTML5 Web workers (e.g., 
   Windows Phone or some version of Android) or their use
-  has been disabled, a basic version of NodIO can be used.
+  has been disabled, a basic version of NodIO can also be used.
 \item {\em Fault tolerance} is always an issue, and in this case, the
   single point of failure would be the server: the system, as such,
   would break down if the server fails. However, the individual
@@ -544,14 +544,14 @@ experiments and clients, scalability with the number of clients and
 the problem size, and also measured its performance comparing it with
 a baseline configuration, with which, as indicated above, is
 compatible and can be used in a complementary way. Fault tolerance
-will be experimented by dropping the server and check the continuity
+will be experimented by dropping the server and checking the continuity
 of the experiments. 
 
 All these points will be established in the next two sections,
 starting with the baseline, single worker system next. 
 
 %---------------------------------------------------------------
-\section{Experiments and obtained results}
+\section{Baseline Experiment and obtained results} %Cambié el nombre
 \label{sec:experiments}
 
 \begin{figure}[!t]
@@ -574,9 +574,9 @@ ones) was found or five million evaluations had been performed. It
 took around a minute, on average, that is $68.9694$ seconds, to
 perform the fifty runs. In this experiment only 33, that is, 66\% were
 successful. The experiments were repeated for population $p=1024$,
-with success rate upgraded to 100\% and average duration $3.46$
+with a success rate upgraded to 100\% and an average duration of $3.46$
 seconds. Results for these two experiments
-are shown in Figure \ref{fig:baseline}. The baseline system has these
+are shown in Figure \ref{fig:baseline}. The baseline hardware system has these
 characteristics: \begin{verbatim}
 Linux penny 3.13.0-34-generic #60-Ubuntu SMP Wed Aug 13 15:45:27 UTC
 2014 x86_64 x86_64 x86_64 GNU/Linux
@@ -584,10 +584,10 @@ Linux penny 3.13.0-34-generic #60-Ubuntu SMP Wed Aug 13 15:45:27 UTC
 with an 8-core {\tt Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz}.
 
 These two experiments establish first a baseline result and show that
-time to success depends on the population, with bigger population
+the time to success depends on the population size, with a bigger population
 contributing more diversity and thus speeding up the solution \cite{DBLP:conf/lion/LaredoDFGB13}. The volunteer computing
 experiments that we will describe next do not and can not have the
-same conditions, but  
+same conditions, but
 the baseline is that if they eventually take longer than a basic
 desktop, their interest will be purely academic. We will try and
 prove next that that target performance can be achieved by carrying
@@ -603,7 +603,7 @@ from the server so it is included for the sake of fairer comparison.
 \subsection{Volunteer evolutionary computation: first experiments and results}
 
 Initial experiments were set up using the OpenShift
-PaaS, which provide a free tier within which this 
+PaaS, which provides a free tier within which this 
 experiment could be performed. That way, and as required, the hardware
 and cloud cost for this experiment were zero. Experiments were
 announced through a post in Twitter and other social networks, and
@@ -638,7 +638,7 @@ July 31th 7/31 & 97 & 179 \\
 \end{table*}
 %
 \begin{table*}
-\caption{Summary of time per run, number of IPS and number of {\tt
+\caption{Summary of time per run, number of IPs and number of {\tt
     PUT}s per IP in the initial runs. \label{tab:summary:os}}
 \begin{center}
 \begin{tabular}{l|ccccccc}
@@ -659,7 +659,7 @@ number of different IPs intervening in them varied from more than one
 hundred to more than five hundred in the second experiment.
 
 A summary of the results of each run is also shown in Table
-\ref{tab:summary:os}, which shows the median number of IPs
+\ref{tab:summary:os}, which shows the median number of Internet Protocol addressess (IPs)
 intervening in each experiment,  median time needed
 to finish the experiment, median number of HTTP {\tt PUT}s per IP, and
 then two columns showing the percentage of experiments that took less
@@ -669,7 +669,7 @@ experiments involved 5 or less IPs. This is consistent with results
 found previously \cite{DBLP:conf/gecco/GuervosG15} which found 6 to be
 the usual number of IPs that participated in an experiment. The
 maximum number of different IPs for each experiment is also in the
-same ballpark and of the order of 10, which is also consistent with
+same range and of the order of 10, which is also consistent with
 prior work. The median time has a big range of variation, but 50\% of
 the time takes less than several minutes, from around 4 minutes in the
 best case to roughly 2/3 of an hour in the worst case. That figure is
@@ -680,12 +680,12 @@ time than the baseline. It is similar in all three cases, with around
 20\% on average for the first baseline experiment, roughly 3\% in the
 second case. The comparison is not totally fair: this experiment takes
 place in a browser, and in fact most of the time is devoted to
-presenting the charts; the server is not the same since it is run in a
+presenting the charts; the server is also not the same since it is run in a
 PaaS instead of a high-performance desktop computer, and it is also a
 remote server, not a local server as in the baseline experiment. But
 even if that is the case, we were looking for creating a framework that
 allowed us to run evolutionary computation experiments {\em faster} than
-in our very own computer. And the results is that although it will
+in our very own computer. And the results indicate that although it will
 happen, 1 out of roughly 5 or roughly 20, depending on what baseline
 experiment you choose, it will not happen always or even a majority of
 the time. One of the problems is shown in the last column, which
@@ -723,7 +723,7 @@ of blue indicate how many experiments included that many unique IPs.}
 \label{fig:zipf:os}
 \end{figure}
 %
-We will have to analyze experiment data a bit further to find out why
+We will have to analyze experimental data a bit further to find out why
 this happens and also if there are some patterns in the three sets of
 experiments. An interesting question to ask, for instance, is if
 adding more computers makes the experiment take less. In fact, as
@@ -735,12 +735,13 @@ and might in fact be abandoned with no one contributing for some time,
 that increases the probability of someone new joining them. In fact,
 with experiments taking a few seconds and due to the way the
 experiments are announced, it is quite difficult that several
-volunteers join in in such a short period of time, even more so taking
+volunteers join in in such a short period of time, even more if we take
 into account that volunteers are not {\em carried over} from previous
 experiments. This implies that it would be convenient to use a problem
-with a bigger size to check this hypothesis; however, at this point we
+of a bigger size to check this hypothesis; however, at this point we
 have not found this convenient since there are several other issues
-that have to be solved, as it will be shown next. 
+that have to be solved, as it will be shown next. %Creo que este párrafo
+%saldría sobrando ahora que hicmios un experimento más grande
 
 \begin{figure}[!htb]
 \centering
@@ -791,7 +792,7 @@ This distribution was originally proposed to fit extreme values
 Weibull distribution which was fitted to volunteer computing
 frameworks such as SETI@home \cite{javadi2009mining}. This
 distribution is governed by three parameters, the usual location $\mu$
-which is related to where it has its {\em center} and scale $\sigma$,
+which is related to where it has its {\em center} and a scale $\sigma$,
 related to the size, but also a third shape $\xi$ parameter that is
 related to its skewness, that is, how skewed it is around the central
 location. Positive parameters indicate that the distribution {\em
@@ -821,7 +822,7 @@ found, so that as long as the user was visiting the page it was
 running an evolutionary algorithm. Another was a small algorithmic
 improvement: instead of having a fixed population,
 population size was randomly distributed between 128 and 256 and
-different for each client.  The other improvment was the 
+different for each client.  The other improvement was the 
 use the Web Worker API as described next.
 
 JavaScript has been commonly used to develop client-side scripts
@@ -867,9 +868,7 @@ There are three processes involved:
 \item {\em Node.js} This is the server side process which is basically
   the same as used previously, except for some minor log-related
   changes. 
-\item {\em Client main thread}  This process handles the user interaction
-using the JQuery framework. The Chart.js library is used to display a chart of
-the best fitness in the population over time. The main script also creates
+\item {\em Client main thread} The main script creates
 worker instances and handles the user interface.
 \item {\em Worker global scope} The worker execution space does not have
 access to the Document Object Model (DOM) or JQuery objects in the main thread.
@@ -891,7 +890,7 @@ XMLHttpRequest (XHR) object.
 The sequence of events is as follows:
 \begin{enumerate}
 \item First the {\sf NodIO} process is started in Node.js. As part of the
-initialization procedure the secuential number of experiment is initialized and a log
+initialization procedure the sequential number of experiment is initialized and a log
 file is created. The shared pool implemented as an array is reset.
 \item A volunteer follows the link of the experiment triggering a GET HTTP
 request and the page is loaded.
@@ -900,7 +899,7 @@ order to create a dedicated worker instance, another GET request is sent to the
 server in order to receive the worker implementation script.
 Each worker instance executes over time one or more evolutionary algorithms
 {\em islands}. Each starts with a random population and it is assigned a
-universally unique  identifier (UUID). The UUID is included in each of the HTTP
+universally unique identifier (UUID). The UUID is included in each of the HTTP
 requests sent to the server.
 The initial parameters for each island
 can be distinct. Once the worker is created and the parameters have been set,
@@ -912,7 +911,7 @@ is evaluated. First the chromosome with the best fitness is sent to the shared
 population with a PUT HTTP request. If the best fitness is not the global best,
 the EA loop must continue, but first a chromosome is randomly selected from
 the shared population. Also the current generation number and the best
-chromosome is sent to the client main thread in order to update the DOM to
+chromosome is sent to the client's main thread in order to update the DOM to
 display the current state of the island (described next). These messages are
 all asynchronous, so even before a message is received by the target, the EA loop of
 the worker continues. If the best fitness is a global best the best
@@ -955,7 +954,7 @@ a matter of days. A summary of results is shown in Table
 obtained with the initial version of {\sf NodIO}. These results are
 remarkably different, being similar only in the median and maximum
 number of IPs, although in this case it would be combination
-IP-worker, being considered every worker a different IP. The median
+IP-worker, as we considered every worker as a unique IP. The median
 number of seconds is almost 80\% better than the previous version, and
 the median number of PUTs is three times better; this causes that most
 of experiments take less time than one of the baselines, and one third
@@ -979,13 +978,13 @@ successive experiments. While before it was an unremarkable 10\%, it is
 now more than 43\%, making the number of IPs in contiguous experiments
 highly correlated. The main reason for this is the setup in {\sf
   NodIO-W$^2$}, which restarts an island after a solution has been
-found and also is running even if the tab is not on the
+found and also that it keeps running even if the tab is not on the
 foreground. This means that volunteers can leave the experiment
 running for as long as they want and they will be contributing 
 experiment after experiment, unlike the previous version, where they
-stopped contributing after the solution was found. This is also
+stopped contributing after one solution was found. This is also
 reflected in the number of PUTs, which is the number of generations
-divided by 100; more than 50\% of the volunteers run for more than
+divided by 100; more than 50\% of the volunteers run the experiment for more than
 4000 generations. All things considered, this means than there are
 many more computers running {\em simultaneously}, leading to this
 almost 5-fold increase in running time.
@@ -1066,9 +1065,9 @@ equal to 0.69, a value that is remarkably similar to the 0.5 value
 found for time devoted to games in Chambers et
 al. \cite{chambers2005measurement}. It is important to note that, in
 this case, the number of PUTs made per client does not correspond to a
-uniform amount of computaton, since 100 generations with a random
+uniform amount of computation, since 100 generations with a random
 population correspond, in each case, to different number of
-oprations; in other words, the same number of PUTs will correspond to
+operations; in other words, the same number of PUTs will correspond to
 different number of operations in each case. However, since clients
 are also different and take a different time in each case, it is
 difficult to ascertain how this might have an influence in the
@@ -1083,10 +1082,7 @@ function.
 
 
 \subsection{$F_{15}:\frac{D}{m}$-group Shifted and $m$-rotated Rastrigins Function}
-The most common use of JavaScript is in the development of
-asynchronous Web applications. For this purpose JavaScript has
-been traditionally implemented as an interpreted language not designed for the
-development of high performance systems. On the other hand, current JavaScript 
+JavaScript has been traditionally implemented as an interpreted language not designed for the development of high performance systems. On the other hand, current JavaScript 
 virtual machines (VMs) are closing the gap, for instance the Google V8 
 is an engine specifically designed for the fast execution of 
 large JavaScript applications. In order to increase performance
@@ -1094,15 +1090,16 @@ V8 compiles JavaScript source code directly into machine code when it is first e
 There are no intermediate byte codes or an interpreter.
 [\url{ https://developers.google.com/v8/design#mach_code}].
 JavaScript has gained popularity in server-side development using runtime
-environments such as Node.js and is also used in desktop and mobile applications.
-To further evaluate how a current JavaScript implemantation could be used by a
+environments such as Node.js and is also used in desktop and mobile applications. 
+%Mario: Creo que el párrafo de arriba sale sobrando
+To further evaluate how a current JavaScript implementation could be used by a
 computer scientist to develop complex optimization problems,
 a benchmark function, which was provided by the CEC2010 Special Session on
 Large-Scale Global Optimization [] is used in this section. 
 The function is described next.
 
 
-The basic Rastrigins function is separable[], and is defined as follows;
+The basic Rastrigin's function is separable, and is defined as follows;
 \begin{equation}
 F_{rastrigin}(x)=\sum\limits_{i=1}^D [ x_{i}^{2}-10\cos(2\pi x_i)+10  ] 
 \end{equation}
@@ -1110,7 +1107,7 @@ where $D$ is the dimension and $x = (x1, x2, · · · , x_{D})$ is a
 $D$-dimensional row vector (i.e., a $1 × D$ matrix). Rastrigin’s function 
 is a classical multimodal problem. It is difficult since the number of local
 optima grows exponentially with the increase of dimensionality. To make it 
-nonseparable, an orthogonal matrix is also used for coordinate rotation.
+non-separable, an orthogonal matrix is also used for coordinate rotation.
 The rotated Rastrgin’s function is defined as follows:
 \begin{equation}
 F_{rot\_rastrigin}(x)=F_{rastrigin}(\textbf{z}), \textbf{z}= \textbf{x} * \textbf{M}
@@ -1131,72 +1128,71 @@ candidate solution, $\textbf{o} = (o_1, o_2, \ldots  , o_{D})$ is the shifted gl
 $\textbf{z} = \textbf{x} - \textbf{o}$ is the shifted candidate solution and
 finally $\textbf{P}$ is a random permutation of $\lbrace1, 2, \ldots  ,D\rbrace$.
 
-This optimization problem was selected because is representative of the kind of
-algorithm, data types and structures employed in large scale optimization problems. 
-The function was implemented in both Matlab and Java languages as part of  the
-Test Suite of the companion competition of the Special Session. To give competitors an idea of the
+This optimization problem was selected because it is representative of the kind of
+algorithms, data types and structures employed in large scale optimization problems. 
+The function was implemented in both Matlab and Java languages as part of the
+Test Suite of the companion competition of the Special Session and to give competitors an idea of the
 computational cost of the challenge, the runtime required for 10,000 function 
 evaluations (FEs) for a particular configuration was published by organizers. The Java
 implementation took 7596ms and the Matlab version 1115ms. The whole experiment had the value of
 3,000,000 FEs as the termination condition. Using the Java implementation as
-a guide, the function described above was implemented to compare the performence of JavaScript against
-both implementations, again using as a test, the time required for doing a 10,000 FEs. 
+a guide, the function described above was implemented to compare the performance of JavaScript against
+both implementations, again using the time required for 10,000 FEs. 
 Before discussing the setup and performance results, certain details of
-the implementation in JavaScript are presented, to give readers an idea of 
-how practical and mature is the language for developing complex mathematical functions
-as well as some limitations.
+the implementation in JavaScript are presented to give readers an idea of 
+how practical and mature is the language for developing complex mathematical functions.
 
 \begin{itemize}
 \item {\em Randomize} Both Malab and Java programs rely on a 
-Java Randomizer library for the implementation of the 
-randomization of shift vectors and matrices used for by the function.
-The library included the generation of pseudorandom Gaussians of type
-double and uniformly distributed integers. Generators used a single
+Java Randomizer library for the 
+randomization of the shift vectors and matrices used by the function.
+The library includes the generation of pseudorandom Gaussians of type
+double and uniformly distributed integers. Generators use a single
 {\tt long} seed. In order to implement the same functionality in
 JavaScript, the library {\tt random-js} was used, as there are inconsistencies 
-in the implementation of {\tt Math.random()} between engines and their results are non-deterministic. 
+in the implementation of the standard {\tt Math.random()} between engines
+and also their results are non-deterministic. 
 The library {\tt random-js}, implements a Mersenne Twister algorithm producing 
-consistent results across all JavaScript VMs assuming the same seed.
+consistent results across all JavaScript VMs.
 \item {\em Timing functions} In order to compare the performance of 
 each implementation, an accurate and consistent way of measuring 
-the runtime is needed. In JavaScript the {\tt Date class} is often used 
-to measure execution time, but has the limitaoun of having a maximum resolution given in miliseconds.
-In order to measure the runtime intervals with a higher precission two functions
+the runtime of functions is needed.
+In JavaScript the {\tt Date class} is often used 
+to measure execution time, but has the limitation of having a maximum resolution given in milliseconds.
+In order to measure the runtime intervals with a higher precision two functions
 where used: for Node.js we used the native {\tt process.hrtime()} function
-which returns a high-resolution measure in a {\tt [seconds, nanoseconds]} array.
-For testing in the browser, the {\tt Performance.now()} function was used, this
-function uses floating-point numbers with up to microsecond precision. 
+which returns a high-resolution measure in a {\tt [seconds, nanoseconds]} array and for measuring in the browser, the {\tt Performance.now()} function was used,
+this function uses floating-point numbers with up to microsecond precision. 
 A drawback found is that the {\tt Performance.now()} function is that is only implemented
 in Firefox and Chrome browsers. Both functions are independent of the system clock. 
-\item {\em Tools} An important consideration when chosing certain language to 
+\item {\em Tools} An important consideration when choosing certain language to 
 to write non-trivial programs is the availability of development tools. When developing
-the experiments, we used a comprehensive set of developer tools available in both
-browsers and desktop. These tools included package managers, debbugers, logging, 
+the experiments, we used a comprehensive set of developer tools available for both
+browsers and desktop. These tools included package managers, debuggers, logging libraries, 
 network monitors, editors and even debugging of the multi-threaded execution of Web Workers.
 A drawback found is that developer tools very from browser to browser, 
 but they all have the same functionality.
 \item {\em Data Types} JavaScript uses floating point numbers with a 
-limited precision of 64 bits that partialy implement the functionality of
-the {\tt StrictMath} library used by the Java implemantation. If more precision
-is needed developers could use {\tt math.js}, an extensive math library with support
-for matrices, big and complex numbers.
+limited precision of 64 bits that partially implement the functionality of
+the {\tt StrictMath} library used by the Java implementation. If more precision
+is needed developers could use {\tt math.js}, an extensive math library with
+support for matrices and big numbers.
 \end{itemize}
 
 We found that the JavaScript ecosystem is mature enough for developing non-trivial 
-code, but developers have to consider the differences betwwen VMs implementations
-and also use certain libraries in order to increase the precision and repeatability of
-algorithms. As for the performance of the JavaScript implementaion against Java and Matlab
+code, but developers have to consider the differences between VMs implementations
+and use certain libraries in order to increase the precision and repeatability of
+algorithms. As for the performance of JavaScript against Java and Matlab
 we conducted first the basic test described earlier in a 3.7 GHz Quad-Core Intel Xeon E5 processor running OS X 10.10.5, 
 using Java(TM) SE Runtime Environment (build 1.8.0\_25-b17), 
 MatLab version R2015a for Mac OSX, Node FrameWork version 0.12.2, Google Chrome Version 46.0.2490.86 (64-bit) 
 and Firefox version 41.0.2. The performance of the time required for 10,000 FEs is presented in Figure \ref{fig:f15_times}.
 In our test the Matlab implementation had the best performance with an average of 935ms, followed by Java with
-991ms, JavaScript took 32\% more time than Java with 1240ms in Chrome using a Web Worker and 1,270ms using Node.js. 
-The results also show that there is not much difference between the Node.Js implementation an that of a
-browser. There is also not much difference between running the code in the main thread or as workers, but
-when running the experiment in Firefox a dialog alerted of the script taking to long, showing that this
-kind of processing is not intended for the main thread. Also there is not much difference when running two
-Web Workers in parallel taking 1279ms each. This experiment shows that JavaScript is viable 
+991ms, JavaScript took 32\% more time than Java with 1240ms in Chrome using a single Web Worker and 1,270ms using Node.js. 
+The results also show that there is not much difference between the Node.js implementation an that of a
+browser. There is also not much difference between running the code in the main thread or in Web Workers. When running the experiment in Firefox a dialog alerted that the script was taking to much time, showing that this
+kind of processing is not intended for the main thread. Also there is not much overhead when running two
+Web Workers in parallel as they took 1279ms each. This experiment shows that JavaScript is viable 
 language for developing complex mathematical functions for running in the browser. 
 \begin{figure}[!htb]
 \centering
@@ -1205,7 +1201,7 @@ language for developing complex mathematical functions for running in the browse
 \label{fig:f15_times}
 \end{figure}
 
-\subsubsection{Setup of experiment in NodIO-W$^2$ }
+\subsubsection{Setup of Rastrigin's experiment in NodIO-W$^2$ }
 
 \subsubsection{Results}
 
