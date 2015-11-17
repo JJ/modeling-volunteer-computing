@@ -54,30 +54,36 @@
 \maketitle
 
 \begin{abstract}
-Volunteer computing is used routinely 
+Volunteer computing is used routinely
 % (Paloma) Adverbs are always written before verbs, check this throughout the text
-in science and industry, but it
+ in science and industry, but it
 still has a long way to go if it is going to become
 % (Paloma) I would propose "a long way to go in order to become"
- a mainstream technology in
-the same way the cloud technologies in general have. The lack of 
-% (Paloma) Add "both" here to better complete the sentence
-general
-purpose and open source tools
-with analytics built in
+ a mainstream
+technology in the same way the cloud technologies in general have. The
+lack of % (Paloma) Add "both" here to better complete the sentence
+general purpose and open source tools with analytics built in
 % (Paloma) "built-in" is an adjective and, as such, has to be written before names
- could be one of the reasons why this is so, as
-well as the lack of proofs of concept. That is why in this paper we
-present {\sf NodIO}, a framework used to create client-server architectures for distributed
+could be one of the reasons why this is so, as well as the lack of
+proofs of concept. That is why in this paper we present {\sf NodIO}, a
+framework used to create client-server architectures for distributed
 evolutionary algorithms, written entirely % (Paloma) Adverb. I would also add an "and" after the comma
- in JavaScript, which needs
+in JavaScript, which needs
 minimal server support to work and is able to support persistent,
 asynchronous, distributed evolutionary algorithms running in the
-browser.  The architecture, along with some initial results on the
-expected performance and scaling
-behavior, is presented. We also use the algorithm data to
-find out what kind of patterns the user behavior follow and try to fit
-them to some statistical distribution.
+browser, as well as any other client consuming its REST application
+programming interface.  The architecture, along with some initial
+results on the expected performance and scaling behavior when the
+number of users is increased is presented. We also use
+the algorithm data to find out what kind of patterns the user behavior
+follow by examining the resources they devote to our experiment, and
+try to fit them to some statistical distribution to create the bases
+of a model of user behavior in volunteer computing experiments of this
+kind that can be used by researchers to predict its performance. 
+In general, our experiments prove, first, that NodIO is a flexible and
+low-overhead platform to perform distributed computation experiments
+that include volunteers, and then that user behavior follows some patterns,
+and, thus, are amenable to a model.
 \end{abstract}
 
 % Work in progress..
@@ -609,7 +615,7 @@ ones) was found or five million evaluations had been performed. It
 took around a minute, on average, that is $68.9694$ seconds, to
 perform the fifty runs. In this experiment only 33, that is, 66\% were
 successful. The experiments were repeated for population $p=1024$,
-with a success rate upgraded to 100\% and an average duration of $3.46$
+with a success rate upgraded to 100\% and an {\em average} duration of $3.46$
 seconds. Results for these two experiments
 are shown in Figure \ref{fig:baseline}. The baseline hardware system has these
 characteristics: 
@@ -742,8 +748,14 @@ will voluntarily perform.
 \includegraphics[width=0.32\linewidth]{time-vs-ips-OS-7-31.png}
 \caption{Duration of experiments vs. number of different IPs (nodes)
   participating in it, with averages and standard deviation shown as
-  red dots. From left to right, experiments 4/4, 4/24 and 7/31. Shades
-of blue indicate how many experiments included that many unique IPs.}
+  red dots; in the case there is a single red dot, there was a single
+  experiment in which so many computers participated (for instance, 16
+  computers in the experiment in the far left or 29 in the middle
+  one). 
+From left to right, experiments 4/4, 4/24 and 7/31. Shades
+of blue indicate how many experiments included that many unique IPs,
+so lighter shade for a column of dots indicates that particular number
+of computers happened less frequently, darker shadow more times.}
 \label{fig:duration}
 \end{figure}
 %
@@ -1062,6 +1074,7 @@ Weibull & ND & 75.11457519 $\pm$ 2.97470251  & 0.69714410 $\pm$ 0.01383976 \\
 \includegraphics[width=0.49\linewidth]{weibull-fit-ww.png}
 \caption{Ranked number of {\tt PUT}s per worker and GEV fit (in red, right) and Weibull (in red, left) for the {\sf NodIO$^2$} model.}  
 \label{fig:gev:w2}
+% File ../data/ips-puts.R
 \end{figure}
 %
 We are also interested in measuring the scaling properties in this

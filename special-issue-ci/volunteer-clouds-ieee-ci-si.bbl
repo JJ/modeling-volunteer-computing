@@ -190,15 +190,12 @@ V.~M. Rivas, J.~J. Merelo-Guerv{\'{o}}s, G.~Romero-L{\'{o}}pez,
 \BIBentrySTDinterwordspacing
 
 \bibitem{chong:1999:jDGPi}
-\BIBentryALTinterwordspacing
 F.~S. Chong and W.~B. Langdon, ``Java based distributed {G}enetic {P}rogramming
   on the internet,'' in \emph{Proceedings of the Genetic and Evolutionary
   Computation Conference}, W.~Banzhaf, J.~Daida, A.~E. Eiben, M.~H. Garzon,
   V.~Honavar, M.~Jakiela, and R.~E. Smith, Eds., vol.~2.\hskip 1em plus 0.5em
   minus 0.4em\relax Orlando, Florida, USA: Morgan Kaufmann, 13-17 Jul. 1999, p.
-  1229, full text in technical report CSRP-99-7. [Online]. Available:
-  \url{http://www.cs.ucl.ac.uk/staff/W.Langdon/ftp/papers/p.chong/DGPposter.pdf}
-\BIBentrySTDinterwordspacing
+  1229, full text in technical report CSRP-99-7.
 
 \bibitem{jin2006constructing}
 H.~Jin, F.~Luo, X.~Liao, Q.~Zhang, and H.~Zhang, ``{Constructing a P2P-based
