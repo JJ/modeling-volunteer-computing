@@ -1289,10 +1289,17 @@ in the system was to limit the number of chromosmes kept in the pool.
 Previously, every PUT request which included a new chromose increased 
 the size of the pool, in a long-running experiment this has to be avoided
 in order to not exahust the available memory. In this experiment the size
-of a chromosme was 1000 double precision numbers, considereing this size
-of the pool was limited to 10,000 chromosomes.  In order to keep this size
+of a chromosme was 1000 double precision numbers, considereing this
+and the memory available in the server, the the pool was limited 
+to 10,000 chromosomes.  In order to keep this size
 constant a random chromosme was pulled out of the pool before inserting a
-new one, when the pool was full.
+new one, when the pool was full. For this problem NodEO's \tt{ chromosme-float } 
+and \tt{ classic-ea-float} modules where used. The parameters for the ea algorithm 
+were tournament size = 3 and  population size = 500, returning exchanging a
+chromosme with the server every 100 generations. Again two workers in each window.
+As before, a few participation calls were published in throu posts in social networks.
+
+
 
 
 
