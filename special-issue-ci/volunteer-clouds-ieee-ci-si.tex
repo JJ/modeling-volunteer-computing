@@ -1226,10 +1226,12 @@ consistent results across all JavaScript VMs.
 each implementation, an accurate and consistent way of measuring 
 the runtime of functions is needed.
 In JavaScript the {\tt Date class} is often used 
-to measure execution time, but has the limitation of having a maximum resolution given in milliseconds.
+to measure execution time, but has the limitation of having a maximum 
+resolution given in milliseconds.
 In order to measure the runtime intervals with a higher precision two functions
 where used: for Node.js we used the native {\tt process.hrtime()} function
-which returns a high-resolution measure in a {\tt [seconds, nanoseconds]} array and for measuring in the browser, the {\tt Performance.now()} function was used,
+which returns a high-resolution measure in a {\tt [seconds, nanoseconds]}
+array and for measuring in the browser, the {\tt Performance.now()} function was used,
 this function uses floating-point numbers with up to microsecond precision. 
 A drawback found is that the {\tt Performance.now()} function is that is only implemented
 in Firefox and Chrome browsers. Both functions are independent of the system clock. 
@@ -1251,20 +1253,28 @@ We found that the JavaScript ecosystem is mature enough for developing non-trivi
 code, but developers have to consider the differences between VMs implementations
 and use certain libraries in order to increase the precision and repeatability of
 algorithms. As for the performance of JavaScript against Java and Matlab
-we conducted first the basic test described earlier in a 3.7 GHz Quad-Core Intel Xeon E5 processor running OS X 10.10.5, 
+we conducted first the basic test described earlier in a 3.7 GHz Quad-Core
+Intel Xeon E5 processor running OS X 10.10.5, 
 using Java(TM) SE Runtime Environment (build 1.8.0\_25-b17), 
-MatLab version R2015a for Mac OSX, Node FrameWork version 0.12.2, Google Chrome Version 46.0.2490.86 (64-bit) 
-and Firefox version 41.0.2. The performance of the time required for 10,000 FEs is presented in Figure \ref{fig:f15_times}.
-In our test the Matlab implementation had the best performance with an average of 935ms, followed by Java with
-991ms, JavaScript took 32\% more time than Java with 1240ms in Chrome using a single Web Worker and 1,270ms using Node.js. 
-The results also show that there is not much difference between the Node.js implementation an that of a
-browser. There is also not much difference between running the code in the main thread or in Web Workers. When running the experiment in Firefox a dialog alerted that the script was taking to much time, showing that this
-kind of processing is not intended for the main thread. Also there is not much overhead when running two
-Web Workers in parallel as they took 1279ms each. This experiment shows that JavaScript is viable 
-language for developing complex mathematical functions for running in
-the browser. 
-%
-\begin{figure}[h!tb]
+MatLab version R2015a for Mac OSX, Node FrameWork version 0.12.2,
+Google Chrome Version 46.0.2490.86 (64-bit) 
+and Firefox version 41.0.2. The performance of the time required for 10,000 FEs is presented in
+Figure \ref{fig:f15_times}. In our test the Matlab implementation had the best
+performance with an average of 935ms, followed by Java with
+991ms, JavaScript took 32\% more time than Java with 1238ms in Chrome using a 
+single Web Worker and 1,234ms using Node.js. % Are these results correct? JS=>1240ms and Node.js=>1,270ms ???
+The results also show that there is not much difference between the Node.js
+implementation an that of a
+browser. There is also not much difference between running the code in the main thread or in Web
+Workers. When running the experiment in Firefox a dialog alerted that the
+script was taking to much time, showing that this
+kind of processing is not intended for the main thread. Also there is not much overhead
+when running two
+Web Workers in parallel as they took 1279ms each. This experiment
+shows that JavaScript is viable as a language
+language for developing complex mathematical functions an these can run in a browser
+with acceptable performance. 
+\begin{figure}[!htb]
 \centering
 \includegraphics[width=0.9\linewidth]{f15_times.png}
 \caption{ Runtime of 10,000 function evaluations (FEs) for $F_{15}$} 
@@ -1272,6 +1282,24 @@ the browser.
 \end{figure}
 
 \subsubsection{Setup of Rastrigin's experiment in NodIO-W$^2$ }
+This experiment was deployed in a virtual private server with 512MB of memory
+runing Ubuntu OS version 14.04 and hosted in DigitalOcean.com. Unlike previous
+experiments where the optimum was espected to be found many times, 
+this problem was expected to run constantly for many days finding only
+sub-optimal aproximations. In order to achieve this, the only change needed 
+in the system was to limit the number of chromosmes kept in the pool. 
+Previously, every PUT request which included a new chromose increased 
+the size of the pool, in a long-running experiment this has to be avoided
+in order to not exahust the available memory. In this experiment the size
+of a chromosme was 1000 double precision numbers, considereing this
+and the memory available in the server, the the pool was limited 
+to 10,000 chromosomes.  In order to keep this size
+constant a random chromosme was pulled out of the pool before inserting a
+new one, when the pool was full. For this problem NodEO's \tt{ chromosme-float } 
+and \tt{ classic-ea-float} modules were used. The parameters for the ea algorithm 
+were tournament size = 3 and  population size = 500, returning exchanging a
+chromosme with the server every 100 generations. Again two workers in each window.
+As before, a few participation calls were published in social networks.
 
 
 
@@ -1313,7 +1341,7 @@ most cases. The architectural changes led to a high correlation
 between successive experiments, so that, even as the median number of
 volunteers per experiment decreased, they were probably contributing
 to the experiment at the same time, so that our objective was
-achieved. In general, one of the first conclusion for this paper is
+achieved. In general, one of the first conclusions for this paper is
 that the browser technologies should be used to its full extent so
 that the user time is leveraged to its full potential, and this was
 achieved with {\sf NodIO$^2$}.
@@ -1336,7 +1364,7 @@ presented in this paper and showing it in the same page.
 
 In general, linking and finding correlations between user choices and
 performance is an interesting avenue to explore in the future. Even if
-the three previous experiments were published in a similar, way, one
+the three previous experiments were published in a similar way, one
 obtained up to 5 times more total cycles  that the one with the least
 number of cycles. It is also essential to obtain volunteers as
 simultaneously as possible, so it is possible that the features of the
@@ -1352,7 +1380,7 @@ for this kind of asynchronous framework, but it would be interesting
 to check the performance for more computationally demanding
 tasks. Besides, the two versions of the framework include as an
 algorithmic variant using random population size. We do not think this
-has had a big influence on the result, but it would be interesting to
+has had a big influence on the results, but it would be interesting to
 measure exactly what this influence has been. Adding a bit of more
 control to the user might contribute also to gamification. Right now
 the user has only two Web Workers. It is a matter of a single click to
@@ -1361,7 +1389,7 @@ interesting to put everything in a single page and under our control,
 to check how often this happens and under which conditions. 
 
 Finally, the implementation needs some refinement in terms of
-programming and also ease of use. Tools such as Yeoman might be used
+programming and also ease of use. Tools such as Yeoman might be used % ¿añadir una cita o la URL http://yeoman.io/ a pie de página ?
 to create a generator in which the user just has to create a fitness
 function, with the rest of the framework wrapped around
 automatically. All this, as the data used for this paper and the paper
