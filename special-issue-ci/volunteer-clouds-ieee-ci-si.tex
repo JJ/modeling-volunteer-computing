@@ -1189,20 +1189,19 @@ using Java(TM) SE Runtime Environment (build 1.8.0\_25-b17),
 MatLab version R2015a for Mac OSX, Node FrameWork version 0.12.2, Google Chrome Version 46.0.2490.86 (64-bit) 
 and Firefox version 41.0.2. The performance of the time required for 10,000 FEs is presented in Figure \ref{fig:f15_times}.
 In our test the Matlab implementation had the best performance with an average of 935ms, followed by Java with
-991ms, JavaScipt took 35\% more time than Java with 1,270ms using Node.js and 1279ms in Chrome. 
+991ms, JavaScipt took 32\% more time than Java with 1240ms in Chrome using a Web Worker and 1,270ms using Node.js. 
 The results also show that there is not much difference between the Node.Js implemenation an that of a
 browser. There is also not much difference between running the code in the main thread or as workers, but
 when running the experiment in Firefox a dialog alerted of the script taking to long, showing that this
-kind of processing is not intended for the main thread.
-
-
+kind of processing is not intended for the main thread. Also there is not much diference when running two
+Web Workers in parallel taking 1279ms each. This experiment shows that JavaScript is viable 
+language for developing complex mathematical functions for running in the browser. 
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=0.9\linewidth]{f15_times.png}
 \caption{ Runtime of 10,000 function evaluations (FEs) for $F_{15}$} 
 \label{fig:f15_times}
 \end{figure}
-
 
 \subsubsection{Setup of experiment in NodIO-W$^2$ }
 
