@@ -492,6 +492,27 @@ believe in the possibility of "potentially" massive computation as
 sketched by the authors.
 \end{quote}
 
+JavaScript is not, in fact, so slow and to prove its speed we have
+published a technical report comparing it with other compiled
+languages (such as Scala) and scripted languages
+\cite{2015arXiv151101088M}. In fact, node.js (used for the benchmarks)
+and the JavaScript virtual machine in Chrome (used in Android phones
+and Chrome and Chromium browsers) share the same JIT compiler, so
+their speeds are virtually the same. In general, as a conclusion of
+the report we see that the real difference between scripted and
+compiled languages will vary with the language, but also with the
+particular implementation of the algorithm and the size of the problem
+or chromosome you are using. Even if the speed for a particular
+problem is two or five times that achiever for JavaScript, this
+disadvantage is more than offset by the availability of that free
+resource in abundance; that is, you will only need that many
+volunteers cooperating to get better performance than what you would
+get with C or Java. Even so, this NodIO architecture, as highlighted
+in the new version of the paper, is pool-based so local sources using
+high-speed devices such as GPUs or even local powerful CPUs can be
+added as non-volunteer users, since the heterogeinity and simple API
+of the system allows that by design. 
+
 \begin{quote}
 The paper is well written and organized. State of the art is quite complete. Nevertheless, the experimental
 section must be carefully checked and extended in order to fully validate the goodness of the proposed
@@ -501,6 +522,10 @@ Finally, English must be double-checked in order to correct minor typos such as 
 (in page 2).
 \end{quote}
 
-
+\bibliographystyle{IEEEtran}
+\bibliography{geneura}
 
 \end{document}
+%%% Local Variables:
+%%% ispell-local-dictionary: "english"
+%%% End:
