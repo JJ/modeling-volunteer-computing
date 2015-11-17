@@ -402,26 +402,33 @@ well as the results obtained with the initial setup.
 \section{Description of the framework}
 \label{sec:description}
 
-In general, a volunteer-based distributed evolutionary computation
+In general, a distributed volunteer-based evolutionary computation
 system based on the browser is simply a client-server system
 whose client is, or it can be, embedded in the browser via
 JavaScript. Since JavaScript is  the only language that is present
 across all browsers, the choice was quite clear. Even so, there might
-be some issues with the performance of the language itself; that is
+be some issues with the performance of the language itself; that % (Paloma) I recommend the use of "which" here
+ is
 why we have made a comparison between JavaScript and other languages
 \cite{2015arXiv151101088M}, resulting that, in fact, JavaScript can be
-faster than compiled languages such as Scala and, in any case, provide
-a performance that is comparable to other languages employed usually
-in evolutionary computation and numerical optimization such as Python. Compiled languages such as
-Java or C might be, in fact, faster, but the fact that a single-user
+faster than compiled languages such as Scala and, in any case, provides
+a performance that is comparable to other languages employed usually % (Paloma) Adverb
+in evolutionary computation and numerical optimization such as Python. 
+% (Paloma) Bit of too long sentence here. Why not changing the ; for a . ?
+Compiled languages such as
+Java or C might be, in fact, faster, but the fact % (Paloma) Too many "fact" words. There was another one in the previous sentence.
+ that a single-user
 performance is higher is more than offset by the fact that the number
 of spontaneous volunteers we can gather at whim, including people
 using their mobile phones or tablets, is several orders of magnitude
-higher, which is the objective in this kind of systems. JavaScript is
+higher, which is the objective in this kind of systems.
+% (Paloma) This sentence needs re-writing
+% "Other compiled languages such as Java or C might be, in fact, faster, but the fact that single-user performance is higher (than what?) is over the offset. This is because the number of spontaneous volunteers we can gather at whim, including people using their mobile phones or tablets, is several orders of magnitude higher, which is the objective in this kind of systems." (?)
+ JavaScript is
 quite a popular language nowadays, providing compilers from a number
 of languages, many of them in their family (like CoffeeScript), but
 many other outside, so researchers can, in fact, write their fitness
-function in Python, Erlang, Scala or even Java, and them compile it to
+function in Python, Erlang, Scala, or even Java, and them compile it to
 JavaScript. For completness, an experiment comparing the performance of
 a JavaScript implementation versus Java and Matlab is included in section
 \ref{sec:w2}.
@@ -436,7 +443,7 @@ prosecute or discipline the volunteer. In the case of JavaScript,
 this issue is aggravated because even if it is obfuscated, source code
 and data is sent to clients. 
 \item Participants must also trust the application provider, 
-regarding invasion of privacy, the integrity of their devices 
+regarding invasion of privacy, the integrity of their devices, 
 and intended application. 
 \end{enumerate}
 
@@ -444,24 +451,29 @@ Two kind of threats are possible in this environment; first, since the
 API is open and it is an open source system, it is relatively easy to
 sabotage the system, as indicated in \cite{domingues2007sabotage}, by
 crafting a fake request which, for instance, assigns a fake fitness to
-a particular chromosome. Another two different attacks are also
+a particular chromosome
+% (Paloma) Where is the second kind of threat?
+. Another two different attacks are also
 possible: a denial of service attack as well as penetration
 testing. We have approached this threat in a pragmatic way: all
 sources, client and server, for the application, are released
-openly. We also release as open access experiments performed
+openly. % (Paloma) Adverb
+ We also release as open access experiments performed
 \cite{DBLP:journals/corr/GuervosG15} and all data is also, after
-cleaning it from personal information, released as open data. This
+cleaning it from personal information, released % (Paloma) Not sure if this "released" should be left and the first one in the sentence, erased...
+ as open data. This
 builds trust between the user and the scientist, which indeed has an
 impact on the performance of the system, since there is no need to
 include cheating checks or other functions that would degrade the
 performance of the system. This socio-technical approach is, indeed,
-coherent with our whole approach to the study of a volunteer
-distributed system which can only be study approaching it from the
+coherent with our whole approach to the study of a distributed volunteer
+ system which can only be studied by approaching it from the
 technical as well as the social, as in social media, angle. 
 
 In this sense, in this paper we propose the {\sf NodIO} framework, a
 cloud or bare metal based volunteer evolutionary computing system
-based on the {\sf NodEO} library, whose architecture has been
+based on % (Paloma) In order to not sounding too repetitive, could we use "derived from", for example, here?
+ the {\sf NodEO} library, whose architecture has been
 developed using JavaScript on the client as well as the server.
 All parts of the system are free and available with a free license
 from \url{https://github.com/JJ/splash-volunteer}.
@@ -473,7 +485,7 @@ Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
 \item A REST server, that is, a server that includes several {\em
   routes} 
   that can be called for storing and retrieving information (the CRUD cycle:
-  create, request, update and delete) from the server. 
+  create, request, update, and delete) from the server. 
   A JSON data format is used for the communication between 
   clients and the server. There are two kinds of information:
   {\em problem} based, that is, related to the
