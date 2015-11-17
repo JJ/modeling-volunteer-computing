@@ -201,7 +201,7 @@ time other technologies,
 used; for instance, Java was pointed out in \cite{soares1998get} as a
 ``language for the
 internet'', providing some advantages such as multi-architecture compatibility or
-security mechanisms and was proposed in \cite{chandy1996world} as the
+security mechanisms, and was proposed in \cite{chandy1996world} as the
 basis for the creation of a world-wide peer to peer system using compiled Java
 programs. The ATLAS system
 \cite{Baldeschwieler:1996:TIG:504450.504482} also used Java together
@@ -217,10 +217,13 @@ reasonable performance. Of all these, probably {\em hierarchy}, that
 is, the capability of using preferentially resources in the same
 organization could be either disregarded or included in adaptivity,
 leaving us with eight desirable properties.
+% (Paloma) Re-write. For example, "But is hierarchy, this is, the capability of preferentially using resources in the same organization, the one that could be either disregarded or included in adaptivity, which leaves us with eight desirable properties."
 
-The fulfillment of these properties could be achieved using any of the
+The fulfillment of these properties could be achieved by using any of the
 languages and associated technologies, mentioned above, provided that the user had
-installed the required virtual machine plugin first, but embedding a
+installed the required virtual machine plugin first, 
+% (Paloma) These should be separate sentences
+but embedding a
 distributed computation client in the browser has the advantage of
 providing a single and universal way of accessing resources via an
 URI, something that is not guaranteed by using desktop
@@ -232,7 +235,7 @@ on parallel computing systems PVM and MPI and solved most of the issues by
 using the Java virtual machine embedded in the browser,
 which provided
 security to the user, uniformity of computing environment
-independently of the operating system and access to a common data store in the
+independently of the operating system, and access to a common data store in the
 server. Since the Java virtual machine is a sandbox, it is safe to the user
 and as it runs compiled bytecode it also guarantees a certain level of
 performance.
@@ -241,18 +244,22 @@ parallelism, were solved on the server. This
 paper was later extended and published in a journal in 1999
 \cite{baratloo1999charlotte}, but it is interesting to note that
 already in the early stages of the web the possibility of
+% (Paloma) Re-write. For example, "but it is interesting to note that, even in the early stages of the web, the possibility of..."
 browser-based distributed computing was already researched.
 
 Other systems, like JET, proposed by Soares et
 al. \cite{soares1998get}, also used Java. JET supports
 the execution of parallel applications over the Internet and features
 a comprehensive statistics collection subsystem, allowing its use for science,
-since it allows the collection of algorithm analytics by the
+since it allows % (Paloma) Use synonyms, like "yield" or "permit"
+ the collection of algorithm analytics by the
 experiment designer, unlike the other systems mentioned
 above. Other proposals contemporary to JET, such as {\em SuperWeb}
 \cite{alexandrov1997superweb} are roughly a translation of classical
 distribution techniques, with overly complicated architectures that include
-brokers for resource discovery. It is focused, however, in solving the
+brokers for resource discovery. It is focused
+% (Paloma) Careful with starting using plural ("Other proposals", "are") and continuig with singular. If you are referring to "SuperWeb", change "It" for "SuperWeb"
+, however, in solving the
 issues involved in browser-based computing and also in making a system
 that is able to work across different types of computers, mentioning
 SPARCstations and PCs with Windows-95. Interestingly enough, this
@@ -262,8 +269,9 @@ On the other hand, the potential for volunteer computing using
 browsers was realized
 later on \cite{sarmenta-bayanihan} as well as the potential for
 mischief of users with code in their hands
+% (Paloma) I think this sentence is extremely informal
 \cite{sarmenta-sabotagetolerance}. However, these early efforts by
-Sarmenta once again used Java and not JavaScript, making this effort
+Sarmenta once again used Java and not JavaScript, making this effort % (Paloma) making them
 less widespread.
 
 The main problem with Java and all the other browser-embedded
@@ -283,7 +291,7 @@ who used them for creating an EA on
 the browser as early as 1998 \cite{jj-ppsn98}.
 
 JavaScript can be used either for unwitting
-\cite{unwitting-ec} or volunteer
+\cite{unwitting-ec} or volunteer 
 \cite{langdon:2005:metas,gecco07:workshop:dcor} distributed
 evolutionary computation and it has been used ever since by several
 authors, including more recent efforts
@@ -304,7 +312,7 @@ can reduce operational costs by outsourcing both hardware and software maintenan
 to the cloud provider. Another advantage is that they enable the provisioning of computing resources beyond what
 is available in most laboratories, allowing researches to
 scale algorithms at reasonable costs. Researchers have proposed the use of
-public clouds such as Amazon EC2 \cite{CloudScale}, Google App Engine\cite{di2013towards}
+public clouds such as Amazon EC2 \cite{CloudScale}, Google App Engine\cite{di2013towards},
 and DropBox~\cite{mericloud}. The use of JavaScript to implement
 server side components
 gives software developers certain advantages in the cloud
@@ -326,7 +334,9 @@ writing an evolutionary algorithm for the
 desktop or command line and browser clients, both based in the EC
 library NodEO \cite{DBLP:conf/gecco/GuervosVGES14}. This saves time 
 when writing code and leverages 
-expertise acquired in the library itself. 
+expertise acquired
+% (Paloma) Not sure if "acquired" should be written before "expertise"... sounds better to me, anyways
+ in the library itself. 
 
 On the other hand, we are also interested in measuring the performance
 of volunteer computing systems, an area in which there have been
@@ -350,7 +360,8 @@ involves understanding the dynamics of this kind of systems. Initial
 work was done for peer to peer systems by Stutzbach et
 al. \cite{stutzbach2006understanding} and extended to volunteer
 computing by Laredo et al. \cite{churn08,laredo2008rcp}. But the raw material of
-volunteer computing, number of users and the time spent by every one in the
+volunteer computing, % (Paloma) Whith regard to?
+number of users and the time spent by every one in the
 computation in browser-based volunteer computing experiments, have
 only been studied in a limited way in 
 \cite{DBLP:journals/gpem/LaredoBGVAGF14} on the basis of a single
@@ -372,10 +383,12 @@ will try to come up with a more precise model. Next we describe the
 system itself.
 
 
-As far as we know, this paper presents one of the few experiments that
+As far as we know, this paper presents one of the few experiments that % (Paloma) Change to "which" in order to not repeating "that" all the time
 uses computational resources that are as dissimilar as smartphones and
 powerful laptops 
-or workstation computers in a research center. The methodology used to
+or workstation computers in a research center. The methodology used
+% (Paloma) I would say "the used methodology"
+ to
 gather resources and the algorithms used will be described next, as
 well as the results obtained with the initial setup.
 
