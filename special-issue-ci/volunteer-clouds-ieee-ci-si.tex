@@ -1271,7 +1271,8 @@ script was taking to much time, showing that this
 kind of processing is not intended for the main thread. Also there is not much overhead
 when running two
 Web Workers in parallel as they took 1279ms each. This experiment shows that JavaScript is viable 
-language for developing complex mathematical functions for running in the browser. 
+language for developing complex mathematical functions an these can run in a browser
+with acceptable performance. 
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=0.9\linewidth]{f15_times.png}
@@ -1298,10 +1299,6 @@ and \tt{ classic-ea-float} modules were used. The parameters for the ea algorith
 were tournament size = 3 and  population size = 500, returning exchanging a
 chromosme with the server every 100 generations. Again two workers in each window.
 As before, a few participation calls were published in social networks.
-
-
-
-
 
 \subsubsection{Results}
 
