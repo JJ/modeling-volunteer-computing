@@ -24,3 +24,7 @@ auto/
 
 #Backups
 *~
+
+#Cosas latex
+*.pdf
+*.spl
