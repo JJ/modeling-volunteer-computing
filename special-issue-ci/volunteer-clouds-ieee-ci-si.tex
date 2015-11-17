@@ -1261,8 +1261,10 @@ The results also show that there is not much difference between the Node.js impl
 browser. There is also not much difference between running the code in the main thread or in Web Workers. When running the experiment in Firefox a dialog alerted that the script was taking to much time, showing that this
 kind of processing is not intended for the main thread. Also there is not much overhead when running two
 Web Workers in parallel as they took 1279ms each. This experiment shows that JavaScript is viable 
-language for developing complex mathematical functions for running in the browser. 
-\begin{figure}[!htb]
+language for developing complex mathematical functions for running in
+the browser. 
+%
+\begin{figure}[h!tb]
 \centering
 \includegraphics[width=0.9\linewidth]{f15_times.png}
 \caption{ Runtime of 10,000 function evaluations (FEs) for $F_{15}$} 
@@ -1271,7 +1273,14 @@ language for developing complex mathematical functions for running in the browse
 
 \subsubsection{Setup of Rastrigin's experiment in NodIO-W$^2$ }
 
+
+
 \subsubsection{Results}
+
+The results for this new experiment have been extremely interesting
+and quite different from the previous one. 
+
+
 
 %---------------------------------------------------------------
 \section{Conclusion}
