@@ -535,7 +535,7 @@ problem. In this case the classical Trap function \cite{Ackley1987} has been
 used as well as the Rastrigin's floating-point optimization
 problem. JavaScript is a functional language and declaring a different 
 function and handing at the creation of the algorithm object, called
-{\tt Classic} is the only change needed to work with a different
+{\tt Classic}, is the only change needed to work with a different
 problem. Let us see how this system addresses the different challenges
 outlined in the State of the Art (Section \ref{sec:soa}):
 \begin{itemize}
@@ -548,8 +548,8 @@ outlined in the State of the Art (Section \ref{sec:soa}):
   not been found, unlike what we found in our previous systems, DCoR,
   \cite{gecco07:workshop:dcor}, which had a low scalability. 
 \item The system is {\em heterogeneous} since it does not need any
-  performance, operating system or even browser requirement (as long
-  as Javascript is enabled): anyone
+  performance, operating system, or even browser requirement as long
+  as Javascript is enabled: anyone
   visiting the page, even from mobile devices, can load the algorithm.
   In case the browser does not support HTML5 Web workers (e.g., 
   Windows Phone or some version of Android) or their use
@@ -563,20 +563,20 @@ outlined in the State of the Art (Section \ref{sec:soa}):
   needed, with the only exception that it is obviously unable to
   communicate with the rest of the islands.
 \item {\em Adaptiveness} is achieved simply through the autonomous
-  operation of every individual island with out any synchronization
+  operation of every individual island without any synchronization
   mechanism. The islands in the system are, in fact, unaware of each
   other, communicating only through the server. This architecture 
   has been tested in other high demand systems with success, but 
-  in the case of {\sf NodIO}, additional experiments are need to asses 
-  the scalability of the system. 
+  in the case of {\sf NodIO}, additional experiments are needed to asses 
+  the scalability of the system. % (Paloma) Is it ok if we talk about scalability when we were talking about adaptiveness? Scalability was also described in the first point.
 \item Since the algorithm runs in the browser, {\em safety} is
   achieved through its sandbox mechanisms. The user is thus assured
   that there is no unsafe access either to their local files or even
-  to more resources that the browser should be allotted.
+  to more resources than the browser should be allotted.
 \item Running the algorithm is just a matter of loading the page,
-  which means that operation is totally {\em anonymous}. For the same
+  which makes the operation totally {\em anonymous}. For the same
   reason, {\em ease of use} is optimal, being as easy as simply
-  clicking on an URL and available to anyone with access to a browser.
+  clicking on an URL, available to anyone with access to a browser.
 \item {\em Reasonable performance} is not ensured. In fact, we should
   make sure that there is a reasonable amount of clients over which
   the performance achieved is better than what you would obtain in
