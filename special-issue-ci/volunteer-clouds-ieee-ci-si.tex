@@ -829,9 +829,9 @@ a Zipf's law, with similar distribution along all three runs. The 4/24
 run is the most complete and shows a S-shape, which implies an
 accumulation of experiments taking similar time and around 100
 seconds. The most interesting part is the {\em tail}, which shows how
-many experiments took a desirable amount of time, and of the order of
+many experiments took a desirable amount of time, of the order of
 10 seconds, and which appears in all three graphs. As it can be seen,
-it drops sharply implying there are 
+it sharply drops implying there are 
 just a few of them, and with diminishing probability as time
 decreases. This exponential distribution also appears in the
 distribution of HTTP {\tt PUT}s, equivalent to the number of
@@ -860,16 +860,16 @@ Date  & Location $\mu$ & Scale $\sigma$ & Shape $\xi$ \\
 This distribution was originally proposed to fit extreme values
 \cite{resnick2013extreme} and contains, as a special case, the inverse
 Weibull distribution which was fitted to volunteer computing
-frameworks such as SETI@home \cite{javadi2009mining}; we obviously do
-not pretend to compare our system in scale or complexity with it, only
+frameworks such as SETI@home \cite{javadi2009mining}. We obviously do
+not pretend to compare our system in scale or complexity with it, but
 to point out that the behavior of volunteer computing nodes follows a
-certain pattern, found in SETI@home, and which appears also in our system. This
+certain pattern, found in SETI@home, and which also appears in our system. This
 distribution is governed by three parameters, the usual location $\mu$
 which is related to where it has its {\em center} and a scale $\sigma$,
 related to the size, but also a third shape $\xi$ parameter that is
 related to its skewness, that is, how skewed it is around the central
 location. Positive parameters indicate that the distribution {\em
-  leans} towards the origin, negative towards the other extreme
+  leans} towards the origin, and negative ones towards the other extreme
 value. In this case, Table \ref{tab:puts:os} shows $\xi$ values
 greater than one and between one and 1.4, which indicates that the
 three experiments share this origin-leaning pattern, with many users
@@ -883,7 +883,7 @@ above.
 At any rate, this also shows that a convenient way of increasing the
 computing power would be increasing this minimum amount per user. This
 issue led us to create the next version of the framework, which is
-presented next. 
+presented next. % (Paloma) This sentences are sort of alone here... Could we extend a bit the first "this" to connect them to the previous paragraph ?
 
 \section{{\sf NodIO-W$^2$}, a Web Worker-based architecture}
 \label{sec:w2}
