@@ -42,7 +42,7 @@
 % Open Source software.
 % Lets not forget this issue is about software.
 
-\author{Juan-J.~Merelo*$^1$, Mario Garc\'ia-Valdez$^2$, Pedro A. Castillo$^1$, Pablo Garc\'ia-S\'anchez$^1$
+\author{Juan-J.~Merelo*$^1$, Mario Garc\'ia-Valdez$^2$, Pedro A. Castillo$^1$, Pablo Garc\'ia-S\'anchez$^1$, P. de las Cuevas*$^1$
 \thanks{Manuscript submitted for review on \today.}%
 \thanks{$^1$Dept. of Computer Architecture and Technology and CITIC University of Granada}%
 \thanks{$^2$Dept. of Graduate Studies at Instituto Tecnol\'ogico de Tijuana}%
@@ -762,7 +762,7 @@ correlation is so low as to affirm that there is almost no
 relationship between them, that is, computing nodes are not {\em
   staying} after the solution has been found. This is a feature of
 this implementation: the user has to actively reload the page to make
-the evolutionary algorithm start again. % (Paloma) Feature or disadvantage?
+the evolutionary algorithm start again. Thus, the user can decide if to continue sharing resources or not.% (Paloma) Feature or disadvantage?
  However, it puts a probably            % (Mario) Feature if you only want to share your CPU a little  
 unnecessary upper limit on the time, or number of experiments, that a user
 will voluntarily perform.
@@ -1040,8 +1040,7 @@ number of seconds is almost 80\% better than the previous version, and
 the median number of PUTs is three times better; this causes that most
 of experiments take less time than one of the baselines, and one third
 less than the second baseline. Thus, the conclusion in this case is
-that we can obtain, through volunteer computation, a result that is,
-most of the times, better than we would using a similar, non-parallel,
+that we can obtain, through volunteer computation, a result that most of the times is better than we would by using a similar, non-parallel,
 desktop setup, which makes this system suitable for massively
 distributed evolutionary algorithms.
 
