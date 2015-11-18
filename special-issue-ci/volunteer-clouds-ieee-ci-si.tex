@@ -1263,24 +1263,25 @@ support for matrices and big numbers.
 
 We found that the JavaScript ecosystem is mature enough for developing non-trivial 
 code, but developers have to consider the differences between VMs implementations
-and use certain libraries in order to increase the precision and repeatability of
+and therefore use certain libraries in order to increase the precision and repeatability of
 algorithms. As for the performance of JavaScript against Java and Matlab
 we conducted first the basic test described earlier in a 3.7 GHz Quad-Core
 Intel Xeon E5 processor running OS X 10.10.5, 
 using Java(TM) SE Runtime Environment (build 1.8.0\_25-b17), 
 MatLab version R2015a for Mac OSX, Node FrameWork version 0.12.2,
 Google Chrome Version 46.0.2490.86 (64-bit) 
-and Firefox version 41.0.2. The performance of the time required for 10,000 FEs is presented in
+and Firefox version 41.0.2. % (Paloma) Table here? Or at least the characteristics could be represented the same way as for the baseline experiment
+ The performance of the time required for 10,000 FEs is presented in
 Figure \ref{fig:f15_times}. In our test the Matlab implementation had the best
 performance with an average of 935ms, followed by Java with
-991ms, JavaScript took 32\% more time than Java with 1238ms in Chrome using a 
+991ms. On the other hand, JavaScript took 32\% more time than Java with 1238ms in Chrome using a 
 single Web Worker and 1,234ms using Node.js. % Are these results correct? JS=>1240ms and Node.js=>1,270ms ???
 The results also show that there is not much difference between the Node.js
 implementation an that of a
 browser. There is also not much difference between running the code in the main thread or in Web
 Workers. When running the experiment in Firefox a dialog alerted that the
-script was taking to much time, showing that this
-kind of processing is not intended for the main thread. Also there is not much overhead
+script was taking too much time, showing that this
+kind of processing is not intended for the main thread. Additionally, there is not much overhead
 when running two
 Web Workers in parallel as they took 1279ms each. This experiment
 shows that JavaScript is viable as a language
