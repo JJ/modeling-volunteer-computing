@@ -6,9 +6,9 @@
 \usepackage{graphicx}
 \usepackage{color}
 %\usepackage{setspace}
-\usepackage{url}
+\usepackage[hyphens]{url}
 \usepackage[english]{babel}
-
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}%PABLO: he añadido esto para que no se salga la URL por el borde
 \begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   TITLE   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -24,7 +24,7 @@ our work. Following the reviewers' requests and suggestions we have
 deeply changed the contents, and thus, the quality of the paper. 
 
 We would like to notify the editors that, thanks to changes and
-aportations made to this new version of the paper there are two new
+contributions made to this new version of the paper there are two new
 coauthors. 
 
 In the next sections you can find these comments and our responses
@@ -36,7 +36,7 @@ The authors.
 
 \section{Response to Reviewer \#1}
 
-\begin{quote}
+\begin{quote}\textbf{
 The main contribution of this paper is the proposal of a Javascript based distributed system intended to
 run evolutionary algorithms according to the volunteer computing scheme. The idea is that user can
 contribute to the computation by using only a browser, without needing to install any plugin nor a Java
@@ -52,7 +52,7 @@ designed for the Web, it is difficult to think on a computer scientist writing a
 Javascrip. If the authors would have used as a case study a complex optimization problem then they
 could have provided numerical data to sustain their claims; however, the selected problem (which should
 be formulated in the paper) seems a rather academic one.
-\end{quote}
+}\end{quote}
 
 We thank the reviewer for the comment. The only reason why JavaScript
 was chosen was because it is the only language that is native to the
@@ -86,13 +86,13 @@ These facts, along the explanations, have now been added to the first
 paragraph of the {\em Description of the system} section, as well as
 to the introduction.
 
-\begin{quote}
+\begin{quote}\textbf{
 The paper organization is not clear. Some comments about this:
 - The title "Volunteers in the Clouds: an Architecture for Low Cost and Potentially Massive Distributed
 Evolutionary Computation" seems to suggest that the volunteers run in the cloud, but that is not the case:
 the server run in the cloud and the volunteers do in the browsers of
 common PCs and laptops.
-\end{quote}
+}\end{quote}
 
 That is correct. We just used the term {\em cloud} in a relatively informal
 sense because they are available as in a cloud for running the
@@ -110,34 +110,34 @@ conclusions; we hope this makes our intention clearer, but we can also
 eliminate that part of the title if the reviewer thinks it is
 necessary. 
 
-\begin{quote}
+\begin{quote}\textbf{
 - The paper abstract does not properly summarize the paper contents. It says that ``That is why in this
 paper we present NodIO, a client-server architecture for distributed evolutionary algorithms !'', but there
 are two versions of the architecture, as stated later in the conclusions: "In this paper two versions of a
 client-server architecture for volunteer and distributed evolutionary !". That second version is neither
 commented in the introduction.
-\end{quote}
+}\end{quote}
 
 In fact {\sf NodIO} is a framework that can be used to generate
 different client-server architectures. This has been clarified in the
 abstract and conclusions section. 
 
-\begin{quote}
+\begin{quote}\textbf{
 - According the last paragraph of the introduction, ``Then, a detailed description of the proposed system is
 presented in Section III, followed by the experiments and obtained results in Section IV.", but Section IV
 does not only contains experimental result but also the full description of the second version of the
 architecture.
-\end{quote}
+}\end{quote}
 
 You are absolutely right. We have corrected that paragraph to include
 the actual contents of the paper. 
 
-\begin{quote}
+\begin{quote}\textbf{
 Summarizing the review, the authors should provide a convincing example showing the advantages of
 their proposal. As presented, the paper is a proof of concept of a system that seems difficult to be used
 by the researchers needing high computational resources to run an evolutionary algorithm to solve a realworld
 problem.
-\end{quote}
+}\end{quote}
 
 
 We have added a new experiment (Section V.A), a more complex and
@@ -170,7 +170,7 @@ our work.
 
 \section{Response to Reviewer \#2}
 
-\begin{quote}
+\begin{quote}\textbf{
 Contribution:
 This paper describes a client-server architecture for distributed
 evolutionary algorithms named NodIO. 
@@ -185,17 +185,16 @@ computation platform that is flexible,
 extensible and potentially massive. Personally, I consider it one of the fresher and most promising
 proposals in the context of metaheuristic optimization frameworks lately. Hence, our global
 recommendation of acceptance with minor changes.
-\end{quote}
+}\end{quote}
 
 Thanks for your appreciation.
 
-\begin{quote}
+\begin{quote}\textbf{
 However, the paper still has plenty of room for improvement in three main areas: the experimentation, the
 organization and description of the platform, and the presentation and writing style.
 Regarding the experimentation, I miss:
 -  a section discussing the threats to validity of the experiments
-
-\end{quote}
+}\end{quote}
 
 We have inserted a paragraph at the end of the section that describes
 the experimental setup describing what are the challenges that this
@@ -205,56 +204,56 @@ also added. A new paragraph on the security challenges has also been
 inserted, third paragraph in this section, to clarify our integral and
 pragmatic approach to security, which so far has worked perfectly. 
 
-\begin{quote}
+\begin{quote}\textbf{
 -  an experiment with a more difficult problem (please use the well-known benchmark problems
 described in literature).
-\end{quote}
+}\end{quote}
 
 An experiment based on the well known Rastrigin's function has been
 performed and analyzed. It is now Subsection V.A.
 
-\begin{quote}
+\begin{quote}\textbf{
 -  A comparison in similar conditions of the two implementations of the architecture (the algorithms
 used in the experiments are slightly different, but this could lead to dramatic changes in
 performance, and consequently, invalidate the comparison performed in the paper). This would
 enable a measurement of the actual improvement in performance obtained by the use of web
 workers (not that generated due to a different algorithm)
-\end{quote}
+}\end{quote}
 
 This has been included as the last subsection of the paper previous to
 the conclusions. The new
 experiment has a constant population instead of using  population of random size.
 We have not found a big influence on the result. 
 
-\begin{quote}
+\begin{quote}\textbf{
 Regarding the organization of the paper, some important details regarding the improved framework
 design named is described in the experimentation section. I would reorganize the contents to describe the
 improved in detail in section 3, and focus on the experiments, its
 results and the discussion in section 4.
-\end{quote}
+}\end{quote}
 
 In fact, reorganizing the paper increased the chance of introducing
 new issues in this new version. We have preferred to keep it the way
 it is, although we thank you for the suggestion. We expect that the
 changes made to the text make it clear enough anyway. 
 
-\begin{quote}
+\begin{quote}\textbf{
 Another issue is that some details are described twice, for instance,
 the advantages of the use of web 
 workers. Fixing this issue can reduce the paper size and improve its
 readability.
-\end{quote}
+}\end{quote}
 
 We have eliminated duplications in this new version. Thanks for
 noticing it.
 
-\begin{quote}
+\begin{quote}\textbf{
 Regarding the presentation:
 -  Figures should be readable even in gray-scale, so do not use red and blue to denote different
 elements, use a different shade or texture.
 -  The axis labels and legends in most of the figures are unreadable, please increase its font size.
 -  There are some typos and phrases that need rewriting.
-\end{quote}
+}\end{quote}
 
 We have rewritten and revised extensively the paper, and tried to find
 a way (and failed) to make it more readable for reviewers. In fact,
@@ -269,18 +268,18 @@ again, we can do it if required for the final version.
 
 \section{Response to Reviewer \#3}
 
-\begin{quote}
+\begin{quote}\textbf{
 1. Contribution: The paper presents the idea of a web browser based distributed evolutionary computing.
 the system called NodIO consists of a REST server (coded in Node.js) and clients performing
 evolutionary algorithm coded in JavaScript and embedded in a web page. Although the idea is not
 entirely new, the authors show how Web Workers (introduced in HTML5) and the mechanism of
 automatic restart of computations on the client's side can improve the performance of the system. The
 state of the art is comprehensive and provides good introduction into the subject.
-\end{quote}
+}\end{quote}
 
 We thank this reviewer for these helpful comments.
 
-\begin{quote}
+\begin{quote}\textbf{
 2. Relevance: In my opinion the system described in the paper is relevant to "Computational Intelligence
 Software" special issue. Thanks to both development of Internet technology and continuous increase in
 computing power of electronic devices, including mobile devices, the web browser based distributed
@@ -290,7 +289,7 @@ architecture presented in the paper can be potentially used for solving many dif
 problems, however, the authors limited their experiments to a simple ``Trap'' function that can be easily
 solved on a desktop machine, what may not be convincing for a reader looking for an effective
 optimization tool.
-\end{quote}
+}\end{quote}
 
 It is true that that function can be easily solved with any desktop
 machine, but we can still do that {\em and} use a volunteer
@@ -307,7 +306,7 @@ Rastrigin's function, which in fact cannot be solved in a few minutes
 (or seconds, as in the case of Trap) by a desktop system. 
 
 
-\begin{quote}
+\begin{quote}\textbf{
 3. Correctness: The system works correctly - it is not very complex and the authors provide its source
 code (this is a great plus!). Technical description of the system is also clear, however it lacks some
 details like parameters of the machine used to determine baselines for the experiments or the format of
@@ -315,7 +314,7 @@ messages sent between the server and the clients. The only thing I noticed is th
 term ``multiple CPUs'' in the description of Web Worker API advantages (page 8) instead of "multi-core
 CPUs". As far as I know, contemporary web browsers do not support
 multiple CPUs architecture.
-\end{quote}
+}\end{quote}
 
 This has been clarified in the new version of the paper, third
 paragraph from the beginning of the section that explains the web
@@ -324,25 +323,23 @@ CPUs running web workers as independent processes in each one of them.
 The base system has been now described in the first paragraph of the
 section on the experiments, it is a desktop Intel i7-4770. 
 
-\begin{quote}
-
+\begin{quote}\textbf{
 4. Style: Paper is generally written in a clear way. Statements like
 ``But fair is fair,'' (page 6), sound a bit colloquially in a scientific
 paper and may be omitted. However, my main concern is the readability
 of the graphs. General remark - font used for description of axes
-
-\end{quote}
+}\end{quote}
 
 We have eliminated colloquialisms from the text.
 
-\begin{quote}
+\begin{quote}\textbf{
 should be significantly larger. In Fig. 2 the authors can change scale
 for axe Y, as the box for the population of 1024 individuals is very
 small.  What do the authors mean by ``times''? Time in seconds? I am not
 sure if this Figure is necessary at all as the description is
 understandable without it. In Fig.4 all graphs are similar and only
 the one in the middle is analyzed, so maybe others are not necessary?
-\end{quote}
+}\end{quote}
 
 The labels, and indeed the label size, are not too important; the
 graph shape is. That is one reason they are grayed out. However, we
@@ -352,34 +349,32 @@ that on the caption. We also think that all graphs are needed in Fig
 4, since they represent different experiments, and we have added a
 sentence to highlight that the {\em tail} appears in all three. 
 
-\begin{quote}
+\begin{quote}\textbf{
 The same is with Fig. 5. What does ``x'' stand for in the description of
 axe X? (the same is with Fig. 8).
-\end{quote}
+}\end{quote}
 
 $x$ has been changed to {\sf rank}, which is the usual way of
 representing Zipf's law, a measure (in this case number of {\tt PUT}s
 vs. rank. We have also changed size, color and sigils to represent
 each point to make it a bit clearer. 
 
-\begin{quote}
-
+\begin{quote}\textbf{
 5. Length: As I mentioned above the authors should think of removing some of the unnecessary graphs
 in order to improve readability. They admit themselves that it is hard to conclude from some of the
 graphs (Fig. 5 and Fig. 8). Nevertheless, overall length of the paper is fine.
-
-\end{quote}
+}\end{quote}
 
 Finally, since the reviewer thinks that length is fine and for the
 reasons outlined above, we have decided to keep the graphs and explain
 them a bit better.
 
-\begin{quote}
+\begin{quote}\textbf{
 6. Abstract: Abstract is adequate, moreover it puts an accent on the analysis of volunteers' behavior in a
 distributed computing system, contrary to the description in the main text of the paper. However, it
 lacks the information about the second version of the system called NodIO-W2 based on the Web
 Worker architecture.
-\end{quote}
+}\end{quote}
 
 We have extended the abstract stressing our main points, that were
 first to test the validity and measure the performance of our
@@ -387,20 +382,17 @@ framework NodIO and then to use the measures as first steps to a model
 of volunteer uses. 
 
 
-\begin{quote}
-Comments to Authors:
-
+\begin{quote}\textbf{
+Comments to Authors:\\
 1) I like the state of the art which includes comprehensive overview of the most important papers related
 to the subject presented in the paper. I also like the description of the system, but I cannot fully agree
-with its characteristic provided on page 4. Namely:
- 
+with its characteristic provided on page 4. Namely:\\
  - Heterogeneity - it is true that almost all devices can participate in the web browser based
  distributed computing system, providing that a user did not disable Java Script in its browser.
  However if the authors plan to use HTML5 Web Workers only modern web browsers can
  participate in such computing system, and some devices (e.g. based on Android 2.2-4.3 or
  Windows Phone) are also excluded.
- 
-\end{quote}
+}\end{quote}
 
 That is true, but it makes it anyway the most inclusive system so
 far, as we have tested it with smartphones, tablets and computers. In
@@ -409,14 +401,14 @@ is not common, but anyway we do not aim for {\em all} clients, we have
 enough with {\em most}. Windows Phone, for instance and maybe
 fortunately, is not too common. % ¿no existe Chrome para Windows Phone? De todas formas yo quitaría lo de "and maybe fortunately"...
 
-\begin{quote}
+\begin{quote}\textbf{
  - Adaptiveness - this, beside safety, is the main drawback of the system. Although it is possible to
  implement evolutionary algorithm in that way that it will automatically adopt to the problem type
  and the environment in which it is computed, the authors do not mention about how real
  adaptiveness of the system can be achieved. The same is with scalability. Only 5 different users
  that permanently participated in the experiments are not enough to assess the scalability of the
  system, what is a crucial parameter for distributed computing.
-\end{quote}
+}\end{quote}
 
 We have performed a new experiments in which we have had hundreds of
 simultaneous users. In fact, with the experiments already in the
@@ -426,23 +418,21 @@ Adaptativity is by design, since it uses any browser and does not need
 any special provision for new systems. This has also been explained in
 the expanded text.
 
-\begin{quote} 
-
+\begin{quote}\textbf{ 
  - Safety - in my opinion is the biggest concern in such kind of distributed systems. First of all the
  code of evolutionary algorithm is sent to the client as a source code in Java Script, so some
  experienced user may quite simple decode what has to be computed. It can may come into
  possession of sensitive data or/and alter this code in order to disrupt the computations or make
  them worthless. The results send to the server may also be captured and/or altered without any
- problem since the transmission is not secure.
-
+ problem since the transmission is not secure.\\
  In my opinion you should at least highlight above issues.
-\end{quote}
+}\end{quote}
 
 We have also justified our {\em pragmatic} approach to security
 increasing trust by the user, but also monitoring their behavior to
 detect it and eventually ban users. So far, this has not happened. 
 
-\begin{quote}
+\begin{quote}\textbf{
 2) Regarding the experiments I am very skeptical about their real value. You chose the ``Trap''
 function. in which setting all bits to zero gives local maximum and setting all bits to one gives global
 maximum. In the experiments you counted how many times evolutionary algorithm was able to find
@@ -450,12 +440,12 @@ global maximum for the problem of size n=40. Initially you have found that if th
 evolutionary algorithm is bit enough (1024 individuals) the algorithm returned global maximum
 within 3.46 sec. divided by 50 runs - i.e. 0.692 sec. for a single run
 (page 4, if I understood it correctly).
-\end{quote}
+}\end{quote}
 
 I fact 3.46 is the average for all 50 runs. 
 We have emphasized the word average to make that clearer.
 
-\begin{quote}
+\begin{quote}\textbf{
 Thus, what was the point of using distributed computing to solve such simple problem? Why the
 authors did not perform their experiments for larger values of n, what could justify distributed problem
 solution. You admit that the NodIO system rarely beats a high-performance desktop computer (page
@@ -466,7 +456,7 @@ baseline). I suggest to perform additional computing experiments for some higher
 to focus the paper on the behavior analysis of volunteers participating in a distributed computing
 system, what may be also interesting an valuable for the potential
 readers.
-\end{quote}
+}\end{quote}
 
 In fact, that was never the point of the paper. We have chosen Trap as
 a relatively difficult problem that allows us mainly to test scaling
@@ -482,12 +472,12 @@ Rastrigin function (a well known function optimization problem), to make
 measures in a different scenario (one in which the problem is not solved 
 in a few seconds). 
 
-\begin{quote}
+\begin{quote}\textbf{
 3) Regarding the graphs I have already put my comments in Style section, but I have one question. In
 Fig. 3 in the middle graph (for experiments conducted on 4/24/2015) the is a lot of red dots,
 meaning probably that IPs from 16 to 29 did not performed any computations. What was the reason
 for that?
-\end{quote}
+}\end{quote}
 
 The $x$ axis runs overs number of computers participating in an
 experiment; that is, $4$ plots the time taken for all experiments in
@@ -498,11 +488,11 @@ case you mention, there are no experiments in which there were exactly
 single experiment in which that many nodes participated. We have
 clarified the caption to Figure 3 to make this clearer. 
 
-\begin{quote}
+\begin{quote}\textbf{
 For Fig. 5 I would also avoid comparisons between the NodIO system with the SETI@home of BOINC
 systems - the number of participants is completely incomparable and also the type of problems
 solved by the systems are of different nature and complexity.
-\end{quote}
+}\end{quote}
 
 We have added a sentence clarifying that our intention was simply to
 point out that the pattern is similar. We are obviously in a wholly
@@ -510,7 +500,7 @@ different league.
 
 \section{Response to Reviewer \#4}
 
-\begin{quote}
+\begin{quote}\textbf{
 This paper presents a very challenging proposal. Namely, authors introduce a novel client-server
 architecture for low cost and ``potentially'' massive distributed evolutionary algorithms. The main novelty
 turns up from the fact that the architecture is developed in JavaScript.
@@ -518,7 +508,7 @@ However, JavaScript is well-known because of its lack of capability to deal with
 applications like the ones that are addressed in this paper. Thus, the use of JavaScript makes hard to
 believe in the possibility of ``potentially'' massive computation as
 sketched by the authors.
-\end{quote}
+}\end{quote}
 
 JavaScript is not, in fact, so slow and to prove its speed we have
 published a technical report comparing it with other compiled
@@ -541,14 +531,14 @@ high-speed devices such as GPUs or even local powerful CPUs can be
 added as non-volunteer users, since the heterogeneity and simple API
 of the system allows that by design. 
 
-\begin{quote}
+\begin{quote}\textbf{
 The paper is well written and organized. State of the art is quite complete. Nevertheless, the experimental
 section must be carefully checked and extended in order to fully validate the goodness of the proposed
 architecture. At least, authors should show the behavior of the architecture in a real-world problem
 demanding high computational performance.
 Finally, English must be double-checked in order to correct minor typos such as ``in the sense than[that]''
 (in page 2).
-\end{quote}
+}\end{quote}
 
 We have extended the experiments section with a new one, based on a
 hard version of the Rastrigin's problem. 
