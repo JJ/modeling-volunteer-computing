@@ -957,8 +957,6 @@ access to the Document Object Model (DOM) or JQuery objects in the main thread.
 Asynchronous HTTP requests to the server are implemented using the
 XMLHttpRequest (XHR) object.  
 \end{itemize}
-
-
 %
 \begin{figure}[!htb]
 \centering
@@ -968,6 +966,22 @@ XMLHttpRequest (XHR) object.
   with two of them per browser.}
 \label{fig:system:w2}
 \end{figure}
+%
+\begin{table*}[!htb]
+\caption{Summary of {\sf NodIO-W$^2$} and comparison with the previous
+  experiments, which have been aggregated to compute central measures. \label{tab:summary:ww}}
+\begin{center}
+\begin{tabular}{l|ccccccc}
+\hline
+Date & Median \#IPs & Max \#IPs & Median time (s) & Median \#{\tt
+  PUT}s & $<$ 69s & $<$ 3.46s & Inter-experiment correlation\\
+\hline
+{\sf NodIO} & 5 & 29 & 123 & 14 & 37.43\% & 3.40\% & 0.10 \\
+{\sf NodIO-W$^2$} & 4  & 16 & 7.36 & 40 & 89\% & 36.90\% & 0.4336061 \\
+\hline
+\end{tabular}
+\end{center}
+\end{table*}
 
 The sequence of events happens as follows:
 \begin{enumerate}
@@ -1011,22 +1025,15 @@ avoid the start-up cost, only the parameters and population are reset and a new 
 assigned.
 \end{enumerate}
 %
-\begin{table*}[!htb]
-\caption{Summary of {\sf NodIO-W$^2$} and comparison with the previous
-  experiments, which have been aggregated to compute central measures. \label{tab:summary:ww}}
-\begin{center}
-\begin{tabular}{l|ccccccc}
-\hline
-Date & Median \#IPs & Max \#IPs & Median time (s) & Median \#{\tt
-  PUT}s & $<$ 69s & $<$ 3.46s & Inter-experiment correlation\\
-\hline
-{\sf NodIO} & 5 & 29 & 123 & 14 & 37.43\% & 3.40\% & 0.10 \\
-{\sf NodIO-W$^2$} & 4  & 16 & 7.36 & 40 & 89\% & 36.90\% & 0.4336061 \\
-\hline
-\end{tabular}
-\end{center}
-\end{table*}
-%
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.9\linewidth]{ips-time-ww.png}
+\caption{Time employed in every experiment vs. number of IPs (in
+  abscissas). The red dot and line show the average and standard
+  deviation, the shade of blue the number of experiments with the same
+  number of IPs. } 
+\label{fig:ipstime:w2}
+\end{figure}
 
 The experiments were run in the same way as before, using several
 Twitter announcements throughout several days by the end of July
@@ -1044,14 +1051,23 @@ less than the second baseline. Thus, the conclusion in this case is
 that we can obtain, through volunteer computation, a result that most of the times is better than we would by using a similar, non-parallel,
 desktop setup, which makes this system suitable for massively
 distributed evolutionary algorithms.
-
-%FERGU: a lo mejor algún reviewer se queja de que la comparativa no es justa
-%porque comparamos un mono-isla (el baseline) con un multi-isla. Quizás deberíamos
-%haber usado un multi-isla en el baseline (aunque sea
-%secuencial). Para la próxima.
-% se trata de probar que podemos obtener mejores resultados que en una
-% implementación local básica. Si usamos una paralela local, ya
-% depende del ordenador que tengamos - JJ
+%
+\begin{table*}
+\caption{Summary of fit to Generalized Extreme Value (GEV) and Weibull distribution of
+  the number of {\tt PUT}s per worker. \label{tab:puts:ww}}
+\begin{center}
+\begin{tabular}{cccc}
+\hline
+Distribution & Location $\mu$ & Scale $\sigma$ & Shape $\xi$ \\
+\hline
+GEV & 18.275 $\pm$ 0.83719  &  25.962  $\pm$ 1.22015 & 1.242   $\pm$
+0.04746 \\
+Weibull & ND & 75.11457519 $\pm$ 2.97470251  & 0.69714410 $\pm$ 0.01383976 \\
+\hline
+\end{tabular}
+\end{center}
+\end{table*}
+%
 
 However, it is interesting to note why this is so, and the first hint
 is the inter-experiment correlation between the number of IPs in
@@ -1070,42 +1086,7 @@ divided by 100; more than 50\% of the volunteers run the experiment for more tha
 many more computers {\em simultaneously} running, leading to this
 almost 5-fold increase in running time.
 
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=0.9\linewidth]{ips-time-ww.png}
-\caption{Time employed in every experiment vs. number of IPs (in
-  abscissas). The red dot and line show the average and standard
-  deviation, the shade of blue the number of experiments with the same
-  number of IPs. } 
-\label{fig:ipstime:w2}
-\end{figure}
-%
-%
-\begin{table*}
-\caption{Summary of fit to Generalized Extreme Value (GEV) and Weibull distribution of
-  the number of {\tt PUT}s per worker. \label{tab:puts:ww}}
-\begin{center}
-\begin{tabular}{cccc}
-\hline
-Distribution & Location $\mu$ & Scale $\sigma$ & Shape $\xi$ \\
-\hline
-GEV & 18.275 $\pm$ 0.83719  &  25.962  $\pm$ 1.22015 & 1.242   $\pm$
-0.04746 \\
-Weibull & ND & 75.11457519 $\pm$ 2.97470251  & 0.69714410 $\pm$ 0.01383976 \\
-\hline
-\end{tabular}
-\end{center}
-\end{table*}
-%
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=0.49\linewidth]{gev-fit-ww.png}
-\includegraphics[width=0.49\linewidth]{weibull-fit-ww.png}
-\caption{Ranked number of {\tt PUT}s per worker and GEV fit (in red, right) and Weibull (in red, left) for the {\sf NodIO$^2$} model.}  
-\label{fig:gev:w2}
-% File ../data/ips-puts.R
-\end{figure}
-%
+
 We are also interested in measuring the scaling properties in this
 model, that is, the relationship between the number of IPs
 participating in an experiment and the time it takes to complete
@@ -1120,6 +1101,15 @@ difficult to measure. There seems to be a trend towards a decreasing
 standard deviation in the time, with more volunteers adding both {\em
   robustness} to an experiment, and certainty in the time it is taking. However, more experiments would be needed to check this hypothesis.
 
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.49\linewidth]{gev-fit-ww.png}
+\includegraphics[width=0.49\linewidth]{weibull-fit-ww.png}
+\caption{Ranked number of {\tt PUT}s per worker and GEV fit (in red, right) and Weibull (in red, left) for the {\sf NodIO$^2$} model.}  
+\label{fig:gev:w2}
+% File ../data/ips-puts.R
+\end{figure}
+%
 As we did in the previous subsection, we have also fitted the number
 of HTTP {\tt PUT}s per worker to a  Generalized Extreme Value (GEV) function, with the result shown
 in Table \ref{tab:puts:ww}. Comparing this table with what we obtained
