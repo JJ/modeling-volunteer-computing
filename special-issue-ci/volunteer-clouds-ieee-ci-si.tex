@@ -896,19 +896,19 @@ presented next. % (Paloma) This sentences are sort of alone here... Could we ext
 \section{{\sf NodIO-W$^2$}, a Web Worker-based architecture}
 \label{sec:w2}
 
-In order to improve the number of cycles per user, we improved the
+In order to improve the number of cycles per user, we enhanced the
 basic architecture in several different aspects.  One improvement 
 involved restarting the client once the solution was
 found, so that as long as the user was visiting the page it was
 running an evolutionary algorithm. Another was a small algorithmic
-improvement: instead of having a fixed population,
+enhancement: instead of having a fixed population,
 population size was randomly distributed between 128 and 256 and
-different for each client.  The other improvement was the 
+different for each client.  The other improvement was to 
 use the Web Worker API as described next.
 
 JavaScript has been commonly used to develop client-side scripts
-that handle the user interface, communicate asynchronously with servers and
-update the content that is displayed \cite{flanagan2006javascript}.
+that handle the user interface, communicating asynchronously with servers and
+updating the content that is displayed \cite{flanagan2006javascript}.
 Long-running scripts like those proposed in this work can interfere with the
 responsiveness of the web application, because everything is handled by a
 single thread. The Web Workers specification \cite{hickson2012web} defines an
@@ -943,7 +943,7 @@ interaction between processes in a time sequence. In this system there are
 two kinds of asynchronous messages: HTTP Requests shown as bold arrows between
 the client and the server where PUT and GET HTTP Methods are represented by
 red and blue arrows respectively. There are also messages between workers and
-the main thread locally in the client, these are shown as thin solid arrows.
+the main thread locally in the client, which are shown as thin solid arrows.
 There are three processes involved:
 \begin{itemize}
 \item {\em Node.js} This is the server side process which is basically
