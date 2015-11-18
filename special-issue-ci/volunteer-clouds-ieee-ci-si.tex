@@ -595,11 +595,11 @@ outlined in the State of the Art (Section \ref{sec:soa}):
 There are many different ways to validate a framework that intends to
 address these challenges. Some of them are included by design: it is
 anonymous, since no accounts are needed to participate in the
-experiment, it is safe for the user, since we are using a the browser
+experiment, it is safe for the user, since we are using the browser
 black box, and it is also heterogeneous. We have designed the
 experiments so that they show adaptability to different types of
 experiments and clients, scalability with the number of clients and
-the problem size, and also measured its performance comparing it with
+the problem size, and measured performance by comparing it with
 a baseline configuration, with which, as indicated above, is
 compatible and can be used in a complementary way. Fault tolerance
 will be experimented by dropping the server and checking the continuity
@@ -1338,13 +1338,22 @@ As before, a few participation calls were published in social networks.
 \hline
 Distribution & Location $\mu$ & Scale $\sigma$ & Shape $\xi$ \\
 \hline
-GEV & 35.759 $\pm$ 0.83719  &  343.336  $\pm$  & 9.877   $\pm$
-0.04746 \\
+GEV & 35.759  &  343.336   & 9.877 \\
 Weibull & ND & 29.002625061 $\pm$ 2.153034198  & 0.402393903 $\pm$ 0.007586468 \\
 \hline
 \end{tabular}
 \end{center}
 \end{table*}
+%
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.49\linewidth]{gev-fit-ww-rastrigin-workers.png}
+\includegraphics[width=0.49\linewidth]{weibull-fit-ww-rastrigin-workers.png}
+\caption{Fit to GEV (left) and Weibull (right) of the number of {\tt PUT}s per worker for the F15 (Rastrigin) function.} 
+% Plotted with ../data/ips-puts-rastrigin.R
+\label{fig:fit:rastrigin}
+\end{figure}
+%
 
 The results for this new experiment have been extremely interesting
 and quite different from the previous one. The most important
