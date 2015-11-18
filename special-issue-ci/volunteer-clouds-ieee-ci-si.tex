@@ -968,18 +968,18 @@ XMLHttpRequest (XHR) object.
 \label{fig:system:w2}
 \end{figure}
 
-The sequence of events is as follows:
+The sequence of events happens as follows:
 \begin{enumerate}
 \item First the {\sf NodIO} process is started in Node.js. As part of the
-initialization procedure the sequential number of experiment is initialized and a log
+initialization procedure, the sequential number of experiments is initialized and a log
 file is created. The shared pool implemented as an array is reset.
 \item A volunteer follows the link of the experiment triggering a GET HTTP
-request and the page is loaded.
+request, then the page is loaded.
 \item The main script renders the page and creates the worker instance. In
 order to create a dedicated worker instance, another GET request is sent to the
-server in order to receive the worker implementation script.
+server, then the client receives the second worker implementation script.
 Each worker instance executes over time one or more evolutionary algorithms
-{\em islands}. Each starts with a random population and it is assigned a
+{\em islands}. Each island starts with a random population and it is assigned a
 universally unique identifier (UUID). The UUID is included in each of the HTTP
 requests sent to the server.
 The initial parameters for each island
@@ -988,22 +988,22 @@ a message is sent to the worker to start the algorithm.
 \item The worker first creates the population following the previously
 specified parameters. Once the population has been initialized, the EA
 generation loop is started. After {\em n} generations the state of the population
-is evaluated. First the chromosome with the best fitness is sent to the shared
+is evaluated. The chromosome with the best fitness is sent to the shared
 population with a PUT HTTP request. If the best fitness is not the global best,
 the EA loop must continue, but first a chromosome is randomly selected from
-the shared population. Also the current generation number and the best
-chromosome is sent to the client's main thread in order to update the DOM to
+the shared population. The current generation number and the best
+chromosome are also sent to the client's main thread in order to update the DOM to
 display the current state of the island (described next). These messages are
-all asynchronous, so even before a message is received by the target, the EA loop of
-the worker continues. If the best fitness is a global best the best
+all asynchronous, so the EA loop of
+the worker continues even before a message is received by the target. If the best fitness is a global best, the best
 chromosome is sent to the server and the loop ends. A message is sent to the
 main thread indicating that the best individual has been found.
 \item The main thread receives messages from workers as events handled by
 a callback function. When an iteration message is received, the page is
 updated by displaying a dynamic plot of the generation number and best
 fitness, and a representation of the chromosome is also generated.
-\item When a global best is received from an island the current experiment
-ends, the experiment number is incremented and the population array is reset.
+\item When a global best is received from an island, the current experiment
+ends, the experiment number is incremented, and the population array is reset.
 \item When the main thread receives a message indicating that a worker has ended the EA
 loop, that worker is reinitialized. The worker process is not ended, to
 avoid the start-up cost, only the parameters and population are reset and a new UUID
@@ -1381,7 +1381,7 @@ coming: there is a dense {\em cloud} at the beginning, but the new
 contributions keep thinning as the evolution progresses. 
 
 This is in part due to the fact that the presence of nodes is not
-constant, as shown in Figure \cite{fig:ips:rastrigin}, which plots the
+constant, as shown in Figure \ref{fig:ips:rastrigin}, which plots the
 number of unique IPs participating in the experiment per minute (left)
 and hour (right). The two graphs have the same shape which matches
 also the speed in which fitness is decreased in Figure
@@ -1405,7 +1405,15 @@ shown at the left of the image, is relatively good. As should be
 expected, the shape and scale are different to the one in the previous
 experiments with the Trap function, however, the shape is quite
 similar (0.40 vs 0.69), being in both cases less than one, which
-indicates a decreasing distribution of the same kind. 
+indicates a decreasing distribution of the same kind. In fact, the
+difference in the scale parameter indicates that the difference
+between the time devoted by a volunteer and the next is bigger in this
+case. This is probably due to the fact that the duration of the
+experiment is bigger, allowing for bigger differences in
+behavior. While the first in the Trap function might have devoted a
+few minutes and the second a few seconds less, the difference between
+the first and second in this experiment might be in the scale of
+hours. 
 
 In general, this experiment confirms what was found in the others in
 several aspects: first, there is a regularity in the distribution of the
@@ -1492,11 +1500,24 @@ paper are independent of the problem chosen, it is true that even if
 it is a difficult problem for evolutionary algorithms, it takes a few
 seconds with the right settings to solve. This makes it difficult also
 for this kind of asynchronous framework, but it would be interesting
-to check the performance for more computationally demanding
-tasks. Besides, the two versions of the framework include as an
+to check the performance for other computationally demanding
+tasks, especially ones that cover the middle ground between a problem
+finishing in seconds or minutes (Trap) and weeks (Rastrigin F15). 
+Besides, the two versions of the framework include as an
 algorithmic variant using random population size. We do not think this
-has had a big influence on the results, but it would be interesting to
-measure exactly what this influence has been. Adding a bit of more
+has had a big influence on the results and in fact this is not noticed
+for F15, which is the second version tested but it would be interesting to
+measure exactly what this influence has been. In general there are
+many issues with the evolutionary algorithm implementation itself,
+including using different, or adaptive, policies for inserting and
+sending individuals to the pool as was done in \cite{araujo2008mam},
+using different policies for population initialization, and also the
+incorporation of high-speed local resources to the pool to check what
+would be the real influence of the volunteer pool to the final
+performance. 
+
+Another area is how to enhance the number and quality of
+volunteers. For instance, adding a bit of more
 control to the user might contribute also to gamification. Right now
 the user has only two Web Workers. It is a matter of a single click to
 open more tabs in the browser, giving more Web Workers, but it would be
