@@ -345,9 +345,7 @@ writing an evolutionary algorithm for the
 desktop or command line and browser clients, both based in the EC
 library {\sf NodEO} \cite{DBLP:conf/gecco/GuervosVGES14}. This saves time 
 when writing code and leverages 
-expertise acquired
-% (Paloma) Not sure if "acquired" should be written before "expertise"... sounds better to me, anyways
- in the library itself. 
+expertise acquired in the library itself. 
 
 On the other hand, we are also interested in measuring the performance
 of volunteer computing systems, an area in which there have been
@@ -415,7 +413,7 @@ be some issues with the performance of the language itself. This
 why we have made a comparison between JavaScript and other languages
 \cite{2015arXiv151101088M}, resulting that, in fact, JavaScript can be
 faster than compiled languages such as Scala and, in any case, provides
-a performance that is comparable to other languages usually employed  % (Paloma) Adverb
+a performance that is comparable to other languages usually employed  
 in evolutionary computation and numerical optimization such as Python. 
 % (Paloma) Bit of a too long sentence here. Why not changing the ; for a . ?
 Compiled languages such as
@@ -459,7 +457,7 @@ a particular chromosome
 . Another two different attacks are also
 possible: a denial of service attack as well as penetration
 testing. We have approached this threat in a pragmatic way: all
-sources, client and server, for the application, are openly released. % (Paloma) Adverb
+sources, client and server, for the application, are openly released. 
  We also release as open access the performed experiments \cite{DBLP:journals/corr/GuervosG15} and all data, once anonymized, as open data. This
 builds trust between the user and the scientist, which indeed has an
 impact on the performance of the system, since there is no need to
@@ -491,18 +489,18 @@ Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
   evolutionary algorithm such as {\tt PUT}ing a chromosome in or {\tt
   GET}ing a random chromosome from it, and {\em information} related
   to the performance and state of the experiments. It also performs logging
-  duties, but is basically a very lightweight and high performance
-  data store \cite{jj:idc:lowcost}.
+  duties, but they are basically a very lightweight and high performance
+  data storage \cite{jj:idc:lowcost}.
   The server has the capability to
   run a single experiment, storing the chromosomes in a data structure
   that is reset when the solution is found.
 \item A client that includes the evolutionary algorithm as
-  JavaScript code embedded in a web page that displays graphs and some
-  additional links and information on the experiment. This code runs
+  JavaScript code embedded in a web page that displays graphs, some
+  additional links, and information on the experiment. This code runs
   an evolutionary algorithm {\em island} starting with a random
-  population and then sending, every 100 generations, the best individual
-  back to the server (via a {\tt PUT} request) and requesting a random
-  individual from the server (via a {\tt GET} request).
+  population, then it sends, every 100 generations, the best individual
+  back to the server (via a {\tt PUT} request), and requests a random
+  individual from the server (via a {\tt GET} request). % (Paloma) Re-writing because there are 3 steps (island creation -> PUT -> GET)
 \end{enumerate}
 
 
