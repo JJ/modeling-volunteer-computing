@@ -80,7 +80,7 @@ follow by examining the resources they devote to our experiment, and
 try to fit them to some statistical distribution to create the bases
 of a model of user behavior in volunteer computing experiments of this
 kind that can be used by researchers to predict its performance. 
-In general, our experiments prove, first, that NodIO is a flexible and
+In general, our experiments prove, first, that {\sf NodIO} is a flexible and
 low-overhead platform to perform distributed computation experiments
 that include volunteers, and then that user behavior follows some patterns,
 and, thus, are amenable to a model.
@@ -343,7 +343,7 @@ In the work presented in this paper, JavaScript has been used throughout the ful
 stack, which has the advantage of using the self-same lines of code for
 writing an evolutionary algorithm for the
 desktop or command line and browser clients, both based in the EC
-library NodEO \cite{DBLP:conf/gecco/GuervosVGES14}. This saves time 
+library {\sf NodEO} \cite{DBLP:conf/gecco/GuervosVGES14}. This saves time 
 when writing code and leverages 
 expertise acquired
 % (Paloma) Not sure if "acquired" should be written before "expertise"... sounds better to me, anyways
@@ -555,7 +555,7 @@ outlined in the State of the Art (Section \ref{sec:soa}):
   visiting the page, even from mobile devices, can load the algorithm.
   In case the browser does not support HTML5 Web workers (e.g., 
   Windows Phone or some version of Android) or their use
-  has been disabled, a basic version of NodIO can also be used.
+  has been disabled, a basic version of {\sf NodIO} can also be used.
 \item {\em Fault tolerance} is always an issue, and in this case, the
   single point of failure would be the server: the system, as such,
   would break down if the server fails. However, the individual
@@ -569,7 +569,7 @@ outlined in the State of the Art (Section \ref{sec:soa}):
   mechanism. The islands in the system are, in fact, unaware of each
   other, communicating only through the server. This architecture 
   has been tested in other high demand systems with success, but 
-  in the case of NodIO, additional experiments are need to asses 
+  in the case of {\sf NodIO}, additional experiments are need to asses 
   the scalability of the system. 
 \item Since the algorithm runs in the browser, {\em safety} is
   achieved through its sandbox mechanisms. The user is thus assured
@@ -616,7 +616,7 @@ runs in which solution has been found are used for this graph.}
 \label{fig:baseline}
 \end{figure}
 First, we establish the baseline performance by running the
-evolutionary algorithm in a desktop client written using NodEO
+evolutionary algorithm in a desktop client written using {\sf NodEO}
 \cite{nodeo2014}, the basic JavaScript library we have used as base to
 build {\sf NodIO}, the framework. This experiment tries to 
 find the solution to the 40-trap function with parameters $l=4, a=1,
@@ -917,13 +917,13 @@ page.
 \item Many implementations of the Web Worker API can use multiple-core CPUs for
 the execution of worker scripts, in particular the execution in multiple-core CPUs
 was tested in desktop versions of Chrome, FireFox and Safari.
-\item Each NodEO instance can be restarted independently.
+\item Each {\sf NodEO} instance can be restarted independently.
 \end{itemize}
 
 
 A sequence diagram of the W$^2$ version of {\sf NodIO} is presented
 in Figure~\ref{fig:system:w2}. In this version, clients use the Web Workers
-API to run two NodEO instances per browser. The sequence diagram shows the
+API to run two {\sf NodEO} instances per browser. The sequence diagram shows the
 interaction between processes in a time sequence. In this system there are
 two kinds of asynchronous messages: HTTP Requests shown as bold arrows between
 the client and the server where PUT and GET HTTP Methods are represented by
@@ -1281,7 +1281,7 @@ with acceptable performance.
 \label{fig:f15_times}
 \end{figure}
 
-\subsubsection{Setup of Rastrigin's experiment in NodIO-W$^2$ }
+\subsubsection{Setup of Rastrigin's experiment in {\sf NodIO}-W$^2$ }
 This experiment was deployed in a virtual private server with 512MB of memory
 runing Ubuntu OS version 14.04 and hosted in DigitalOcean.com. Unlike previous
 experiments where the optimum was espected to be found many times, 
@@ -1295,7 +1295,7 @@ of a chromosme was 1000 double precision numbers, considereing this
 and the memory available in the server, the the pool was limited 
 to 10,000 chromosomes.  In order to keep this size
 constant a random chromosme was pulled out of the pool before inserting a
-new one, when the pool was full. For this problem NodEO's {\tt chromosme-float} 
+new one, when the pool was full. For this problem {\sf NodEO}'s {\tt chromosme-float} 
 and {\tt classic-ea-float} modules were used. The parameters for the ea algorithm 
 were tournament size = 3 and  population size = 500, returning exchanging a
 chromosme with the server every 100 generations. Again two workers in each window.
