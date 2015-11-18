@@ -1380,7 +1380,7 @@ coming: there is a dense {\em cloud} at the beginning, but the new
 contributions keep thinning as the evolution progresses. 
 
 This is in part due to the fact that the presence of nodes is not
-constant, as shown in Figure \cite{fig:ips:rastrigin}, which plots the
+constant, as shown in Figure \ref{fig:ips:rastrigin}, which plots the
 number of unique IPs participating in the experiment per minute (left)
 and hour (right). The two graphs have the same shape which matches
 also the speed in which fitness is decreased in Figure
@@ -1404,7 +1404,15 @@ shown at the left of the image, is relatively good. As should be
 expected, the shape and scale are different to the one in the previous
 experiments with the Trap function, however, the shape is quite
 similar (0.40 vs 0.69), being in both cases less than one, which
-indicates a decreasing distribution of the same kind. 
+indicates a decreasing distribution of the same kind. In fact, the
+difference in the scale parameter indicates that the difference
+between the time devoted by a volunteer and the next is bigger in this
+case. This is probably due to the fact that the duration of the
+experiment is bigger, allowing for bigger differences in
+behavior. While the first in the Trap function might have devoted a
+few minutes and the second a few seconds less, the difference between
+the first and second in this experiment might be in the scale of
+hours. 
 
 In general, this experiment confirms what was found in the others in
 several aspects: first, there is a regularity in the distribution of the
@@ -1491,11 +1499,24 @@ paper are independent of the problem chosen, it is true that even if
 it is a difficult problem for evolutionary algorithms, it takes a few
 seconds with the right settings to solve. This makes it difficult also
 for this kind of asynchronous framework, but it would be interesting
-to check the performance for more computationally demanding
-tasks. Besides, the two versions of the framework include as an
+to check the performance for other computationally demanding
+tasks, especially ones that cover the middle ground between a problem
+finishing in seconds or minutes (Trap) and weeks (Rastrigin F15). 
+Besides, the two versions of the framework include as an
 algorithmic variant using random population size. We do not think this
-has had a big influence on the results, but it would be interesting to
-measure exactly what this influence has been. Adding a bit of more
+has had a big influence on the results and in fact this is not noticed
+for F15, which is the second version tested but it would be interesting to
+measure exactly what this influence has been. In general there are
+many issues with the evolutionary algorithm implementation itself,
+including using different, or adaptive, policies for inserting and
+sending individuals to the pool as was done in \cite{araujo2008mam},
+using different policies for population initialization, and also the
+incorporation of high-speed local resources to the pool to check what
+would be the real influence of the volunteer pool to the final
+performance. 
+
+Another area is how to enhance the number and quality of
+volunteers. For instance, adding a bit of more
 control to the user might contribute also to gamification. Right now
 the user has only two Web Workers. It is a matter of a single click to
 open more tabs in the browser, giving more Web Workers, but it would be
