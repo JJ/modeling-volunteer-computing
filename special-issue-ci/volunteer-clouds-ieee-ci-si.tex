@@ -80,7 +80,7 @@ follow by examining the resources they devote to our experiment, and
 try to fit them to some statistical distribution to create the bases
 of a model of user behavior in volunteer computing experiments of this
 kind that can be used by researchers to predict its performance. 
-In general, our experiments prove, first, that NodIO is a flexible and
+In general, our experiments prove, first, that {\sf NodIO} is a flexible and
 low-overhead platform to perform distributed computation experiments
 that include volunteers, and then that user behavior follows some patterns,
 and, thus, are amenable to a model.
@@ -150,6 +150,7 @@ servers and browsers as clients.
 % (Paloma) I think you should rewrite this whole sentence.
 % For starters, focus in that you "leveraged" the problem through your deeply knowledge of... this and that. And "Thus/Then/Therefore", you decided... 
 % (Mario) We leverage our experience in blah blah to design
+% (Paloma) It may be... guess I was thinking in the noun, not in the transitive verb
 
 %PABLO: He añadido el siguiente párrafo para el issue #31
 There exist other volunteer frameworks written in compiled languages,
@@ -225,18 +226,16 @@ metacomputers. This paper also establishes the desirable features of
 any {\em global computing} infrastructure, that can also be applied to
 distributed evolutionary computation experiments that rely on
 volunteer computing: scalability, heterogeneity, fault tolerance,
-adaptive parallelism, safety, anonymity, hierarchy, ease of use and
-reasonable performance. Of all these, probably {\em hierarchy}, that
-is, the capability of using preferentially resources in the same
-organization could be either disregarded or included in adaptivity,
-leaving us with eight desirable properties.
+adaptive parallelism, safety, anonymity, hierarchy, ease of use, and
+reasonable performance. But hierarchy, this is, the capability of preferentially using resources in the same organization, is a feature that could be either disregarded or included within adaptivity, which leaves us with eight desirable properties.
 % (Paloma) Re-write. For example, "But is hierarchy, this is, the capability of preferentially using resources in the same organization, the one that could be either disregarded or included in adaptivity, which leaves us with eight desirable properties."
+% (Paloma) And I re-wrote what I proposed yesterday.
 
 The fulfillment of these properties could be achieved by using any of the
 languages and associated technologies, mentioned above, provided that the user had
-installed the required virtual machine plugin first, 
+installed the required virtual machine plugin first. 
 % (Paloma) These should be separate sentences
-but embedding a
+However, embedding a
 distributed computation client in the browser has the advantage of
 providing a single and universal way of accessing resources via an
 URI, something that is not guaranteed by using desktop
@@ -285,7 +284,7 @@ later on \cite{sarmenta-bayanihan} as well as the potential of
 user misconduct when having access to the source code.
 % (Paloma) I think this sentence is extremely informal
 \cite{sarmenta-sabotagetolerance}. However, these early efforts by
-Sarmenta once again used Java and not JavaScript, making this effort % (Paloma) making them
+Sarmenta once again used Java and not JavaScript, making them % (Paloma) making them
 less widespread.
 
 The main problem with Java and all the other browser-embedded
@@ -346,7 +345,7 @@ In the work presented in this paper, JavaScript has been used throughout the ful
 stack, which has the advantage of using the self-same lines of code for
 writing an evolutionary algorithm for the
 desktop or command line and browser clients, both based in the EC
-library NodEO \cite{DBLP:conf/gecco/GuervosVGES14}. This saves time 
+library {\sf NodEO} \cite{DBLP:conf/gecco/GuervosVGES14}. This saves time 
 when writing code and leverages 
 the expertise acquired
 % (Paloma) Not sure if "acquired" should be written before "expertise"... sounds better to me, anyways
@@ -408,7 +407,6 @@ or workstation computers in a research center.
 The algorithms used, as well as the methodology 
 for gathering resources will be described next, 
 together with the results obtained in this initial setup.
-
 %---------------------------------------------------------------
 \section{Description of the framework}
 \label{sec:description}
@@ -425,7 +423,7 @@ why we have made a comparison between JavaScript and other languages
 faster than compiled languages such as Scala and, in any case, it provides
 a performance that is comparable to other languages usually employed % (Paloma) Adverb
 in evolutionary computation and numerical optimization such as Python. 
-% (Paloma) Bit of too long sentence here. Why not changing the ; for a . ?
+% (Paloma) Bit of a too long sentence here. Why not changing the ; for a . ?
 Compiled languages such as
 Java or C might be faster when % (Paloma) Too many "fact" words. There was another one in the previous sentence.
 considering the performance of a single-user, 
@@ -467,12 +465,8 @@ a particular chromosome
 . Another two different attacks are also
 possible: a denial of service attack as well as penetration
 testing. We have approached this threat in a pragmatic way: all
-sources, client and server, for the application, are released
-openly. % (Paloma) Adverb
- We also release as open access experiments performed
-\cite{DBLP:journals/corr/GuervosG15} and all data is also, after
-cleaning it from personal information, released % (Paloma) Not sure if this "released" should be left and the first one in the sentence, erased...
- as open data. This
+sources, client and server, for the application, are openly released. 
+ We also release as open access the performed experiments \cite{DBLP:journals/corr/GuervosG15} and all data, once anonymized, as open data. This
 builds trust between the user and the scientist, which indeed has an
 impact on the performance of the system, since there is no need to
 include cheating checks or other functions that would degrade the
@@ -483,7 +477,7 @@ technical as well as the social, as in social media, angle.
 
 In this sense, in this paper we propose the {\sf NodIO} framework, a
 cloud or bare metal based volunteer evolutionary computing system
-based on % (Paloma) In order to not sounding too repetitive, could we use "derived from", for example, here?
+derived from % (Paloma) In order to not sounding too repetitive, could we use "derived from", for example, here?
  the {\sf NodEO} library, whose architecture has been
 developed using JavaScript on the client as well as the server.
 All parts of the system are free and available with a free license
@@ -503,18 +497,18 @@ Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
   evolutionary algorithm such as {\tt PUT}ing a chromosome in or {\tt
   GET}ing a random chromosome from it, and {\em information} related
   to the performance and state of the experiments. It also performs logging
-  duties, but is basically a very lightweight and high performance
-  data store \cite{jj:idc:lowcost}.
+  duties, but they are basically a very lightweight and high performance
+  data storage \cite{jj:idc:lowcost}.
   The server has the capability to
   run a single experiment, storing the chromosomes in a data structure
   that is reset when the solution is found.
 \item A client that includes the evolutionary algorithm as
-  JavaScript code embedded in a web page that displays graphs and some
-  additional links and information on the experiment. This code runs
+  JavaScript code embedded in a web page that displays graphs, some
+  additional links, and information on the experiment. This code runs
   an evolutionary algorithm {\em island} starting with a random
-  population and then sending, every 100 generations, the best individual
-  back to the server (via a {\tt PUT} request) and requesting a random
-  individual from the server (via a {\tt GET} request).
+  population, then it sends, every 100 generations, the best individual
+  back to the server (via a {\tt PUT} request), and requests a random
+  individual from the server (via a {\tt GET} request). % (Paloma) Re-writing because there are 3 steps (island creation -> PUT -> GET)
 \end{enumerate}
 
 
@@ -523,7 +517,7 @@ Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
   stopping when a solution is found or, as we have done in this paper,
   using Web Workers. In fact, since it is a pool-based system such as
   the one described in \cite{LNCS86720702}, any kind of client that
-  works the application programming interface (API) can be used,
+  works the application programming interface (API) can be used, % (Paloma) I thought that a client implements an API, or uses an API, or even works with an API. But never heard of a client which "works" an API. Is this correct?
   written in any kind of language. However, in this paper we are going
   to focus on the dynamics and measurements of the volunteer part of
   the system. 
@@ -549,7 +543,7 @@ problem. In this case the classical Trap function \cite{Ackley1987} has been
 used as well as the Rastrigin's floating-point optimization
 problem. JavaScript is a functional language and declaring a different 
 function and handing at the creation of the algorithm object, called
-{\tt Classic} is the only change needed to work with a different
+{\tt Classic}, is the only change needed to work with a different
 problem. Let us see how this system addresses the different challenges
 outlined in the State of the Art (Section \ref{sec:soa}):
 \begin{itemize}
@@ -562,12 +556,12 @@ outlined in the State of the Art (Section \ref{sec:soa}):
   not been found, unlike what we found in our previous systems, DCoR,
   \cite{gecco07:workshop:dcor}, which had a low scalability. 
 \item The system is {\em heterogeneous} since it does not need any
-  performance, operating system or even browser requirement (as long
-  as Javascript is enabled): anyone
+  performance, operating system, or even browser requirement as long
+  as Javascript is enabled: anyone
   visiting the page, even from mobile devices, can load the algorithm.
   In case the browser does not support HTML5 Web workers (e.g., 
   Windows Phone or some version of Android) or their use
-  has been disabled, a basic version of NodIO can also be used.
+  has been disabled, a basic version of {\sf NodIO} can also be used.
 \item {\em Fault tolerance} is always an issue, and in this case, the
   single point of failure would be the server: the system, as such,
   would break down if the server fails. However, the individual
@@ -577,20 +571,20 @@ outlined in the State of the Art (Section \ref{sec:soa}):
   needed, with the only exception that it is obviously unable to
   communicate with the rest of the islands.
 \item {\em Adaptiveness} is achieved simply through the autonomous
-  operation of every individual island with out any synchronization
+  operation of every individual island without any synchronization
   mechanism. The islands in the system are, in fact, unaware of each
   other, communicating only through the server. This architecture 
   has been tested in other high demand systems with success, but 
-  in the case of NodIO, additional experiments are need to asses 
-  the scalability of the system. 
+  in the case of {\sf NodIO}, additional experiments are needed to asses 
+  the scalability of the system. % (Paloma) Is it ok if we talk about scalability when we were talking about adaptiveness? Scalability was also described in the first point.
 \item Since the algorithm runs in the browser, {\em safety} is
   achieved through its sandbox mechanisms. The user is thus assured
   that there is no unsafe access either to their local files or even
-  to more resources that the browser should be allotted.
+  to more resources than the browser should be allotted.
 \item Running the algorithm is just a matter of loading the page,
-  which means that operation is totally {\em anonymous}. For the same
+  which makes the operation totally {\em anonymous}. For the same
   reason, {\em ease of use} is optimal, being as easy as simply
-  clicking on an URL and available to anyone with access to a browser.
+  clicking on an URL, available to anyone with access to a browser.
 \item {\em Reasonable performance} is not ensured. In fact, we should
   make sure that there is a reasonable amount of clients over which
   the performance achieved is better than what you would obtain in
@@ -628,7 +622,7 @@ runs in which solution has been found are used for this graph.}
 \label{fig:baseline}
 \end{figure}
 First, we establish the baseline performance by running the
-evolutionary algorithm in a desktop client written using NodEO
+evolutionary algorithm in a desktop client written using {\sf NodEO}
 \cite{nodeo2014}, the basic JavaScript library we have used as base to
 build {\sf NodIO}, the framework. This experiment tries to 
 find the solution to the 40-trap function with parameters $l=4, a=1,
@@ -929,13 +923,13 @@ page.
 \item Many implementations of the Web Worker API can use multiple-core CPUs for
 the execution of worker scripts, in particular the execution in multiple-core CPUs
 was tested in desktop versions of Chrome, FireFox and Safari.
-\item Each NodEO instance can be restarted independently.
+\item Each {\sf NodEO} instance can be restarted independently.
 \end{itemize}
 
 
 A sequence diagram of the W$^2$ version of {\sf NodIO} is presented
 in Figure~\ref{fig:system:w2}. In this version, clients use the Web Workers
-API to run two NodEO instances per browser. The sequence diagram shows the
+API to run two {\sf NodEO} instances per browser. The sequence diagram shows the
 interaction between processes in a time sequence. In this system there are
 two kinds of asynchronous messages: HTTP Requests shown as bold arrows between
 the client and the server where PUT and GET HTTP Methods are represented by
@@ -1293,7 +1287,7 @@ with acceptable performance.
 \label{fig:f15_times}
 \end{figure}
 
-\subsubsection{Setup of Rastrigin's experiment in NodIO-W$^2$ }
+\subsubsection{Setup of Rastrigin's experiment in {\sf NodIO}-W$^2$ }
 This experiment was deployed in a virtual private server with 512MB of memory
 runing Ubuntu OS version 14.04 and hosted in DigitalOcean.com. Unlike previous
 experiments where the optimum was espected to be found many times, 
@@ -1307,7 +1301,7 @@ of a chromosme was 1000 double precision numbers, considereing this
 and the memory available in the server, the the pool was limited 
 to 10,000 chromosomes.  In order to keep this size
 constant a random chromosme was pulled out of the pool before inserting a
-new one, when the pool was full. For this problem NodEO's {\tt chromosme-float} 
+new one, when the pool was full. For this problem {\sf NodEO}'s {\tt chromosme-float} 
 and {\tt classic-ea-float} modules were used. The parameters for the ea algorithm 
 were tournament size = 3 and  population size = 500, returning exchanging a
 chromosme with the server every 100 generations. Again two workers in each window.
