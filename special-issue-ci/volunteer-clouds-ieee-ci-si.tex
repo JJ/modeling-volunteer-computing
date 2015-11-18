@@ -1154,8 +1154,8 @@ difficult to ascertain how this might have an influence in the
 statistical distribution.
 
 In general, this second version of the {\sf NodIO} framework and the
-single experiment performed prove that it can be the foundation for a
-high-server-performance distributed evolutionary computation platform,
+single experiment performed prove that it can be the foundation for a distributed
+high-server-performance evolutionary computation platform,
 providing reasonable algorithmic performance and being, in general,
 easy to use with a straightforward modification of the fitness
 function. 
@@ -1173,6 +1173,7 @@ There are no intermediate byte codes or an interpreter \cite{Gray:2009:GCM:16105
 JavaScript has gained popularity in server-side development using runtime
 environments such as Node.js and is also used in desktop and mobile applications. 
 %Mario: Creo que el párrafo de arriba sale sobrando
+% (Paloma) Agree, I mean, it adds information but in case you have space problems... is ok if you start the section without it
 To further evaluate how a current JavaScript implementation could be used by a
 computer scientist to develop complex optimization problems,
 a benchmark function, which was provided by the CEC2010 Special Session on
@@ -1186,7 +1187,7 @@ F_{rastrigin}(x)=\sum\limits_{i=1}^D [ x_{i}^{2}-10\cos(2\pi x_i)+10  ]
 \end{equation}
 where $D$ is the dimension and $x = (x1, x2, · · · , x_{D})$ is a
 $D$-dimensional row vector (i.e., a $1 × D$ matrix). Rastrigin’s function 
-is a classical multimodal problem. It is difficult since the number of local
+is a classical multimodal problem. Such problem is difficult since the number of local
 optima grows exponentially with the increase of dimensionality. To make it 
 non-separable, an orthogonal matrix is also used for coordinate rotation.
 The rotated Rastrgin’s function is defined as follows:
@@ -1197,7 +1198,7 @@ Where $\textbf{M}$ is  a $D \times{D}$ orthogonal matrix. The benchmark
 emulates real-world optimization problems that most likely will consist 
 of different groups of parameters with strong dependencies within
 but little interaction between the groups. This issue is reflected in the benchmark 
-by first randomly dividing the objective variables
+by randomly dividing the objective variables
 into several groups, each of which contains a number of variables. The parameter $m$ 
 is used to control the number of variables in each group and hence, defining the degree
 of separability:
@@ -1210,18 +1211,18 @@ $\textbf{z} = \textbf{x} - \textbf{o}$ is the shifted candidate solution and
 finally $\textbf{P}$ is a random permutation of $\lbrace1, 2, \ldots  ,D\rbrace$.
 
 This optimization problem was selected because it is representative of the kind of
-algorithms, data types and structures employed in large scale optimization problems. 
+algorithms, data types, and structures employed in large scale optimization problems. 
 The function was implemented in both Matlab and Java languages as part of the
 Test Suite of the companion competition of the Special Session and to give competitors an idea of the
 computational cost of the challenge, the runtime required for 10,000 function 
 evaluations (FEs) for a particular configuration was published by organizers. The Java
 implementation took 7596ms and the Matlab version 1115ms. The whole experiment had the value of
-3,000,000 FEs as the termination condition. Using the Java implementation as
+3,000,000 FEs as termination condition. Using the Java implementation as
 a guide, the function described above was implemented to compare the performance of JavaScript against
 both implementations, again using the time required for 10,000 FEs. 
 Before discussing the setup and performance results, certain details of
 the implementation in JavaScript are presented to give readers an idea of 
-how practical and mature is the language for developing complex mathematical functions.
+how practical and mature this language is for developing complex mathematical functions.
 
 \begin{itemize}
 \item {\em Randomize} Both Malab and Java programs rely on a 
@@ -1244,21 +1245,19 @@ resolution given in milliseconds.
 In order to measure the runtime intervals with a higher precision two functions
 where used: for Node.js we used the native {\tt process.hrtime()} function
 which returns a high-resolution measure in a {\tt [seconds, nanoseconds]}
-array and for measuring in the browser, the {\tt Performance.now()} function was used,
-this function uses floating-point numbers with up to microsecond precision. 
-A drawback found is that the {\tt Performance.now()} function is that is only implemented
+array, and for measuring in the browser the {\tt Performance.now()} function was called,
+which uses floating-point numbers with up to microsecond precision. 
+A drawback found is that the {\tt Performance.now()} function is only implemented
 in Firefox and Chrome browsers. Both functions are independent of the system clock. 
-\item {\em Tools} An important consideration when choosing certain language to 
-to write non-trivial programs is the availability of development tools. When developing
+\item {\em Tools} An important consideration when choosing certain language to write non-trivial programs is the availability of development tools. While developing
 the experiments, we used a comprehensive set of developer tools available for both
 browsers and desktop. These tools included package managers, debuggers, logging libraries, 
-network monitors, editors and even debugging of the multi-threaded execution of Web Workers.
-A drawback found is that developer tools very from browser to browser, 
-but they all have the same functionality.
+network monitors, editors, and even debugging of the multi-threaded execution of Web Workers.
+Although the fact that developer tools vary from browser to browser supposed a drawback, they all have the same functionality.
 \item {\em Data Types} JavaScript uses floating point numbers with a 
 limited precision of 64 bits that partially implement the functionality of
 the {\tt StrictMath} library used by the Java implementation. If more precision
-is needed developers could use {\tt math.js}, an extensive math library with
+is needed, developers could use {\tt math.js}, an extensive math library with
 support for matrices and big numbers.
 \end{itemize}
 
