@@ -1150,7 +1150,9 @@ function.
 
 
 \subsection{$F_{15}:\frac{D}{m}$-group Shifted and $m$-rotated Rastrigins Function}
-JavaScript has been traditionally implemented as an interpreted language not designed for the development of high performance systems. On the other hand, current JavaScript 
+JavaScript has been traditionally implemented as an interpreted
+language not designed for the development of high performance
+systems. On the other hand, current JavaScript  
 virtual machines (VMs) are closing the gap, for instance the Google V8 
 is an engine specifically designed for the fast execution of 
 large JavaScript applications. In order to increase performance
@@ -1295,18 +1297,51 @@ of a chromosme was 1000 double precision numbers, considereing this
 and the memory available in the server, the the pool was limited 
 to 10,000 chromosomes.  In order to keep this size
 constant a random chromosme was pulled out of the pool before inserting a
-new one, when the pool was full. For this problem NodEO's \tt{ chromosme-float } 
-and \tt{ classic-ea-float} modules were used. The parameters for the ea algorithm 
+new one, when the pool was full. For this problem NodEO's {\tt chromosme-float} 
+and {\tt classic-ea-float} modules were used. The parameters for the ea algorithm 
 were tournament size = 3 and  population size = 500, returning exchanging a
 chromosme with the server every 100 generations. Again two workers in each window.
 As before, a few participation calls were published in social networks.
 
-
-
 \subsubsection{Results}
 
+
+%
+\begin{figure}[!htb]
+\centering
+\includegraphics{rastrigin-fitness.png}
+\caption{Fitness of chromosomes sent to the server pool along time in
+  the $x$ axis.} 
+% Plotted with ../data/plot-rastrigin-fitness.R
+\label{fig:puts:rastrigin}
+\end{figure}
+%
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.49\linewidth]{rastrigin-IPs.png}
+\includegraphics[width=0.49\linewidth]{rastrigin-ips-hour.png}
+\caption{Number of unique IPs participating in the Rastrigin
+  experiment per minute (left) and per hour (right)} 
+% Plotted with ../data/plot-rastrigin-IPs.R
+\label{fig:ips:rastrigin}
+\end{figure}
+
+
 The results for this new experiment have been extremely interesting
-and quite different from the previous one. 
+and quite different from the previous one. The most important
+characteristic that set this experiment apart from the previous one is
+the fact that it did not find the solution for the time it was
+running, instead lowering, little by little, the fitness until it was
+disconnected. The fitness of chromosomes sent by clients is shown in
+Figure \ref{fig:puts:rastrigin}, that shows two different parts: the
+upper part, which represents the fitness of clients that have just
+started evolution from a random population, and then the fitness of
+those clients that have been already evolving for a while or obtained
+a high-fitness individual from the pool and evolved from there, and
+which managed to surpass the 9000 value by the end of the
+simulation. It incidentally shows also the number of {\em new} nodes
+coming: there is a dense {\em cloud} at the beginning, but the new
+contributions keep thinning as the evolution progresses. 
 
 
 
