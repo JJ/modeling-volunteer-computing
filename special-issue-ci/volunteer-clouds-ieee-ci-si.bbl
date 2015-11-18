@@ -441,4 +441,17 @@ C.~Chambers, W.-c. Feng, S.~Sahu, and D.~Saha, ``Measurement-based
   the 5th ACM SIGCOMM conference on Internet Measurement}.\hskip 1em plus 0.5em
   minus 0.4em\relax USENIX Association, 2005, pp. 1--1.
 
+\bibitem{Gray:2009:GCM:1610564.1610565}
+\BIBentryALTinterwordspacing
+J.~Gray, ``Google chrome: The making of a cross-platform browser,'' \emph{Linux
+  Journal}, vol. 2009, no. 185, Sep. 2009. [Online]. Available:
+  \url{http://dl.acm.org/citation.cfm?id=1610564.1610565}
+\BIBentrySTDinterwordspacing
+
+\bibitem{tang2007benchmark}
+K.~Tang, X.~Y{\'a}o, P.~N. Suganthan, C.~MacNish, Y.-P. Chen, C.-M. Chen, and
+  Z.~Yang, ``Benchmark functions for the cec’2008 special session and
+  competition on large scale global optimization,'' \emph{Nature Inspired
+  Computation and Applications Laboratory, USTC, China}, pp. 153--177, 2007.
+
 \end{thebibliography}

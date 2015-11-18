@@ -227,9 +227,16 @@ any {\em global computing} infrastructure, that can also be applied to
 distributed evolutionary computation experiments that rely on
 volunteer computing: scalability, heterogeneity, fault tolerance,
 adaptive parallelism, safety, anonymity, hierarchy, ease of use, and
-reasonable performance. But hierarchy, this is, the capability of preferentially using resources in the same organization, is a feature that could be either disregarded or included within adaptivity, which leaves us with eight desirable properties.
-% (Paloma) Re-write. For example, "But is hierarchy, this is, the capability of preferentially using resources in the same organization, the one that could be either disregarded or included in adaptivity, which leaves us with eight desirable properties."
+reasonable performance. But hierarchy, this is, the capability of
+preferentially using resources in the same organization, is a feature
+that could be either disregarded or included within adaptivity, which
+leaves us with eight desirable properties. 
+% (Paloma) Re-write. For example, "But is hierarchy, this is, the
+% capability of preferentially using resources in the same
+% organization, the one that could be either disregarded or included
+% in adaptivity, which leaves us with eight desirable properties." 
 % (Paloma) And I re-wrote what I proposed yesterday.
+% thanks :-) -JJ
 
 The fulfillment of these properties could be achieved by using any of the
 languages and associated technologies, mentioned above, provided that the user had
@@ -517,7 +524,7 @@ Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
   stopping when a solution is found or, as we have done in this paper,
   using Web Workers. In fact, since it is a pool-based system such as
   the one described in \cite{LNCS86720702}, any kind of client that
-  works the application programming interface (API) can be used, % (Paloma) I thought that a client implements an API, or uses an API, or even works with an API. But never heard of a client which "works" an API. Is this correct?
+  calls the application programming interface (API) can be used, % (Paloma) I thought that a client implements an API, or uses an API, or even works with an API. But never heard of a client which "works" an API. Is this correct?
   written in any kind of language. However, in this paper we are going
   to focus on the dynamics and measurements of the volunteer part of
   the system. 
@@ -576,7 +583,8 @@ outlined in the State of the Art (Section \ref{sec:soa}):
   other, communicating only through the server. This architecture 
   has been tested in other high demand systems with success, but 
   in the case of {\sf NodIO}, additional experiments are needed to asses 
-  the scalability of the system. % (Paloma) Is it ok if we talk about scalability when we were talking about adaptiveness? Scalability was also described in the first point.
+  the scalability of the communication system. % (Paloma) Is it ok if we talk about scalability when we were talking about adaptiveness? Scalability was also described in the first point.
+  %(Mario) Scalability of the communication system in particular?
 \item Since the algorithm runs in the browser, {\em safety} is
   achieved through its sandbox mechanisms. The user is thus assured
   that there is no unsafe access either to their local files or even
@@ -755,7 +763,7 @@ relationship between them, that is, computing nodes are not {\em
   staying} after the solution has been found. This is a feature of
 this implementation: the user has to actively reload the page to make
 the evolutionary algorithm start again. % (Paloma) Feature or disadvantage?
- However, it puts a probably
+ However, it puts a probably            % (Mario) Feature if you only want to share your CPU a little  
 unnecessary upper limit on the time, or number of experiments, that a user
 will voluntarily perform.
 
@@ -1372,7 +1380,47 @@ simulation. It incidentally shows also the number of {\em new} nodes
 coming: there is a dense {\em cloud} at the beginning, but the new
 contributions keep thinning as the evolution progresses. 
 
+This is in part due to the fact that the presence of nodes is not
+constant, as shown in Figure \cite{fig:ips:rastrigin}, which plots the
+number of unique IPs participating in the experiment per minute (left)
+and hour (right). The two graphs have the same shape which matches
+also the speed in which fitness is decreased in Figure
+\ref{fig:puts:rastrigin}. At the beginning there are very few or only
+one, but later one there ar peaks of almost 30 unique machine a
+minute; these peaks appear again when new announcements are made in
+Twitter or any other social networks, to go down to a few remaining
+nodes later on. It is interesting to note that, at the most, more than
+100 unique nodes were participating in the experiment during one hour;
+also that there are sustained peaks during a day of 6-7 computers
+every minute. This is due to the fact that the computation is
+asynchronous, but also to the fact that different computers stay in
+the simulation for a different period of time. This period has been
+plotted in Figure \ref{fig:fit:rastrigin}, that plots the number of
+{\tt PUT}s per node, ranked by number, along with a fit to the two
+distributions we have used before, GEV and Weibull; the parameters of
+this fit are shown in Table \ref{tab:puts:ww:f15}. Unlike the previous
+experiments, in which GEV fit was relatively good, in this case it is
+quite obviously not. However, the fit to the Weibull distribution,
+shown at the left of the image, is relatively good. As should be
+expected, the shape and scale are different to the one in the previous
+experiments with the Trap function, however, the shape is quite
+similar (0.40 vs 0.69), being in both cases less than one, which
+indicates a decreasing distribution of the same kind. 
 
+In general, this experiment confirms what was found in the others in
+several aspects: first, there is a regularity in the distribution of
+time assigned by volunteers to it, second, there is a good and certain
+amount of volunteers that will become part of the distributed
+computer, in some cases up to one hundred; also, in some cases there
+will be users that will spend several hours, two orders of magnitude
+more generations in this case than in the previous one. There is a
+clear influence of the time to solution: a short time means that every
+experiment will only gather a few volunteers, but also that they will
+stay only for a short time. A long time will make users stay for
+longer, but if it takes too long, they will eventually lose interest. 
+
+We will discuss this and the rest of the findings of the paper in the
+conclusions. 
 
 %---------------------------------------------------------------
 \section{Conclusion}
@@ -1384,7 +1432,10 @@ evolutionary algorithms that uses the browser and generated using {\sf
 evaluated. Volunteers are {\em in the cloud}, as stated in the title,
 since they are a {\em CPU as a service} for the persons running the
 experiment. In fact, in this paper we have tried to put some figures
-on the real size of that {\em cloud}.
+on the real size of that {\em cloud} and how it can be used standalone
+if there is no alternative or in conjunction with other local or
+cloud-based methods to add computing power in a seamless way through
+the pool that NodIO creates. 
 
 In order to establish a baseline performance, the evolutionary
 algorithm was run in a desktop client-program written in JavaScript
@@ -1408,7 +1459,7 @@ to the experiment at the same time, so that our objective was
 achieved. In general, one of the first conclusions for this paper is
 that the browser technologies should be used to its full extent so
 that the user time is leveraged to its full potential, and this was
-achieved with {\sf NodIO$^2$}.
+achieved with {\sf NodIO$^2$}. 
 
 The second objective of this paper was to model the user behavior in a
 first attempt to try and predict performance. As should be expected,
