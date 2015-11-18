@@ -227,9 +227,16 @@ any {\em global computing} infrastructure, that can also be applied to
 distributed evolutionary computation experiments that rely on
 volunteer computing: scalability, heterogeneity, fault tolerance,
 adaptive parallelism, safety, anonymity, hierarchy, ease of use, and
-reasonable performance. But hierarchy, this is, the capability of preferentially using resources in the same organization, is a feature that could be either disregarded or included within adaptivity, which leaves us with eight desirable properties.
-% (Paloma) Re-write. For example, "But is hierarchy, this is, the capability of preferentially using resources in the same organization, the one that could be either disregarded or included in adaptivity, which leaves us with eight desirable properties."
+reasonable performance. But hierarchy, this is, the capability of
+preferentially using resources in the same organization, is a feature
+that could be either disregarded or included within adaptivity, which
+leaves us with eight desirable properties. 
+% (Paloma) Re-write. For example, "But is hierarchy, this is, the
+% capability of preferentially using resources in the same
+% organization, the one that could be either disregarded or included
+% in adaptivity, which leaves us with eight desirable properties." 
 % (Paloma) And I re-wrote what I proposed yesterday.
+% thanks :-) -JJ
 
 The fulfillment of these properties could be achieved by using any of the
 languages and associated technologies, mentioned above, provided that the user had
@@ -254,7 +261,8 @@ performance.
 Other issues such as scheduling, which are related to adaptive 
 parallelism, were solved on the server. This
 paper was later extended and published in a journal in 1999
-\cite{baratloo1999charlotte}, but it is interesting to note that, even in the early stages of the web, the possibility of 
+\cite{baratloo1999charlotte}, but it is interesting to note that, even
+in the early stages of the web, the possibility of 
 % (Paloma) Re-write. For example, "but it is interesting to note that, even in the early stages of the web, the possibility of..."
 browser-based distributed computing was already researched.
 
@@ -1363,7 +1371,47 @@ simulation. It incidentally shows also the number of {\em new} nodes
 coming: there is a dense {\em cloud} at the beginning, but the new
 contributions keep thinning as the evolution progresses. 
 
+This is part due to the fact that the presence of nodes is not
+constant, as shown in Figure \cite{fig:ips:rastrigin}, which plots the
+number of unique IPs participating in the experiment per minute (left)
+and hour (right). The two graphs have the same shape which matches
+also the speed in which fitness is decreased in Figure
+\ref{fig:puts:rastrigin}. At the beginning there are very few or only
+one, but later one there ar peaks of almost 30 unique machine a
+minute; these peaks appear again when new announcements are made in
+Twitter or any other social networks, to go down to a few remaining
+nodes later on. It is interesting to note that, at the most, more than
+100 unique nodes were participating in the experiment during one hour;
+also that there are sustained peaks during a day of 6-7 computers
+every minute. This is due to the fact that the computation is
+asynchronous, but also to the fact that different computers stay in
+the simulation for a different period of time. This period has been
+plotted in Figure \ref{fig:fit:rastrigin}, that plots the number of
+{\tt PUT}s per node, ranked by number, along with a fit to the two
+distributions we have used before, GEV and Weibull; the parameters of
+this fit are shown in Table \ref{tab:puts:ww:f15}. Unlike the previous
+experiments, in which GEV fit was relatively good, in this case it is
+quite obviously not. However, the fit to the Weibull distribution,
+shown at the left of the image, is relatively good. As should be
+expected, the shape and scale are different to the one in the previous
+experiments with the Trap function, however, the shape is quite
+similar (0.40 vs 0.69), being in both cases less than one, which
+indicates a decreasing distribution of the same kind. 
 
+In general, this experiment confirms what was found in the others in
+several aspects: first, there is a regularity in the distribution of
+time assigned by volunteers to it, second, there is a good and certain
+amount of volunteers that will become part of the distributed
+computer, in some cases up to one hundred; also, in some cases there
+will be users that will spend several hours, two orders of magnitude
+more generations in this case than in the previous one. There is a
+clear influence of the time to solution: a short time means that every
+experiment will only gather a few volunteers, but also that they will
+stay only for a short time. A long time will make users stay for
+longer, but if it takes too long, they will eventually lose interest. 
+
+We will discuss this and the rest of the findings of the paper in the
+conclusions. 
 
 %---------------------------------------------------------------
 \section{Conclusion}
@@ -1399,7 +1447,7 @@ to the experiment at the same time, so that our objective was
 achieved. In general, one of the first conclusions for this paper is
 that the browser technologies should be used to its full extent so
 that the user time is leveraged to its full potential, and this was
-achieved with {\sf NodIO$^2$}.
+achieved with {\sf NodIO$^2$}. 
 
 The second objective of this paper was to model the user behavior in a
 first attempt to try and predict performance. As should be expected,
