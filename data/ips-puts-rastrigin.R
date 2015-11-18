@@ -29,8 +29,8 @@ ggsave('weibull-fit-ww.rastrigin.png',width=5,height=5)
 
 ips.puts.ww.rastrigin.workers <- read.csv("IPs-worker-Rastrigin.csv")
 ips.puts.ww.rastrigin.workers.df <- data.frame(rank=1:nrow(ips.puts.ww.rastrigin.workers),
-                             puts=sort(ips.puts.ww.rastrigin.workers$puts,decreasing=T))
-this.fit <- fgev(ips.puts.ww.rastrigin.workers$puts)
+                                               puts=sort(ips.puts.ww.rastrigin.workers$puts,decreasing=T))
+this.fit <- fgev(ips.puts.ww.rastrigin.workers$puts,std.err=FALSE)
 print(this.fit)
 this.fit.plot <- data.frame(rank=1:length(ips.puts.ww.rastrigin.workers$puts),
                             y=sort(rgev(length(ips.puts.ww.rastrigin.workers$puts),
@@ -49,5 +49,6 @@ this.fit.weib <- data.frame(rank=1:length(ips.puts.ww.rastrigin.workers$puts),
 y=sort(rweibull(length(ips.puts.ww.rastrigin.workers$puts),
     this.weibull$estimate["shape"],
     this.weibull$estimate["scale"]),decreasing=T))
+print(this.weibull)
 ggplot()+geom_point(data=ips.puts.ww.rastrigin.workers.df,aes(x=rank,y=puts,color='Data',shape='Data'))+geom_point(data=this.fit.weib,aes(x=rank,y=y,color='Fit',shape='Fit'))+scale_y_log10()+ scale_colour_discrete(name ="Puts", breaks=c("Data", "Fit"), labels=c("Data", "Fit")) + scale_shape_discrete(name ="Puts", breaks=c("Data", "Fit"), labels=c("Data", "Fit"))
 ggsave('weibull-fit-ww.rastrigin.workers.png',width=5,height=5)

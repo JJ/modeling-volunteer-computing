@@ -1319,13 +1319,28 @@ As before, a few participation calls were published in social networks.
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=0.49\linewidth]{rastrigin-IPs.png}
-\includegraphics[width=0.49\linewidth]{rastrigin-ips-hour.png}
+\includegraphics[width=0.49\linewidth]{rastrigin-IPs-hour.png}
 \caption{Number of unique IPs participating in the Rastrigin
   experiment per minute (left) and per hour (right)} 
 % Plotted with ../data/plot-rastrigin-IPs.R
 \label{fig:ips:rastrigin}
 \end{figure}
-
+%
+\begin{table*}
+\caption{Summary of fit to Generalized Extreme Value (GEV) and Weibull distribution of
+  the number of {\tt PUT}s per worker for the F15 (Rastrigin) function. \label{tab:puts:ww:f15}}
+\begin{center}
+\begin{tabular}{cccc}
+\hline
+Distribution & Location $\mu$ & Scale $\sigma$ & Shape $\xi$ \\
+\hline
+GEV & 35.759 $\pm$ 0.83719  &  343.336  $\pm$  & 9.877   $\pm$
+0.04746 \\
+Weibull & ND & 29.002625061 $\pm$ 2.153034198  & 0.402393903 $\pm$ 0.007586468 \\
+\hline
+\end{tabular}
+\end{center}
+\end{table*}
 
 The results for this new experiment have been extremely interesting
 and quite different from the previous one. The most important
