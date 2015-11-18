@@ -1334,13 +1334,22 @@ As before, a few participation calls were published in social networks.
 \hline
 Distribution & Location $\mu$ & Scale $\sigma$ & Shape $\xi$ \\
 \hline
-GEV & 35.759 $\pm$ 0.83719  &  343.336  $\pm$  & 9.877   $\pm$
-0.04746 \\
+GEV & 35.759  &  343.336   & 9.877 \\
 Weibull & ND & 29.002625061 $\pm$ 2.153034198  & 0.402393903 $\pm$ 0.007586468 \\
 \hline
 \end{tabular}
 \end{center}
 \end{table*}
+%
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.49\linewidth]{gev-fit-ww-rastrigin-workers.png}
+\includegraphics[width=0.49\linewidth]{weibull-fit-ww-rastrigin-workers.png}
+\caption{Fit to GEV (left) and Weibull (right) of the number of {\tt PUT}s per worker for the F15 (Rastrigin) function.} 
+% Plotted with ../data/ips-puts-rastrigin.R
+\label{fig:fit:rastrigin}
+\end{figure}
+%
 
 The results for this new experiment have been extremely interesting
 and quite different from the previous one. The most important
