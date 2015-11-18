@@ -12,7 +12,9 @@ this.fit.plot <- data.frame(rank=1:length(ips.puts.ww$puts),
                                 this.fit$estimate["loc"],
                                 this.fit$estimate["scale"],
                                 this.fit$estimate["shape"]),decreasing=T))
+
 ggplot()+geom_point(data=ips.puts.ww.df,aes(x=rank,y=puts,color='Data',shape='Data'))+geom_point(data=this.fit.plot,aes(x=rank,y=y,color='Fit',shape='Fit'))+scale_y_log10()+ scale_colour_discrete(name  ="Puts", breaks=c("Data", "Fit"), labels=c("Data", "Fit")) + scale_shape_discrete(name  ="Puts", breaks=c("Data", "Fit"), labels=c("Data", "Fit"))
+
 ggsave('gev-fit-ww.png',width=5,height=5)
 
 print(fitdistr(ips.puts.ww$puts,"gamma"))
