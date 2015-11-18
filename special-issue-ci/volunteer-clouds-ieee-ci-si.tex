@@ -752,9 +752,10 @@ indicates the statistical correlation between the number of IPs
 participating in one experiment and the next. In all cases,
 correlation is so low as to affirm that there is almost no
 relationship between them, that is, computing nodes are not {\em
-  staying} after the solution has been found; this is a feature of
+  staying} after the solution has been found. This is a feature of
 this implementation: the user has to actively reload the page to make
-the evolutionary algorithm start again. However, it puts a probably
+the evolutionary algorithm start again. % (Paloma) Feature or disadvantage?
+ However, it puts a probably
 unnecessary upper limit on the time, or number of experiments, that a user
 will voluntarily perform.
 
@@ -766,13 +767,13 @@ will voluntarily perform.
 \caption{Duration of experiments vs. number of different IPs (nodes)
   participating in it, with averages and standard deviation shown as
   red dots; in the case there is a single red dot, there was a single
-  experiment in which so many computers participated (for instance, 16
+  experiment in which many computers participated (for instance, 16
   computers in the experiment in the far left or 29 in the middle
   one). 
-From left to right, experiments 4/4, 4/24 and 7/31. Shades
+Shades
 of blue indicate how many experiments included that many unique IPs,
-so lighter shade for a column of dots indicates that particular number
-of computers happened less frequently, darker shadow more times.}
+so lighter shade for a column of dots indicates that a particular number
+of computers happened less frequently, while darker shadow means more frequence. From left to right, experiments 4/4, 4/24 and 7/31.}
 \label{fig:duration}
 \end{figure}
 %
