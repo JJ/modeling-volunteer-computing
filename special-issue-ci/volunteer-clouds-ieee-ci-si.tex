@@ -132,7 +132,7 @@ application, in which clients can run on a browser.
 Therefore, they can
 % (Paloma) be embedded in?
 be embedded in any web-enabled device, including many over which 
-the developers have no control.
+developers have no control.
 
 Some time ago, our group faced the problem of diminishing funds for
 buying new hardware. This was aggravated by the increasing maintenance costs and
@@ -255,22 +255,23 @@ performance.
 Other issues such as scheduling, which are related to adaptive 
 parallelism, were solved on the server. This
 paper was later extended and published in a journal in 1999
-\cite{baratloo1999charlotte}, but it is interesting to note that
-already in the early stages of the web the possibility of
+\cite{baratloo1999charlotte}, but it is interesting to note that,
+even in the early stages of the web, the possibility of
 % (Paloma) Re-write. For example, "but it is interesting to note that, even in the early stages of the web, the possibility of..."
-browser-based distributed computing was already researched.
+browser-based distributed computing was already researched. 
+
 
 Other systems, like JET, proposed by Soares et
 al. \cite{soares1998get}, also used Java. JET supports
 the execution of parallel applications over the Internet and features
-a comprehensive statistics collection subsystem, allowing its use for science,
-since it allows % (Paloma) Use synonyms, like "yield" or "permit"
- the collection of algorithm analytics by the
+a comprehensive statistics collection subsystem, enabling its use for science, %(Mario) Was easier to change "allowing"
+since it allows % (Paloma) Use synonyms, like "yield" or "permit" 
+the collection of algorithm analytics by the
 experiment designer, unlike the other systems mentioned
 above. Other proposals contemporary to JET, such as {\em SuperWeb}
 \cite{alexandrov1997superweb} are roughly a translation of classical
 distribution techniques, with overly complicated architectures that include
-brokers for resource discovery. It is focused
+brokers for resource discovery. SuperWeb is focused
 % (Paloma) Careful with starting using plural ("Other proposals", "are") and continuig with singular. If you are referring to "SuperWeb", change "It" for "SuperWeb"
 , however, in solving the
 issues involved in browser-based computing and also in making a system
@@ -280,8 +281,8 @@ paper incorporates a discussion on the economic model, paving the way
 for the for-profit distributed computing systems that arose later on. 
 On the other hand, the potential for volunteer computing using
 browsers was realized
-later on \cite{sarmenta-bayanihan} as well as the potential for
-mischief of users with code in their hands
+later on \cite{sarmenta-bayanihan} as well as the potential of
+user misconduct when having access to the source code.
 % (Paloma) I think this sentence is extremely informal
 \cite{sarmenta-sabotagetolerance}. However, these early efforts by
 Sarmenta once again used Java and not JavaScript, making this effort % (Paloma) making them
@@ -347,7 +348,7 @@ writing an evolutionary algorithm for the
 desktop or command line and browser clients, both based in the EC
 library NodEO \cite{DBLP:conf/gecco/GuervosVGES14}. This saves time 
 when writing code and leverages 
-expertise acquired
+the expertise acquired
 % (Paloma) Not sure if "acquired" should be written before "expertise"... sounds better to me, anyways
  in the library itself. 
 
@@ -372,9 +373,11 @@ On the other hand, measuring the performance of the resulting metacomputer
 involves understanding the dynamics of this kind of systems. Initial
 work was done for peer to peer systems by Stutzbach et
 al. \cite{stutzbach2006understanding} and extended to volunteer
-computing by Laredo et al. \cite{churn08,laredo2008rcp}. But the raw material of
-volunteer computing, % (Paloma) Whith regard to?
-number of users and the time spent by every one in the
+computing by Laredo et al. \cite{churn08,laredo2008rcp}. 
+%But the raw material of           
+%volunteer computing, % (Paloma) Whith regard to?  Maybe it was colloquial/analogy
+But some of the essential metrics in volunteer computing like the
+number of users or the time spent by every one in the
 computation in browser-based volunteer computing experiments, have
 only been studied in a limited way in 
 \cite{DBLP:journals/gpem/LaredoBGVAGF14} on the basis of a single
@@ -396,14 +399,15 @@ will try to come up with a more precise model. Next we describe the
 system itself.
 
 
-As far as we know, this paper presents one of the few experiments that % (Paloma) Change to "which" in order to not repeating "that" all the time
-uses computational resources that are as dissimilar as smartphones and
+As far as we know, this paper presents one of the few experiments using % (Paloma) Change to "which" in order to not repeating "that" all the time
+computational resources that are as dissimilar as smartphones and
 powerful laptops 
-or workstation computers in a research center. The methodology used
+or workstation computers in a research center. 
+%The methodology used
 % (Paloma) I would say "the used methodology"
- to
-gather resources and the algorithms used will be described next, as
-well as the results obtained with the initial setup.
+The algorithms used, as well as the methodology 
+for gathering resources will be described next, 
+together with the results obtained in this initial setup.
 
 %---------------------------------------------------------------
 \section{Description of the framework}
@@ -414,20 +418,20 @@ system based on the browser is simply a client-server system
 whose client is, or it can be, embedded in the browser via
 JavaScript. Since JavaScript is  the only language that is present
 across all browsers, the choice was quite clear. Even so, there might
-be some issues with the performance of the language itself; that % (Paloma) I recommend the use of "which" here
+be some issues with the performance of the language itself; which % (Paloma) I recommend the use of "which" here
  is
 why we have made a comparison between JavaScript and other languages
-\cite{2015arXiv151101088M}, resulting that, in fact, JavaScript can be
-faster than compiled languages such as Scala and, in any case, provides
-a performance that is comparable to other languages employed usually % (Paloma) Adverb
+\cite{2015arXiv151101088M}. The results of this work show that JavaScript can be
+faster than compiled languages such as Scala and, in any case, it provides
+a performance that is comparable to other languages usually employed % (Paloma) Adverb
 in evolutionary computation and numerical optimization such as Python. 
 % (Paloma) Bit of too long sentence here. Why not changing the ; for a . ?
 Compiled languages such as
-Java or C might be, in fact, faster, but the fact % (Paloma) Too many "fact" words. There was another one in the previous sentence.
- that a single-user
-performance is higher is more than offset by the fact that the number
-of spontaneous volunteers we can gather at whim, including people
-using their mobile phones or tablets, is several orders of magnitude
+Java or C might be faster when % (Paloma) Too many "fact" words. There was another one in the previous sentence.
+considering the performance of a single-user, 
+but this is more than offset by the computational power of
+the spontaneous volunteers we can gather at whim, including people
+using their mobile phones or tablets. Together, the performance is several orders of magnitude
 higher, which is the objective in this kind of systems.
 % (Paloma) This sentence needs re-writing
 % "Other compiled languages such as Java or C might be, in fact, faster, but the fact that single-user performance is higher (than what?) is over the offset. This is because the number of spontaneous volunteers we can gather at whim, including people using their mobile phones or tablets, is several orders of magnitude higher, which is the objective in this kind of systems." (?)
