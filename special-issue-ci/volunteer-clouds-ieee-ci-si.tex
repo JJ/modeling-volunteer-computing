@@ -46,7 +46,7 @@
 \thanks{Manuscript submitted for review on \today.}%
 \thanks{$^1$Dept. of Computer Architecture and Technology and CITIC University of Granada}%
 \thanks{$^2$Dept. of Graduate Studies at Instituto Tecnol\'ogico de Tijuana}%
-\thanks{$^3$Dept. of Statistics and Operational Researcha University of Granada}%
+\thanks{$^3$Dept. of Statistics and Operational Research University of Granada}%
 \thanks{E-mail addresses: {\tt jmerelo@ugr.es}, {\tt
     mario@tectijuana.edu.mx}, {\tt pacv@ugr.es}, {\tt pablogarcia@ugr.es},{\tt nrico@ugr.es}}%
 \thanks{*Corresponding author.}%
@@ -178,7 +178,7 @@ features such as enhanced security or operating system independence.
 %related to security as well as
 %safety, which introduce 
 
-When developing volunteer based systems, desingers must
+When developing volunteer based systems, designers must
 also consider the whole {\em social} aspect in the design, with
 issues related to security, trust and privacy among others. 
 The computing system becomes a {\em techno-social system} \cite{vespignani2009predicting}.  
@@ -346,7 +346,7 @@ side development.
 JavaScript is also compatible with the functional programming paradigm \cite{Cousineau1998,MacLennan1990,Thompson1996}.
 According to \cite{swanresearch2015}, the benefit of using this kind of paradigm in
 metaheuristics optimization is that it allows an improvement in communicability,
-reproducibility, interoperability, automated assembly, knowledge engineering
+reproductibility, interoperability, automated assembly, knowledge engineering
 and efficiency.
 
 In the work presented in this paper, JavaScript has been used throughout the full
@@ -446,7 +446,7 @@ quite a popular language nowadays, providing compilers from a number
 of languages, many of them in their family (like CoffeeScript), but
 many other outside, so researchers can, in fact, write their fitness
 function in Python, Erlang, Scala, or even Java, and them compile it to
-JavaScript. For completness, an experiment comparing the performance of
+JavaScript. For completeness, an experiment comparing the performance of
 a JavaScript implementation versus Java and Matlab is included in section
 \ref{sec:w2}.
 
@@ -565,7 +565,7 @@ outlined in the State of the Art (Section \ref{sec:soa}):
   \cite{gecco07:workshop:dcor}, which had a low scalability. 
 \item The system is {\em heterogeneous} since it does not need any
   performance, operating system, or even browser requirement as long
-  as Javascript is enabled: anyone
+  as JavaScript is enabled: anyone
   visiting the page, even from mobile devices, can load the algorithm.
   In case the browser does not support HTML5 Web workers (e.g., 
   Windows Phone or some version of Android) or their use
@@ -727,7 +727,7 @@ number of different IPs intervening in them varied from more than one
 hundred to more than five hundred in the second experiment.
 
 A summary of the results of each run is also shown in Table
-\ref{tab:summary:os}, which shows the median number of Internet Protocol addressess (IPs)
+\ref{tab:summary:os}, which shows the median number of Internet Protocol addresses (IPs)
 intervening in each experiment,  median time needed
 to finish the experiment, median number of HTTP {\tt PUT}s per IP, and
 then two columns showing the percentage of experiments that took less
@@ -782,7 +782,7 @@ will voluntarily perform.
 Shades
 of blue indicate how many experiments included that many unique IPs,
 so lighter shade for a column of dots indicates that a particular number
-of computers happened less frequently, while darker shadow means more frequence. From left to right, experiments 4/4, 4/24 and 7/31.}
+of computers happened less frequently, while darker shadow means more frequency. From left to right, experiments 4/4, 4/24 and 7/31.}
 \label{fig:duration}
 \end{figure}
 %
@@ -1152,7 +1152,7 @@ easy to use with a straightforward modification of the fitness
 function. 
 
 
-\subsection{$F_{15}:\frac{D}{m}$-group Shifted and $m$-rotated Rastrigins Function}
+\subsection{$F_{15}:\frac{D}{m}$-group Shifted and $m$-rotated Rastrigin's Function}
 JavaScript has been traditionally implemented as an interpreted
 language not designed for the development of high performance
 systems. On the other hand, current JavaScript  
@@ -1181,7 +1181,7 @@ $D$-dimensional row vector (i.e., a $1 × D$ matrix). Rastrigin’s function
 is a classical multimodal problem. Such problem is difficult since the number of local
 optima grows exponentially with the increase of dimensionality. To make it 
 non-separable, an orthogonal matrix is also used for coordinate rotation.
-The rotated Rastrgin’s function is defined as follows:
+The rotated Rastrigin's function is defined as follows:
 \begin{equation}
 F_{rot\_rastrigin}(x)=F_{rastrigin}(\textbf{z}), \textbf{z}= \textbf{x} * \textbf{M}
 \end{equation}
@@ -1216,7 +1216,7 @@ the implementation in JavaScript are presented to give readers an idea of
 how practical and mature this language is for developing complex mathematical functions.
 
 \begin{itemize}
-\item {\em Randomize} Both Malab and Java programs rely on a 
+\item {\em Randomize} Both Matlab and Java programs rely on a 
 Java Randomizer library for the 
 randomization of the shift vectors and matrices used by the function.
 The library includes the generation of pseudorandom Gaussians of type
@@ -1287,22 +1287,22 @@ with acceptable performance.
 
 \subsubsection{Setup of Rastrigin's experiment in {\sf NodIO}-W$^2$ }
 This experiment was deployed in a virtual private server with 512MB of memory
-runing Ubuntu OS version 14.04 and hosted in DigitalOcean.com. Unlike previous
-experiments where the optimum was espected to be found many times, 
+running Ubuntu OS version 14.04 and hosted in DigitalOcean.com. Unlike previous
+experiments where the optimum was expected to be found many times, 
 this problem was expected to run constantly for many days finding only
-sub-optimal aproximations. In order to achieve this, the only change needed 
-in the system was to limit the number of chromosmes kept in the pool. 
-Previously, every PUT request which included a new chromose increased 
+sub-optimal approximations. In order to achieve this, the only change needed 
+in the system was to limit the number of chromosomes kept in the pool. 
+Previously, every PUT request which included a new chromosome increased 
 the size of the pool, in a long-running experiment this has to be avoided
-in order to not exahust the available memory. In this experiment the size
-of a chromosme was 1000 double precision numbers, considereing this
+in order to not exhaust the available memory. In this experiment the size
+of a chromosome was 1000 double precision numbers, considering this
 and the memory available in the server, the the pool was limited 
 to 10,000 chromosomes.  In order to keep this size
-constant a random chromosme was pulled out of the pool before inserting a
-new one, when the pool was full. For this problem {\sf NodEO}'s {\tt chromosme-float} 
+constant a random chromosome was pulled out of the pool before inserting a
+new one, when the pool was full. For this problem {\sf NodEO}'s {\tt chromosome-float} 
 and {\tt classic-ea-float} modules were used. The parameters for the ea algorithm 
 were tournament size = 3 and  population size = 500, returning exchanging a
-chromosme with the server every 100 generations. Again two workers in each window.
+chromosome with the server every 100 generations. Again two workers in each window.
 As before, a few participation calls were published in social networks.
 
 \subsubsection{Results}
@@ -1375,7 +1375,7 @@ number of unique IPs participating in the experiment per minute (left)
 and hour (right). The two graphs have the same shape which matches
 also the speed in which fitness is decreased in Figure
 \ref{fig:puts:rastrigin}. At the beginning there are very few or only
-one, but later one there ar peaks of almost 30 unique machine a
+one, but later one there are peaks of almost 30 unique machine a
 minute; these peaks appear again when new announcements are made in
 Twitter or any other social networks, to go down to a few remaining
 nodes later on. It is interesting to note that, at the most, more than
