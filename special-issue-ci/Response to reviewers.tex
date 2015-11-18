@@ -108,8 +108,8 @@ eliminate that part of the title if the reviewer thinks it is
 necessary.
 
 \begin{quote}
-- The paper abstract does not properly summarize the paper contents. It says that "That is why in this
-paper we present NodIO, a client-server architecture for distributed evolutionary algorithms !", but there
+- The paper abstract does not properly summarize the paper contents. It says that ``That is why in this
+paper we present NodIO, a client-server architecture for distributed evolutionary algorithms !'', but there
 are two versions of the architecture, as stated later in the conclusions: "In this paper two versions of a
 client-server architecture for volunteer and distributed evolutionary !". That second version is neither
 commented in the introduction.
@@ -283,8 +283,8 @@ Software" special issue. Thanks to both development of Internet technology and c
 computing power of electronic devices, including mobile devices, the web browser based distributed
 computing can be a cheap alternative for grid and high-performance computing systems that require
 high capital expenditures and consume a lot of energy. Evolutionary computing system based on the
-architecture presented inthe paper can be potentially used for solving many different time consuming
-problems, however, the authors limited their experiments to a simple "Trap" function that can be easily
+architecture presented in the paper can be potentially used for solving many different time consuming
+problems, however, the authors limited their experiments to a simple ``Trap'' function that can be easily
 solved on a desktop machine, what may not be convincing for a reader looking for an effective
 optimization tool.
 \end{quote}
@@ -309,7 +309,7 @@ Rastrigin's function, which in fact cannot be solved in a few minutes
 code (this is a great plus!). Technical description of the system is also clear, however it lacks some
 details like parameters of the machine used to determine baselines for the experiments or the format of
 messages sent between the server and the clients. The only thing I noticed is that the authors used the
-term "multiple CPUs" in the description of Web Worker API advantages (page 8) instead of "multi-core
+term ``multiple CPUs'' in the description of Web Worker API advantages (page 8) instead of "multi-core
 CPUs". As far as I know, contemporary web browsers do not support
 multiple CPUs architecture.
 \end{quote}
@@ -324,7 +324,7 @@ section on the experiments, it is a desktop Intel i7-4770.
 \begin{quote}
 
 4. Style: Paper is generally written in a clear way. Statements like
-"But fair is fair," (page 6), sound a bit colloquially in a scientific
+``But fair is fair,'' (page 6), sound a bit colloquially in a scientific
 paper and may be omitted. However, my main concern is the readability
 of the graphs. General remark - font used for description of axes
 
@@ -335,7 +335,7 @@ We have eliminated colloquialisms from the text.
 \begin{quote}
 should be significantly larger. In Fig. 2 the authors can change scale
 for axe Y, as the box for the population of 1024 individuals is very
-small.  What do the authors mean by "times"? Time in seconds? I am not
+small.  What do the authors mean by ``times''? Time in seconds? I am not
 sure if this Figure is necessary at all as the description is
 understandable without it. In Fig.4 all graphs are similar and only
 the one in the middle is analyzed, so maybe others are not necessary?
@@ -350,7 +350,7 @@ that on the caption. We also think that all graphs are needed in Fig
 sentence to highlight that the {\em tail} appears in all three. 
 
 \begin{quote}
-The same is with Fig. 5. What does "x" stand for in the description of
+The same is with Fig. 5. What does ``x'' stand for in the description of
 axe X? (the same is with Fig. 8).
 \end{quote}
 
@@ -408,7 +408,7 @@ fortunately, is not too common. % ¿no existe Chrome para Windows Phone? De toda
 
 \begin{quote}
  - Adaptiveness - this, beside safety, is the main drawback of the system. Although it is possible to
- implement evolutionary algorithm in that way that it wil automatically adopt to the problem type
+ implement evolutionary algorithm in that way that it will automatically adopt to the problem type
  and the environment in which it is computed, the authors do not mention about how real
  adaptiveness of the system can be achieved. The same is with scalability. Only 5 different users
  that permanently participated in the experiments are not enough to assess the scalability of the
@@ -429,7 +429,7 @@ the expanded text.
  code of evolutionary algorithm is sent to the client as a source code in Java Script, so some
  experienced user may quite simple decode what has to be computed. It can may come into
  possession of sensitive data or/and alter this code in order to disrupt the computations or make
- them worhless. The results send to the server may also be captured and/or altered without any
+ them worthless. The results send to the server may also be captured and/or altered without any
  problem since the transmission is not secure.
 
  In my opinion you should at least highlight above issues.
@@ -439,9 +439,9 @@ We have also justified our {\em pragmatic} approach to security
 increasing trust by the user, but also monitoring their behavior to
 detect it and eventually ban users. So far, this has not happened. 
 
-\begin{quote{
-2) Regarding the experiments I am very skeptical about their real value. You chose the "Trap"
-funcion. in which setting all bits to zero gives local maximum and setting all bits to one gives global
+\begin{quote}
+2) Regarding the experiments I am very skeptical about their real value. You chose the ``Trap''
+function. in which setting all bits to zero gives local maximum and setting all bits to one gives global
 maximum. In the experiments you counted how many times evolutionary algorithm was able to find
 global maximum for the problem of size n=40. Initially you have found that if the population in an
 evolutionary algorithm is bit enough (1024 individuals) the algorithm returned global maximum
@@ -459,7 +459,7 @@ solution. You admit that the NodIO system rarely beats a high-performance deskto
 6). Situation is better for the NodIO-W2 using JS Web Workers and automatic restarts, nevertheless,
 it is still behind the desktop computer in more than 60% cases (when compared to the second
 baseline). I suggest to perform additional computing experiments for some higher value of n in the
-"Trap" function or to choose another type of problem like some NP-hard problem. Otherwise I suggest
+``Trap'' function or to choose another type of problem like some NP-hard problem. Otherwise I suggest
 to focus the paper on the behavior analysis of volunteers participating in a distributed computing
 system, what may be also interesting an valuable for the potential
 readers.
@@ -480,7 +480,7 @@ measures in a different scenario (one in which the problem is not solved
 in a few seconds). 
 
 \begin{quote}
-3) Regarding the graphs I ahve already put my comments in Style section, but I have one question. In
+3) Regarding the graphs I have already put my comments in Style section, but I have one question. In
 Fig. 3 in the middle graph (for experiments conducted on 4/24/2015) the is a lot of red dots,
 meaning probably that IPs from 16 to 29 did not performed any computations. What was the reason
 for that?
@@ -489,7 +489,7 @@ for that?
 The $x$ axis runs overs number of computers participating in an
 experiment; that is, $4$ plots the time taken for all experiments in
 which 4 computing nodes participated and the red dot is the average;
-it shadows the time in the case there is a single ocassion. In the
+it shadows the time in the case there is a single occasion. In the
 case you mention, there are no experiments in which there were exactly
 17 nodes, for instance. The ``red dots'' indicate that there was a
 single experiment in which that many nodes participated. We have
@@ -509,11 +509,11 @@ different league.
 
 \begin{quote}
 This paper presents a very challenging proposal. Namely, authors introduce a novel client-server
-architecture for low cost and "potentially" massive distributed evolutionary algorithms. The main novelty
+architecture for low cost and ``potentially'' massive distributed evolutionary algorithms. The main novelty
 turns up from the fact that the architecture is developed in JavaScript.
 However, JavaScript is well-known because of its lack of capability to deal with high performance
 applications like the ones that are addressed in this paper. Thus, the use of JavaScript makes hard to
-believe in the possibility of "potentially" massive computation as
+believe in the possibility of ``potentially'' massive computation as
 sketched by the authors.
 \end{quote}
 
@@ -524,7 +524,7 @@ languages (such as Scala) and scripted languages
 and the JavaScript virtual machine in Chrome (used in Android phones
 and Chrome and Chromium browsers) share the same JIT compiler, so
 their speeds are virtually the same. In general, as a conclusion of
-the report we see that the real difference between scripted and
+the report, we see that the real difference between scripted and
 compiled languages will vary with the language, but also with the
 particular implementation of the algorithm and the size of the problem
 or chromosome you are using. Even if the speed for a particular
@@ -535,7 +535,7 @@ volunteers cooperating to get better performance than what you would
 get with C or Java. Even so, this NodIO architecture, as highlighted
 in the new version of the paper, is pool-based so local sources using
 high-speed devices such as GPUs or even local powerful CPUs can be
-added as non-volunteer users, since the heterogeinity and simple API
+added as non-volunteer users, since the heterogeneity and simple API
 of the system allows that by design. 
 
 \begin{quote}
@@ -543,7 +543,7 @@ The paper is well written and organized. State of the art is quite complete. Nev
 section must be carefully checked and extended in order to fully validate the goodness of the proposed
 architecture. At least, authors should show the behavior of the architecture in a real-world problem
 demanding high computational performance.
-Finally, English must be double-checked in order to correct minor typos such as "in the sense than[that]"
+Finally, English must be double-checked in order to correct minor typos such as ``in the sense than[that]''
 (in page 2).
 \end{quote}
 
