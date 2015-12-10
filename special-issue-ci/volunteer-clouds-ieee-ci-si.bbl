@@ -29,6 +29,11 @@ J.~A. Parejo, A.~R. Cort{\'{e}}s, S.~Lozano, and P.~Fernandez, ``Metaheuristic
   \url{http://dx.doi.org/10.1007/s00500-011-0754-8}
 \BIBentrySTDinterwordspacing
 
+\bibitem{7094263}
+J.~Alcala-Fdez and J.~Alonso, ``A survey of fuzzy systems software: Taxonomy,
+  current research trends and prospects,'' \emph{Fuzzy Systems, IEEE
+  Transactions on}, vol.~PP, no.~99, pp. 1--1, 2015.
+
 \bibitem{vespignani2009predicting}
 A.~Vespignani \emph{et~al.}, ``Predicting the behavior of techno-social
   systems,'' \emph{Science}, vol. 325, no. 5939, p. 425, 2009.
@@ -68,8 +73,8 @@ A.~Baratloo, M.~Karaul, Z.~M. Kedem, and P.~Wijckoff, ``Charlotte:
   vol.~15, no.~5, pp. 559--570, 1999.
 
 \bibitem{alexandrov1997superweb}
-A.~D. Alexandrov, M.~Ibel, K.~E. Schauser, and C.~J. Scheiman, ``Superweb:
-  research issues in java-based global computing,'' \emph{Concurrency -
+A.~D. Alexandrov, M.~Ibel, K.~E. Schauser, and C.~J. Scheiman, ``{SuperWeb:
+  research issues in Java-based global computing},'' \emph{Concurrency -
   Practice and Experience}, vol.~9, no.~6, pp. 535--553, 1997.
 
 \bibitem{sarmenta-bayanihan}
@@ -101,8 +106,8 @@ T.~Watanabe, Z.~Cheng, M.~Kansen, and M.~Hisada, ``A new security testing
   469--474.
 
 \bibitem{anthes2012html5}
-G.~Anthes, ``Html5 leads a web revolution,'' \emph{Communications of the ACM},
-  vol.~55, no.~7, pp. 16--17, 2012.
+G.~Anthes, ``{HTML5} leads a web revolution,'' \emph{Communications of the
+  ACM}, vol.~55, no.~7, pp. 16--17, 2012.
 
 \bibitem{flanagan2006javascript}
 D.~Flanagan, \emph{{JavaScript: the definitive guide}}.\hskip 1em plus 0.5em
@@ -237,7 +242,7 @@ K.~Meri, M.~G. Arenas, A.~M. Mora, J.~J.~M. Guerv{\'o}s, P.~A. Castillo,
   pp. 135--147, 2013.
 
 \bibitem{wood13:nodejs:paas}
-J.~Wood, ``Comparing node.js support on paas hosting providers,''
+J.~Wood, ``{Comparing Node.js Support on PaaS Hosting Providers},''
   \url{https://strongloop.com/strongblog/a-comparison-of-node-js-paas-hosting-providers/},
   May 2013.
 
@@ -350,9 +355,9 @@ L.~F. Sarmenta, ``Volunteer computing,'' Ph.D. dissertation, Massachusetts
 
 \bibitem{web:BOINC}
 \BIBentryALTinterwordspacing
-B.~Wiki, ``What is volunteer computing?'' 2012, [Internet; download
+``What is volunteer computing?'' BOINC Wiki, 2012, [Internet; download
   25-octubre-2013]. [Online]. Available:
-  \url{\url{http://boinc.berkeley.edu/trac/wiki/VolunteerComputing}}
+  \url{http://boinc.berkeley.edu/trac/wiki/VolunteerComputing}
 \BIBentrySTDinterwordspacing
 
 \bibitem{domingues2007sabotage}
@@ -389,8 +394,8 @@ M.~Garc\'{\i}a-Valdez, L.~Trujillo, J.~J. Merelo-Gu\'{e}rvos, and F.~F.
 
 \bibitem{web:compilersjs}
 \BIBentryALTinterwordspacing
-J.~Ashkenas, ``List of languages that compile to js,'' November 2015. [Online].
-  Available:
+J.~Ashkenas, ``List of languages that compile to {JS},'' November 2015.
+  [Online]. Available:
   \url{https://github.com/jashkenas/coffeescript/wiki/list-of-languages-that-compile-to-js}
 \BIBentrySTDinterwordspacing
 
@@ -431,7 +436,7 @@ S.~I. Resnick, \emph{Extreme values, regular variation and point
 
 \bibitem{hickson2012web}
 \BIBentryALTinterwordspacing
-I.~Hickson, ``Web workers, w3c candidate recommendation,'' \emph{W3C. W3C},
+I.~Hickson, ``{Web Workers, W3C Candidate Recommendation},'' \emph{W3C. W3C},
   vol.~1, 2012. [Online]. Available: \url{http://http://www.w3.org/TR/workers}
 \BIBentrySTDinterwordspacing
 
@@ -449,13 +454,13 @@ J.~Gray, ``Google chrome: The making of a cross-platform browser,'' \emph{Linux
 \BIBentrySTDinterwordspacing
 
 \bibitem{tang2007benchmark}
-K.~Tang, X.~Y{\'a}o, P.~N. Suganthan, C.~MacNish, Y.-P. Chen, C.-M. Chen, and
+K.~Tang, X.~Yao, P.~N. Suganthan, C.~MacNish, Y.-P. Chen, C.-M. Chen, and
   Z.~Yang, ``Benchmark functions for the cec’2008 special session and
   competition on large scale global optimization,'' \emph{Nature Inspired
   Computation and Applications Laboratory, USTC, China}, pp. 153--177, 2007.
 
 \bibitem{araujo2008mam}
-L.~Araujo, J.~Merelo-Guervós, C.~Cotta, and F.~de~Vega, ``{MultiKulti
+L.~Araujo, J.~Merelo-Guerv\'os, C.~Cotta, and F.~de~Vega, ``{MultiKulti
   Algorithm: Migrating the Most Different Genotypes in an Island Model},''
   \emph{Arxiv preprint arXiv:0806.2843}, 2008.
 
