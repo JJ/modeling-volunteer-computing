@@ -779,7 +779,8 @@ will voluntarily perform.
   one). 
 Shades of blue indicate how many experiments included that many unique IPs,
 so lighter shade for a column of dots indicates that a particular number
-of computers happened less frequently, while darker shadow means more frequency. From left to right, experiments 4/4, 4/24 and 7/31.}
+of computers happened less frequently, while darker shadow means more frequency. 
+From left to right, experiments 4/4, 4/24 and 7/31.}
 \label{fig:duration}
 \end{figure}
 %
@@ -938,7 +939,7 @@ in Figure~\ref{fig:system:w2}. In this version, clients use the Web Workers
 API to run two {\sf NodEO} instances per browser. The sequence diagram shows the
 interaction between processes in a time sequence. In this system there are
 two kinds of asynchronous messages: HTTP Requests shown as bold arrows between
-the client and the server where PUT and GET HTTP Methods are represented by
+the client and the server where PUT and GET HTTP methods are represented by
 red and blue arrows respectively. There are also messages between workers and
 the main thread locally in the client, which are shown as thin solid arrows.
 There are three processes involved:
@@ -951,7 +952,7 @@ worker instances and handles the user interface.
 \item {\em Worker global scope} The worker execution space does not have
 access to the Document Object Model (DOM) or JQuery objects in the main thread.
 Asynchronous HTTP requests to the server are implemented using the
-XMLHttpRequest (XHR) object.  
+XMLHttpRequest object.  
 \end{itemize}
 %
 \begin{figure}[!htb]
