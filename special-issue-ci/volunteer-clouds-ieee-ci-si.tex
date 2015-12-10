@@ -114,7 +114,8 @@ social networks, volunteer computing, metacomputing, performance evaluation.
 
 \IEEEPARstart{N}{owadays} there is a big and increasing number of
 distributed evolutionary computation software frameworks available on
-the market, usually as open source systems \cite{Parejo12Survey}. Most of these systems have 
+the market, usually as open source systems \cite{Parejo12Survey}. 
+Most of these frameworks have 
 two features: they are {\em desktop} applications, that is, they must
 be compiled or run directly on the operating system layer and, second,
 they assume that the nodes that are going to run the system are under
@@ -122,7 +123,7 @@ the control of developers or they at least have access to them. In
 fact, these features are commonly found in most soft computing
 frameworks \cite{7094263}. 
 
-There is, then, space for systems that do not make any of these
+There is, then, space for frameworks that do not make any of these
 assumptions, such as the one presented in this paper, which will be
  named {\sf NodIO}. {\sf NodIO} is basically
 % (Paloma) Is the "first" word really needed? 
@@ -136,8 +137,7 @@ Some time ago, our group faced the problem of diminishing funds for
 buying new hardware. This was aggravated by the increasing maintenance costs and
 extended downtime resulting from the continuous failures of existing
 clusters.
-Considering this, we leveraged 
-our experience in the design of web
+Considering this, we leveraged our experience in the design of web
 applications, including JavaScript, since their inception and other
 volunteer and
 unconventional distributed evolutionary computing systems to 
@@ -175,7 +175,7 @@ features such as enhanced security or operating system independence.
 %related to security as well as
 %safety, which introduce 
 
-When developing volunteer based systems, designers must
+When developing volunteer based frameworks, designers must
 also consider the whole {\em social} aspect in the design, with
 issues related to security, trust and privacy among others. 
 The computing system becomes a {\em techno-social system} \cite{vespignani2009predicting}.  
@@ -193,7 +193,7 @@ predicted.
 The rest of the paper is organized as follows: Next we present the
 state of the art (Section \ref{sec:soa}) in web-based distributed
 computational systems along with attempts to predict and model its behavior. 
-Then, a detailed description of the proposed system is presented
+Then, a detailed description of the proposed framework is presented
 in Section \ref{sec:description}, followed by the baseline experiments
 in Section \ref{sec:experiments}, and experiments using a new client
 architecture that uses web workers in Section \ref{sec:w2}.
@@ -243,10 +243,10 @@ installed the required virtual machine plugin first.
 However, embedding a
 distributed computation client in the browser has the advantage of
 providing a single and universal way of accessing resources via an
-URI, something that is not guaranteed by using desktop
-applications. Baratloo et al. tried in 1996 to create a system with
+URI, something that is not guaranteed by using desktop applications. 
+Baratloo et al. tried in 1996 to create a framework with
 the aforementioned qualities called {\em Charlotte}
-\cite{baratloo1996charlotte}. This system, which implemented a
+\cite{baratloo1996charlotte}. This framework, which implemented a
 distributed shared memory, was inspired by a previous work
 on parallel computing systems PVM and MPI and solved most of the issues by
 using the Java virtual machine embedded in the browser,
@@ -400,7 +400,7 @@ this kind of distribution might be the most appropriate to describe
 user participation in several different metrics. However, in this
 paper we will perform different experiments in different setups and
 will try to come up with a more precise model. Next we describe the
-system itself.
+framework itself.
 
 
 As far as we know, this paper presents one of the few experiments using % (Paloma) Change to "which" in order to not repeating "that" all the time
@@ -462,7 +462,7 @@ and intended application.
 \end{enumerate}
 
 Two kind of threats are possible in this environment; first, since the
-API is open and it is an open source system, it is relatively easy to
+API is open and it is an open source framework, it is relatively easy to
 sabotage the system, as indicated in \cite{domingues2007sabotage}, by
 crafting a fake request which, for instance, assigns a fake fitness to
 a particular chromosome.
@@ -471,7 +471,8 @@ Another two different attacks are also
 possible: a denial of service attack as well as penetration
 testing. We have approached this threat in a pragmatic way: all
 sources, client and server, for the application, are openly released. 
- We also release as open access the performed experiments \cite{DBLP:journals/corr/GuervosG15} and all data, once anonymized, as open data. This
+ We also release as open access the performed experiments \cite{DBLP:journals/corr/GuervosG15} 
+ and all data, once anonymized, as open data. This
 builds trust between the user and the scientist, which indeed has an
 impact on the performance of the system, since there is no need to
 include cheating checks or other functions that would degrade the
@@ -485,7 +486,7 @@ cloud or bare metal based volunteer evolutionary computing system
 derived from % (Paloma) In order to not sounding too repetitive, could we use "derived from", for example, here?
  the {\sf NodEO} library, whose architecture has been
 developed using JavaScript on the client as well as the server.
-All parts of the system are free and available with a free license
+All parts of the framework are free and available with a free license
 from \url{https://github.com/JJ/splash-volunteer}.
 
 %PABLO: el siguiente párrafo justifica Javascript
@@ -531,7 +532,7 @@ Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
 Figure \ref{fig:system} describes the general system architecture and
 algorithm behavior. Different web technologies, such as JQuery or {\tt
   Chart.js} have
-been used to build the user interface elements of the system.
+been used to build the user interface elements of the framework.
 \begin{figure}[!t]
 \centering
 \includegraphics[width=4in]{system.pdf}
@@ -1045,7 +1046,8 @@ number of seconds is almost 80\% better than the previous version, and
 the median number of PUTs is three times better; this causes that most
 of experiments take less time than one of the baselines, and one third
 less than the second baseline. Thus, the conclusion in this case is
-that we can obtain, through volunteer computation, a result that most of the times is better than we would by using a similar, non-parallel,
+that we can obtain, through volunteer computation, a result that most 
+of the times is better than we would by using a similar, non-parallel,
 desktop setup, which makes this system suitable for massively
 distributed evolutionary algorithms.
 %
@@ -1103,7 +1105,8 @@ standard deviation in the time, with more volunteers adding both {\em
 \centering
 \includegraphics[width=0.49\linewidth]{gev-fit-ww.png}
 \includegraphics[width=0.49\linewidth]{weibull-fit-ww.png}
-\caption{Ranked number of {\tt PUT}s per worker and GEV fit (in red, right) and Weibull (in red, left) for the {\sf NodIO$^2$} model.}  
+\caption{Ranked number of {\tt PUT}s per worker and GEV fit (in red, right) 
+and Weibull (in red, left) for the {\sf NodIO$^2$} model.}  
 \label{fig:gev:w2}
 % File ../data/ips-puts.R
 \end{figure}
@@ -1238,7 +1241,8 @@ array, and for measuring in the browser the {\tt Performance.now()} function was
 which uses floating-point numbers with up to microsecond precision. 
 A drawback found is that the {\tt Performance.now()} function is only implemented
 in Firefox and Chrome browsers. Both functions are independent of the system clock. 
-\item {\em Tools} An important consideration when choosing certain language to write non-trivial programs is the availability of development tools. While developing
+\item {\em Tools} An important consideration when choosing certain 
+language to write non-trivial programs is the availability of development tools. While developing
 the experiments, we used a comprehensive set of developer tools available for both
 browsers and desktop \cite{tilkov2010node}. These tools included
 package managers, in this case {\tt npm}, debuggers, logging libraries
