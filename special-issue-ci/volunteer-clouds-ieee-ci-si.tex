@@ -1238,9 +1238,14 @@ A drawback found is that the {\tt Performance.now()} function is only implemente
 in Firefox and Chrome browsers. Both functions are independent of the system clock. 
 \item {\em Tools} An important consideration when choosing certain language to write non-trivial programs is the availability of development tools. While developing
 the experiments, we used a comprehensive set of developer tools available for both
-browsers and desktop. These tools included package managers, debuggers, logging libraries, 
+browsers and desktop \cite{tilkov2010node}. These tools included
+package managers, in this case {\tt npm}, debuggers, logging libraries
+such as {\tt winston}, 
 network monitors, editors, and even debugging of the multi-threaded execution of Web Workers.
-Although the fact that developer tools vary from browser to browser supposed a drawback, they all have the same functionality.
+Although the fact that developer tools vary from browser to browser
+supposed a drawback, they all have the same functionality. The
+JavaScript debugger can be accessed directly from the user menu in
+most browsers. 
 \item {\em Data Types} JavaScript uses floating point numbers with a 
 limited precision of 64 bits that partially implement the functionality of
 the {\tt StrictMath} library used by the Java implementation. If more precision
