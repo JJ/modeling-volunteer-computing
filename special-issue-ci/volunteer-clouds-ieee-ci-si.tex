@@ -70,7 +70,10 @@ in JavaScript, which needs
 minimal server support to work and is able to support persistent,
 asynchronous, distributed evolutionary algorithms running in the
 browser, as well as any other client consuming its REST application
-programming interface.  The architecture, along with some initial
+programming interface. An enhanced implementation, {\sf NodIO-W$^2$} is also
+presented, this version leverages the HTML 5 Web Workers specification
+to execute several clients per browser in the background, so that the the number of
+generations per user could be improved. The architecture, along with some initial
 results on the expected performance and scaling behavior when the
 number of users is increased is presented. We also use
 the algorithm data to find out what kind of patterns the user behavior
@@ -935,7 +938,7 @@ was tested in desktop versions of Chrome, FireFox and Safari.
 \item Each {\sf NodEO} instance can be restarted independently.
 \end{itemize}
 
-A sequence diagram   of the enhanced NodIO, which is called NodIO-W$^2$, is presented
+A sequence diagram of the enhanced NodIO, which is called NodIO-W$^2$, is presented
 in Figure~\ref{fig:system:w2}. In this version, clients use the Web Workers
 API to run two {\sf NodEO} instances per browser. The sequence diagram shows the
 interaction between processes in a time sequence. In this system there are
