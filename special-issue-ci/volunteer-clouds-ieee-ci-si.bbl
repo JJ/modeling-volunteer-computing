@@ -34,6 +34,14 @@ J.~Alcala-Fdez and J.~Alonso, ``A survey of fuzzy systems software: Taxonomy,
   current research trends and prospects,'' \emph{Fuzzy Systems, IEEE
   Transactions on}, vol.~PP, no.~99, pp. 1--1, 2015.
 
+\bibitem{2015arXiv151101088M}
+\BIBentryALTinterwordspacing
+J.-J. {Merelo}, P.~{Garc{\'{\i}}a-S{\'a}nchez}, M.~{Garc{\'{\i}}a-Valdez}, and
+  I.~{Blancas}, ``{There is no fast lunch: an examination of the running speed
+  of evolutionary algorithms in several languages},'' \emph{ArXiv e-prints},
+  Nov. 2015. [Online]. Available: \url{http://arxiv.org/abs/1511.01088}
+\BIBentrySTDinterwordspacing
+
 \bibitem{vespignani2009predicting}
 A.~Vespignani \emph{et~al.}, ``Predicting the behavior of techno-social
   systems,'' \emph{Science}, vol. 325, no. 5939, p. 425, 2009.
@@ -341,14 +349,6 @@ J.~J. Merelo, P.~Castillo, J.~Laredo, A.~Mora, and A.~Prieto, ``Asynchronous
   \url{http://atc.ugr.es/I+D+i/congresos/2008/CEC_2008_1372.pdf}
 \BIBentrySTDinterwordspacing
 
-\bibitem{2015arXiv151101088M}
-\BIBentryALTinterwordspacing
-J.-J. {Merelo}, P.~{Garc{\'{\i}}a-S{\'a}nchez}, M.~{Garc{\'{\i}}a-Valdez}, and
-  I.~{Blancas}, ``{There is no fast lunch: an examination of the running speed
-  of evolutionary algorithms in several languages},'' \emph{ArXiv e-prints},
-  Nov. 2015. [Online]. Available: \url{http://arxiv.org/abs/1511.01088}
-\BIBentrySTDinterwordspacing
-
 \bibitem{sarmenta2001volunteer}
 L.~F. Sarmenta, ``Volunteer computing,'' Ph.D. dissertation, Massachusetts
   Institute of Technology, 2001.
@@ -458,6 +458,11 @@ K.~Tang, X.~Yao, P.~N. Suganthan, C.~MacNish, Y.-P. Chen, C.-M. Chen, and
   Z.~Yang, ``Benchmark functions for the cec’2008 special session and
   competition on large scale global optimization,'' \emph{Nature Inspired
   Computation and Applications Laboratory, USTC, China}, pp. 153--177, 2007.
+
+\bibitem{tilkov2010node}
+S.~Tilkov and S.~Vinoski, ``Node. js: Using javascript to build
+  high-performance network programs,'' \emph{IEEE Internet Computing}, no.~6,
+  pp. 80--83, 2010.
 
 \bibitem{araujo2008mam}
 L.~Araujo, J.~Merelo-Guerv\'os, C.~Cotta, and F.~de~Vega, ``{MultiKulti
