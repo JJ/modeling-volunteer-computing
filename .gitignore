@@ -17,6 +17,7 @@
 *.dvi
 *.bbl
 *.zip
+*.gz
 auto/
 
 #WebStorm, PyCharm 
