@@ -304,7 +304,7 @@ adoption of the HTML5 standard \cite{anthes2012html5}.
 JavaScript \cite{flanagan2006javascript}, however, has become a set of standards
 \cite{ECMA-262} that include the language and its components. Since
 early on, it was adopted by the industry and also by scientists,
-who used them for creating an evolutionary algorithm (EA) on
+who used them for creating an evolutionary algorithm (EA from now on) on
 the browser as early as 1998 \cite{jj-ppsn98}.
 
 JavaScript can be used either for unwitting
@@ -460,17 +460,19 @@ regarding invasion of privacy, the integrity of their devices,
 and intended application. 
 \end{enumerate}
 
-Two kind of threats are possible in this environment; first, since the
-API is open and it is an open source framework, it is relatively easy to
+Several kind of threats are possible in this environment; first, since its
+programming interface is open and its code is open source, it is
+relatively easy to find vulnerabilities and 
 sabotage the system, as indicated in \cite{domingues2007sabotage}, by
 crafting a fake request which, for instance, assigns a fake fitness to
 a particular chromosome.
-% (Paloma) Where is the second kind of threat?
-Another two different attacks are also
+Other two different kinds of attacks are also
 possible: a denial of service attack as well as penetration
 testing. We have approached this threat in a pragmatic way: all
-sources, client and server, for the application, are openly released. 
- We also release as open access the performed experiments \cite{DBLP:journals/corr/GuervosG15} 
+sources, client and server, for the application, are openly released
+as free software. 
+ We also release as an open access paper the result of the 
+ experiments performed \cite{DBLP:journals/corr/GuervosG15}  
  and all data, once anonymized, as open data. This
 builds trust between the user and the scientist, which indeed has an
 impact on the performance of the system, since there is no need to
@@ -480,7 +482,7 @@ coherent with our whole approach to the study of a distributed volunteer
  system which can only be studied by approaching it from the
 technical as well as the social, as in social media, angle. 
 
-In this sense, in this paper we propose the {\sf NodIO} framework, a
+In this sense, in this paper we propose several versions of the {\sf NodIO} framework, a
 cloud or bare metal based volunteer evolutionary computing system
 derived from % (Paloma) In order to not sounding too repetitive, could we use "derived from", for example, here?
  the {\sf NodEO} library, whose architecture has been
@@ -528,7 +530,7 @@ Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
   the system. 
 
 
-Figure \ref{fig:system} describes the general system architecture and
+The figure \ref{fig:system} describes the general system architecture and
 algorithm behavior. Different web technologies, such as JQuery or {\tt
   Chart.js} have
 been used to build the user interface elements of the framework.
@@ -1156,7 +1158,7 @@ function.
 JavaScript has been traditionally implemented as an interpreted
 language not designed for the development of high performance
 systems. On the other hand, current JavaScript  
-virtual machines (VMs) are closing the gap, for instance the Google V8 
+virtual machines (VMs from now on) are closing the gap, for instance the Google V8 
 is an engine specifically designed for the fast execution of 
 large JavaScript applications. In order to increase performance
 V8 compiles JavaScript source code directly into machine code when it is first executed. 
