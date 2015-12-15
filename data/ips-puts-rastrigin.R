@@ -40,7 +40,7 @@ this.fit.plot <- data.frame(rank=1:length(ips.puts.ww.rastrigin.workers$puts),
 
 ggplot() +geom_point(data=ips.puts.ww.rastrigin.workers.df,aes(x=rank,y=puts,color='Data',shape='Data')) +geom_point(data=this.fit.plot,aes(x=rank,y=y,color='Fit',shape='Fit'))+scale_y_log10() + scale_colour_grey(name  ="Puts", breaks=c("Data", "Fit"), labels=c("Data", "Fit")) + scale_shape_discrete(name  ="Puts", breaks=c("Data", "Fit"), labels=c("Data", "Fit"))
 
-ggsave('../img/gev-fit-ww.rastrigin.workers.png',width=5,height=5)
+ggsave('../img/gev-fit-ww-rastrigin-workers.png',width=5,height=5)
 
 print(fitdistr(ips.puts.ww.rastrigin.workers$puts,"gamma"))
 this.weibull <- fitdistr(ips.puts.ww.rastrigin.workers$puts,"weibull")
@@ -51,4 +51,4 @@ y=sort(rweibull(length(ips.puts.ww.rastrigin.workers$puts),
     this.weibull$estimate["scale"]),decreasing=T))
 print(this.weibull)
 ggplot()+geom_point(data=ips.puts.ww.rastrigin.workers.df,aes(x=rank,y=puts,color='Data',shape='Data'))+geom_point(data=this.fit.weib,aes(x=rank,y=y,color='Fit',shape='Fit'))+scale_y_log10()+ scale_colour_grey(name ="Puts", breaks=c("Data", "Fit"), labels=c("Data", "Fit")) + scale_shape_discrete(name ="Puts", breaks=c("Data", "Fit"), labels=c("Data", "Fit"))
-ggsave('../img/weibull-fit-ww.rastrigin.workers.png',width=5,height=5)
+ggsave('../img/weibull-fit-ww-rastrigin-workers.png',width=5,height=5)
