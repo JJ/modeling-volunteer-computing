@@ -115,7 +115,7 @@ social networks, volunteer computing, metacomputing, performance evaluation.
 
 \IEEEPARstart{N}{owadays} there is a big and increasing number of
 distributed evolutionary computation software frameworks available on
-the market, usually as open source systems \cite{Parejo12Survey}. 
+the market, usually as open source frameworks \cite{Parejo12Survey}. 
 Most of these frameworks have 
 two features: they are {\em desktop} applications, that is, they must
 be compiled or run directly on the operating system layer and, second,
@@ -155,7 +155,7 @@ servers and browsers as clients.
 %PABLO: He añadido el siguiente párrafo para el issue #31
 There exist other volunteer computing frameworks written in compiled languages,
 such as C++ or Java, that, in principle, can achieve better performance than
-JavaScript \cite{2015arXiv151101088M}. However, one of the advantages of our system is that
+JavaScript \cite{2015arXiv151101088M}. However, one of the advantages of our architecture is that
 clients do not need to install anything in their machines, they just
 need to open a web page  
 % Somewhat redundant 
@@ -187,7 +187,7 @@ In this paper, our intention is to
 present the {\sf NodIO} framework and analyze it from two different
 angles: the purely technical angle, including the decisions that went
 into its features, and the social angle, to account on how the persons
-that voluntarily choose to enter the web page running the system
+that voluntarily choose to enter the web page running the experiment
 determine its performance and how it can be modeled and, eventually,
 predicted.
 
@@ -249,7 +249,7 @@ Baratloo et al. tried in 1996 to create a framework with
 the aforementioned qualities called {\em Charlotte}
 \cite{baratloo1996charlotte}. This framework, which implemented a
 distributed shared memory, was inspired by a previous work
-on parallel computing systems PVM and MPI and solved most of the issues by
+on parallel computing libraries PVM and MPI and solved most of the issues by
 using the Java virtual machine embedded in the browser,
 which provided
 security to the user, uniformity of computing environment
@@ -418,7 +418,7 @@ together with the results obtained in this initial setup.
 \label{sec:description}
 
 In general, a distributed volunteer-based evolutionary computation
-system based on the browser is simply a client-server system
+framework based on the browser is simply a client-server system
 whose client is, or it can be, embedded in the browser via
 JavaScript. Since JavaScript is  the only language that is present
 across all browsers, the choice was quite clear. Even so, there might
@@ -438,7 +438,12 @@ the spontaneous volunteers we can gather at whim, including people
 using their mobile phones or tablets. Together, the performance is several orders of magnitude
 higher, which is the objective in this kind of systems.
 % (Paloma) This sentence needs re-writing
-% "Other compiled languages such as Java or C might be, in fact, faster, but the fact that single-user performance is higher (than what?) is over the offset. This is because the number of spontaneous volunteers we can gather at whim, including people using their mobile phones or tablets, is several orders of magnitude higher, which is the objective in this kind of systems." (?)
+% "Other compiled languages such as Java or C might be, in fact,
+% faster, but the fact that single-user performance is higher (than
+% what?) is over the offset. This is because the number of spontaneous
+% volunteers we can gather at whim, including people using their
+% mobile phones or tablets, is several orders of magnitude higher,
+% which is the objective in this kind of systems." (?) 
  JavaScript is
 quite a popular language nowadays, providing compilers from a number
 of languages, many of them in their family (like CoffeeScript), but
@@ -478,10 +483,10 @@ as free software.
  and all data, once anonymized, as open data. This
 builds trust between the user and the scientist, which indeed has an
 impact on the performance of the system, since there is no need to
-include cheating checks or other functions that would degrade the
-performance of the system. This socio-technical approach is, indeed,
+include cheating checks or other functions that would degrade it. This
+socio-technical approach is, indeed, 
 coherent with our whole approach to the study of a distributed volunteer
- system which can only be studied by approaching it from the
+ system which can only be tackled by approaching it from the
 technical as well as the social, as in social media, angle. 
 
 In this sense, in this paper we propose several versions of the {\sf NodIO} framework, a
@@ -529,7 +534,7 @@ Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
   calls the application programming interface (API) can be used, % (Paloma) I thought that a client implements an API, or uses an API, or even works with an API. But never heard of a client which "works" an API. Is this correct?
   written in any kind of language. However, in this paper we are going
   to focus on the dynamics and measurements of the volunteer part of
-  the system. 
+  the framework. 
 
 
 The figure \ref{fig:system} describes the general system architecture and
@@ -539,7 +544,7 @@ been used to build the user interface elements of the framework.
 \begin{figure}[!t]
 \centering
 \includegraphics[width=4in]{system.pdf}
-\caption{Description of the proposed system. Clients execute a JavaScript EA
+\caption{Description of the proposed framework. Clients execute a JavaScript EA
   in the browser, which, every 100 generations, sends the best
   individual and receives a random one from the server.}
 \label{fig:system}
@@ -564,7 +569,7 @@ outlined in the State of the Art (Section \ref{sec:soa}):
   number of simultaneous requests will be reached, but so far it has
   not been found, unlike what we found in our previous systems, DCoR,
   \cite{gecco07:workshop:dcor}, which had a low scalability. 
-\item The system is {\em heterogeneous} since it does not need any
+\item The framework is {\em heterogeneous} since it does not need any
   performance, operating system, or even browser requirement as long
   as JavaScript is enabled: anyone
   visiting the page, even from mobile devices, can load the algorithm.
@@ -870,9 +875,9 @@ This distribution was originally proposed to fit extreme values
 \cite{resnick2013extreme} and contains, as a special case, the inverse
 Weibull distribution which was fitted to volunteer computing
 frameworks such as SETI@home \cite{javadi2009mining}. We obviously do
-not pretend to compare our system in scale or complexity with it, but
+not pretend to compare our framework in scale or complexity with it, but
 to point out that the behavior of volunteer computing nodes follows a
-certain pattern, found in SETI@home, and which also appears in our system. This
+certain pattern, found in SETI@home, and which also appears in our framework. This
 distribution is governed by three parameters, the usual location $\mu$
 which is related to where it has its {\em center} and a scale $\sigma$,
 related to the size, but also a third shape $\xi$ parameter that is
@@ -939,7 +944,7 @@ was tested in desktop versions of Chrome, FireFox and Safari.
 A sequence diagram of the enhanced NodIO, which is called NodIO-W$^2$, is presented
 in Figure~\ref{fig:system:w2}. In this version, clients use the Web Workers
 API to run two {\sf NodEO} instances per browser. The sequence diagram shows the
-interaction between processes in a time sequence. In this system there are
+interaction between processes in a time sequence. In this version there are
 two kinds of asynchronous messages: HTTP Requests shown as bold arrows between
 the client and the server where PUT and GET HTTP methods are represented by
 red and blue arrows respectively. There are also messages between workers and
@@ -1302,7 +1307,7 @@ running Ubuntu OS version 14.04 and hosted in DigitalOcean.com. Unlike previous
 experiments where the optimum was expected to be found many times, 
 this problem was expected to run constantly for many days finding only
 sub-optimal approximations. In order to achieve this, the only change needed 
-in the system was to limit the number of chromosomes kept in the pool. 
+in the framework was to limit the number of chromosomes kept in the pool. 
 Previously, every PUT request which included a new chromosome increased 
 the size of the pool, in a long-running experiment this has to be avoided
 in order to not exhaust the available memory. In this experiment the size
