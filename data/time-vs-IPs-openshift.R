@@ -13,8 +13,8 @@ time.vs.IPs <- function( data, preffix ) {
     ggsave(paste0("../img/duration-vs-time-OS-",preffix,".png"))
     ggplot(data=data, aes(x=i,y=milliseconds,color=IPs))+geom_point()+scale_y_log10() + scale_color_gradient(low='blue', high='yellow')
     ggsave(paste0("duration-vs-time-OS-bar-",preffix,".png"))
-    ggplot(data=data, aes(x=reorder(i,-milliseconds),y=milliseconds,color=IPs)) +geom_point()+scale_y_log10() + scale_color_gradient(low='blue', high='yellow')+theme(axis.ticks = element_blank(), axis.text.x = element_blank(),axis.text.x=element_text("Ordered experiments"))
-    ggsave(paste0("time-vs-rank-OS-",preffix,".png"))
+    ggplot(data=data, aes(x=reorder(i,-milliseconds),y=milliseconds,color=IPs)) +geom_point()+scale_y_log10() + scale_color_gradient(low='white', high='black') + theme(axis.ticks = element_blank(), axis.text.x = element_blank(), text = element_text(size=20), panel.grid.major = element_blank(), panel.grid.minor = element_blank() )+labs( x="Ordered experiments")
+    ggsave(paste0("../img/time-vs-rank-OS-",preffix,".png"))
 }
 
 suffix <- c("4-4","4-24","7-31")
