@@ -7,10 +7,10 @@ time.vs.IPs <- function( data, preffix ) {
         data[i,]$howmany <- length(data[data$IPs==data[i,]$IPs,]$milliseconds)
     }
     data$i <- 1:nrow(data)
-    ggplot(data=data, aes(x=IPs,y=milliseconds,color=howmany))+geom_point()+scale_y_log10()+ stat_summary(fun.data = "mean_cl_boot", colour = "red")
-    ggsave(paste0("time-vs-ips-OS-",preffix,".png"))
+    ggplot(data=data, aes(x=IPs,y=milliseconds,color=howmany))+ scale_colour_gradient(name  ="Count", low="white",high='gray70')+geom_point()+scale_y_log10()+ stat_summary(fun.data = "mean_cl_boot", colour = "black")+ theme(text = element_text(size=20))
+    ggsave(paste0("../img/time-vs-ips-OS-",preffix,".png"))
     ggplot(data=data, aes(x=i,y=milliseconds,fill=IPs))+geom_bar(stat='identity')+scale_y_log10()
-    ggsave(paste0("duration-vs-time-OS-",preffix,".png"))
+    ggsave(paste0("../img/duration-vs-time-OS-",preffix,".png"))
     ggplot(data=data, aes(x=i,y=milliseconds,color=IPs))+geom_point()+scale_y_log10() + scale_color_gradient(low='blue', high='yellow')
     ggsave(paste0("duration-vs-time-OS-bar-",preffix,".png"))
     ggplot(data=data, aes(x=reorder(i,-milliseconds),y=milliseconds,color=IPs)) +geom_point()+scale_y_log10() + scale_color_gradient(low='blue', high='yellow')+theme(axis.ticks = element_blank(), axis.text.x = element_blank(),axis.text.x=element_text("Ordered experiments"))
