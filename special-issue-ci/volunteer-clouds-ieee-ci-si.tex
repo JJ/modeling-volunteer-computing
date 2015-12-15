@@ -784,7 +784,7 @@ will voluntarily perform.
   experiment in which many computers participated (for instance, 16
   computers in the experiment in the far left or 29 in the middle
   one). 
-Shades of blue indicate how many experiments included that many unique IPs,
+Shades of blue (or gray in grayscale) indicate how many experiments included that many unique IPs,
 so lighter shade for a column of dots indicates that a particular number
 of computers happened less frequently, while darker shadow means more frequency. 
 From left to right, experiments 4/4, 4/24 and 7/31.}
@@ -797,7 +797,7 @@ From left to right, experiments 4/4, 4/24 and 7/31.}
 \includegraphics[width=0.32\linewidth]{time-vs-rank-OS-4-24.png}
 \includegraphics[width=0.32\linewidth]{time-vs-rank-OS-7-31.png}
 \caption{Duration of experiments vs. rank, with $y$ axis in a
-  logarithmic scale. Dot color is related to the number of IPs
+  logarithmic scale. Dot color (or gray value) is related to the number of IPs
   participating in the experiment. From left to right, experiments
   4/4, 4/24 and 7/31.} 
 \label{fig:zipf:os}
@@ -831,7 +831,7 @@ experiment.
 \includegraphics[width=0.32\linewidth]{puts-openshift-4-24.png}
 \includegraphics[width=0.32\linewidth]{puts-openshift-7-31.png}
 \caption{Number of {\tt PUT}s per unique IP and fit to a Generalized
-  Extreme Value distribution (in red). From left to right, experiments
+  Extreme Value distribution (in a lighter shade of gray). From left to right, experiments
   4/4, 4/24 and 7/31.} 
 % Plotted with ../data/plot-zipf-openshift.R
 \label{fig:puts:os}
@@ -1033,10 +1033,11 @@ assigned.
 \centering
 \includegraphics[width=0.9\linewidth]{ips-time-ww.png}
 \caption{Time employed in every experiment vs. number of IPs (in
-  abscissas). The red dot and line show the average and standard
-  deviation, the shade of blue the number of experiments with the same
+  abscissas). The black dot and line show the average and standard
+  deviation, the shades of gray the number of experiments with the same
   number of IPs. } 
 \label{fig:ipstime:w2}
+% ../data/time-vs-IPs.R 
 \end{figure}
 
 \subsection{Experimental trials}
