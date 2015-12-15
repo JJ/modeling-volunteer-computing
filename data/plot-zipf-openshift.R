@@ -12,8 +12,8 @@ process.puts <- function(suffix ) {
                                     this.fit$estimate["loc"],
                                     this.fit$estimate["scale"],
                                     this.fit$estimate["shape"]),decreasing=T))
-    ggplot()+geom_point(data=this.df,aes(x=rank,y=puts,color='data',shape='data'))+geom_point(data=this.fit.plot,aes(x=rank,y=y,color='fit',shape='fit'))+scale_y_log10()+ scale_colour_discrete(name  ="Puts", breaks=c("data", "fit"), labels=c("Data", "Fit")) + scale_shape_discrete(name  ="Puts", breaks=c("data", "fit"), labels=c("Data", "Fit"))
-    ggsave(paste0("puts-openshift-",suffix,".png"),width=5,height=5)
+    ggplot()+geom_point(data=this.df,aes(x=rank,y=puts,color='data',shape='data'))+geom_point(data=this.fit.plot,aes(x=rank,y=y,color='fit',shape='fit'))+scale_y_log10()+ scale_colour_grey(name  ="Puts", breaks=c("data", "fit"), labels=c("Data", "Fit")) + scale_shape_discrete(name  ="Puts", breaks=c("data", "fit"), labels=c("Data", "Fit"))
+    ggsave(paste0("../img/puts-openshift-",suffix,".png"),width=5,height=5)
     return(this.df)
 }
     
@@ -22,7 +22,7 @@ dt.puts.4.4 <- process.puts("4-4")
 dt.puts.4.24 <- process.puts("4-24")
 dt.puts.7.31 <- process.puts("7-31")
 
-ggplot()+ scale_x_continuous("Normalized # runs")+scale_y_log10()+scale_colour_hue(name = '# Runs') +geom_point(data=dt.puts.4.4,aes(x=rank/length(dt.puts.4.4$rank),y=puts,color='4/4'),stat='Identity')+geom_point(data=dt.puts.4.24,aes(x=rank/length(dt.puts.4.24$rank),y=puts,color='4/24'),stat='Identity')+geom_point(data=dt.puts.7.31,aes(x=rank/length(dt.puts.7.31$rank),y=puts,color='7/31'),stat='Identity')
+ggplot()+ scale_x_continuous("Normalized # runs")+scale_y_log10()+scale_colour_grey(name = '# Runs') +geom_point(data=dt.puts.4.4,aes(x=rank/length(dt.puts.4.4$rank),y=puts,color='4/4'),stat='Identity')+geom_point(data=dt.puts.4.24,aes(x=rank/length(dt.puts.4.24$rank),y=puts,color='4/24'),stat='Identity')+geom_point(data=dt.puts.7.31,aes(x=rank/length(dt.puts.7.31$rank),y=puts,color='7/31'),stat='Identity')
 
 all.puts <- data.frame(Experiment=rep("4-4",length(dt.puts.4.4$puts)),
                        x = dt.puts.4.4$rank,
