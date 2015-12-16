@@ -906,7 +906,7 @@ computing power would be increasing this minimum amount per user. This
 issue led us to create the next version of the framework, which is
 presented next. % (Paloma) This sentences are sort of alone here... Could we extend a bit the first "this" to connect them to the previous paragraph ?
 
-\section{Enhancing NodIO with a Web Worker-based architecture}
+\section{Enhancing {\sf NodIO} with a Web Worker-based architecture}
 \label{sec:w2}
 
 In order to improve the number of cycles per user, we enhanced the
@@ -1317,16 +1317,16 @@ this problem was expected to run constantly for many days finding only
 sub-optimal approximations. In order to achieve this, the only change needed 
 in the framework was to limit the number of chromosomes kept in the pool. 
 Previously, every PUT request which included a new chromosome increased 
-the size of the pool, in a long-running experiment this has to be avoided
+the size of the pool. But in a long-running experiment this has to be avoided
 in order to not exhaust the available memory. In this experiment the size
-of a chromosome was 1000 double precision numbers, considering this
-and the memory available in the server, the the pool was limited 
+of a chromosome was 1000 double precision numbers, so that considering this
+and the memory available in the server, the pool was limited 
 to 10,000 chromosomes.  In order to keep this size
-constant a random chromosome was pulled out of the pool before inserting a
+constant, a random chromosome was pulled out of the pool before inserting a
 new one, when the pool was full. For this problem {\sf NodEO}'s {\tt chromosome-float} 
 and {\tt classic-ea-float} modules were used. The parameters for the EA 
 were tournament size = 3 and  population size = 500, returning exchanging a
-chromosome with the server every 100 generations. Again two workers in each window.
+chromosome with the server every 100 generations. Again, there were two workers in each window.
 As before, a few participation calls were published in social networks.
 
 \subsubsection{Results}
@@ -1429,17 +1429,18 @@ few minutes and the second a few seconds less, the difference between
 the first and second in this experiment might be in the scale of
 hours. 
 
+% (Paloma) Mario, isn't this the future work? Should it be in conclusions? If not, just ignore this comment.
 There are several validity threats to the design of this study.
 Participants of the experiments were mainly members of our 
 own social networks, personal colleagues, friends 
-and acquaintances, when extending this work other options 
+and acquaintances, therefore to extend this work other options 
 should be considered in order to include 
 a wider audience with different motives for participation.
 Another threat is that participants were anonymous so the amount of repeated 
-participations and the effects this had in the outcome is not
+participations and the effects this might have had in the outcome is not
 known. Another issue is that the scalability of the system was not thoroughly tested
 but for the amount of participants the basic configuration 
-was more than adequate, again more experiments are needed in order
+was more than adequate, then again more experiments are needed in order
 to assess the capability both with more clients and other server
 configurations. Although care was taken to include representative benchmarks
 of real world problems, more experiments with a broader coverage 
