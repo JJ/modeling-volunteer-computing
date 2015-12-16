@@ -227,7 +227,8 @@ programs. The ATLAS system
 with another language called Cilk; all these papers indicated that
 the introduction of an architecture-independent system such as the
 Java virtual machine opened the doors for ultrascale, Internet-wide,
-metacomputers. This paper also establishes the desirable features of
+metacomputers. This paper % (Paloma) No really need for that "also", plus it complicates reading
+establishes the desirable features of
 any {\em global computing} infrastructure, that can also be applied to
 distributed evolutionary computation experiments that rely on
 volunteer computing: scalability, heterogeneity, fault tolerance,
@@ -260,9 +261,9 @@ using the Java virtual machine embedded in the browser,
 which provided
 security to the user, uniformity of computing environment
 independently of the operating system, and access to a common data store in the
-server. Since the Java virtual machine is a sandbox, it is safe to the user
-and as it runs compiled bytecode it also guarantees a certain level of
-performance.
+server. Additionally, since the Java virtual machine is a sandbox, it was safe to the user
+and as it runs compiled bytecode it also guaranteed a certain level of
+performance. % (Paloma) I've changed a bit this sentence to unify the use of past tense when talking about Charlotte
 Other issues such as scheduling, which are related to adaptive 
 parallelism, were solved on the server. This
 paper was later extended and published in a journal in 1999
@@ -293,9 +294,8 @@ for the for-profit distributed computing systems that arose later on.
 On the other hand, the potential for volunteer computing using
 browsers was realized
 later on \cite{sarmenta-bayanihan} as well as the potential of
-user misconduct when having access to the source code.
-% (Paloma) I think this sentence is extremely informal
-\cite{sarmenta-sabotagetolerance}. However, these early efforts by
+user misconduct when having access to the source code \cite{sarmenta-sabotagetolerance}. 
+However, these early efforts by
 Sarmenta once again used Java and not JavaScript, making them % (Paloma) making them
 less widespread.
 
@@ -329,7 +329,7 @@ server-based paradigm to embrace peer to peer systems
 \cite{jin2006constructing,10.1109/ICICSE.2008.99,DBLP:conf/3pgcic/GuervosMFEL12}. These computing
 platforms avoid single points of failure (the server) but, since they
 need a certain amount of infrastructure installed to start, the
-threshold to join them is much lower.
+threshold to join them is much lower. % (Paloma) Do yo mean... higher? A low threshold means that is easy to happen something.
 
 Recent works propose the use of cloud computing services for the components of
 client-server distributed EAs. Cloud resources
@@ -350,7 +350,7 @@ side development.
 JavaScript is also compatible with the functional programming paradigm \cite{Cousineau1998,MacLennan1990,Thompson1996}.
 According to \cite{swanresearch2015}, the benefit of using this kind of paradigm in
 metaheuristics optimization is that it allows an improvement in communicability,
-reproductibility, interoperability, automated assembly, knowledge engineering
+reproductibility, interoperability, automated assembly, knowledge engineering,
 and efficiency.
 
 In the work presented in this paper, JavaScript has been used throughout the full
@@ -369,14 +369,14 @@ relatively few efforts.
 There were some initial attempts to avoid the differences in performance
 that could be obtained from volunteers  by making
 the algorithm adaptive to the kind of resources allotted to it
-\cite{milani2004online}, which is actually not such a big problem in
+\cite{milani2004online}. This is actually not such a big problem in
 algorithms such as the EA that can easily be
-parallelized via population splitting or farming out evaluations to all
+parallelized via population splitting or by farming out evaluations to all
 the nodes available. Lately, several approaches have focused on the
 fault-tolerance of volunteer algorithms
 \cite{gonzalez2010characterizing} which it can, of course, be studied in
 the more general context of distributed computing 
-\cite{nogueras2015studying} or including it in a more general study of the
+\cite{nogueras2015studying} or be included in a more general study of the
 performance of the EA itself
 \cite{DBLP:journals/gpem/LaredoBGVAGF14}.
 
@@ -393,7 +393,7 @@ computation in browser-based volunteer computing experiments, have
 only been studied in a limited way in 
 \cite{DBLP:journals/gpem/LaredoBGVAGF14} on the basis of a single
 run. Studies using volunteer computing platforms such as SETI@home
-\cite{javadi2009mining} found out that the Weibull, log-normal and
+\cite{javadi2009mining} found out that the Weibull, log-normal, and
 Gamma distribution 
 modeled quite well the availability of resources in several clusters
 of that framework; the shape of those distributions is a skewed bell
