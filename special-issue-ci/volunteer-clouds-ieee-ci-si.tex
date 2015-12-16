@@ -60,7 +60,10 @@ it still has a long way to go in order to become a mainstream
 technology in the same way the cloud technologies in general are. %I have changed "have" to "are"
 The lack of general purpose and open
 source tools with built-in analytics could be one of the reasons of
-why this is so, as well as the lack of proofs of concept. That is why
+why this is so, as well as the lack of proofs of concept.
+% (Paloma) The following sentence is way too long, and the "which" after "Javascript" is confusing, so one does not know if the which refers to the framework or Javascript by reading the whole sentence.
+% I propose: "That is why in this paper we present NodIO, a framework used to create client-server architectures for distributed evolutionary algorithms, entirely written in JavaScript. Our framework needs minimal server support to work and is able to support persistent, asynchronous, distributed evolutionary algorithms running in the browser, as well as any other client consuming its REST application programming interface."
+That is why
 in this paper we present {\sf NodIO}, a framework used to create
 client-server architectures for distributed evolutionary algorithms,
 entirely written in JavaScript, which needs minimal server support to
@@ -73,12 +76,15 @@ specification to execute several clients per browser and do it in the
 background, so that the the number of generations per user could be
 improved. The architecture, along with some initial results on the
 expected performance and scaling behavior when the number of users is
-increased is presented. We also use the algorithm data to find out
+increased is introduced. % (Paloma) I've changed this "presented" for a synonym
+We also use the algorithm data to find out
 what kind of patterns the user behavior follows by examining the
-resources they devote to our experiment, and try to fit them to some
+resources they devote to our experiment, and try to fit them in % (Paloma) Changed. Phrasal verb was wrong.
+ some
 statistical distribution to create the bases of a model of user
 behavior in volunteer computing experiments of this kind that can be
-used by researchers to predict its performance.  In general, our
+used by researchers to predict their performance. %(Paloma) Changed to "their" because of "experiments"
+In general, our
 experiments prove, first, that {\sf NodIO} is a flexible and
 low-overhead platform to perform distributed computation experiments
 that include volunteers, and then that user behavior follows some
