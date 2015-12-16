@@ -1468,25 +1468,23 @@ conclusions.
 \label{sec:conclusion}
 
 In this paper two versions of a client-server architecture for volunteer and distributed
-evolutionary algorithms that uses the browser and generated using {\sf
-  NodIO}, based on the {\sf NodEO} evolutionary algorithm library have been
-evaluated. Volunteers are {\em in the cloud}, as stated in the title,
+evolutionary algorithms have been evaluated. The architecture uses the browser and has been generated using {\sf
+  NodIO}, based on the {\sf NodEO} evolutionary algorithm library. Volunteers are {\em in the cloud}, as stated in the title,
 since they are a {\em CPU as a service} for the persons running the
 experiment. In fact, in this paper we have tried to put some figures
 on the real size of that {\em cloud} and how it can be used standalone
-if there is no alternative or in conjunction with other local or
+if there is no alternative, or in conjunction with other local or
 cloud-based methods to add computing power in a seamless way through
-the pool that NodIO creates. 
+the pool that {\sf NodIO} creates. 
 
 In order to establish a baseline performance, the evolutionary
 algorithm was run in a desktop client-program written in JavaScript
 using NodEO to solve the 40-trap function. The first experiments with
 {\sf NodIO} proved that, although obtaining better performance than the
 baseline was possible, it did not happen, mainly because of the
-difficulty in carrying over volunteers to other experiments when the
-one they were participating on was finished, shown in the low
-correlation between the number of IPs in successive experiments. This
-also resulted in a low number of generations allotted by users. 
+difficulty in carrying over other experiments to volunteers when the
+experiment they were participating on was finished. This has been shown in the low
+correlation between the number of IPs in successive experiments, and also resulted in a low number of generations allotted by users. 
 
 In the second implementation, {\sf NodIO-W$^2$}, Web Workers
 were used so that several clients per browser could be executed and
@@ -1505,7 +1503,7 @@ achieved with {\sf NodIO-W$^2$}.
 The second objective of this paper was to model the user behavior in a
 first attempt to try and predict performance. As should be expected,
 the model depends on the implementation, with contributions following
-a General Extreme Values distribution in the case of {\sf NodIO} and a
+a GEV distribution in the case of {\sf NodIO} and a
 Weibull distribution for {\sf NodIO-W$^2$}. These distributions are
 close enough to each other and, in the second case, reflect the fact
 that all time spent in the page is actually devoted to computing,
@@ -1513,10 +1511,10 @@ which is why the time spent (represented by the number of
 contributions to the pool) follows a model quite similar to that found
 for games or other online activities. The reverse might be true: if we
 want to have returning users for the experiments, it is probable that
-we should {\em gamify} the experience so that once they've done it
+we should {\em gamify} the experience so that once they have done it
 once, they might do it more times. In the spirit of Open Science, this
-gamification might involve computing in real time data such as the one
-presented in this paper and showing it in the same page. 
+gamification might involve computing in real-time data such as the one
+presented in this paper, while showing it in the same page. 
 
 In general, linking and finding correlations between user choices and
 performance is an interesting avenue to explore in the future. Even if
@@ -1526,7 +1524,7 @@ number of cycles. It is also essential to obtain volunteers as
 simultaneously as possible, so it is possible that the features of the
 social network in terms of real-time use will also play a big
 role. Even as it is difficult to create controlled experiments in this
-area, it is an interesting challenge to explore in the future.
+area, it is an interesting challenge to face in the future. % (Paloma) Wrong collocation
 
 Although we think that, in general, the results presented in this
 paper are independent of the problem chosen, it is true that even if
@@ -1539,7 +1537,7 @@ finishing in seconds or minutes (Trap) and weeks (Rastrigin F15).
 Besides, the two versions of the framework include as an
 algorithmic variant using random population size. We do not think this
 has had a big influence on the results and in fact this is not noticed
-for F15, which is the second version tested but it would be interesting to
+for F15, which is the second version tested, but it would be interesting to
 measure exactly what this influence has been. In general there are
 many issues with the evolutionary algorithm implementation itself,
 including using different, or adaptive, policies for inserting and
