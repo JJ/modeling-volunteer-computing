@@ -35,7 +35,19 @@ The authors.
 \section{Response to Reviewer \#1}
 
 \begin{quote}\textbf{
+I’m not, however, fully convinced about that the new experiment of solving Rastrigin’s function be representative of a real world problem. The presented work, as is, has interesting merits, but the question of its usefulness remains uncertain if it would be used to solve a non-academic optimization problem. As the authors point out, reasonable performance is not ensured and their proposal could result in a pointless academic exercise.
 
+After reading the revised paper, an arising question is why the authors have used in Section IV a problem that is solved in around 1 second. An approach to simulate a hard problem could be to artificially increase the evaluation time (e.g, by adding an idle loop); this way, the problem would remain the same and the computing time could be adjusted to try to gain some speed-up with the proposed platform.
+
+Minor comments:
+- The paper structure should be enhanced: there are subsections IV.A and V.A but there are not
+IV.B nor V.B.
+- In the first paragraph of Section V is said: “! to perform the fifty runs”, but none is said before
+about those fifty runs.
+- Figures should be improved: Fig.2 has huge fonts (and the caption should include the time unit),
+while others Fig.3, Fig.4, etc include very small fonts.
+- The second version of the systems is named NodIO-W2 in Section V, but it is referred as to
+NodIO2 in the conclusions.
 }\end{quote}
 
 
@@ -43,7 +55,11 @@ The authors.
 \section{Response to Reviewer \#2}
 
 \begin{quote}\textbf{
+1.- The section discussing the threats to validity of the experiments merely discuss the security issues of the platform but not the threats to the validity of the own experimentation performed in the paper. I strongly recommend to authors to follow the recommendations and guidelines described in [1] to address such comment.
+
+2.- The figures 3,4 and 5 of the paper have not been modified according to our original comments: “Figures should be readable even in gray-scale, so do not use red and blue to denote different elements, use a different shade or texture. Additionally, the axis labels and legends in most of the figures are unreadable, please increase its font size.” I strongly recommend the authors to modify the figures to improve readability.
 }\end{quote}
+
 
 
 \section{Response to Reviewer \#3}
@@ -54,17 +70,18 @@ Please, correct the information about i7-4770 processor. Additionally, I would r
 I would also recommend to include at least a short information that the system utilizes HTML5 Web Workers, as from my point of view it is one of the most important aspects of the framework and to reorganize the subsections in section IV and V. 
 
 I would also change the title of the subsection V.A as it begins with ''F15:..'' which is a little bit confusing.
-
 }\end{quote}
+
 
 
 \section{Response to Reviewer \#4}
 
 \begin{quote}\textbf{
-1.- The section discussing the threats to validity of the experiments merely discuss the security issues of the platform but not the threats to the validity of the own experimentation performed in the paper. I strongly recommend to authors to follow the recommendations and guidelines described in [1] to address such comment.
-
-2.- The figures 3,4 and 5 of the paper have not been modified according to our original comments: “Figures should be readable even in gray-scale, so do not use red and blue to denote different elements, use a different shade or texture. Additionally, the axis labels and legends in most of the figures are unreadable, please increase its font size.” I strongly recommend the authors to modify the figures to improve readability.
+The authors have thoroughly addressed all my previous concerns. I do not have additional comments or suggestions.
 }\end{quote}
+
+We would like to thank you the reviewer.
+
 
 \bibliographystyle{IEEEtran}
 \bibliography{geneura}
