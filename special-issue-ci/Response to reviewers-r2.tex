@@ -14,7 +14,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   TITLE   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \title{Volunteers in the Clouds: A Web Based Architecture to Harness Volunteer Resources 
-for Low Cost Distributed Evolutionary Computation: Response to Reviewers\' comments}
+for Low Cost Distributed Evolutionary Computation: Response to Reviewers' comments}
 
 \noindent
 Dear Sirs,\\
@@ -34,73 +34,67 @@ The authors.
 %-----------------------------------------------------------------------------
 \section{Response to Editors}
 
-\begin{quote}\textbf{
-1) Be careful with the use of acronyms. They must be defined the first time appearing in the text. Moreover, the use of too many acronyms jeopardizes readability of the manuscript. Please, keep only those acronyms which are really needed.
 
-2) NodIO-W2 is not presented in the abstract.
-
+\begin{quote}
+\textbf{1) Be careful with the use of acronyms. They must be defined the first time appearing in the text. Moreover, the use of too many acronyms jeopardizes readability of the manuscript. Please, keep only those acronyms which are really needed.\\
+2) NodIO-W2 is not presented in the abstract.\\
 3) Check the use of system vs framework.
-We recommend to use only one of these two words all along the text.
-
+We recommend to use only one of these two words all along the text.\\
 4) Considering only one subsection inside a section makes harder the paper comprehensibility.
-For instance, in case of section IV, we recommend removing the caption related to subsection A and keeping everything in just one section.
-
-5) We suggest re-writing the title of section IV as "Baseline Experiments".
-
-6) We suggest re-writing the title of section V as "Enhancing NodIO with a web worker-based architecture"
-
+For instance, in case of section IV, we recommend removing the caption related to subsection A and keeping everything in just one section.\\
+5) We suggest re-writing the title of section IV as ``Baseline Experiments''.\\
+6) We suggest re-writing the title of section V as ``Enhancing NodIO with a web worker-based architecture''\\
 7) Section V should be split into two sections.
-The new section may be entitled as "Experimental trials" and it should start at "The experiments were run in the same way as before..."
+The new section may be entitled as ``Experimental trials'' and it should start at ``The experiments were run in the same way as before...''
 Moreover, it would be better to remove the caption of subsetion V.A.
-In case you think the section is too long then you may organize it into two subsections (A. Setup and B. Results)
-
-8) Minor typos.
-
+In case you think the section is too long then you may organize it into two subsections (A. Setup and B. Results)\\
+8) Minor typos.\\
 9) The following recent reference is closely related to your paper and it should be cited:
-J. Alcala-Fdez and Jose M. Alonso, A survey of fuzzy systems software: Taxonomy, current research trends and prospects, IEEE Transactions on Fuzzy Systems, 2015. Doi:10.1109/TFUZZ.2015.2426212
-}\end{quote}
+J. Alcala-Fdez and Jose M. Alonso, A survey of fuzzy systems software: Taxonomy, current research trends and prospects, IEEE Transactions on Fuzzy Systems, 2015. Doi:10.1109/TFUZZ.2015.2426212}
+\end{quote}
 
 
 %-----------------------------------------------------------------------------
 \section{Response to Reviewer \#1}
 
-\begin{quote}\textbf{
-I’m not, however, fully convinced about that the new experiment of solving Rastrigin’s function be representative of a real world problem. The presented work, as is, has interesting merits, but the question of its usefulness remains uncertain if it would be used to solve a non-academic optimization problem. As the authors point out, reasonable performance is not ensured and their proposal could result in a pointless academic exercise.
 
-After reading the revised paper, an arising question is why the authors have used in Section IV a problem that is solved in around 1 second. An approach to simulate a hard problem could be to artificially increase the evaluation time (e.g, by adding an idle loop); this way, the problem would remain the same and the computing time could be adjusted to try to gain some speed-up with the proposed platform.
-
+\begin{quote}
+\textbf{I'm not, however, fully convinced about that the new experiment of solving Rastrigin's function be representative of a real world problem. The presented work, as is, has interesting merits, but the question of its usefulness remains uncertain if it would be used to solve a non-academic optimization problem. As the authors point out, reasonable performance is not ensured and their proposal could result in a pointless academic exercise.\\
+After reading the revised paper, an arising question is why the authors have used in Section IV a problem that is solved in around 1 second. An approach to simulate a hard problem could be to artificially increase the evaluation time (e.g, by adding an idle loop); this way, the problem would remain the same and the computing time could be adjusted to try to gain some speed-up with the proposed platform.\\
 Minor comments:
 - The paper structure should be enhanced: there are subsections IV.A and V.A but there are not
 IV.B nor V.B.
-- In the first paragraph of Section V is said: “! to perform the fifty runs”, but none is said before
+- In the first paragraph of Section V is said: ``! to perform the fifty runs'', but none is said before
 about those fifty runs.
 - Figures should be improved: Fig.2 has huge fonts (and the caption should include the time unit),
 while others Fig.3, Fig.4, etc include very small fonts.
 - The second version of the systems is named NodIO-W2 in Section V, but it is referred as to
-NodIO2 in the conclusions.
-}\end{quote}
+NodIO2 in the conclusions.}
+\end{quote}
+
 
 
 %-----------------------------------------------------------------------------
 \section{Response to Reviewer \#2}
 
-\begin{quote}\textbf{
-1.- The section discussing the threats to validity of the experiments merely discuss the security issues of the platform but not the threats to the validity of the own experimentation performed in the paper. I strongly recommend to authors to follow the recommendations and guidelines described in [1] to address such comment.
 
-2.- The figures 3,4 and 5 of the paper have not been modified according to our original comments: “Figures should be readable even in gray-scale, so do not use red and blue to denote different elements, use a different shade or texture. Additionally, the axis labels and legends in most of the figures are unreadable, please increase its font size.” I strongly recommend the authors to modify the figures to improve readability.
-}\end{quote}
+\begin{quote}
+\textbf{1.- The section discussing the threats to validity of the experiments merely discuss the security issues of the platform but not the threats to the validity of the own experimentation performed in the paper. I strongly recommend to authors to follow the recommendations and guidelines described in [1] to address such comment.\\
+2.- The figures 3,4 and 5 of the paper have not been modified according to our original comments: ``Figures should be readable even in gray-scale, so do not use red and blue to denote different elements, use a different shade or texture. Additionally, the axis labels and legends in most of the figures are unreadable, please increase its font size.'' I strongly recommend the authors to modify the figures to improve readability.}
+\end{quote}
+
 
 
 %-----------------------------------------------------------------------------
 \section{Response to Reviewer \#3}
 
-\begin{quote}\textbf{
-Please, correct the information about i7-4770 processor. Additionally, I would recommend to precise the concept of safety to ''user's safety'' (or ''voluteer's safety'') in the characteristic of the framework (page 5), as you still do not address the safety of the system as a whole, at least not at this point.
 
-I would also recommend to include at least a short information that the system utilizes HTML5 Web Workers, as from my point of view it is one of the most important aspects of the framework and to reorganize the subsections in section IV and V. 
+\begin{quote}
+\textbf{Please, correct the information about i7-4770 processor. Additionally, I would recommend to precise the concept of safety to ''user's safety'' (or ''voluteer's safety'') in the characteristic of the framework (page 5), as you still do not address the safety of the system as a whole, at least not at this point.\\
+I would also recommend to include at least a short information that the system utilizes HTML5 Web Workers, as from my point of view it is one of the most important aspects of the framework and to reorganize the subsections in section IV and V. \\
+I would also change the title of the subsection V.A as it begins with ''F15:..'' which is a little bit confusing.}
+\end{quote}
 
-I would also change the title of the subsection V.A as it begins with ''F15:..'' which is a little bit confusing.
-}\end{quote}
 
 
 %-----------------------------------------------------------------------------
@@ -110,7 +104,7 @@ I would also change the title of the subsection V.A as it begins with ''F15:..''
 The authors have thoroughly addressed all my previous concerns. I do not have additional comments or suggestions.
 }\end{quote}
 
-We appreciate the careful reading of the paper by Reviewer #4 and making valuable suggestions to improve the quality of this paper.
+We appreciate the careful reading of the paper by Reviewer \#4 and making valuable suggestions to improve the quality of this paper.
 
 
 %-----------------------------------------------------------------------------
