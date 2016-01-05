@@ -241,7 +241,11 @@ outlined in the State of the Art (Section \ref{sec:soa}):
   other, communicating only through the server. This architecture 
   has been tested in other high demand systems with success, but 
   in the case of {\sf NodIO}, additional experiments are needed to asses 
-  the scalability of the communication system. % (Paloma) Is it ok if we talk about scalability when we were talking about adaptiveness? Scalability was also described in the first point.
+  the scalability of the communication system. % (Paloma) Is it ok if
+                                % we talk about scalability when we
+                                % were talking about adaptiveness?
+                                % Scalability was also described in
+                                % the first point. 
   %(Mario) Scalability of the communication system in particular?
 \item Since the algorithm runs in the browser, user's {\em safety} is
   achieved through its sandbox mechanisms. The user is thus assured
@@ -271,72 +275,20 @@ compatible and can be used in a complementary way. Fault tolerance
 will be experimented by dropping the server and checking the continuity
 of the experiments. 
 
-However, before testing this framework in a real experiment, we have
-to establish a baseline for comparison. 
-
-%---------------------------------------------------------------
-\section{Baseline Experiments} 
-\label{sec:experiments}
-
-We have used the classical Trap function \cite{Ackley1987}
-used as well as the Rastrigin's floating-point optimization
-problem. Since JavaScript is a functional language and declaring a different 
-function and handing at the creation of the algorithm object, called
-{\tt Classic}, is the only change needed to work with a different
-problem. 
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=10cm]{baseline-times.png}
-\caption{Comparison of times to solution (labeled as {\bf times}) for the baseline system, using a {\tt
-    Node.js} client, for different population sizes. Only
-runs in which solution has been found are used for this graph.}
-% Plotted with: ~/Code/splash-volunteer/data/plot-baseline.R
-\label{fig:baseline}
-\end{figure}
-First, we establish the baseline performance by running fifty runs of the
-evolutionary algorithm in a desktop client written using {\sf NodEO}
-\cite{nodeo2014}, the basic JavaScript library we have used as base to
-build {\sf NodIO}, the framework. This experiment tries to 
-find the solution to the 40-trap function with parameters $l=4, a=1,
-b=2, z=3$ and a population size equal to 512. The algorithm in a
-single island was run until the solution (a string with all
-ones) was found or five million evaluations had been performed. It
-took around a minute, on average, that is $68.9694$ seconds, to
-perform these runs. In this experiment only 33, that is, 66\% were
-successful. The experiments were repeated for population $p=1024$,
-with a success rate upgraded to 100\% and an {\em average} duration of $3.46$
-seconds. Results for these two experiments
-are shown in Figure \ref{fig:baseline}. The baseline hardware system has these
-characteristics: 
-\begin{verbatim}
-Linux penny 3.13.0-34-generic #60-Ubuntu SMP Wed Aug 13 15:45:27 UTC
-2014 x86_64 x86_64 x86_64 GNU/Linux
-\end{verbatim}
-with a 4-core {\tt Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz}.
-
-These two experiments establish a baseline result and show that
-the time to success depends on the population size, with a bigger population
-contributing to have more diversity and thus speeding up the solution \cite{DBLP:conf/lion/LaredoDFGB13}. The volunteer computing
-experiments that we will describe next do not and can not have the
-same conditions, but
-the baseline is that if they eventually take longer than a basic
-desktop, their interest will be purely academic.
-
-\section{Enhancing {\sf NodIO} with a Web Worker-based architecture}
-\label{sec:w2}
-
-In order to improve the number of cycles per user, we enhanced the
-basic architecture in several different aspects.  One improvement 
+After the initial experiments \cite{DBLP:journals/corr/GuervosG15}, we
+realized that we needed to make some improvements. So, in order to
+improve the number of cycles per user, we enhanced the 
+basic architecture in several different aspects. One proposed improvement
 involved restarting the client once the solution was
 found, so that as long as the user was visiting the page it was
 running an evolutionary algorithm. Another was a small algorithmic
 enhancement: instead of having a fixed population,
 population size was randomly distributed between 128 and 256 and
-different for each client.  The other improvement was to 
-use the Web Worker API as described next.
+different for each client. We called this instance of
+the architecture NodIO-W$^2$. The other improvement was to 
+use the Web Worker API as described next
 
-JavaScript has been commonly used to develop client-side scripts
+The rationale for this change comes from the realization that JavaScript has been commonly used to develop client-side scripts
 that handle the user interface, communicating asynchronously with servers and
 updating the content that is displayed \cite{flanagan2006javascript}.
 Long-running scripts like those proposed in this work can interfere with the
@@ -365,7 +317,7 @@ was tested in desktop versions of Chrome, FireFox and Safari.
 \item Each {\sf NodEO} instance can be restarted independently.
 \end{itemize}
 
-A sequence diagram of the enhanced NodIO, which is called NodIO-W$^2$, is presented
+A sequence diagram of NodIO-W$^2$, is presented
 in Figure~\ref{fig:system:w2}. In this version, clients use the Web Workers
 API to run two {\sf NodEO} instances per browser. The sequence diagram shows the
 interaction between processes in a time sequence. In this version there are
@@ -438,6 +390,62 @@ avoid the start-up cost, only the parameters and population are reset and a new 
 assigned.
 \end{enumerate}
 %
+
+These two versions of the framework will have to be tested {\em in the
+  wild} to measure its performance. 
+However, before testing this framework in a real experiment, we have
+to establish a baseline for comparison. 
+
+%---------------------------------------------------------------
+\section{Baseline Experiments} 
+\label{sec:experiments}
+
+We have used the classical Trap function \cite{Ackley1987}
+used as well as the Rastrigin's floating-point optimization
+problem. Since JavaScript is a functional language and declaring a different 
+function and handing at the creation of the algorithm object, called
+{\tt Classic}, is the only change needed to work with a different
+problem. 
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=10cm]{baseline-times.png}
+\caption{Comparison of times to solution (labeled as {\bf times}) for the baseline system, using a {\tt
+    Node.js} client, for different population sizes. Only
+runs in which solution has been found are used for this graph.}
+% Plotted with: ~/Code/splash-volunteer/data/plot-baseline.R
+\label{fig:baseline}
+\end{figure}
+First, we establish the baseline performance by running fifty runs of the
+evolutionary algorithm in a desktop client written using {\sf NodEO}
+\cite{nodeo2014}, the basic JavaScript library we have used as base to
+build {\sf NodIO}, the framework. This experiment tries to 
+find the solution to the 40-trap function with parameters $l=4, a=1,
+b=2, z=3$ and a population size equal to 512. The algorithm in a
+single island was run until the solution (a string with all
+ones) was found or five million evaluations had been performed. It
+took around a minute, on average, that is $68.9694$ seconds, to
+perform these runs. In this experiment only 33, that is, 66\% were
+successful. The experiments were repeated for population $p=1024$,
+with a success rate upgraded to 100\% and an {\em average} duration of $3.46$
+seconds. Results for these two experiments
+are shown in Figure \ref{fig:baseline}. The baseline hardware system has these
+characteristics: 
+\begin{verbatim}
+Linux penny 3.13.0-34-generic #60-Ubuntu SMP Wed Aug 13 15:45:27 UTC
+2014 x86_64 x86_64 x86_64 GNU/Linux
+\end{verbatim}
+with a 4-core {\tt Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz}.
+
+These two experiments establish a baseline result and show that
+the time to success depends on the population size, with a bigger population
+contributing to have more diversity and thus speeding up the solution \cite{DBLP:conf/lion/LaredoDFGB13}. The volunteer computing
+experiments that we will describe next do not and can not have the
+same conditions, but
+the baseline is that if they eventually take longer than a basic
+desktop, their interest will be purely academic.
+
+
 
 \subsection{Tests with a floating-point hard optimization problem} 
 
@@ -562,7 +570,7 @@ performance with an average of 935ms, followed by Java with
 991ms. On the other hand, JavaScript took 32\% more time than Java with 1238ms in Chrome using a 
 single Web Worker and 1,234ms using Node.js. % Are these results correct? JS=>1240ms and Node.js=>1,270ms ???
 The results also show that there is not much difference between the Node.js
-implementation an that of a
+implementation and that of a
 browser. There is also not much difference between running the code in the main thread or in Web
 Workers. When running the experiment in Firefox a dialog alerted that the
 script was taking too much time, showing that this
@@ -584,14 +592,7 @@ with acceptable performance.
 \section{Conclusion}
 \label{sec:conclusion}
 
-In order to establish a baseline performance, the evolutionary
-algorithm was run in a desktop client-program written in JavaScript
-using NodEO to solve the 40-trap function. The first experiments with
-{\sf NodIO} proved that, although obtaining better performance than the
-baseline was possible, it did not happen, mainly because of the
-difficulty in carrying over other experiments to volunteers when the
-experiment they were participating on was finished. This has been shown in the low
-correlation between the number of IPs in successive experiments, and also resulted in a low number of generations allotted by users. 
+
 
 %---------------------------------------------------------------
 \section*{Acknowledgment}
