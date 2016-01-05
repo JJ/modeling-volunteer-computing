@@ -21,7 +21,7 @@
 
 \begin{document}
 
-\title{}
+\title{Revisiting evolutionary algorithms in JavaScript}
 
 \author{Juan-J.~Merelo*$^1$, Mario Garc\'ia-Valdez$^2$, Pedro
   A. Castillo$^1$,\\ 
@@ -39,26 +39,22 @@ Pablo Garc\'ia-S\'anchez$^1$, P. de las Cuevas*$^1$, Nuria Rico$^3$
 
 \begin{abstract}
 
+JavaScript is an interpreted language mainly known for its inclusion
+as an embedded language for programming internet browsers. This has
+inspired its use, for a long time, as a tool for evolutionary
+algorithms; several libraries have been published so far and are in
+use. However, the last years have seen a resurgence of interest in the
+language, becoming one of the most popular and thus spawning the
+improvement of its implementations, which form now the base of many
+new client-server applications. That is why in this paper we propose a series of
+measurements to establish the speed of JavaScript in evolutionary
+algorithms that can serve as a baseline for comparison with other
+distributed computing experiments. These experiments use different
+integer and floating point problems, and prove that the speed of
+JavaScript is actually competitive with other languages commonly used
+by the evolutionary algorithm practitioner. 
+
 \end{abstract}
-
-% Work in progress..
-%Volunteer computing is used routinely in science and industry, but it
-%still has a long way to go if it is going to become a mainstream technology 
-%in the same way the cloud technologies in general have. In one hand, projects 
-%lack special purpose and open source tools with analytics builtin and
-%in the other there are still barriers that keep users from sharing their computing 
-%resources like the need to install software applications or plugins in order 
-%to cooperate. That is why in this paper we present {\sf NodIO}, a client-server
-%architecture for distributed
-%evolutionary algorithms, written entirely in JavaScript, which needs
-%minimal server support to work and is able to support persistent,
-%asynchronous, distributed evolutionary algorithms running in the
-%browser.  The architecture, along with some initial results on the
-%expected performance and scaling
-%behavior is presented. We also use the algorithm data to
-%find out what kind of patterns the user behavior follow and try to fit
-%them to some statistical distribution.
-
 
 
 {\bf Keywords}
@@ -399,22 +395,7 @@ XMLHttpRequest object.
   with two of them per browser.}
 \label{fig:system:w2}
 \end{figure}
-%
-\begin{table*}[!htb]
-\caption{Summary of {\sf NodIO-W$^2$} and comparison with the previous
-  experiments, which have been aggregated to compute central measures. \label{tab:summary:ww}}
-\begin{center}
-\begin{tabular}{l|ccccccc}
-\hline
-Date & Median \#IPs & Max \#IPs & Median time (s) & Median \#{\tt
-  PUT}s & $<$ 69s & $<$ 3.46s & Inter-experiment correlation\\
-\hline
-{\sf NodIO} & 5 & 29 & 123 & 14 & 37.43\% & 3.40\% & 0.10 \\
-{\sf NodIO-W$^2$} & 4  & 16 & 7.36 & 40 & 89\% & 36.90\% & 0.4336061 \\
-\hline
-\end{tabular}
-\end{center}
-\end{table*}
+
 
 The sequence of events happens as follows:
 \begin{enumerate}
