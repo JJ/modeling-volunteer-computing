@@ -21,7 +21,7 @@
 
 \begin{document}
 
-\title{Revisiting evolutionary algorithms in JavaScript}
+\title{{\sf NodIO}, a framework for evolutionary algorithms in JavaScript: first results}
 
 \author{Juan-J.~Merelo*$^1$, Mario Garc\'ia-Valdez$^2$, Pedro
   A. Castillo$^1$,\\ 
@@ -42,7 +42,8 @@ Pablo Garc\'ia-S\'anchez$^1$, P. de las Cuevas*$^1$, Nuria Rico$^3$
 JavaScript is an interpreted language mainly known for its inclusion
 as an embedded language for programming internet browsers. This has
 inspired its use, for a long time, as a tool for evolutionary
-algorithms; several libraries have been published so far and are in
+algorithms, mainly so in browser-based volunteer computing
+environments. Several libraries have also been published so far and are in
 use. However, the last years have seen a resurgence of interest in the
 language, becoming one of the most popular and thus spawning the
 improvement of its implementations, which form now the base of many
@@ -64,27 +65,15 @@ social networks, volunteer computing, metacomputing, performance evaluation.
 %---------------------------------------------------------------
 \section{Introduction}
 
-
-The rest of the paper is organized as follows:
-
-%---------------------------------------------------------------
-\section{State of the art}
-\label{sec:soa}
-
-
-%---------------------------------------------------------------
-\section{Description of the framework}
-\label{sec:description}
-
 In general, a distributed volunteer-based evolutionary computation
 framework based on the browser is simply a client-server system
-whose client is, or it can be, embedded in the browser via
+whose client is, or can be, embedded in the browser via
 JavaScript. Since JavaScript is  the only language that is present
 across all browsers, the choice was quite clear. Even so, there might
-be some issues with the performance of the language itself, which % (Paloma) I recommend the use of "which" here
+be some issues with the performance of the language itself, which 
  is
 why we have made a comparison between JavaScript and other languages
-\cite{2015arXiv151101088M}. The results of this work show that JavaScript can be
+\cite{2015arXiv151101088M}. That paper shows that JavaScript can be
 faster than compiled languages such as Scala and, in any case, it provides
 a performance that is comparable to other languages usually employed % (Paloma) Adverb
 in evolutionary computation and numerical optimization such as Python. 
@@ -111,6 +100,8 @@ function in Python, Erlang, Scala, or even Java, and then compile it to
 JavaScript. For completeness, an experiment comparing the performance of
 a JavaScript implementation versus Java and Matlab is included in section
 \ref{sec:w2}.
+
+%%% Issues with volunteer based systems
 
 As a volunteer based system, there are some issues worth 
 noting \cite{sarmenta2001volunteer,web:BOINC} :\begin{enumerate}
@@ -148,16 +139,16 @@ coherent with our whole approach to the study of a distributed volunteer
  system which can only be tackled by approaching it from the
 technical as well as the social, as in social media, angle. 
 
+%%% Versions of the framework
+
 In this sense, in this paper we propose several versions of the {\sf NodIO} framework, a
 cloud or bare metal based volunteer evolutionary computing system
-derived from % (Paloma) In order to not sounding too repetitive, could we use "derived from", for example, here?
- the {\sf NodEO} library, whose architecture has been
+derived from the {\sf NodEO} library, whose architecture has been
 developed using JavaScript on the client as well as the server.
 All parts of the framework are free and available with a free license
 from \url{https://github.com/JJ/splash-volunteer}.
 
 %PABLO: el siguiente párrafo justifica Javascript
-
 
 Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
 \item A REST server, that is, a server that includes several {\em
@@ -196,6 +187,7 @@ Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
   the framework. 
 
 
+% Description of the framework
 The figure \ref{fig:system} describes the general system architecture and
 algorithm behavior. Different web technologies, such as JQuery or {\tt
   Chart.js} have
