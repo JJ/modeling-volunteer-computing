@@ -420,6 +420,7 @@ The algorithms used, as well as the methodology
 for gathering resources will be described next, 
 together with the results obtained in this initial setup.
 %---------------------------------------------------------------
+% Start of content for other paper ----
 \section{Description of the framework}
 \label{sec:description}
 
@@ -662,6 +663,8 @@ Linux penny 3.13.0-34-generic #60-Ubuntu SMP Wed Aug 13 15:45:27 UTC
 2014 x86_64 x86_64 x86_64 GNU/Linux
 \end{verbatim}
 with a 4-core {\tt Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz}.
+
+% end spin-off ------------------------------------------------------
 
 These two experiments establish a baseline result and show that
 the time to success depends on the population size, with a bigger population
@@ -906,6 +909,8 @@ computing power would be increasing this minimum amount per user. This
 issue led us to create the next version of the framework, which is
 presented next. % (Paloma) This sentences are sort of alone here... Could we extend a bit the first "this" to connect them to the previous paragraph ?
 
+
+% -- Start spin-off -------------------
 \section{Enhancing {\sf NodIO} with a Web Worker-based architecture}
 \label{sec:w2}
 
@@ -978,6 +983,7 @@ XMLHttpRequest object.
 \label{fig:system:w2}
 \end{figure}
 %
+% End spin-off ----------------------------------------------------------------
 \begin{table*}[!htb]
 \caption{Summary of {\sf NodIO-W$^2$} and comparison with the previous
   experiments, which have been aggregated to compute central measures. \label{tab:summary:ww}}
@@ -993,6 +999,10 @@ Date & Median \#IPs & Max \#IPs & Median time (s) & Median \#{\tt
 \end{tabular}
 \end{center}
 \end{table*}
+
+
+% - Start spin-off again
+% -------------------------------------------------------
 
 The sequence of events happens as follows:
 \begin{enumerate}
@@ -1035,7 +1045,8 @@ loop, that worker is reinitialized. The worker process is not ended, to
 avoid the start-up cost, only the parameters and population are reset and a new UUID
 assigned.
 \end{enumerate}
-%
+% End spin-off--------------------------------------------
+
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=0.9\linewidth]{ips-time-ww.png}
@@ -1169,6 +1180,7 @@ providing reasonable algorithmic performance and being, in general,
 easy to use with a straightforward modification of the fitness
 function. 
 
+% ------------Start spin-off ----------------------------------------------------
 \subsection{Tests with a floating-point hard optimization problem} 
 
 JavaScript has been traditionally implemented as an interpreted
@@ -1308,7 +1320,7 @@ with acceptable performance.
 \caption{ Runtime of 10,000 function evaluations for $F_{15}$} 
 \label{fig:f15_times}
 \end{figure}
-
+% - end spin-off-----------------------------------------------------------------
 
 After setting up baseline results for this particular problem, we will
 present now results the results obtained. Next we will present the
