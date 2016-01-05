@@ -591,7 +591,27 @@ with acceptable performance.
 \section{Conclusion}
 \label{sec:conclusion}
 
+This paper has been intended mainly as a description of the {\sf
+  NodIO} architecture as well as two different implementations, with
+or without web workers, as well as a collection of measurements of the
+performance of the JavaScript language in different implementations,
+and compared with other languages.
 
+The first conclusion we can draw is that, even if JavaScript is not
+the fastest language around, its performance is competitive and can be
+used profitably for medium size problems, with its speed in floating
+point problems being around 30\% less than Matlab or Java. 
+
+A framework created around this language, like the {\sf NodIO} we
+systematize and introduce in this paper, can more than compensate this
+difference with the recourse of the users that can be spontaneously
+gathered in a volunteer computing experiment. The fact that it is so
+simple to participate in it, without needing to download anything,
+implies that it can be used for peak or non-permanent workloads.
+
+However, it remains to be seen how many users and the real performance
+that {\sf NodIO}, in any of its implementations, would achieve. This
+is left for future work.
 
 %---------------------------------------------------------------
 \section*{Acknowledgment}
