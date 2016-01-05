@@ -16,9 +16,6 @@
 %
 \usepackage{url}
 
-% correct bad hyphenation here
-\hyphenation{op-tical net-works}
-
 \begin{document}
 
 \title{{\sf NodIO}, a framework for evolutionary algorithms in JavaScript: first results}
@@ -147,14 +144,14 @@ many other outside, so researchers can, in fact, write their fitness
 function in Python, Erlang, Scala, or even Java, and then compile it to
 JavaScript. For completeness, an experiment comparing the performance of
 a JavaScript implementation versus Java and Matlab is included in section
-\ref{sec:w2}. We will first describe the {\sf NodIO} architecture in
+\ref{sec:experiments}. We will first describe the {\sf NodIO} architecture in
 the next Section.
 
 
-\section{{\sf NodIO architecture}
+\section{{\sf NodIO } architecture}
 
 
-{\sf NodIO} architecture has two tiers. 
+The {\sf NodIO} architecture has two tiers. 
 The figure \ref{fig:system} describes the general system architecture and
 algorithm behavior. Different web technologies, such as JQuery or {\tt
   Chart.js} have
@@ -210,7 +207,7 @@ JavaScript \cite{web:compilersjs} to solve different optimization
 problems. 
 
 Let us see how this system addresses the different challenges
-outlined in the State of the Art (Section \ref{sec:soa}):
+outlined above:
 \begin{itemize}
 \item {\em Scalability} is provided via the use of a lightweight and
   high-performance, single-threaded, server based in Node.js and
@@ -510,6 +507,13 @@ both implementations, again using the time required for 10,000 function evaluati
 Before discussing the setup and performance results, certain details of
 the implementation in JavaScript are presented to give readers an idea of 
 how practical and mature this language is for developing complex mathematical functions.
+%
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.9\linewidth]{f15_times.png}
+\caption{ Runtime of 10,000 function evaluations for $F_{15}$} 
+\label{fig:f15_times}
+\end{figure}
 
 \begin{itemize}
 \item {\em Randomize} Both Matlab and Java programs rely on a 
@@ -580,12 +584,7 @@ Web Workers in parallel as they took 1279ms each. This experiment
 shows that JavaScript is viable as a language
 language for developing complex mathematical functions an these can run in a browser
 with acceptable performance. 
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=0.9\linewidth]{f15_times.png}
-\caption{ Runtime of 10,000 function evaluations for $F_{15}$} 
-\label{fig:f15_times}
-\end{figure}
+
 
 
 %---------------------------------------------------------------
