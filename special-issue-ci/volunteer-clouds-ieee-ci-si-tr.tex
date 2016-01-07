@@ -20,6 +20,9 @@
 
 \title{{\sf NodIO}, a framework for evolutionary algorithms in JavaScript: first results}
 
+
+%(Mario) Maybe:  {\sf NodIO}, a JavaScript framework for volunteer-based evolutionary algorithms.
+
 \author{Juan-J.~Merelo*$^1$, Mario Garc\'ia-Valdez$^2$, Pedro
   A. Castillo$^1$,\\ 
 Pablo Garc\'ia-S\'anchez$^1$, P. de las Cuevas*$^1$, Nuria Rico$^3$
@@ -80,7 +83,9 @@ from \url{https://github.com/JJ/splash-volunteer}.
 
 %%% Issues with volunteer based systems
 
-As a volunteer based system, there are some issues that have to be addressed \cite{sarmenta2001volunteer,web:BOINC} :\begin{enumerate}
+As a volunteer based system, there are some issues that have to be addressed 
+\cite{sarmenta2001volunteer,web:BOINC} :
+\begin{enumerate}
 \item Volunteers are anonymous, only the Internet Protocol addresses (IP) sent in 
 each request is known.
 \item As anonymous entities, volunteers are not accountable. 
@@ -282,7 +287,7 @@ enhancement: instead of having a fixed population,
 population size was randomly distributed between 128 and 256 and
 different for each client. We called this instance of
 the architecture NodIO-W$^2$. The other improvement was to 
-use the Web Worker API as described next
+use the Web Worker API as described next.
 
 The rationale for this change comes from the realization that JavaScript has been commonly used to develop client-side scripts
 that handle the user interface, communicating asynchronously with servers and
