@@ -42,7 +42,7 @@ for Low Cost Distributed Evolutionary Computation }
 % Open Source software.
 % Lets not forget this issue is about software.
 
-\author{Juan-J.~Merelo, Dept. of Computer Architecture and Technology, University of Granada, Granada, Spain\\Mario Garc\'ia-Valdez, Dept. of Graduate Studies, Instituto Tecnológico de Tijuana, City, Mexico\\Pedro A. Castillo, Dept. of Computer Architecture and Technology, University of Granada, Granada, Spain\\Pablo Garc\'ia-S\'anchez, Dept. of Computer Architecture and Technology, University of Granada, Granada, Spain\\Paloma de las Cuevas, Dept. of Computer Architecture and Technology, University of Granada, Granada, Spain\\Nuria Rico, Dept. of Statistics and Operational Research, University of Granada, Granada, Spain%
+\author{Juan-J.~Merelo, Dept. of Computer Architecture and Technology, University of Granada, Granada, Spain\\Mario Garc\'ia-Valdez, Dept. of Graduate Studies, Instituto Tecnológico de Tijuana, Tijuana, M\'exico\\Pedro A. Castillo, Dept. of Computer Architecture and Technology, University of Granada, Granada, Spain\\Pablo Garc\'ia-S\'anchez, Dept. of Computer Architecture and Technology, University of Granada, Granada, Spain\\Paloma de las Cuevas, Dept. of Computer Architecture and Technology, University of Granada, Granada, Spain\\Nuria Rico, Dept. of Statistics and Operational Research, University of Granada, Granada, Spain%
 %\author{Juan-J.~Merelo*$^1$, Mario Garc\'ia-Valdez$^2$, Pedro A. Castillo$^1$, Pablo Garc\'ia-S\'anchez$^1$, P. de las Cuevas*$^1$, Nuria Rico$^3$
 %\thanks{Manuscript submitted for review on \today.}%
 %\thanks{$^1$Dept. of Computer Architecture and Technology and CITIC University of Granada}%
@@ -56,8 +56,21 @@ for Low Cost Distributed Evolutionary Computation }
 \maketitle
 
 \begin{abstract}
-Volunteer computing is extensively used in science and industry, yet it still has not become a mainstream technology in the same way the cloud technologies in general are. The lack of general purpose and open source tools with built-in analytics could be one of the reasons of why this is so, as well as the lack of proofs of concept. That is why we have enhenced {\sf NodIO}, a framework used to create client-server architectures for distributed evolutionary algorithms, resulting in {\sf NodIO-W$^2$}, which we present in this paper.
-{\sf NodIO-W$^2$} leverages the HTML5 Web Workers specification to execute in the background several clients per browser, so that the the number of generations per user could be improved. The enhancements on the NodIO architecture, along with some initial results on the expected performance and scaling behavior when the number of users is increased, are introduced. We also use the algorithm data to find out what kind of patterns the user behavior follows by examining the resources they devote to our experiment, and try to fit them in some statistical distribution. In general, our experiments prove, first, that {\sf NodIO} is a flexible and low-overhead platform to perform distributed computation experiments that include volunteers, and then that user behavior follows some patterns, and, thus, are amenable to a model.
+%Volunteer computing is extensively used in science and industry, yet it still has not become a mainstream technology
+%in the same way the cloud technologies in general are. The lack of general purpose and open source tools with built-in
+%analytics could be one of the reasons of why this is so, as well as the lack of proofs of concept. 
+
+Using the browser as a computing resource in volunteer computing has presented several advantages, 
+but it remains a challenge to fully harness both the users’ behaviour and the browser’s capabilities.
+That is why we have enhenced {\sf NodIO}, a framework used to create client-server architectures 
+for distributed evolutionary algorithms, resulting in {\sf NodIO-W$^2$}, which we present in this paper.
+{\sf NodIO-W$^2$} leverages the HTML5 Web Workers specification to execute in the background several clients per
+browser, so that the the number of generations per user could be improved. The enhancements on the NodIO architecture,
+along with some initial results on the expected performance and scaling behavior when the number of users is increased,
+are introduced. We also use the algorithm data to find out what kind of patterns the user behavior follows by examining 
+the resources they devote to our experiment, and try to fit them in some statistical distribution. In general, 
+our experiments prove, first, that {\sf NodIO} is a flexible and low-overhead platform to perform distributed computation
+experiments that include volunteers, and then that user behavior follows some patterns, and, thus, are amenable to a model.
 % Volunteer computing is extensively used in science and industry, but
 % it still has a long way to go in order to become a mainstream
 % technology in the same way the cloud technologies in general are. %I have changed "have" to "are"
