@@ -350,75 +350,19 @@ J.~J. Merelo, P.~Castillo, J.~Laredo, A.~Mora, and A.~Prieto, ``Asynchronous
   \url{http://atc.ugr.es/I+D+i/congresos/2008/CEC_2008_1372.pdf}
 \BIBentrySTDinterwordspacing
 
-\bibitem{sarmenta2001volunteer}
-L.~F. Sarmenta, ``Volunteer computing,'' Ph.D. dissertation, Massachusetts
-  Institute of Technology, 2001.
-
-\bibitem{web:BOINC}
-\BIBentryALTinterwordspacing
-``What is volunteer computing?'' BOINC Wiki, 2012, [Internet; download
-  25-octubre-2013]. [Online]. Available:
-  \url{http://boinc.berkeley.edu/trac/wiki/VolunteerComputing}
-\BIBentrySTDinterwordspacing
-
-\bibitem{domingues2007sabotage}
-P.~Domingues, B.~Sousa, and L.~M. Silva, ``Sabotage-tolerance and trust
-  management in desktop grid computing,'' \emph{Future Generation Computer
-  Systems}, vol.~23, no.~7, pp. 904--912, 2007.
-
-\bibitem{DBLP:journals/corr/GuervosG15}
-\BIBentryALTinterwordspacing
-J.-J. Merelo-Guerv{\'{o}}s and P.~Garc{\'{\i}}a{-}S{\'{a}}nchez, ``Modeling
-  browser-based distributed evolutionary computation systems,'' \emph{CoRR},
-  vol. abs/1503.06424, 2015. [Online]. Available:
-  \url{http://arxiv.org/abs/1503.06424}
-\BIBentrySTDinterwordspacing
-
-\bibitem{jj:idc:lowcost}
-\BIBentryALTinterwordspacing
-J.~J. Merelo, ``\BIBforeignlanguage{English}{Low or no cost distributed
-  evolutionary computation},'' in
-  \emph{\BIBforeignlanguage{English}{Intelligent Distributed Computing VIII}},
-  ser. Studies in Computational Intelligence, D.~Camacho, L.~Braubach,
-  S.~Venticinque, and C.~Badica, Eds.\hskip 1em plus 0.5em minus 0.4em\relax
-  Springer International Publishing, 2015, vol. 570, pp. 3--4. [Online].
-  Available: \url{http://dx.doi.org/10.1007/978-3-319-10422-5_1}
-\BIBentrySTDinterwordspacing
-
-\bibitem{LNCS86720702}
-M.~Garc\'{\i}a-Valdez, L.~Trujillo, J.~J. Merelo-Gu\'{e}rvos, and F.~F.
-  de~Vega, ``Randomized parameter settings for heterogeneous workers in a
-  pool-based evolutionary algorithm,'' in \emph{Parallel Problem Solving from
-  Nature -- PPSN XIII}, ser. Lecture Notes in Computer Science,
-  T.~Bartz-Beielstein, J.~Branke, B.~Filipi\v{c}, and J.~Smith, Eds., vol.
-  8672.\hskip 1em plus 0.5em minus 0.4em\relax Springer, 2014, pp. 702--710.
-
-\bibitem{web:compilersjs}
-\BIBentryALTinterwordspacing
-J.~Ashkenas, ``List of languages that compile to {JS},'' November 2015.
-  [Online]. Available:
-  \url{https://github.com/jashkenas/coffeescript/wiki/list-of-languages-that-compile-to-js}
-\BIBentrySTDinterwordspacing
-
-\bibitem{Ackley1987}
-D.~H. Ackley, \emph{A connectionist machine for genetic hillclimbing}.\hskip
-  1em plus 0.5em minus 0.4em\relax Kluwer Academic Publishers, Norwell, MA,
-  USA, 1987.
-
-\bibitem{nodeo2014}
-\BIBentryALTinterwordspacing
-J.~J. Merelo~Guerv\'{o}s, ``{NodEO}, a evolutionary algorithm library in
-  {Node},'' GeNeura group, Tech. Rep., Mar. 2014, available at
-  \url{http://figshare.com/articles/nodeo/972892}. [Online]. Available:
-  \url{http://figshare.com/articles/nodeo/972892}
-\BIBentrySTDinterwordspacing
+\bibitem{2016arXiv160101607M}
+J.-J. {Merelo}, M.~{Garc{\'{\i}}a-Valdez}, P.~A. {Castillo},
+  P.~{Garc{\'{\i}}a-S{\'a}nchez}, P.~{de las Cuevas}, and N.~{Rico}, ``{NodIO,
+  a JavaScript framework for volunteer-based evolutionary algorithms : first
+  results},'' \emph{ArXiv e-prints}, Jan. 2016.
 
 \bibitem{DBLP:conf/lion/LaredoDFGB13}
-J.~L.~J. Laredo, B.~D. D\'{\i}az, C.~Fernandes, J.~J.~M. Guerv{\'o}s, and
-  P.~Bouvry, ``Oversized populations and cooperative selection: Dealing with
-  massive resources in parallel infrastructures,'' in \emph{LION}, ser. Lecture
-  Notes in Computer Science, G.~Nicosia and P.~M. Pardalos, Eds., vol.
-  7997.\hskip 1em plus 0.5em minus 0.4em\relax Springer, 2013, pp. 444--449.
+J.~L.~J. Laredo, B.~Dorronsoro-D\'{\i}az, C.~Fernandes, J.-J.
+  Merelo-Guerv{\'o}s, and P.~Bouvry, ``Oversized populations and cooperative
+  selection: Dealing with massive resources in parallel infrastructures,'' in
+  \emph{LION}, ser. Lecture Notes in Computer Science, G.~Nicosia and P.~M.
+  Pardalos, Eds., vol. 7997.\hskip 1em plus 0.5em minus 0.4em\relax Springer,
+  2013, pp. 444--449.
 
 \bibitem{DBLP:conf/gecco/GuervosG15}
 \BIBentryALTinterwordspacing
