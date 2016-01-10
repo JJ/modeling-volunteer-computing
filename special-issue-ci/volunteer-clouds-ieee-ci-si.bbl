@@ -35,6 +35,15 @@ J.~Alcala-Fdez and J.~Alonso, ``A survey of fuzzy systems software: Taxonomy,
   Transactions on}, vol.~PP, no.~99, pp. 1--1, 2015, doi:
   10.1109/TFUZZ.2015.2426212.
 
+\bibitem{2016arXiv160101607M}
+\BIBentryALTinterwordspacing
+J.-J. {Merelo}, M.~{Garc{\'{\i}}a-Valdez}, P.~A. {Castillo},
+  P.~{Garc{\'{\i}}a-S{\'a}nchez}, P.~{de las Cuevas}, and N.~{Rico}, ``{NodIO,
+  a JavaScript framework for volunteer-based evolutionary algorithms : first
+  results},'' \emph{ArXiv e-prints}, Jan. 2016. [Online]. Available:
+  \url{http://arxiv.org/abs/1601.01607}
+\BIBentrySTDinterwordspacing
+
 \bibitem{2015arXiv151101088M}
 \BIBentryALTinterwordspacing
 J.-J. {Merelo}, P.~{Garc{\'{\i}}a-S{\'a}nchez}, M.~{Garc{\'{\i}}a-Valdez}, and
@@ -343,12 +352,6 @@ J.~J. Merelo, P.~Castillo, J.~Laredo, A.~Mora, and A.~Prieto, ``Asynchronous
   Press, 2008, pp. 1372--1379. [Online]. Available:
   \url{http://atc.ugr.es/I+D+i/congresos/2008/CEC_2008_1372.pdf}
 \BIBentrySTDinterwordspacing
-
-\bibitem{2016arXiv160101607M}
-J.-J. {Merelo}, M.~{Garc{\'{\i}}a-Valdez}, P.~A. {Castillo},
-  P.~{Garc{\'{\i}}a-S{\'a}nchez}, P.~{de las Cuevas}, and N.~{Rico}, ``{NodIO,
-  a JavaScript framework for volunteer-based evolutionary algorithms : first
-  results},'' \emph{ArXiv e-prints}, Jan. 2016.
 
 \bibitem{DBLP:conf/lion/LaredoDFGB13}
 J.~L.~J. Laredo, B.~Dorronsoro-D\'{\i}az, C.~Fernandes, J.-J.
