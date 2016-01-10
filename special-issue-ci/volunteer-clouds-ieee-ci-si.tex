@@ -57,14 +57,14 @@ Paloma de las Cuevas, Dept. of CAT, UGR\\Nuria Rico, Dept. of Statistics and Ope
 %analytics could be one of the reasons of why this is so, as well as the lack of proofs of concept. 
 
 Using the browser as a computing resource in volunteer computing has presented several advantages, 
-but it remains a challenge to fully harness both the users’ behaviour and the browser’s capabilities.
+but it remains a challenge to fully harness both the users' behaviour and the browser's capabilities.
 That is why we have enhanced {\sf NodIO}, a framework used to create client-server architectures 
 for distributed evolutionary algorithms, resulting in {\sf
   NodIO-W$^2$}, whose results we present in this paper.
 {\sf NodIO-W$^2$} leverages the HTML5 Web Workers specification to execute in the background several clients per
 browser, so that the the number of generations per user could be improved. The enhancements on the NodIO architecture,
 along with some initial results on the expected performance and scaling behavior when the number of users is increased,
-are introduced. We also use the algorithm data to find out what kind of patterns the user behavior follows by examining 
+are introduced. We also use the experimental data to find out what kind of patterns the user behavior follows by examining 
 the resources they devote to our experiment, and try to fit them in some statistical distribution. In general, 
 our experiments prove, first, that {\sf NodIO} is a flexible and low-overhead platform to perform distributed computation
 experiments that include volunteers, and then that user behavior
@@ -393,7 +393,7 @@ the algorithm adaptive to the kind of resources allotted to it
 \cite{milani2004online}. This is actually not such a big problem in
 algorithms such as the EA that can easily be
 parallelized via population splitting or by farming out evaluations to all
-the nodes available. Lately, several approaches have focused on the
+available nodes. Lately, several approaches have focused on the
 fault-tolerance of volunteer algorithms
 \cite{gonzalez2010characterizing} which it can, of course, be studied in
 the more general context of distributed computing 
