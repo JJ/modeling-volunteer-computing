@@ -138,9 +138,12 @@ the control of developers or they at least have access to them. In
 fact, these features are commonly found in most soft computing
 frameworks \cite{7094263}. 
 
+%Mario: Is NodIO presented here after the cut? 
+%TO DO: Add reference
 There is, then, space for frameworks that do not make any of these
-assumptions, such as the one presented in this paper, which will be
- named {\sf NodIO}. {\sf NodIO} is basically
+assumptions, such as {\sf NodIO} presented in \cite{}. {\sf NodIO} is basically 
+%assumptions, such as the one presented in this paper, which will be
+% named {\sf NodIO}. {\sf NodIO} is basically
 % (Paloma) Is the "first" word really needed? 
 % (Mario) I guess is more related to fundamentally or primarily but "basically" sounds better
 a two tier client/server 
@@ -198,7 +201,9 @@ The computing system becomes then a {\em techno-social system} \cite{vespignani2
 %a {\em social} aspect to the design of a
 %computing system that makes it a {\em techno-social system}
 In this paper, our intention is to
-present the {\sf NodIO} framework and analyze it from two different
+analyze the {\sf NodIO} framework from two different
+%Mario: Edit this?
+%present the {\sf NodIO} framework and analyze it from two different
 angles: the purely technical angle, including the decisions that went
 into its features, and the social angle, to account on how the persons
 that voluntarily choose to enter the web page running the experiment
@@ -234,7 +239,10 @@ programs. The ATLAS system
 with another language called Cilk; all these papers indicated that
 the introduction of an architecture-independent system such as the
 Java virtual machine opened the doors for ultrascale, Internet-wide,
-metacomputers. This paper % (Paloma) No really need for that "also", plus it complicates reading
+metacomputers. 
+%% We need to only reference this section?:
+%%------------------- BEGIN
+This paper % (Paloma) No really need for that "also", plus it complicates reading
 establishes the desirable features of
 any {\em global computing} infrastructure, that can also be applied to
 distributed evolutionary computation experiments that rely on
@@ -250,10 +258,13 @@ leaves us with eight desirable properties.
 % in adaptivity, which leaves us with eight desirable properties." 
 % (Paloma) And I re-wrote what I proposed yesterday.
 % thanks :-) -JJ
-
+%%------------------- END
+%% EDIT:
+%%------------------- BEGIN
 The fulfillment of these properties could be achieved by using any of the
 languages and associated technologies mentioned above, provided that the user had
 installed the required virtual machine plugin first. 
+%%------------------- END
 % (Paloma) These should be separate sentences
 However, embedding a
 distributed computation client in the browser has the advantage of
