@@ -210,7 +210,8 @@ state of the art (Section \ref{sec:soa}) in web-based distributed
 computational systems along with attempts to predict and model its
 behavior. The first results in a volunteer setting are described
 in Section \ref{sec:exp1}, and experiments using a new client
-architecture that uses web workers in Section \ref{sec:w2}.
+architecture that uses web workers in Section \ref{sec:w2} and then
+applied to a different problem in Section \ref{sec:rastrigin}. 
 Finally, conclusions and future lines of work are presented in Section
 \ref{sec:conclusion}. 
 
@@ -834,157 +835,20 @@ providing reasonable algorithmic performance and being, in general,
 easy to use with a straightforward modification of the fitness
 function. 
 
-% ------------Start spin-off ----------------------------------------------------
-\subsection{Tests with a floating-point hard optimization problem} 
+\section{Working on a hard optimization problem}
+\label{sec:rastrigin}
 
-JavaScript has been traditionally implemented as an interpreted
-language not designed for the development of high performance
-systems. On the other hand, current JavaScript  
-virtual machines (VMs from now on) are closing the gap, for instance the Google V8 
-is an engine specifically designed for the fast execution of 
-large JavaScript applications. In order to increase performance
-V8 compiles JavaScript source code directly into machine code when it is first executed. 
-There are no intermediate byte codes or an interpreter \cite{Gray:2009:GCM:1610564.1610565}.
-JavaScript has gained popularity in server-side development using runtime
-environments such as Node.js and is also used in desktop and mobile applications. 
-%Mario: Creo que el párrafo de arriba sale sobrando
-% (Paloma) Agree, I mean, it adds information but in case you have space problems... is ok if you start the section without it
-To further evaluate how a current JavaScript implementation could be used by a
-computer scientist to develop complex optimization problems,
-a benchmark function, which was provided by the CEC2010 Special Session on
-Large-Scale Global Optimization \cite{tang2007benchmark} is used in this section. 
-The function is described next.
+The fact that the solution of this particular problem was found in a
+few seconds and restarts were necessary yielded interesting results,
+but we needed to work on a harder problem, that is why created a new
+client version that optimized Rastrigin function, a multimodal
+floating-point problem used as a benchmark in evolutionary
+algorithms. The set up for this function, and a comparison of the
+baseline speed for JavaScript in an standalone experiment and other
+languages is shown in \cite{2016arXiv160101607M}, where the details of
+the implementation have also been extensively described. 
 
-
-The basic Rastrigin's function is separable, and is defined as follows;
-\begin{equation}
-F_{rastrigin}(x)=\sum\limits_{i=1}^D [ x_{i}^{2}-10\cos(2\pi x_i)+10  ] 
-\end{equation}
-where $D$ is the dimension and $x = (x1, x2, · · · , x_{D})$ is a
-$D$-dimensional row vector (i.e., a $1 × D$ matrix). Rastrigin’s function 
-is a classical multimodal problem. Such problem is difficult since the number of local
-optima grows exponentially with the increase of dimensionality. To make it 
-non-separable, an orthogonal matrix is also used for coordinate rotation.
-The rotated Rastrigin's function is defined as follows:
-\begin{equation}
-F_{rot\_rastrigin}(x)=F_{rastrigin}(\textbf{z}), \textbf{z}= \textbf{x} * \textbf{M}
-\end{equation}
-Where $\textbf{M}$ is  a $D \times{D}$ orthogonal matrix. The benchmark
-emulates real-world optimization problems that most likely will consist 
-of different groups of parameters with strong dependencies within
-but little interaction between the groups. This issue is reflected in the benchmark 
-by randomly dividing the objective variables
-into several groups, each of which contains a number of variables. The parameter $m$ 
-is used to control the number of variables in each group and hence, defining the degree
-of separability:
-\begin{equation}
-F_{15}(x)=\sum\limits_{k=1}^\frac{D}{m}F_{rot\_rastrigin}[\textbf{z}(P_{(k-1)*m+1}:P_{k*m})] 
-\end{equation}
-For the benchmark $D = 1000$, Group size $m = 50$, $\textbf{x} = (x_1, x_2, \ldots , x_{D})$ is the
-candidate solution, $\textbf{o} = (o_1, o_2, \ldots  , o_{D})$ is the shifted global optimum,
-$\textbf{z} = \textbf{x} - \textbf{o}$ is the shifted candidate solution and
-finally $\textbf{P}$ is a random permutation of $\lbrace1, 2, \ldots  ,D\rbrace$.
-
-This optimization problem was selected because it is representative of the kind of
-algorithms, data types, and structures employed in large scale optimization problems. 
-The function was implemented in both Matlab and Java languages as part of the
-Test Suite of the companion competition of the Special Session and to give competitors an idea of the
-computational cost of the challenge, the runtime required for 10,000 function evaluations 
-for a particular configuration was published by organizers. The Java
-implementation took 7596ms and the Matlab version 1115ms. The whole experiment had the value of
-3,000,000 function evaluations as termination condition. Using the Java implementation as
-a guide, the function described above was implemented to compare the performance of JavaScript against
-both implementations, again using the time required for 10,000 function evaluations. 
-Before discussing the setup and performance results, certain details of
-the implementation in JavaScript are presented to give readers an idea of 
-how practical and mature this language is for developing complex mathematical functions.
-
-\begin{itemize}
-\item {\em Randomize} Both Matlab and Java programs rely on a 
-Java Randomizer library for the 
-randomization of the shift vectors and matrices used by the function.
-The library includes the generation of pseudorandom Gaussians of type
-double and uniformly distributed integers. Generators use a single
-{\tt long} seed. In order to implement the same functionality in
-JavaScript, the library {\tt random-js} was used, as there are inconsistencies 
-in the implementation of the standard {\tt Math.random()} between engines
-and also their results are non-deterministic. 
-The library {\tt random-js}, implements a Mersenne Twister algorithm producing 
-consistent results across all JavaScript VMs.
-\item {\em Timing functions} In order to compare the performance of 
-each implementation, an accurate and consistent way of measuring 
-the runtime of functions is needed.
-In JavaScript the {\tt Date class} is often used 
-to measure execution time, but has the limitation of having a maximum 
-resolution given in milliseconds.
-In order to measure the runtime intervals with a higher precision two functions
-where used: for Node.js we used the native {\tt process.hrtime()} function
-which returns a high-resolution measure in a {\tt [seconds, nanoseconds]}
-array, and for measuring in the browser the {\tt Performance.now()} function was called,
-which uses floating-point numbers with up to microsecond precision. 
-A drawback found is that the {\tt Performance.now()} function is only implemented
-in Firefox and Chrome browsers. Both functions are independent of the system clock. 
-\item {\em Tools} An important consideration when choosing certain 
-language to write non-trivial programs is the availability of development tools. While developing
-the experiments, we used a comprehensive set of developer tools available for both
-browsers and desktop \cite{tilkov2010node}. These tools included
-package managers, in this case {\tt npm}, debuggers, logging libraries
-such as {\tt winston}, 
-network monitors, editors, and even debugging of the multi-threaded execution of Web Workers.
-Although the fact that developer tools vary from browser to browser
-supposed a drawback, they all have the same functionality. The
-JavaScript debugger can be accessed directly from the user menu in
-most browsers. 
-\item {\em Data Types} JavaScript uses floating point numbers with a 
-limited precision of 64 bits that partially implement the functionality of
-the {\tt StrictMath} library used by the Java implementation. If more precision
-is needed, developers could use {\tt math.js}, an extensive math library with
-support for matrices and big numbers.
-\end{itemize}
-
-We found that the JavaScript ecosystem is mature enough for developing non-trivial 
-code, but developers have to consider the differences between VMs implementations
-and therefore use certain libraries in order to increase the precision and repeatability of
-algorithms. As for the performance of JavaScript against Java and Matlab
-we conducted first the basic test described earlier in a 3.7 GHz Quad-Core
-Intel Xeon E5 processor running OS X 10.10.5, 
-using Java(TM) SE Runtime Environment (build 1.8.0\_25-b17), 
-MatLab version R2015a for Mac OSX, Node FrameWork version 0.12.2,
-Google Chrome Version 46.0.2490.86 (64-bit) 
-and Firefox version 41.0.2. % (Paloma) Table here? Or at least the characteristics could be represented the same way as for the baseline experiment
- The performance of the time required for 10,000 function evaluations is presented in
-Figure \ref{fig:f15_times}. In our test the Matlab implementation had the best
-performance with an average of 935ms, followed by Java with
-991ms. On the other hand, JavaScript took 32\% more time than Java with 1238ms in Chrome using a 
-single Web Worker and 1,234ms using Node.js. % Are these results correct? JS=>1240ms and Node.js=>1,270ms ???
-The results also show that there is not much difference between the Node.js
-implementation an that of a
-browser. There is also not much difference between running the code in the main thread or in Web
-Workers. When running the experiment in Firefox a dialog alerted that the
-script was taking too much time, showing that this
-kind of processing is not intended for the main thread. Additionally, there is not much overhead
-when running two
-Web Workers in parallel as they took 1279ms each. This experiment
-shows that JavaScript is viable as a language
-language for developing complex mathematical functions an these can run in a browser
-with acceptable performance. 
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=0.9\linewidth]{f15_times.png}
-\caption{ Runtime of 10,000 function evaluations for $F_{15}$} 
-\label{fig:f15_times}
-\end{figure}
-% - end spin-off-----------------------------------------------------------------
-
-After setting up baseline results for this particular problem, we will
-present now results the results obtained. Next we will present the
-details of the implementation and then the numeric results of the
-experiment.
-
-
-\subsubsection{Setup of Rastrigin's experiment in {\sf NodIO-W$^2$ }}
-
-This experiment was deployed in a virtual private server with 512MB of memory
+Specifically, this experiment was deployed in a virtual private server with 512MB of memory
 running Ubuntu OS version 14.04 and hosted in DigitalOcean.com. Unlike previous
 experiments where the optimum was expected to be found many times, 
 this problem was expected to run constantly for many days finding only
@@ -1001,9 +865,7 @@ new one, when the pool was full. For this problem {\sf NodEO}'s {\tt chromosome-
 and {\tt classic-ea-float} modules were used. The parameters for the EA 
 were tournament size = 3 and  population size = 500, returning exchanging a
 chromosome with the server every 100 generations. Again, there were two workers in each window.
-As before, a few participation calls were published in social networks.
-
-\subsubsection{Results}
+As in previous experiments, a few calls to participation were published in social networks.
 
 
 %
