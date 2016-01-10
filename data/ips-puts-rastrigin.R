@@ -13,7 +13,7 @@ this.fit.plot <- data.frame(rank=1:length(ips.puts.ww.rastrigin$puts),
                                 this.fit$estimate["scale"],
                                 this.fit$estimate["shape"]),decreasing=T))
 
-ggplot() +geom_point(data=ips.puts.ww.rastrigin.df,aes(x=rank,y=puts,color='Data',shape='Data')) +geom_point(data=this.fit.plot,aes(x=rank,y=y,color='Fit',shape='Fit'))+scale_y_log10() + scale_colour_grey(name  ="Puts", breaks=c("Data", "Fit"), labels=c("Data", "Fit")) + scale_shape_discrete(name  ="Puts", breaks=c("Data", "Fit"), labels=c("Data", "Fit"))
+ggplot() +geom_point(data=ips.puts.ww.rastrigin.df,aes(x=rank,y=puts,color='Data',shape='Data')) +geom_point(data=this.fit.plot,aes(x=rank,y=y,color='Fit',shape='Fit'))+scale_y_log10() + scale_colour_grey(name  ="Puts", breaks=c("Data", "Fit"), labels=c("Data", "Fit")) + scale_shape_discrete(name  ="Puts", breaks=c("Data", "Fit"), labels=c("Data", "Fit"))+ theme(text = element_text(size=20), axis.text.y = element_text(angle=90, vjust=0.5))
 
 ggsave('../img/gev-fit-ww.rastrigin.png',width=5,height=5)
 
