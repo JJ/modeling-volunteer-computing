@@ -252,7 +252,7 @@ leaves us with eight desirable properties.
 % thanks :-) -JJ
 
 The fulfillment of these properties could be achieved by using any of the
-languages and associated technologies, mentioned above, provided that the user had
+languages and associated technologies mentioned above, provided that the user had
 installed the required virtual machine plugin first. 
 % (Paloma) These should be separate sentences
 However, embedding a
@@ -458,7 +458,7 @@ results were published here \cite{DBLP:conf/gecco/GuervosG15}. For the
 purpose of this paper, we repeated the announcement several times
 through the month of April and then by the beginning of August. All
 in all, we have the set of runs with the characteristics shown in
-Table \ref{tab:runs}. In general, every experiment took several
+Table \ref{tab:summary:os}. In general, every experiment took several
 days. No particular care was taken about the time of the announcement
 or the particular wording. Every {\em experiment} consisted in running
 until the solution of the 40-trap problem was found. When the correct
@@ -470,32 +470,17 @@ the next. However, previous experiments have proven that the influence
 of these islands in the next experiment is indeed negligible.
 %
 \begin{table*}
-\caption{Characteristics of the volunteer computing initial runs. \label{tab:runs}}
-\begin{center}
-\begin{tabular}{l|rr}
-\hline
-Date & \# experiments & Different IPs \\
-\hline
-April 4th 4/4 & 57 & 191 \\
-April 24th 4/24 &  231 & 559 \\
-July 31th 7/31 & 97 & 179 \\
-\hline
-\end{tabular}
-\end{center}
-\end{table*}
-%
-\begin{table*}
 \caption{Summary of time per run, number of IPs and number of {\tt
     PUT}s per IP in the initial runs. \label{tab:summary:os}}
 \begin{center}
-\begin{tabular}{l|ccccccc}
+\begin{tabular}{l|ccccccccc}
 \hline
-Date & Median \#IPs & Max \#IPs & Median time (s) & Median \#{\tt
-  PUT}s & $<$ 69s & $<$ 3.46s & Inter-experiment correlation\\
+Date & Experiments &\#IPs &\#IPs &  \#IPs & Time (s) &  \#{\tt PUT}s & $<$ 69s & $<$ 3.46s & Inter-experiment\\
+     & \# & Different & Median & Max & Median &  Median & & & correlation \\ 
 \hline
-4/4 & 5 & 16 & 2040 & 18 & 14.29\% & 5.36\% & 0.0082 \\
-4/24 &  5 & 29 & 732 & 11 & 47.39\% & 3.91\% & 0.0934\\
-7/31 & 5 & 14 & 260 & 23 & 27.08\% & 1.04\%  & 0.1741\\
+4/4 & 57 & 191 & 5 & 16 & 2040 & 18 & 14.29\% & 5.36\% & 0.0082 \\
+4/24 & 231 & 559 & 5 & 29 & 732 & 11 & 47.39\% & 3.91\% & 0.0934\\
+7/31 & 97 & 179 & 5 & 14 & 260 & 23 & 27.08\% & 1.04\%  & 0.1741\\
 \hline
 \end{tabular}
 \end{center}
