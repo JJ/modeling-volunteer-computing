@@ -201,10 +201,9 @@ predicted.
 
 The rest of the paper is organized as follows: Next we present the
 state of the art (Section \ref{sec:soa}) in web-based distributed
-computational systems along with attempts to predict and model its behavior. 
-Then, a detailed description of the proposed framework is presented
-in Section \ref{sec:description}, followed by the baseline experiments
-in Section \ref{sec:experiments}, and experiments using a new client
+computational systems along with attempts to predict and model its
+behavior. The first results in a volunteer setting are described
+in Section \ref{sec:exp1}, and experiments using a new client
 architecture that uses web workers in Section \ref{sec:w2}.
 Finally, conclusions and future lines of work are presented in Section
 \ref{sec:conclusion}. 
@@ -418,21 +417,24 @@ or workstation computers in a research center.
 %The methodology used
 % (Paloma) I would say "the used methodology"
 The algorithms used, as well as the methodology 
-for gathering resources, will be described next, %change this to
-                                %references to the other paper - JJ
-together with the results obtained in this initial setup.
+for gathering resources and baseline results that we will use for
+comparison have been described in
+\cite{2016arXiv160101607M}. We will focus next on the experimental
+results using the first version of the framework. 
 
 
 \section{Experimental results}
 \label{sec:exp1}
 
-These two experiments establish a baseline result and show that
-the time to success depends on the population size, with a bigger population
-contributing to have more diversity and thus speeding up the solution \cite{DBLP:conf/lion/LaredoDFGB13}. The volunteer computing
+Initial results using the same code base and a single computer have
+been described in \cite{2016arXiv160101607M}. They prove that a bigger population
+contributes to diversity and thus speeds up the solution
+\cite{DBLP:conf/lion/LaredoDFGB13}. The volunteer computing 
 experiments that we will describe next do not and can not have the
 same conditions, but
 the baseline is that if they eventually take longer than a basic
-desktop, their interest will be purely academic. We will try and
+desktop, their interest will be purely academic, although they can
+complement them. We will try and
 prove next that that target performance can be achieved by carrying
 out several experiments in different conditions. Second, they also act
 as a basic performance test for the server, and also prove that the
