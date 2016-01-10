@@ -379,12 +379,6 @@ J.-J. Merelo-Guerv{\'{o}}s and P.~Garc{\'{\i}}a{-}S{\'{a}}nchez, ``Designing
 S.~I. Resnick, \emph{Extreme values, regular variation and point
   processes}.\hskip 1em plus 0.5em minus 0.4em\relax Springer, 2013.
 
-\bibitem{hickson2012web}
-\BIBentryALTinterwordspacing
-I.~Hickson, ``{Web Workers, W3C Candidate Recommendation},'' \emph{W3C. W3C},
-  vol.~1, 2012. [Online]. Available: \url{http://http://www.w3.org/TR/workers}
-\BIBentrySTDinterwordspacing
-
 \bibitem{chambers2005measurement}
 C.~Chambers, W.-c. Feng, S.~Sahu, and D.~Saha, ``Measurement-based
   characterization of a collection of on-line games,'' in \emph{Proceedings of
