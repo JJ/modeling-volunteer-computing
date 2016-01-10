@@ -70,12 +70,6 @@ J.~E. Baldeschwieler, R.~D. Blumofe, and E.~A. Brewer, ``Atlas: An
   \url{http://doi.acm.org/10.1145/504450.504482}
 \BIBentrySTDinterwordspacing
 
-\bibitem{baratloo1996charlotte}
-A.~Baratloo, M.~Karaul, Z.~Kedem, and P.~Wyckoff, ``Charlotte: Metacomputing on
-  the web,'' in \emph{Proceedings of the 9th Conference on Parallel and
-  Distributed Computing Systems}.\hskip 1em plus 0.5em minus 0.4em\relax
-  Citeseer, 1996.
-
 \bibitem{baratloo1999charlotte}
 A.~Baratloo, M.~Karaul, Z.~M. Kedem, and P.~Wijckoff, ``Charlotte:
   Metacomputing on the web,'' \emph{Future Generation Computer Systems},
@@ -384,24 +378,6 @@ C.~Chambers, W.-c. Feng, S.~Sahu, and D.~Saha, ``Measurement-based
   characterization of a collection of on-line games,'' in \emph{Proceedings of
   the 5th ACM SIGCOMM conference on Internet Measurement}.\hskip 1em plus 0.5em
   minus 0.4em\relax USENIX Association, 2005, pp. 1--1.
-
-\bibitem{Gray:2009:GCM:1610564.1610565}
-\BIBentryALTinterwordspacing
-J.~Gray, ``Google chrome: The making of a cross-platform browser,'' \emph{Linux
-  Journal}, vol. 2009, no. 185, Sep. 2009. [Online]. Available:
-  \url{http://dl.acm.org/citation.cfm?id=1610564.1610565}
-\BIBentrySTDinterwordspacing
-
-\bibitem{tang2007benchmark}
-K.~Tang, X.~Yao, P.~N. Suganthan, C.~MacNish, Y.-P. Chen, C.-M. Chen, and
-  Z.~Yang, ``Benchmark functions for the cec’2008 special session and
-  competition on large scale global optimization,'' \emph{Nature Inspired
-  Computation and Applications Laboratory, USTC, China}, pp. 153--177, 2007.
-
-\bibitem{tilkov2010node}
-S.~Tilkov and S.~Vinoski, ``Node. js: Using javascript to build
-  high-performance network programs,'' \emph{IEEE Internet Computing}, no.~6,
-  pp. 80--83, 2010.
 
 \bibitem{araujo2008mam}
 L.~Araujo, J.~Merelo-Guerv\'os, C.~Cotta, and F.~de~Vega, ``{MultiKulti

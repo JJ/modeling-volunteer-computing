@@ -261,7 +261,7 @@ providing a single and universal way of accessing resources via an
 URI, something that is not guaranteed by using desktop applications. 
 Baratloo et al. tried in 1996 to create a framework with
 the aforementioned qualities called {\em Charlotte}
-\cite{baratloo1996charlotte}. This framework, which implemented a
+\cite{baratloo1999charlotte}. This framework, which implemented a
 distributed shared memory, was inspired by a previous work
 on parallel computing libraries PVM and MPI and solved most of the issues by
 using the Java virtual machine embedded in the browser,
@@ -272,9 +272,7 @@ server. Additionally, since the Java virtual machine is a sandbox, it was safe t
 and as it runs compiled bytecode it also guaranteed a certain level of
 performance. % (Paloma) I've changed a bit this sentence to unify the use of past tense when talking about Charlotte
 Other issues such as scheduling, which are related to adaptive 
-parallelism, were solved on the server. This
-paper was later extended and published in a journal in 1999
-\cite{baratloo1999charlotte}, but it is interesting to note that,
+parallelism, were solved on the server. It is interesting to note that,
 even in the early stages of the web, the possibility of
 % (Paloma) Re-write. For example, "but it is interesting to note that, even in the early stages of the web, the possibility of..."
 browser-based distributed computing was already researched. 
@@ -706,7 +704,7 @@ Date & Median \#IPs & Max \#IPs & Median time (s) & Median \#{\tt
 \end{figure}
 
 \subsection{Experiments using web workers}
-\label{sec:w2Exp}
+\label{sec:w2}
 
 The results reported above indicated that we should look for a way of
 increasing the time that every user devotes. This led us to create an
@@ -869,14 +867,14 @@ As in previous experiments, a few calls to participation were published in socia
 
 
 %
-\begin{figure}[!htb]
-\centering
-\includegraphics{rastrigin-fitness.png}
-\caption{Fitness of chromosomes sent to the server pool along time in
-  the $x$ axis.} 
-% Plotted with ../data/plot-rastrigin-fitness.R
-\label{fig:puts:rastrigin}
-\end{figure}
+% \begin{figure}[!htb]
+% \centering
+% \includegraphics{rastrigin-fitness.png}
+% \caption{Fitness of chromosomes sent to the server pool along time in
+%   the $x$ axis.} 
+% % Plotted with ../data/plot-rastrigin-fitness.R
+% \label{fig:puts:rastrigin}
+% \end{figure}
 %
 \begin{figure}[!htb]
 \centering
@@ -919,23 +917,14 @@ and quite different from the previous one. The most important
 characteristic that set this experiment apart from the previous one is
 the fact that it did not find the solution for the time it was
 running, instead lowering, little by little, the fitness until it was
-disconnected. The fitness of chromosomes sent by clients is shown in
-Figure \ref{fig:puts:rastrigin}, that shows two different parts: the
-upper part, which represents the fitness of clients that have just
-started evolution from a random population, and then the fitness of
-those clients that have been already evolving for a while or obtained
-a high-fitness individual from the pool and evolved from there, and
-which managed to surpass the 9000 value by the end of the
-simulation. It incidentally shows also the number of {\em new} nodes
-coming: there is a dense {\em cloud} at the beginning, but the new
-contributions keep thinning as the evolution progresses. 
+disconnected. The fitness of chromosomes sent by clients managed to
+surpass the 9000 value by the end of the; and although initially there
+was a high number of new nodes, this number decreases with time.
 
 This is in part due to the fact that the presence of nodes is not
 constant, as shown in Figure \ref{fig:ips:rastrigin}, which plots the
 number of unique IPs participating in the experiment per minute (left)
-and hour (right). The two graphs have the same shape which matches
-also the speed in which fitness is decreased in Figure
-\ref{fig:puts:rastrigin}. At the beginning there are very few or only
+and hour (right). The two graphs have the same shape: At the beginning there are very few or only
 one, but later one there are peaks of almost 30 unique machine a
 minute; these peaks appear again when new announcements are made in
 Twitter or any other social networks, to go down to a few remaining
