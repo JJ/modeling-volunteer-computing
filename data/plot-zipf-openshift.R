@@ -12,7 +12,7 @@ process.puts <- function(suffix ) {
                                     this.fit$estimate["loc"],
                                     this.fit$estimate["scale"],
                                     this.fit$estimate["shape"]),decreasing=T))
-    ggplot()+geom_point(data=this.df,aes(x=rank,y=puts,color='data',shape='data'))+geom_point(data=this.fit.plot,aes(x=rank,y=y,color='fit',shape='fit'))+scale_y_log10()+ scale_colour_grey(name  ="Puts", breaks=c("data", "fit"), labels=c("Data", "Fit")) + scale_shape_discrete(name  ="Puts", breaks=c("data", "fit"), labels=c("Data", "Fit"))
+    ggplot()+geom_point(data=this.df,aes(x=rank,y=puts,color='data',shape='data'))+geom_point(data=this.fit.plot,aes(x=rank,y=y,color='fit',shape='fit'))+scale_y_log10()+ scale_colour_manual(name  ="Puts", breaks=c("data", "fit"), labels=c("Data", "Fit"), values=c("#11AA99",'#EE3333')) + scale_shape_discrete(name  ="Puts", breaks=c("data", "fit"), labels=c("Data", "Fit"))+theme(text = element_text(size=30), axis.text.y = element_text(angle=90, vjust=0.5))
     ggsave(paste0("../img/puts-openshift-",suffix,".png"),width=5,height=5)
     return(this.df)
 }
