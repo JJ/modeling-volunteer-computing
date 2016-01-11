@@ -556,13 +556,14 @@ will voluntarily perform.
 \includegraphics[width=0.32\linewidth]{time-vs-ips-OS-7-31.png}
 \caption{Duration of experiments vs. number of different IPs (nodes)
   participating in it, with averages and standard deviation shown as
-  red dots; in the case there is a single red dot, there was a single
+  red dots; in the case there is a single dot, there was a single
   experiment in which many computers participated (for instance, 16
   computers in the experiment in the far left or 29 in the middle
   one). 
 Shades of gray indicate how many experiments included that many unique IPs,
 so lighter shade for a column of dots indicates that a particular number
-of computers happened less frequently, while darker shadow means more frequency. 
+of computers happened less frequently, while darker shade or closer to
+redmeans more frequency. 
 From left to right, experiments 4/4, 4/24 and 7/31.}
 \label{fig:duration}
 \end{figure}
@@ -609,7 +610,7 @@ experiment.
 \includegraphics[width=0.32\linewidth]{puts-openshift-4-24.png}
 \includegraphics[width=0.32\linewidth]{puts-openshift-7-31.png}
 \caption{Number of {\tt PUT}s per unique IP and fit to a Generalized
-  Extreme Value distribution (in a lighter shade of gray). From left to right, experiments
+  Extreme Value distribution (in a lighter shade or blue). From left to right, experiments
   4/4, 4/24 and 7/31.} 
 % Plotted with ../data/plot-zipf-openshift.R
 \label{fig:puts:os}
@@ -698,7 +699,7 @@ Date & Median \#IPs & Max \#IPs & Median time (s) & Median \#{\tt
 \includegraphics[width=0.9\linewidth]{ips-time-ww.png}
 \caption{Time employed in every experiment vs. number of IPs (in
   abscissas). The black dot and line show the average and standard
-  deviation, the shades of gray the number of experiments with the same
+  deviation, the blue to red shades the number of experiments with the same
   number of IPs. } 
 \label{fig:ipstime:w2}
 % ../data/time-vs-IPs.R 
@@ -787,8 +788,9 @@ standard deviation in the time, with more volunteers adding both {\em
 \centering
 \includegraphics[width=0.49\linewidth]{gev-fit-ww.png}
 \includegraphics[width=0.49\linewidth]{weibull-fit-ww.png}
-\caption{Ranked number of {\tt PUT}s per worker and GEV fit (in light color, right) 
-and Weibull (in lighter shade, left) for the {\sf NodIO-W$^2$} model.}  
+\caption{Ranked number of {\tt PUT}s per worker and GEV fit (in light
+  or blue color, left) 
+and Weibull (in lighter or blue shade, right) for the {\sf NodIO-W$^2$} model.}  
 \label{fig:gev:w2}
 % File ../data/ips-puts.R
 \end{figure}
@@ -1085,9 +1087,10 @@ Finally, the implementation needs some refinement in terms of
 programming and also ease of use. Tools such as Yeoman might be used % ¿añadir una cita o la URL http://yeoman.io/ a pie de página ?
 to create a generator in which the user just has to create a fitness
 function, with the rest of the framework wrapped around
-automatically. All this, as well as the data used for this paper and the paper
-itself, has been published with a free license in GitHub at
-\url{https://github.com/JJ/modeling-volunteer-computing}.  
+automatically.
+%  All this, as well as the data used for this paper and the paper
+% itself, has been published with a free license in GitHub at
+% \url{https://github.com/JJ/modeling-volunteer-computing}.  
 
 %---------------------------------------------------------------
 \section*{Acknowledgment}
