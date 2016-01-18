@@ -1,5 +1,5 @@
 library(ggplot2)
-
+library(grid)
                         
 time.vs.IPs <- function( data, preffix ) {
     data$howmany <- 1:nrow(data)
@@ -7,7 +7,7 @@ time.vs.IPs <- function( data, preffix ) {
         data[i,]$howmany <- length(data[data$IPs==data[i,]$IPs,]$milliseconds)
     }
     data$i <- 1:nrow(data)
-    ggplot(data=data, aes(x=IPs,y=milliseconds,color=howmany))+ scale_colour_gradient(name  ="Count", low="#11AA99",high='#EE3333')+geom_point()+scale_y_log10()+ stat_summary(fun.data = "mean_cl_boot", colour = "black")+ theme(text = element_text(size=30), axis.text.y = element_text(angle=90, vjust=0.5)) 
+    ggplot(data=data, aes(x=IPs,y=milliseconds,color=howmany))+ scale_colour_gradient(name  ="Count", low="#11AA99",high='#EE3333')+geom_point(size=4)+scale_y_log10()+ stat_summary(fun.data = "mean_cl_boot", colour = "black")+ theme(text = element_text(size=25), legend.key.height=unit(2, "line"), axis.text.y = element_text(angle=90, vjust=0.5)) 
     ggsave(paste0("../img/time-vs-ips-OS-",preffix,".png"))
     ggplot(data=data, aes(x=i,y=milliseconds,fill=IPs))+geom_bar(stat='identity')+scale_y_log10()
     ggsave(paste0("../img/duration-vs-time-OS-",preffix,".png"))
