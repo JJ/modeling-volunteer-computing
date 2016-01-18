@@ -488,12 +488,11 @@ the next. However, previous experiments have proven that the influence
 of these islands in the next experiment is indeed negligible.
 %
 \begin{table*}
-\caption{Summary of time per run, number of IPs and number of {\tt
-    PUT}s per IP in the initial runs. \label{tab:summary:os}}
+\caption{Summary of time per run, number of IPs and number of PUTs per IP in the initial runs. \label{tab:summary:os}}
 \begin{center}
 \begin{tabular}{l|ccccccccc}
 \hline
-Date & Experiments &\#IPs &\#IPs &  \#IPs & Time (s) &  \#{\tt PUT}s & $<$ 69s & $<$ 3.46s & Inter-experiment\\
+Date & Experiments &\#IPs &\#IPs &  \#IPs & Time (s) &  \#PUTs & $<$ 69s & $<$ 3.46s & Inter-experiment\\
      & \# & Different & Median & Max & Median &  Median & & & correlation \\ 
 \hline
 4/4 & 57 & 191 & 5 & 16 & 2040 & 18 & 14.29\% & 5.36\% & 0.0082 \\
@@ -511,7 +510,7 @@ hundred to more than five hundred in the second experiment.
 A summary of the results of each run is also shown in Table
 \ref{tab:summary:os}, which shows the median number of IPs
 intervening in each experiment,  median time needed
-to finish the experiment, median number of HTTP {\tt PUT}s per IP, and
+to finish the experiment, median number of HTTP PUTs per IP, and
 then two columns showing the percentage of experiments that took less
 than the two baseline experiments shown in the introduction to this
 section. The first striking result is that in all cases, 50\% of the
@@ -611,7 +610,7 @@ experiment.
 \includegraphics[width=0.32\linewidth]{puts-openshift-4-4.png}
 \includegraphics[width=0.32\linewidth]{puts-openshift-4-24.png}
 \includegraphics[width=0.32\linewidth]{puts-openshift-7-31.png}
-\caption{Number of {\tt PUT}s per unique IP and fit to a Generalized
+\caption{Number of PUTs per unique IP and fit to a Generalized
   Extreme Value distribution (in a lighter shade or blue). From left to right, experiments
   4/4, 4/24 and 7/31.} 
 % Plotted with ../data/plot-zipf-openshift.R
@@ -629,7 +628,7 @@ many experiments took a desirable amount of time, of the order of
 it sharply drops implying there are 
 just a few of them, and with diminishing probability as time
 decreases. This exponential distribution also appears in the
-distribution of HTTP {\tt PUT}s, equivalent to the number of
+distribution of HTTP PUTs, equivalent to the number of
 generations divided by 100, contributed by every user, which is shown
 in Figure \ref{fig:puts:os}. These results show a Zipf-like behavior,
 so we have fitted it to the Generalized Extreme Value distribution,
@@ -637,7 +636,7 @@ with the resulting parameters shown in Table \ref{tab:puts:os}.
 %
 \begin{table*}
 \caption{Summary of fit to Generalized Extreme Value distribution of
-  the number of {\tt PUT}s per unique IP. \label{tab:puts:os}}
+  the number of PUTs per unique IP. \label{tab:puts:os}}
 \begin{center}
 \begin{tabular}{l|ccc}
 \hline
@@ -686,8 +685,7 @@ presented next. % (Paloma) This sentences are sort of alone here... Could we ext
 \begin{center}
 \begin{tabular}{l|ccccccc}
 \hline
-Date & Median \#IPs & Max \#IPs & Median time (s) & Median \#{\tt
-  PUT}s & $<$ 69s & $<$ 3.46s & Inter-experiment correlation\\
+Date & Median \#IPs & Max \#IPs & Median time (s) & Median \# PUTs & $<$ 69s & $<$ 3.46s & Inter-experiment correlation\\
 \hline
 {\sf NodIO} & 5 & 29 & 123 & 14 & 37.43\% & 3.40\% & 0.10 \\
 {\sf NodIO-W$^2$} & 4  & 16 & 7.36 & 40 & 89\% & 36.90\% & 0.4336061 \\
@@ -738,7 +736,7 @@ distributed evolutionary algorithms.
 %
 \begin{table*}
 \caption{Summary of fit to GEV and Weibull distribution of
-  the number of {\tt PUT}s per worker. \label{tab:puts:ww}}
+  the number of PUTs per worker. \label{tab:puts:ww}}
 \begin{center}
 \begin{tabular}{cccc}
 \hline
@@ -790,7 +788,7 @@ standard deviation in the time, with more volunteers adding both {\em
 \centering
 \includegraphics[width=0.49\linewidth]{gev-fit-ww.png}
 \includegraphics[width=0.49\linewidth]{weibull-fit-ww.png}
-\caption{Ranked number of {\tt PUT}s per worker and GEV fit (in light
+\caption{Ranked number of PUTs per worker and GEV fit (in light
   or blue color, left) 
 and Weibull (in lighter or blue shade, right) for the {\sf NodIO-W$^2$} model.}  
 \label{fig:gev:w2}
@@ -798,7 +796,7 @@ and Weibull (in lighter or blue shade, right) for the {\sf NodIO-W$^2$} model.}
 \end{figure}
 %
 As we did in the previous subsection, we have also fitted the number
-of HTTP {\tt PUT}s per worker to a  Generalized Extreme Value (GEV) function, with the result shown
+of HTTP PUTs per worker to a  Generalized Extreme Value (GEV) function, with the result shown
 in Table \ref{tab:puts:ww}. Comparing this table with what we obtained
 in the previous experiment, Table \ref{tab:puts:os}, we find higher values
 for the location $\mu$ and scale $\sigma$ parameters, accounting for
@@ -893,7 +891,7 @@ As in previous experiments, a few calls to participation were published in socia
 %
 \begin{table*}
 \caption{Summary of fit to GEV and Weibull distribution of
-  the number of {\tt PUT}s per worker for the F15 (Rastrigin) function. \label{tab:puts:ww:f15}}
+  the number of PUTs per worker for the F15 (Rastrigin) function. \label{tab:puts:ww:f15}}
 \begin{center}
 \begin{tabular}{cccc}
 \hline
@@ -911,7 +909,7 @@ Weibull & ND & 29.002625061 $\pm$ 2.153034198  & 0.402393903 $\pm$ 0.007586468 \
 \includegraphics[width=0.49\linewidth]{gev-fit-ww-rastrigin-workers.png}
 \includegraphics[width=0.49\linewidth]{weibull-fit-ww-rastrigin-workers.png}
 \caption{Data and fit to GEV (left) and Weibull (right) of the number
-  of {\tt PUT}s per worker for the F15 (Rastrigin) function.}  
+  of PUTs per worker for the F15 (Rastrigin) function.}  
 % Plotted with ../data/ips-puts-rastrigin.R
 \label{fig:fit:rastrigin}
 \end{figure}
@@ -940,7 +938,7 @@ every minute. This is due to the fact that the computation is
 asynchronous, but also to the fact that different computers stay in
 the simulation for a different period of time. This period has been
 plotted in Figure \ref{fig:fit:rastrigin}, that plots the number of
-{\tt PUT}s per node, ranked by number, along with a fit to the two
+PUTs per node, ranked by number, along with a fit to the two
 distributions we have used before, GEV and Weibull; the parameters of
 this fit are shown in Table \ref{tab:puts:ww:f15}. Unlike the previous
 experiments, in which GEV fit was relatively good, in this case it is
