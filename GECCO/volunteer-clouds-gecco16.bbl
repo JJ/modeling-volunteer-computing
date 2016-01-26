@@ -5,6 +5,14 @@ A.~D. Alexandrov, M.~Ibel, K.~E. Schauser, and C.~J. Scheiman.
 \newblock {SuperWeb: research issues in Java-based global computing}.
 \newblock {\em Concurrency - Practice and Experience}, 9(6):535--553, 1997.
 
+\bibitem{2016arXiv160101607Manom}
+Anonymous.
+\newblock Details omitted for double-blind reviewing.
+
+\bibitem{DBLP:conf/gecco/GuervosG15anom}
+Anonymous.
+\newblock Details omitted for double-blind reviewing.
+
 \bibitem{anthes2012html5}
 G.~Anthes.
 \newblock {HTML5} leads a web revolution.
@@ -55,21 +63,6 @@ G.~Cousineau and M.~Mauny.
 \newblock {\em The Functional Approach to Programming 1st Edition}.
 \newblock Cambridge University Press, ISBN 978-0521576819, 1998.
 
-\bibitem{Desell:2008:AHG:1389095.1389273}
-T.~Desell, B.~Szymanski, and C.~Varela.
-\newblock {An asynchronous hybrid genetic-simplex search for modeling the Milky
-  Way galaxy using volunteer computing}.
-\newblock In {\em Proceedings of the 10th annual conference on Genetic and
-  evolutionary computation}, GECCO '08, pages 921--928, New York, NY, USA,
-  2008. ACM.
-
-\bibitem{di2013towards}
-S.~Di~Martino, F.~Ferrucci, V.~Maggio, and F.~Sarro.
-\newblock Towards migrating genetic algorithms for test data generation to the
-  cloud.
-\newblock In {\em Software Testing in the Cloud: Perspectives on an Emerging
-  Discipline.}, pages 113--135. IGI Global, IGI Global, 2013.
-
 \bibitem{duda2013distributed}
 J.~Duda and W.~D{\l}ubacz.
 \newblock Distributed evolutionary computing system based on web browsers with
@@ -89,11 +82,6 @@ J.~Duda and W.~Dlubacz.
 \newblock {\em {ECMA-262}: {ECMAScript} Language Specification}.
 \newblock ECMA (European Association for Standardizing Information and
   Communication Systems), Geneva, Switzerland, third edition, Dec. 1999.
-
-\bibitem{flanagan2006javascript}
-D.~Flanagan.
-\newblock {\em {JavaScript: the definitive guide}}.
-\newblock O'Reilly Media, Inc., 2006.
 
 \bibitem{ford2009analyzing}
 S.~Ford, M.~Cova, C.~Kruegel, and G.~Vigna.
@@ -201,13 +189,6 @@ J.-J. {Merelo}, P.~{Garc{\'{\i}}a-S{\'a}nchez}, M.~{Garc{\'{\i}}a-Valdez}, and
   evolutionary algorithms in several languages}.
 \newblock {\em ArXiv e-prints}, Nov. 2015.
 
-\bibitem{2016arXiv160101607M}
-J.-J. {Merelo}, M.~{Garc{\'{\i}}a-Valdez}, P.~A. {Castillo},
-  P.~{Garc{\'{\i}}a-S{\'a}nchez}, P.~{de las Cuevas}, and N.~{Rico}.
-\newblock {NodIO, a JavaScript framework for volunteer-based evolutionary
-  algorithms : first results}.
-\newblock {\em ArXiv e-prints}, Jan. 2016.
-
 \bibitem{DBLP:conf/gecco/GuervosVGES14}
 J.-J. Merelo-Guerv{\'{o}}s, P.-A. Castillo-Valdivieso, A.~Mora-Garc{\'{\i}}a,
   A.~Esparcia{-}Alc{\'{a}}zar, and V.-M. Rivas-Santos.
@@ -217,15 +198,6 @@ J.-J. Merelo-Guerv{\'{o}}s, P.-A. Castillo-Valdivieso, A.~Mora-Garc{\'{\i}}a,
   Computation Conference, {GECCO} '14, Vancouver, BC, Canada, July 12-16, 2014,
   Companion Material Proceedings}, pages 1155--1162. {ACM}, 2014.
 
-\bibitem{DBLP:conf/gecco/GuervosG15}
-J.-J. Merelo-Guerv{\'{o}}s and P.~Garc{\'{\i}}a{-}S{\'{a}}nchez.
-\newblock Designing and modeling a browser-based distributed evolutionary
-  computation system.
-\newblock In J.~L.~J. Laredo, S.~Silva, and A.~I. Esparcia{-}Alc{\'{a}}zar,
-  editors, {\em Genetic and Evolutionary Computation Conference, {GECCO} 2015,
-  Madrid, Spain, July 11-15, 2015, Companion Material Proceedings}, pages
-  1117--1124. {ACM}, 2015.
-
 \bibitem{DBLP:conf/3pgcic/GuervosMFEL12}
 J.-J. Merelo-Guerv{\'o}s, A.-M. Mora, C.-M. Fernandes, A.-I.
   Esparcia-Alc{\'a}zar, and J.-L. Jim{\'e}nez-Laredo.
@@ -233,12 +205,6 @@ J.-J. Merelo-Guerv{\'o}s, A.-M. Mora, C.-M. Fernandes, A.-I.
   exploration.
 \newblock In F.~Xhafa, L.~Barolli, and K.~F. Li, editors, {\em 3PGCIC}, pages
   19--24. IEEE, 2012.
-
-\bibitem{mericloud}
-K.~Meri, M.~G. Arenas, A.~M. Mora, J.~J.~M. Guerv{\'o}s, P.~A. Castillo,
-  P.~Garc\'{\i}a-S{\'a}nchez, and J.~L.~J. Laredo.
-\newblock Cloud-based evolutionary algorithms: An algorithmic study.
-\newblock {\em Natural Computing}, 12(2):135--147, 2013.
 
 \bibitem{milani2004online}
 A.~Milani.
@@ -257,28 +223,10 @@ J.~A. Parejo, A.~R. Cort{\'{e}}s, S.~Lozano, and P.~Fernandez.
 \newblock Metaheuristic optimization frameworks: a survey and benchmarking.
 \newblock {\em Soft Comput.}, 16(3):527--561, 2012.
 
-\bibitem{jj-ppsn98}
-J.~G. Pe{\~n}alver and J.-J. Merelo.
-\newblock Optimizing web page layout using an annealed genetic algorithm as
-  client-side script.
-\newblock In {\em Proceedings PPSN, Parallel Problem Solving from Nature V},
-  number 1967 in Lecture Notes in Computer Science, pages 1018--1027.
-  Springer-Verlag, 1998.
-\newblock \url{http://www.springerlink.com/link.asp?id=2gqqar9cv3et5nlg}.
-
 \bibitem{resnick2013extreme}
 S.~I. Resnick.
 \newblock {\em Extreme values, regular variation and point processes}.
 \newblock Springer, 2013.
-
-\bibitem{EvoStar2014:jsEO}
-V.~M. Rivas, J.~J. Merelo-Guerv{\'{o}}s, G.~Romero-L{\'{o}}pez,
-  M.~Arenas-Garc{\'{i}}a, and A.~M. Mora.
-\newblock An object-oriented library in {JavaScript} to build modular and
-  flexible cross-platform evolutionary algorithms.
-\newblock In A.~I. Esparcia-Alc{\'{a}}zar and A.~M. Mora, editors, {\em
-  Applications of Evolutionary Computation}, Lecture Notes in Computer Science,
-  pages 853--862. Springer Berlin Heidelberg, 2014.
 
 \bibitem{sarmenta-sabotagetolerance}
 L.~F.~G. Sarmenta.
@@ -334,18 +282,5 @@ T.~Watanabe, Z.~Cheng, M.~Kansen, and M.~Hisada.
   generating test patterns.
 \newblock In {\em Network-Based Information Systems (NBiS), 2010 13th
   International Conference on}, pages 469--474. IEEE, 2010.
-
-\bibitem{CloudScale}
-D.~Wilson, K.~Veeramachaneni, and U.-M. O'Reilly.
-\newblock Cloud scale distributed evolutionary strategies for high dimensional
-  problems.
-\newblock In {\em EvoApplications}, pages 519--528, 2013.
-
-\bibitem{wood13:nodejs:paas}
-J.~Wood.
-\newblock {Comparing Node.js Support on PaaS Hosting Providers}.
-\newblock
-  \url{https://strongloop.com/strongblog/a-comparison-of-node-js-paas-hosting-providers/},
-  May 2013.
 
 \end{thebibliography}

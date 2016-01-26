@@ -208,6 +208,7 @@ they assume that the nodes that are going to run the system are under
 the control of developers or they at least have access to them.
 
 %Mario: Is NodIO presented here after the cut? 
+% Not sure. Maybe not. - JJ
 %TO DO: Add reference
 There is, then, space for frameworks that do not make any of these
 assumptions, such as {\sf NodIO} presented in \cite{2016arXiv160101607Manom}. {\sf NodIO} is basically 
@@ -389,7 +390,7 @@ However, these early efforts by
 Sarmenta once again used Java and not JavaScript, making them % (Paloma) making them
 less widespread.
 
-The main problem with Java and all the other browser-embedded
+The main problem with using Java and all the other browser-embedded
 technologies is that they are not {\em universal} in the
 sense that an extra component, namely, the Java virtual machine or another
 virtual environment has to be installed in the browser.
@@ -399,64 +400,51 @@ the proprietary Adobe Flash runtime environment and
 video player \cite{ford2009analyzing,watanabe2010new}. The need for
 these additional environments has been mitigated with the
 adoption of the HTML5 standard \cite{anthes2012html5}.
-JavaScript \cite{flanagan2006javascript}, however, has become a set of standards
-\cite{ECMA-262} that include the language and its components. Since
-early on, it was adopted by the industry and also by scientists,
-who used them for creating an evolutionary algorithm (EA from now on) on
-the browser as early as 1998 \cite{jj-ppsn98}.
+JavaScript however, has become a set of standards
+\cite{ECMA-262} that include the language and its components. 
 
-JavaScript can be used either for unwitting
+JavaScript can be used either for unwitting, that is, stealth,
 \cite{unwitting-ec} or volunteer 
 \cite{langdon:2005:metas,gecco07:workshop:dcor} distributed
 evolutionary computation and it has been used ever since by several
 authors, including more recent efforts
-\cite{Desell:2008:AHG:1389095.1389273,duda2013distributed,DBLP:journals/corr/abs-0801-1210} 
+\cite{duda2013distributed,DBLP:journals/corr/abs-0801-1210} 
 that even
-used the client's GPU \cite{duda2013gpu} or create an object-oriented
-framework for evolution in the browser \cite{EvoStar2014:jsEO}. Many other researchers have
+used the client's GPU \cite{duda2013gpu}. Even if, as said above, Java
+is not the best option, many other researchers have
 used Java \cite{chong:1999:jDGPi} and others have gone away from the
 server-based paradigm to embrace peer to peer systems
-\cite{jin2006constructing,10.1109/ICICSE.2008.99,DBLP:conf/3pgcic/GuervosMFEL12}. These computing
+\cite{jin2006constructing,10.1109/ICICSE.2008.99,DBLP:conf/3pgcic/GuervosMFEL12}. These
+computing 
 platforms avoid single points of failure (the server) but, since they
 need a certain amount of infrastructure installed to start, the
-threshold to join them is much lower. % (Paloma) Do yo mean... higher? A low threshold means that is easy to happen something.
-
-Recent works propose the use of cloud computing services for the components of
-client-server distributed EAs. Cloud resources
-can reduce operational costs by outsourcing both hardware and software maintenance
-to the cloud provider. Another advantage is that they enable the provisioning of computing resources beyond what
-is available in most laboratories, allowing researchers to
-scale algorithms at reasonable costs. Researchers have proposed the use of
-public clouds such as Amazon EC2 \cite{CloudScale}, Google App Engine\cite{di2013towards},
-and DropBox~\cite{mericloud}. The use of JavaScript to implement
-server side components
-gives software developers certain advantages in the cloud
-paradigm, since it is a first-class citizen
-in most Platforms as a Service (PaaS) products as the {\tt Node.js} framework is supported by most of them \cite{wood13:nodejs:paas}. Many web services
-have native JavaScript libraries too, and also use the JSON (JavaScript Object Notation) format for data interchange. Another advantage is that
-developers can use the same software tools for both client and server
-side development.
+threshold to join them is much higher. % (Paloma) Do yo
+                                % mean... higher? A low threshold
+                                % means that is easy to happen
+                                % something.
+%Correct. But maybe in this new version we should eliminate this
+%paragraph altogether. 
+% The next paragraph has been suppresed.
 
 JavaScript is also compatible with the functional programming paradigm \cite{Cousineau1998,MacLennan1990,Thompson1996}.
 According to \cite{swanresearch2015}, the benefit of using this kind of paradigm in
 metaheuristics optimization is that it allows an improvement in communicability,
 reproductibility, interoperability, automated assembly, knowledge engineering,
-and efficiency.
-
-In the work presented in this paper, JavaScript has been used throughout the full
+and efficiency. In the work presented in this paper, JavaScript has been used throughout the full
 stack, which has the advantage of using the self-same lines of code for
 writing an evolutionary algorithm for the
 desktop or command line and browser clients, both based in the EC
 library {\sf NodEO} \cite{DBLP:conf/gecco/GuervosVGES14}. This saves time 
 when writing code and leverages 
 the expertise acquired
-% (Paloma) Not sure if "acquired" should be written before "expertise"... sounds better to me, anyways
+% (Paloma) Not sure if "acquired" should be written before
+% "expertise"... sounds better to me, anyways
+% Don't know what you mean. Write it down and we'll see - JJ
  in the library itself. 
 
 On the other hand, we are also interested in measuring the performance
 of volunteer computing systems, an area in which there have been
-relatively few efforts.
-There were some initial attempts to avoid the differences in performance
+relatively few efforts. There were some initial attempts to avoid the differences in performance
 that could be obtained from volunteers  by making
 the algorithm adaptive to the kind of resources allotted to it
 \cite{milani2004online}. This is actually not such a big problem in
@@ -471,7 +459,7 @@ performance of the EA itself
 \cite{DBLP:journals/gpem/LaredoBGVAGF14}.
 
 On the other hand, measuring the performance of the resulting metacomputer
-involves understanding the dynamics of this kind of systems. Initial
+involves understanding its dynamics. Initial
 work was done for peer to peer systems by Stutzbach et
 al. \cite{stutzbach2006understanding} and extended to volunteer
 computing by Laredo et al. \cite{churn08,laredo2008rcp}. 
@@ -500,21 +488,18 @@ will try to come up with a more precise model. Next we describe the
 framework itself.
 
 
-As far as we know, this paper presents one of the few experiments using % (Paloma) Change to "which" in order to not repeating "that" all the time
+As far as we know, this paper presents one of the few experimental
+results using a volunteer computing system that uses  % (Paloma) Change to "which" in order to not repeating "that" all the time
 computational resources that are as dissimilar as smartphones and
 powerful laptops 
-or workstation computers in a research center. 
-%The methodology used
-% (Paloma) I would say "the used methodology"
-The algorithms used, as well as the methodology 
-for gathering resources and baseline results that we will use for
-comparison have been described in
-\cite{2016arXiv160101607Manom}. We will focus next on the experimental
-results using the first version of the framework. 
+or workstation computers in a research center. This will be described next.
 
 
 \section{Experimental results}
 \label{sec:exp1}
+
+% A bit of description of the framework, with reference to published
+% reports - JJ
 
 Initial results using the same code base and a single computer have
 been described in \cite{2016arXiv160101607Manom}. They prove that a bigger population
