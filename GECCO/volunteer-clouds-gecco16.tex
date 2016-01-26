@@ -171,19 +171,25 @@ one who did all the really hard work.}\\
 
 \begin{abstract}
 
-Using the browser as a computing resource in volunteer computing has presented several advantages, 
-but it remains a challenge to fully harness both the users' behaviour and the browser's capabilities.
-That is why we have enhanced {\sf NodIO}, a framework used to create client-server architectures 
-for distributed evolutionary algorithms, resulting in {\sf
-  NodIO-W$^2$}, whose results we present in this paper.
-{\sf NodIO-W$^2$} leverages the HTML5 Web Workers specification to execute in the background several clients per
-browser, so that the the number of generations per user could be improved. The enhancements on the NodIO architecture,
-along with some initial results on the expected performance and scaling behavior when the number of users is increased,
-are introduced. We also use the experimental data to find out what kind of patterns the user behavior follows by examining 
-the resources they devote to our experiment, and try to fit them in some statistical distribution. In general, 
-our experiments prove, first, that {\sf NodIO} is a flexible and low-overhead platform to perform distributed computation
-experiments that include volunteers, and then that user behavior
-follows some patterns, and, thus, are amenable to a model and thus predictable.
+Using the browser as a computing resource in volunteer computing presents several advantages, 
+but it remains a challenge to harness the browser's capabilities and
+to model the user's behavior so that those capabilities can be
+leveraged optimally. In this paper we present the results of several
+experiments with a volunteer computing framework called {\sf NodIO}
+that uses JavaScript on the client and on the server and is easily
+deployable in any kind of cloud infrastructure, including free
+ones. We use different client configurations to find out which one is
+able to get the user to lend more computing cycles and test different
+problems to check the influence it has on said performance.
+From these experiments we can already draw some conclusions, besides
+the fact that volunteer computing can be a valuable computing
+resource: the user has to be kept engaged in some way to be able to
+use as many computing cycles as possible, the client has to be built
+to use the computer capabilities fully, and there is some common model
+to all sets of users, following a common statistical distribution. As
+a pragmatic result, establishing trust with the user by open sourcing
+not only the software, but also the data, is essential to have an user
+base as wide as possible. 
 
 \end{abstract}
 
