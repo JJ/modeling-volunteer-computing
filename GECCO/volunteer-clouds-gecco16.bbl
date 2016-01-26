@@ -1,0 +1,358 @@
+\begin{thebibliography}{10}
+
+\bibitem{7094263}
+J.~Alcala-Fdez and J.~Alonso.
+\newblock A survey of fuzzy systems software: Taxonomy, current research trends
+  and prospects.
+\newblock {\em Fuzzy Systems, IEEE Transactions on}, PP(99):1--1, 2015.
+\newblock doi: 10.1109/TFUZZ.2015.2426212.
+
+\bibitem{alexandrov1997superweb}
+A.~D. Alexandrov, M.~Ibel, K.~E. Schauser, and C.~J. Scheiman.
+\newblock {SuperWeb: research issues in Java-based global computing}.
+\newblock {\em Concurrency - Practice and Experience}, 9(6):535--553, 1997.
+
+\bibitem{anthes2012html5}
+G.~Anthes.
+\newblock {HTML5} leads a web revolution.
+\newblock {\em Communications of the ACM}, 55(7):16--17, 2012.
+
+\bibitem{araujo2008mam}
+L.~Araujo, J.~Merelo-Guerv\'os, C.~Cotta, and F.~de~Vega.
+\newblock {MultiKulti Algorithm: Migrating the Most Different Genotypes in an
+  Island Model}.
+\newblock {\em Arxiv preprint arXiv:0806.2843}, 2008.
+
+\bibitem{Baldeschwieler:1996:TIG:504450.504482}
+J.~E. Baldeschwieler, R.~D. Blumofe, and E.~A. Brewer.
+\newblock Atlas: An infrastructure for global computing.
+\newblock In {\em Proceedings of the 7th Workshop on ACM SIGOPS European
+  Workshop: Systems Support for Worldwide Applications}, EW 7, pages 165--172,
+  New York, NY, USA, 1996. ACM.
+
+\bibitem{baratloo1999charlotte}
+A.~Baratloo, M.~Karaul, Z.~M. Kedem, and P.~Wijckoff.
+\newblock Charlotte: Metacomputing on the web.
+\newblock {\em Future Generation Computer Systems}, 15(5):559--570, 1999.
+
+\bibitem{chambers2005measurement}
+C.~Chambers, W.-C. Feng, S.~Sahu, and D.~Saha.
+\newblock Measurement-based characterization of a collection of on-line games.
+\newblock In {\em Proceedings of the 5th ACM SIGCOMM conference on Internet
+  Measurement}, pages 1--1. USENIX Association, 2005.
+
+\bibitem{chandy1996world}
+E.~M. Chandy, A.~Rifkin, P.~A. Sivilotti, J.~Mandelson, M.~Richardson,
+  W.~Tanaka, and L.~Weisman.
+\newblock A world-wide distributed system using {J}ava and the {I}nternet.
+\newblock In {\em High Performance Distributed Computing, 1996., Proceedings of
+  5th IEEE International Symposium on}, pages 11--18. IEEE, 1996.
+
+\bibitem{chong:1999:jDGPi}
+F.~S. Chong and W.~B. Langdon.
+\newblock Java based distributed {G}enetic {P}rogramming on the internet.
+\newblock In W.~Banzhaf, J.~Daida, A.~E. Eiben, M.~H. Garzon, V.~Honavar,
+  M.~Jakiela, and R.~E. Smith, editors, {\em Proceedings of the Genetic and
+  Evolutionary Computation Conference}, volume~2, page 1229, Orlando, Florida,
+  USA, 13-17 July 1999. Morgan Kaufmann.
+\newblock Full text in technical report CSRP-99-7.
+
+\bibitem{Cousineau1998}
+G.~Cousineau and M.~Mauny.
+\newblock {\em The Functional Approach to Programming 1st Edition}.
+\newblock Cambridge University Press, ISBN 978-0521576819, 1998.
+
+\bibitem{Desell:2008:AHG:1389095.1389273}
+T.~Desell, B.~Szymanski, and C.~Varela.
+\newblock {An asynchronous hybrid genetic-simplex search for modeling the Milky
+  Way galaxy using volunteer computing}.
+\newblock In {\em Proceedings of the 10th annual conference on Genetic and
+  evolutionary computation}, GECCO '08, pages 921--928, New York, NY, USA,
+  2008. ACM.
+
+\bibitem{di2013towards}
+S.~Di~Martino, F.~Ferrucci, V.~Maggio, and F.~Sarro.
+\newblock Towards migrating genetic algorithms for test data generation to the
+  cloud.
+\newblock In {\em Software Testing in the Cloud: Perspectives on an Emerging
+  Discipline.}, pages 113--135. IGI Global, IGI Global, 2013.
+
+\bibitem{duda2013distributed}
+J.~Duda and W.~D{\l}ubacz.
+\newblock Distributed evolutionary computing system based on web browsers with
+  {JavaScript}.
+\newblock In {\em Applied Parallel and Scientific Computing}, pages 183--191.
+  Springer, 2013.
+
+\bibitem{duda2013gpu}
+J.~Duda and W.~Dlubacz.
+\newblock {GPU} acceleration for the web browser based evolutionary computing
+  system.
+\newblock In {\em System Theory, Control and Computing (ICSTCC), 2013 17th
+  International Conference}, pages 751--756. IEEE, 2013.
+
+\bibitem{ECMA-262}
+{ECMA}.
+\newblock {\em {ECMA-262}: {ECMAScript} Language Specification}.
+\newblock ECMA (European Association for Standardizing Information and
+  Communication Systems), Geneva, Switzerland, third edition, Dec. 1999.
+
+\bibitem{flanagan2006javascript}
+D.~Flanagan.
+\newblock {\em {JavaScript: the definitive guide}}.
+\newblock O'Reilly Media, Inc., 2006.
+
+\bibitem{ford2009analyzing}
+S.~Ford, M.~Cova, C.~Kruegel, and G.~Vigna.
+\newblock Analyzing and detecting malicious flash advertisements.
+\newblock In {\em Computer Security Applications Conference, 2009. ACSAC'09.
+  Annual}, pages 363--372. IEEE, 2009.
+
+\bibitem{DBLP:journals/corr/abs-0801-1210}
+D.~L. Gonzalez, F.~F. de~Vega, L.~Trujillo, G.~Olague, F.~C. de~la O,
+  M.~Cardenas, L.~Araujo, P.~A. Castillo, and K.~Sharman.
+\newblock Increasing {GP} computing power via volunteer computing.
+\newblock {\em CoRR}, abs/0801.1210, 2008.
+
+\bibitem{gonzalez2010characterizing}
+D.~Gonz{\'a}lez~Lombra{\~n}a, J.~L.~J. Laredo, F.~Fern{\'a}ndez~de Vega, and
+  J.~J. Merelo~Guerv{\'o}s.
+\newblock Characterizing fault-tolerance of genetic algorithms in desktop grid
+  systems.
+\newblock In {\em Evolutionary Computation in Combinatorial Optimization},
+  pages 131--142. Springer, 2010.
+
+\bibitem{javadi2009mining}
+B.~Javadi, D.~Kondo, J.-M. Vincent, and D.~P. Anderson.
+\newblock Mining for statistical models of availability in large-scale
+  distributed systems: An empirical study of {SETI@home}.
+\newblock In {\em Modeling, Analysis \& Simulation of Computer and
+  Telecommunication Systems, 2009. MASCOTS'09. IEEE International Symposium
+  on}, pages 1--10. IEEE, 2009.
+
+\bibitem{jin2006constructing}
+H.~Jin, F.~Luo, X.~Liao, Q.~Zhang, and H.~Zhang.
+\newblock {Constructing a P2P-based high performance computing platform}.
+\newblock In {\em 2006 International Workshop on P2P for High Performance
+  Computational Sciences (P2P-HPCS06)}, volume 3994 of {\em LECTURE NOTES IN
+  COMPUTER SCIENCE}, pages 380--387. Springer, 2006.
+
+\bibitem{unwitting-ec}
+J.~Klein and L.~Spector.
+\newblock Unwitting distributed genetic programming via asynchronous
+  {JavaScript} and {XML}.
+\newblock In {\em GECCO '07: Proceedings of the 9th annual conference on
+  Genetic and evolutionary computation}, pages 1628--1635, New York, NY, USA,
+  2007. ACM.
+
+\bibitem{langdon:2005:metas}
+W.~B. Langdon.
+\newblock Pfeiffer -- {A} distributed open-ended evolutionary system.
+\newblock In B.~Edmonds, N.~Gilbert, S.~Gustafson, D.~Hales, and N.~Krasnogor,
+  editors, {\em AISB'05: Proceedings of the Joint Symposium on Socially
+  Inspired Computing (METAS 2005)}, pages 7--13, University of Hertfordshire,
+  Hatfield, UK, 12-15 Apr. 2005.
+\newblock SSAISB 2005 Convention.
+
+\bibitem{DBLP:journals/gpem/LaredoBGVAGF14}
+J.~L.~J. Laredo, P.~Bouvry, D.~L. Gonz{\'{a}}lez, F.~F. de~Vega, M.~G. Arenas,
+  J.~J.~M. Guerv{\'{o}}s, and C.~M. Fernandes.
+\newblock Designing robust volunteer-based evolutionary algorithms.
+\newblock {\em Genetic Programming and Evolvable Machines}, 15(3):221--244,
+  2014.
+
+\bibitem{churn08}
+J.~L.~J. Laredo, P.~A. Castillo, A.~M. Mora, C.~Fernandes, and J.~J. Merelo.
+\newblock Addressing {C}hurn in a {P}eer-to-{P}eer {E}volutionary {A}lgorithm.
+\newblock In {\em WPABA'08 - First International Workshop on Parallel
+  Architectures and Bioinspired Algorithms, Toronto, Canada}, pages 5--12.
+  Complutense University Of Madrid, 2008.
+
+\bibitem{laredo2008rcp}
+J.~L.~J. Laredo, P.~A. Castillo, A.~M. Mora, C.~M. Fernandes, and J.~J. Merelo.
+\newblock {Resilience to churn of a peer-to-peer evolutionary algorithm}.
+\newblock {\em International Journal of High Performance Systems Architecture},
+  1(4):260--268, 2008.
+
+\bibitem{DBLP:conf/lion/LaredoDFGB13}
+J.~L.~J. Laredo, B.~Dorronsoro-D\'{\i}az, C.~Fernandes, J.-J.
+  Merelo-Guerv{\'o}s, and P.~Bouvry.
+\newblock Oversized populations and cooperative selection: Dealing with massive
+  resources in parallel infrastructures.
+\newblock In G.~Nicosia and P.~M. Pardalos, editors, {\em LION}, volume 7997 of
+  {\em Lecture Notes in Computer Science}, pages 444--449. Springer, 2013.
+
+\bibitem{MacLennan1990}
+B.~MacLennan.
+\newblock {\em Functional Programming: Practice and Theory}.
+\newblock Addison-Wesley, 1990.
+
+\bibitem{agajaj}
+J.~J. Merelo, P.~Castillo, J.~Laredo, A.~Mora, and A.~Prieto.
+\newblock Asynchronous distributed genetic algorithms with {J}ava{S}cript and
+  {JSON}.
+\newblock In {\em WCCI 2008 Proceedings}, pages 1372--1379. IEEE Press, 2008.
+
+\bibitem{gecco07:workshop:dcor}
+J.~J. Merelo, A.~M. Garc\'{\i}a, J.~L.~J. Laredo, J.~Lupi\'{o}n, and F.~Tricas.
+\newblock Browser-based distributed evolutionary computation: performance and
+  scaling behavior.
+\newblock In {\em GECCO '07: Proceedings of the 2007 GECCO conference companion
+  on Genetic and evolutionary computation}, pages 2851--2858, New York, NY,
+  USA, 2007. ACM Press.
+
+\bibitem{2015arXiv151101088M}
+J.-J. {Merelo}, P.~{Garc{\'{\i}}a-S{\'a}nchez}, M.~{Garc{\'{\i}}a-Valdez}, and
+  I.~{Blancas}.
+\newblock {There is no fast lunch: an examination of the running speed of
+  evolutionary algorithms in several languages}.
+\newblock {\em ArXiv e-prints}, Nov. 2015.
+
+\bibitem{2016arXiv160101607M}
+J.-J. {Merelo}, M.~{Garc{\'{\i}}a-Valdez}, P.~A. {Castillo},
+  P.~{Garc{\'{\i}}a-S{\'a}nchez}, P.~{de las Cuevas}, and N.~{Rico}.
+\newblock {NodIO, a JavaScript framework for volunteer-based evolutionary
+  algorithms : first results}.
+\newblock {\em ArXiv e-prints}, Jan. 2016.
+
+\bibitem{DBLP:conf/gecco/GuervosVGES14}
+J.-J. Merelo-Guerv{\'{o}}s, P.-A. Castillo-Valdivieso, A.~Mora-Garc{\'{\i}}a,
+  A.~Esparcia{-}Alc{\'{a}}zar, and V.-M. Rivas-Santos.
+\newblock {NodEO, a multi-paradigm distributed evolutionary algorithm platform
+  in JavaScript}.
+\newblock In D.~V. Arnold and E.~Alba, editors, {\em Genetic and Evolutionary
+  Computation Conference, {GECCO} '14, Vancouver, BC, Canada, July 12-16, 2014,
+  Companion Material Proceedings}, pages 1155--1162. {ACM}, 2014.
+
+\bibitem{DBLP:conf/gecco/GuervosG15}
+J.-J. Merelo-Guerv{\'{o}}s and P.~Garc{\'{\i}}a{-}S{\'{a}}nchez.
+\newblock Designing and modeling a browser-based distributed evolutionary
+  computation system.
+\newblock In J.~L.~J. Laredo, S.~Silva, and A.~I. Esparcia{-}Alc{\'{a}}zar,
+  editors, {\em Genetic and Evolutionary Computation Conference, {GECCO} 2015,
+  Madrid, Spain, July 11-15, 2015, Companion Material Proceedings}, pages
+  1117--1124. {ACM}, 2015.
+
+\bibitem{DBLP:conf/3pgcic/GuervosMFEL12}
+J.-J. Merelo-Guerv{\'o}s, A.-M. Mora, C.-M. Fernandes, A.-I.
+  Esparcia-Alc{\'a}zar, and J.-L. Jim{\'e}nez-Laredo.
+\newblock Pool vs. island based evolutionary algorithms: An initial
+  exploration.
+\newblock In F.~Xhafa, L.~Barolli, and K.~F. Li, editors, {\em 3PGCIC}, pages
+  19--24. IEEE, 2012.
+
+\bibitem{mericloud}
+K.~Meri, M.~G. Arenas, A.~M. Mora, J.~J.~M. Guerv{\'o}s, P.~A. Castillo,
+  P.~Garc\'{\i}a-S{\'a}nchez, and J.~L.~J. Laredo.
+\newblock Cloud-based evolutionary algorithms: An algorithmic study.
+\newblock {\em Natural Computing}, 12(2):135--147, 2013.
+
+\bibitem{milani2004online}
+A.~Milani.
+\newblock Online genetic algorithms.
+\newblock Technical report, Institute of Information Theories and Applications
+  FOI ITHEA, 2004.
+
+\bibitem{nogueras2015studying}
+R.~Nogueras and C.~Cotta.
+\newblock Studying fault-tolerance in island-based evolutionary and
+  multimemetic algorithms.
+\newblock {\em Journal of Grid Computing}, pages 1--24, 2015.
+
+\bibitem{Parejo12Survey}
+J.~A. Parejo, A.~R. Cort{\'{e}}s, S.~Lozano, and P.~Fernandez.
+\newblock Metaheuristic optimization frameworks: a survey and benchmarking.
+\newblock {\em Soft Comput.}, 16(3):527--561, 2012.
+
+\bibitem{jj-ppsn98}
+J.~G. Pe{\~n}alver and J.-J. Merelo.
+\newblock Optimizing web page layout using an annealed genetic algorithm as
+  client-side script.
+\newblock In {\em Proceedings PPSN, Parallel Problem Solving from Nature V},
+  number 1967 in Lecture Notes in Computer Science, pages 1018--1027.
+  Springer-Verlag, 1998.
+\newblock \url{http://www.springerlink.com/link.asp?id=2gqqar9cv3et5nlg}.
+
+\bibitem{resnick2013extreme}
+S.~I. Resnick.
+\newblock {\em Extreme values, regular variation and point processes}.
+\newblock Springer, 2013.
+
+\bibitem{EvoStar2014:jsEO}
+V.~M. Rivas, J.~J. Merelo-Guerv{\'{o}}s, G.~Romero-L{\'{o}}pez,
+  M.~Arenas-Garc{\'{i}}a, and A.~M. Mora.
+\newblock An object-oriented library in {JavaScript} to build modular and
+  flexible cross-platform evolutionary algorithms.
+\newblock In A.~I. Esparcia-Alc{\'{a}}zar and A.~M. Mora, editors, {\em
+  Applications of Evolutionary Computation}, Lecture Notes in Computer Science,
+  pages 853--862. Springer Berlin Heidelberg, 2014.
+
+\bibitem{sarmenta-sabotagetolerance}
+L.~F.~G. Sarmenta.
+\newblock Sabotage-tolerance mechanisms for volunteer computing systems.
+\newblock {\em Future Generation Computer Systems}, 18(4):561--572, 2002.
+
+\bibitem{sarmenta-bayanihan}
+L.~F.~G. Sarmenta and S.~Hirano.
+\newblock {Bayanihan}: building and studying {Web}-based volunteer computing
+  systems using {Java}.
+\newblock {\em Future Generation Computer Systems}, 15(5-6):675--686, 1999.
+
+\bibitem{soares1998get}
+F.~Soares, L.~Silva, and J.~Silva.
+\newblock {How to get volunteers for web-based metacomputing}.
+\newblock In {\em In Proc. of the Distributed Computing on the Web (DCW98),
+  Germany.}, pages 264--276. Citeseer, June 1998.
+
+\bibitem{stutzbach2006understanding}
+D.~Stutzbach and R.~Rejaie.
+\newblock Understanding churn in peer-to-peer networks.
+\newblock In {\em Proceedings of the 6th ACM SIGCOMM conference on Internet
+  measurement}, pages 189--202. ACM, 2006.
+
+\bibitem{swanresearch2015}
+J.~Swan, S.~Adriaensen, M.~Bishr, E.~K. Burke, J.~A. Clark, P.~De~Causmaecker,
+  J.~Durillo, K.~Hammond, E.~Hart, C.~G. Johnson, et~al.
+\newblock A research agenda for metaheuristic standardization.
+\newblock In {\em Proceedings of the XI Metaheuristics International
+  Conference}, pages 1--3, 2015.
+
+\bibitem{Thompson1996}
+S.~Thompson.
+\newblock {\em Haskell: The Craft of Functional Programming}.
+\newblock Harlow, England: Addison-Wesley Longman Limited, 1996.
+
+\bibitem{vespignani2009predicting}
+A.~Vespignani et~al.
+\newblock Predicting the behavior of techno-social systems.
+\newblock {\em Science}, 325(5939):425, 2009.
+
+\bibitem{10.1109/ICICSE.2008.99}
+X.~Wang and S.~Xu.
+\newblock {P2HP}: Construction of a cooperative server group based volunteer
+  computing environment.
+\newblock In {\em International Conference on Internet Computing in Science and
+  Engineering}, volume~0, pages 389--395, Los Alamitos, CA, USA, 2008. IEEE
+  Computer Society.
+
+\bibitem{watanabe2010new}
+T.~Watanabe, Z.~Cheng, M.~Kansen, and M.~Hisada.
+\newblock A new security testing method for detecting flash vulnerabilities by
+  generating test patterns.
+\newblock In {\em Network-Based Information Systems (NBiS), 2010 13th
+  International Conference on}, pages 469--474. IEEE, 2010.
+
+\bibitem{CloudScale}
+D.~Wilson, K.~Veeramachaneni, and U.-M. O'Reilly.
+\newblock Cloud scale distributed evolutionary strategies for high dimensional
+  problems.
+\newblock In {\em EvoApplications}, pages 519--528, 2013.
+
+\bibitem{wood13:nodejs:paas}
+J.~Wood.
+\newblock {Comparing Node.js Support on PaaS Hosting Providers}.
+\newblock
+  \url{https://strongloop.com/strongblog/a-comparison-of-node-js-paas-hosting-providers/},
+  May 2013.
+
+\end{thebibliography}

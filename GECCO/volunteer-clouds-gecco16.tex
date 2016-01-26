@@ -1,16 +1,53 @@
-\documentclass[journal,onecolumn]{IEEEtran}
-
-\usepackage{cite}
-
-% *** GRAPHICS RELATED PACKAGES ***
+% This is "sig-alternate.tex" V2.1 April 2013
+% This file should be compiled with V2.5 of "sig-alternate.cls" May 2012
 %
-\ifCLASSINFOpdf
-  \usepackage[pdftex]{graphicx}
-  \graphicspath{{../img/}}
-\else
-  \usepackage[dvips]{graphicx}
-  \graphicspath{{../img/}}
-\fi
+% This example file demonstrates the use of the 'sig-alternate.cls'
+% V2.5 LaTeX2e document class file. It is for those submitting
+% articles to ACM Conference Proceedings WHO DO NOT WISH TO
+% STRICTLY ADHERE TO THE SIGS (PUBS-BOARD-ENDORSED) STYLE.
+% The 'sig-alternate.cls' file will produce a similar-looking,
+% albeit, 'tighter' paper resulting in, invariably, fewer pages.
+%
+% ----------------------------------------------------------------------------------------------------------------
+% This .tex file (and associated .cls V2.5) produces:
+%       1) The Permission Statement
+%       2) The Conference (location) Info information
+%       3) The Copyright Line with ACM data
+%       4) NO page numbers
+%
+% as against the acm_proc_article-sp.cls file which
+% DOES NOT produce 1) thru' 3) above.
+%
+% Using 'sig-alternate.cls' you have control, however, from within
+% the source .tex file, over both the CopyrightYear
+% (defaulted to 200X) and the ACM Copyright Data
+% (defaulted to X-XXXXX-XX-X/XX/XX).
+% e.g.
+% \CopyrightYear{2007} will cause 2007 to appear in the copyright line.
+% \crdata{0-12345-67-8/90/12} will cause 0-12345-67-8/90/12 to appear in the copyright line.
+%
+% ---------------------------------------------------------------------------------------------------------------
+% This .tex source is an example which *does* use
+% the .bib file (from which the .bbl file % is produced).
+% REMEMBER HOWEVER: After having produced the .bbl file,
+% and prior to final submission, you *NEED* to 'insert'
+% your .bbl file into your source .tex file so as to provide
+% ONE 'self-contained' source file.
+%
+% ================= IF YOU HAVE QUESTIONS =======================
+% Questions regarding the SIGS styles, SIGS policies and
+% procedures, Conferences etc. should be sent to
+% Adrienne Griscti (griscti@acm.org)
+%
+% Technical questions _only_ to
+% Gerald Murray (murray@hq.acm.org)
+% ===============================================================
+%
+% For tracking purposes - this is V2.0 - May 2012
+
+\documentclass{sig-alternate}
+
+\graphicspath{{../img/}}
 
 % *** SPECIALIZED LIST PACKAGES ***
 %
@@ -22,41 +59,138 @@
 %
 \usepackage{url}
 
-% correct bad hyphenation here
-\hyphenation{op-tical net-works}
+
 
 \begin{document}
 
-\title{Volunteers in the Clouds: A Web Based Architecture to Harness Volunteer Resources 
+% Copyright
+\setcopyright{acmcopyright}
+%\setcopyright{acmlicensed}
+%\setcopyright{rightsretained}
+%\setcopyright{usgov}
+%\setcopyright{usgovmixed}
+%\setcopyright{cagov}
+%\setcopyright{cagovmixed}
+
+
+% DOI
+\doi{10.475/123_4}
+
+% ISBN
+\isbn{123-4567-24-567/08/06}
+
+%Conference
+\conferenceinfo{PLDI '13}{June 16--19, 2013, Seattle, WA, USA}
+
+\acmPrice{\$15.00}
+
+%
+% --- Author Metadata here ---
+\conferenceinfo{WOODSTOCK}{'97 El Paso, Texas USA}
+%\CopyrightYear{2007} % Allows default copyright year (20XX) to be over-ridden - IF NEED BE.
+%\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
+% --- End of Author Metadata ---
+
+\title{Performance for the masses: Experiments with A Web Based Architecture to Harness Volunteer Resources 
 for Low Cost Distributed Evolutionary Computation }
-% The word massive in the title is giving us problems.
-% Why not change it to something about sharing resources?.
-% Also lets not forget about volunteers, they can be a resource too
-% and they cannot be replaced by any super computer
+%
+% You need the command \numberofauthors to handle the 'placement
+% and alignment' of the authors beneath the title.
+%
+% For aesthetic reasons, we recommend 'three authors at a time'
+% i.e. three 'name/affiliation blocks' be placed beneath the title.
+%
+% NOTE: You are NOT restricted in how many 'rows' of
+% "name/affiliations" may appear. We just ask that you restrict
+% the number of 'columns' to three.
+%
+% Because of the available 'opening page real-estate'
+% we ask you to refrain from putting more than six authors
+% (two rows with three columns) beneath the article title.
+% More than six makes the first-page appear very cluttered indeed.
+%
+% Use the \alignauthor commands to handle the names
+% and affiliations for an 'aesthetic maximum' of six authors.
+% Add names, affiliations, addresses for
+% the seventh etc. author(s) as the argument for the
+% \additionalauthors command.
+% These 'additional authors' will be output/set for you
+% without further effort on your part as the last section in
+% the body of your article BEFORE References or any Appendices.
 
-%  I propose something like:
-% A Web Based Architecture to Harness Volunteer Computational Resources 
-% for Low Cost Distributed Evolutionary Computation
+\numberofauthors{5} %  in this sample file, there are a *total*
+% of EIGHT authors. SIX appear on the 'first-page' (for formatting
+% reasons) and the remaining two appear in the \additionalauthors section.
+%
+% \author{Juan-J.~Merelo, Dept. of Computer Architecture and Technology
+%   and CITIC, University of Granada, Granada, Spain \\
+% Mario Garc\'ia-Valdez, Dept. of Graduate Studies, Instituto
+% Tecnológico de Tijuana, Tijuana, M\'exico\\
+% Pedro A. Castillo, Dept. of Computer Architecture and Technology, University of Granada, Granada, Spain\\
+% Pablo Garc\'ia-S\'anchez, Dept. of Computer Architecture and Technology, University of Granada, Granada, Spain\\
+% Paloma de las Cuevas, Dept. of Computer Architecture and Technology,
+% University of Granada, Granada, Spain\\
+% Nuria Rico, Dept. of Statistics and Operational Research, University of Granada, Granada, Spain%
 
-\author{Juan-J.~Merelo, Dept. of Computer Architecture and Technology
-  and CITIC, University of Granada, Granada, Spain \\
-Mario Garc\'ia-Valdez, Dept. of Graduate Studies, Instituto
-Tecnológico de Tijuana, Tijuana, M\'exico\\
-Pedro A. Castillo, Dept. of Computer Architecture and Technology, University of Granada, Granada, Spain\\
-Pablo Garc\'ia-S\'anchez, Dept. of Computer Architecture and Technology, University of Granada, Granada, Spain\\
-Paloma de las Cuevas, Dept. of Computer Architecture and Technology,
-University of Granada, Granada, Spain\\
-Nuria Rico, Dept. of Statistics and Operational Research, University of Granada, Granada, Spain%
-
-\thanks{Corresponding author: Juan-J.~Merelo (Email: jmerelo@ugr.es).}%
+% \thanks{Corresponding author: Juan-J.~Merelo (Email: jmerelo@ugr.es).}%
+% }
+\author{
+% You can go ahead and credit any number of authors here,
+% e.g. one 'row of three' or two rows (consisting of one row of three
+% and a second row of one, two or three).
+%
+% The command \alignauthor (no curly braces needed) should
+% precede each author name, affiliation/snail-mail address and
+% e-mail address. Additionally, tag each line of
+% affiliation/address with \affaddr, and tag the
+% e-mail address with \email.
+%
+% 1st. author
+\alignauthor
+Ben Trovato\titlenote{Dr.~Trovato insisted his name be first.}\\
+       \affaddr{Institute for Clarity in Documentation}\\
+       \affaddr{1932 Wallamaloo Lane}\\
+       \affaddr{Wallamaloo, New Zealand}\\
+       \email{trovato@corporation.com}
+% 2nd. author
+\alignauthor
+G.K.M. Tobin\titlenote{The secretary disavows
+any knowledge of this author's actions.}\\
+       \affaddr{Institute for Clarity in Documentation}\\
+       \affaddr{P.O. Box 1212}\\
+       \affaddr{Dublin, Ohio 43017-6221}\\
+       \email{webmaster@marysville-ohio.com}
+% 3rd. author
+\alignauthor Lars Th{\o}rv{\"a}ld\titlenote{This author is the
+one who did all the really hard work.}\\
+       \affaddr{The Th{\o}rv{\"a}ld Group}\\
+       \affaddr{1 Th{\o}rv{\"a}ld Circle}\\
+       \affaddr{Hekla, Iceland}\\
+       \email{larst@affiliation.org}
+\and  % use '\and' if you need 'another row' of author names
+% 4th. author
+\alignauthor Lawrence P. Leipuner\\
+       \affaddr{Brookhaven Laboratories}\\
+       \affaddr{Brookhaven National Lab}\\
+       \affaddr{P.O. Box 5000}\\
+       \email{lleipuner@researchlabs.org}
+% 5th. author
+\alignauthor Sean Fogarty\\
+       \affaddr{NASA Ames Research Center}\\
+       \affaddr{Moffett Field}\\
+       \affaddr{California 94035}\\
+       \email{fogartys@amesres.org}
 }
 
 \maketitle
 
+
+
+
+
+\maketitle
+
 \begin{abstract}
-%Volunteer computing is extensively used in science and industry, yet it still has not become a mainstream technology
-%in the same way the cloud technologies in general are. The lack of general purpose and open source tools with built-in
-%analytics could be one of the reasons of why this is so, as well as the lack of proofs of concept. 
 
 Using the browser as a computing resource in volunteer computing has presented several advantages, 
 but it remains a challenge to fully harness both the users' behaviour and the browser's capabilities.
@@ -71,65 +205,16 @@ the resources they devote to our experiment, and try to fit them in some statist
 our experiments prove, first, that {\sf NodIO} is a flexible and low-overhead platform to perform distributed computation
 experiments that include volunteers, and then that user behavior
 follows some patterns, and, thus, are amenable to a model and thus predictable.
-% Volunteer computing is extensively used in science and industry, but
-% it still has a long way to go in order to become a mainstream
-% technology in the same way the cloud technologies in general are. %I have changed "have" to "are"
-% The lack of general purpose and open
-% source tools with built-in analytics could be one of the reasons of
-% why this is so, as well as the lack of proofs of concept.
-% % (Paloma) The following sentence is way too long, and the "which" after "Javascript" is confusing, so one does not know if the which refers to the framework or Javascript by reading the whole sentence.
-% % I propose: "That is why in this paper we present NodIO, a framework used to create client-server architectures for distributed evolutionary algorithms, entirely written in JavaScript. Our framework needs minimal server support to work and is able to support persistent, asynchronous, distributed evolutionary algorithms running in the browser, as well as any other client consuming its REST application programming interface."
-% That is why
-% in this paper we present {\sf NodIO}, a framework used to create
-% client-server architectures for distributed evolutionary algorithms,
-% entirely written in JavaScript, which needs minimal server support to
-% work and that is able to support persistent, asynchronous, distributed
-% evolutionary algorithms running in the browser, as well as any other
-% client consuming its REST application programming interface. An
-% enhanced implementation, which we have called {\sf NodIO-W$^2$}, is
-% also presented; this version leverages the HTML5 Web Workers
-% specification to execute several clients per browser and do it in the
-% background, so that the the number of generations per user could be
-% improved. The architecture, along with some initial results on the
-% expected performance and scaling behavior when the number of users is
-% increased is introduced. % (Paloma) I've changed this "presented" for a synonym
-% We also use the algorithm data to find out
-% what kind of patterns the user behavior follows by examining the
-% resources they devote to our experiment, and try to fit them in % (Paloma) Changed. Phrasal verb was wrong.
-%  some
-% statistical distribution to create the bases of a model of user
-% behavior in volunteer computing experiments of this kind that can be
-% used by researchers to predict their performance. %(Paloma) Changed to "their" because of "experiments"
-% In general, our
-% experiments prove, first, that {\sf NodIO} is a flexible and
-% low-overhead platform to perform distributed computation experiments
-% that include volunteers, and then that user behavior follows some
-% patterns, and, thus, are amenable to a model.
+
 \end{abstract}
 
-% Work in progress..
-%Volunteer computing is used routinely in science and industry, but it
-%still has a long way to go if it is going to become a mainstream technology 
-%in the same way the cloud technologies in general have. In one hand, projects 
-%lack special purpose and open source tools with analytics builtin and
-%in the other there are still barriers that keep users from sharing their computing 
-%resources like the need to install software applications or plugins in order 
-%to cooperate. That is why in this paper we present {\sf NodIO}, a client-server
-%architecture for distributed
-%evolutionary algorithms, written entirely in JavaScript, which needs
-%minimal server support to work and is able to support persistent,
-%asynchronous, distributed evolutionary algorithms running in the
-%browser.  The architecture, along with some initial results on the
-%expected performance and scaling
-%behavior is presented. We also use the algorithm data to
-%find out what kind of patterns the user behavior follow and try to fit
-%them to some statistical distribution.
+\keywords{Volunteer computing, distributed computing, cloud computing}
 
 
 %---------------------------------------------------------------
 \section{Introduction}
 
-\IEEEPARstart{N}{owadays} there is a big and increasing number of
+Nowadays there is a big and increasing number of
 distributed evolutionary computation software frameworks available on
 the market, usually as open source frameworks \cite{Parejo12Survey}. 
 Most of these frameworks have 
@@ -1106,7 +1191,7 @@ helped us to improve
 this paper (and our work) with their suggestions. We are also grateful
 to Anna S\'aez de Tejada for her help with the data processing scripts.
 
-\bibliographystyle{IEEEtran}
+\bibliographystyle{abbrv}
 \bibliography{geneura,volunteer,javascript,ror-js,GA-general}
 
 \end{document}
