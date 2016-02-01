@@ -9,20 +9,10 @@ A.~D. Alexandrov, M.~Ibel, K.~E. Schauser, and C.~J. Scheiman.
 Anonymous.
 \newblock Details omitted for double-blind reviewing.
 
-\bibitem{DBLP:conf/gecco/GuervosG15anom}
-Anonymous.
-\newblock Details omitted for double-blind reviewing.
-
 \bibitem{anthes2012html5}
 G.~Anthes.
 \newblock {HTML5} leads a web revolution.
 \newblock {\em Communications of the ACM}, 55(7):16--17, 2012.
-
-\bibitem{araujo2008mam}
-L.~Araujo, J.~Merelo-Guerv\'os, C.~Cotta, and F.~de~Vega.
-\newblock {MultiKulti Algorithm: Migrating the Most Different Genotypes in an
-  Island Model}.
-\newblock {\em Arxiv preprint arXiv:0806.2843}, 2008.
 
 \bibitem{Baldeschwieler:1996:TIG:504450.504482}
 J.~E. Baldeschwieler, R.~D. Blumofe, and E.~A. Brewer.
@@ -49,20 +39,6 @@ E.~M. Chandy, A.~Rifkin, P.~A. Sivilotti, J.~Mandelson, M.~Richardson,
 \newblock In {\em High Performance Distributed Computing, 1996., Proceedings of
   5th IEEE International Symposium on}, pages 11--18. IEEE, 1996.
 
-\bibitem{chong:1999:jDGPi}
-F.~S. Chong and W.~B. Langdon.
-\newblock Java based distributed {G}enetic {P}rogramming on the internet.
-\newblock In W.~Banzhaf, J.~Daida, A.~E. Eiben, M.~H. Garzon, V.~Honavar,
-  M.~Jakiela, and R.~E. Smith, editors, {\em Proceedings of the Genetic and
-  Evolutionary Computation Conference}, volume~2, page 1229, Orlando, Florida,
-  USA, 13-17 July 1999. Morgan Kaufmann.
-\newblock Full text in technical report CSRP-99-7.
-
-\bibitem{Cousineau1998}
-G.~Cousineau and M.~Mauny.
-\newblock {\em The Functional Approach to Programming 1st Edition}.
-\newblock Cambridge University Press, ISBN 978-0521576819, 1998.
-
 \bibitem{duda2013distributed}
 J.~Duda and W.~D{\l}ubacz.
 \newblock Distributed evolutionary computing system based on web browsers with
@@ -76,12 +52,6 @@ J.~Duda and W.~Dlubacz.
   system.
 \newblock In {\em System Theory, Control and Computing (ICSTCC), 2013 17th
   International Conference}, pages 751--756. IEEE, 2013.
-
-\bibitem{ECMA-262}
-{ECMA}.
-\newblock {\em {ECMA-262}: {ECMAScript} Language Specification}.
-\newblock ECMA (European Association for Standardizing Information and
-  Communication Systems), Geneva, Switzerland, third edition, Dec. 1999.
 
 \bibitem{ford2009analyzing}
 S.~Ford, M.~Cova, C.~Kruegel, and G.~Vigna.
@@ -110,13 +80,6 @@ B.~Javadi, D.~Kondo, J.-M. Vincent, and D.~P. Anderson.
 \newblock In {\em Modeling, Analysis \& Simulation of Computer and
   Telecommunication Systems, 2009. MASCOTS'09. IEEE International Symposium
   on}, pages 1--10. IEEE, 2009.
-
-\bibitem{jin2006constructing}
-H.~Jin, F.~Luo, X.~Liao, Q.~Zhang, and H.~Zhang.
-\newblock {Constructing a P2P-based high performance computing platform}.
-\newblock In {\em 2006 International Workshop on P2P for High Performance
-  Computational Sciences (P2P-HPCS06)}, volume 3994 of {\em LECTURE NOTES IN
-  COMPUTER SCIENCE}, pages 380--387. Springer, 2006.
 
 \bibitem{unwitting-ec}
 J.~Klein and L.~Spector.
@@ -155,19 +118,6 @@ J.~L.~J. Laredo, P.~A. Castillo, A.~M. Mora, C.~M. Fernandes, and J.~J. Merelo.
 \newblock {\em International Journal of High Performance Systems Architecture},
   1(4):260--268, 2008.
 
-\bibitem{DBLP:conf/lion/LaredoDFGB13}
-J.~L.~J. Laredo, B.~Dorronsoro-D\'{\i}az, C.~Fernandes, J.-J.
-  Merelo-Guerv{\'o}s, and P.~Bouvry.
-\newblock Oversized populations and cooperative selection: Dealing with massive
-  resources in parallel infrastructures.
-\newblock In G.~Nicosia and P.~M. Pardalos, editors, {\em LION}, volume 7997 of
-  {\em Lecture Notes in Computer Science}, pages 444--449. Springer, 2013.
-
-\bibitem{MacLennan1990}
-B.~MacLennan.
-\newblock {\em Functional Programming: Practice and Theory}.
-\newblock Addison-Wesley, 1990.
-
 \bibitem{agajaj}
 J.~J. Merelo, P.~Castillo, J.~Laredo, A.~Mora, and A.~Prieto.
 \newblock Asynchronous distributed genetic algorithms with {J}ava{S}cript and
@@ -181,30 +131,6 @@ J.~J. Merelo, A.~M. Garc\'{\i}a, J.~L.~J. Laredo, J.~Lupi\'{o}n, and F.~Tricas.
 \newblock In {\em GECCO '07: Proceedings of the 2007 GECCO conference companion
   on Genetic and evolutionary computation}, pages 2851--2858, New York, NY,
   USA, 2007. ACM Press.
-
-\bibitem{2015arXiv151101088M}
-J.-J. {Merelo}, P.~{Garc{\'{\i}}a-S{\'a}nchez}, M.~{Garc{\'{\i}}a-Valdez}, and
-  I.~{Blancas}.
-\newblock {There is no fast lunch: an examination of the running speed of
-  evolutionary algorithms in several languages}.
-\newblock {\em ArXiv e-prints}, Nov. 2015.
-
-\bibitem{DBLP:conf/gecco/GuervosVGES14}
-J.-J. Merelo-Guerv{\'{o}}s, P.-A. Castillo-Valdivieso, A.~Mora-Garc{\'{\i}}a,
-  A.~Esparcia{-}Alc{\'{a}}zar, and V.-M. Rivas-Santos.
-\newblock {NodEO, a multi-paradigm distributed evolutionary algorithm platform
-  in JavaScript}.
-\newblock In D.~V. Arnold and E.~Alba, editors, {\em Genetic and Evolutionary
-  Computation Conference, {GECCO} '14, Vancouver, BC, Canada, July 12-16, 2014,
-  Companion Material Proceedings}, pages 1155--1162. {ACM}, 2014.
-
-\bibitem{DBLP:conf/3pgcic/GuervosMFEL12}
-J.-J. Merelo-Guerv{\'o}s, A.-M. Mora, C.-M. Fernandes, A.-I.
-  Esparcia-Alc{\'a}zar, and J.-L. Jim{\'e}nez-Laredo.
-\newblock Pool vs. island based evolutionary algorithms: An initial
-  exploration.
-\newblock In F.~Xhafa, L.~Barolli, and K.~F. Li, editors, {\em 3PGCIC}, pages
-  19--24. IEEE, 2012.
 
 \bibitem{milani2004online}
 A.~Milani.
@@ -251,30 +177,10 @@ D.~Stutzbach and R.~Rejaie.
 \newblock In {\em Proceedings of the 6th ACM SIGCOMM conference on Internet
   measurement}, pages 189--202. ACM, 2006.
 
-\bibitem{swanresearch2015}
-J.~Swan, S.~Adriaensen, M.~Bishr, E.~K. Burke, J.~A. Clark, P.~De~Causmaecker,
-  J.~Durillo, K.~Hammond, E.~Hart, C.~G. Johnson, et~al.
-\newblock A research agenda for metaheuristic standardization.
-\newblock In {\em Proceedings of the XI Metaheuristics International
-  Conference}, pages 1--3, 2015.
-
-\bibitem{Thompson1996}
-S.~Thompson.
-\newblock {\em Haskell: The Craft of Functional Programming}.
-\newblock Harlow, England: Addison-Wesley Longman Limited, 1996.
-
 \bibitem{vespignani2009predicting}
 A.~Vespignani et~al.
 \newblock Predicting the behavior of techno-social systems.
 \newblock {\em Science}, 325(5939):425, 2009.
-
-\bibitem{10.1109/ICICSE.2008.99}
-X.~Wang and S.~Xu.
-\newblock {P2HP}: Construction of a cooperative server group based volunteer
-  computing environment.
-\newblock In {\em International Conference on Internet Computing in Science and
-  Engineering}, volume~0, pages 389--395, Los Alamitos, CA, USA, 2008. IEEE
-  Computer Society.
 
 \bibitem{watanabe2010new}
 T.~Watanabe, Z.~Cheng, M.~Kansen, and M.~Hisada.

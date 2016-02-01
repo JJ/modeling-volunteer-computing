@@ -178,22 +178,22 @@ leveraged optimally. In this paper, we present the results of several
 experiments with a volunteer computing framework called {\sf NodIO}
 that is easily deployable in using free cloud resources. We use 
 %Pablo: "deployable in using free cloud resources" is correct?
-different browser configurations to find out which one is 
+% why not? - JJ
+different implementations to find out which one is 
 able to get the user to lend more computing cycles and test different
 problems to check the influence it has on said performance.
 % Pablo: so the objective is "to determine which browser conf. is able
 % to get more computing power from the users", it isn't? 
 % (to keep this in mind the rest of the paper). What is a "browser configuration"?
 % (explain it with a phrase in the abstract)
+% No, we don't. Please read the paper!!!! - JJ
 From these experiments we can already draw some conclusions, besides
 the fact that volunteer computing can be a valuable computing
 resource: the user has to be kept engaged in some way to be able to
 use as many computing cycles as possible, the client has to be built
-to use the computer capabilities fully, and there is some common model
-to all sets of users, following a common statistical distribution. As
-a pragmatic result, establishing trust with the user by open sourcing
-not only the software, but also the data, is essential to have a user %Pablo: remember, is "yiuser" :P
-base as wide as possible. 
+to use the computer capabilities fully, and, finally, the user
+contributions follow a common statistical distribution. It is also
+essential to be as open as possible with software and data. 
 
 \end{abstract}
 
@@ -247,7 +247,7 @@ servers, and browsers as clients.
 %PABLO: He añadido el siguiente párrafo para el issue #31
 There exist other volunteer computing frameworks written in compiled languages,
 such as C++ or Java, that, in principle, can achieve better performance than
-JavaScript \cite{2015arXiv151101088M}. However, one of the advantages of our architecture is that
+JavaScript. However, one of the advantages of our architecture is that
 clients do not need to install anything in their machines, they just
 need to open a web page  
 % Somewhat redundant 
@@ -405,8 +405,7 @@ the proprietary Adobe Flash runtime environment and
 video player \cite{ford2009analyzing,watanabe2010new}. The need for
 these additional environments has been mitigated with the
 adoption of the HTML5 standard \cite{anthes2012html5}.
-JavaScript however, has become a set of standards
-\cite{ECMA-262} that include the language and its components. 
+JavaScript however, has become a set of standards that include the language and its components. 
 
 JavaScript can be used either for unwitting, that is, stealth,
 \cite{unwitting-ec} or volunteer 
@@ -415,15 +414,17 @@ evolutionary computation and it has been used ever since by several
 authors, including more recent efforts
 \cite{duda2013distributed,DBLP:journals/corr/abs-0801-1210} 
 that even
-used the client's GPU \cite{duda2013gpu}. Even if, as said above, Java
-is not the best option, many other researchers have
-used Java \cite{chong:1999:jDGPi} and others have gone away from the
-server-based paradigm to embrace peer to peer systems
-\cite{jin2006constructing,10.1109/ICICSE.2008.99,DBLP:conf/3pgcic/GuervosMFEL12}. These
-computing 
-platforms avoid single points of failure (the server) but, since they
-need a certain amount of infrastructure installed to start, the
-threshold to join them is much higher. % (Paloma) Do yo
+used the client's GPU \cite{duda2013gpu}. 
+%Also a bit out of scope. Have to reduce the paper. 
+% Even if, as said above, Java
+% is not the best option, many other researchers have
+% used Java \cite{chong:1999:jDGPi} and others have gone away from the
+% server-based paradigm to embrace peer to peer systems
+% \cite{jin2006constructing,10.1109/ICICSE.2008.99,DBLP:conf/3pgcic/GuervosMFEL12}. These
+% computing 
+% platforms avoid single points of failure (the server) but, since they
+% need a certain amount of infrastructure installed to start, the
+% threshold to join them is much higher. % (Paloma) Do yo
                                 % mean... higher? A low threshold
                                 % means that is easy to happen
                                 % something.
@@ -431,21 +432,23 @@ threshold to join them is much higher. % (Paloma) Do yo
 %paragraph altogether. 
 % The next paragraph has been suppresed.
 
-JavaScript is also compatible with the functional programming paradigm \cite{Cousineau1998,MacLennan1990,Thompson1996}.
-According to \cite{swanresearch2015}, the benefit of using this kind of paradigm in
-metaheuristics optimization is that it allows an improvement in communicability,
-reproductibility, interoperability, automated assembly, knowledge engineering,
-and efficiency. In the work presented in this paper, JavaScript has been used throughout the full
-stack, which has the advantage of using the self-same lines of code for
-writing an evolutionary algorithm for the
-desktop or command line and browser clients, both based in the EC
-library {\sf NodEO} \cite{DBLP:conf/gecco/GuervosVGES14}. This saves time 
-when writing code and leverages 
-the expertise acquired
-% (Paloma) Not sure if "acquired" should be written before
-% "expertise"... sounds better to me, anyways
-% Don't know what you mean. Write it down and we'll see - JJ
- in the library itself. 
+%Also suppressing this one which is probably not needed in this paper
+%- JJ
+% JavaScript is also compatible with the functional programming paradigm \cite{Cousineau1998,MacLennan1990,Thompson1996}.
+% According to \cite{swanresearch2015}, the benefit of using this kind of paradigm in
+% metaheuristics optimization is that it allows an improvement in communicability,
+% reproductibility, interoperability, automated assembly, knowledge engineering,
+% and efficiency. In the work presented in this paper, JavaScript has been used throughout the full
+% stack, which has the advantage of using the self-same lines of code for
+% writing an evolutionary algorithm for the
+% desktop or command line and browser clients, both based in the EC
+% library {\sf NodEO} \cite{DBLP:conf/gecco/GuervosVGES14}. This saves time 
+% when writing code and leverages 
+% the expertise acquired
+% % (Paloma) Not sure if "acquired" should be written before
+% % "expertise"... sounds better to me, anyways
+% % Don't know what you mean. Write it down and we'll see - JJ
+%  in the library itself. 
 
 On the other hand, we are also interested in measuring the performance
 of volunteer computing systems, an area in which there have been
@@ -492,12 +495,9 @@ paper we will perform different experiments in different setups and
 will try to come up with a more precise model. Next we describe the
 framework itself.
 
-
 As far as we know, this paper presents one of the few experimental
-results using a volunteer computing system that uses  % (Paloma) Change to "which" in order to not repeating "that" all the time
-computational resources that are as dissimilar as smartphones and
-powerful laptops 
-or workstation computers in a research center. This will be described next.
+results using a volunteer computing system which uses  % (Paloma) Change to "which" in order to not repeating "that" all the time
+very diverse computational resources; these will be described next.
 
 
 \section{Experimental results}
@@ -506,43 +506,27 @@ or workstation computers in a research center. This will be described next.
 % A bit of description of the framework, with reference to published
 % reports - JJ
 
-Initial results using the same code base and a single computer have
-been described in \cite{2016arXiv160101607Manom}. They prove that a bigger population
-contributes to diversity and thus speeds up the solution
-\cite{DBLP:conf/lion/LaredoDFGB13}. The volunteer computing 
-experiments that we will describe next do not and can not have the
-same conditions, but
-the baseline is that if they eventually take longer than a basic
-desktop, their interest will be purely academic, although they can
-complement them. We will try and
-prove next that that target performance can be achieved by carrying
-out several experiments in different conditions. Second, they also act
-as a basic performance test for the server, and also prove that the
-basic server can be used for many kinds of different setups, as long
-as they follow the REST protocol to deposit and obtain individuals
-from the pool. It is obvious that, in this case, the server is not
-really needed, since there is a single client and no interaction
-between them, but there is a cost in sending and obtaining chromosomes
-from the server so it is included for the sake of fairer comparison.
+We set up different experiments by deploying the server in a cloud
+service, which changed in every one. This server runs a web service
+which stores chromosomes sent from clients and sends them back. It is
+an open source system that has been described extensively in
+\cite{2016arXiv160101607Manom}. The client runs an evolutionary
+algorithm written in JavaScript, that after a number of generations
+sends back the best individual to the server, requesting at the same
+time a random individual of those stored in the server. The experiment
+starts by setting up a website that is sent by the server and announcing it on several social
+networks so that people contribute to them by going to the page and
+staying there for a while. 
 
-Initial experiments were set up using the OpenShift
-PaaS, which provides a free tier within which these runs could be performed. That way, and as required, the hardware
-and cloud cost for this experiment were zero. Experiments were
-announced through a post in Twitter and other social networks, and
-results were published here \cite{DBLP:conf/gecco/GuervosG15anom}. For the
-purpose of this paper, we repeated the announcement several times
-through the month of April and then by the beginning of August. All
-in all, we have the set of runs with the characteristics shown in
-Table \ref{tab:summary:os}. In general, every experiment took several
-days. No particular care was taken about the time of the announcement
-or the particular wording. Every {\em experiment} consisted in running
-until the solution of the 40-trap problem was found. When the correct
-solution was sent to the server, the counter was updated and the pool
-of solutions reset to the void set. There was no special intention to wait
-until all clients had finished, thus it might happen that, in fact,
-the islands running in the browser {\em spill} from one experiment to
-the next. However, previous experiments have proven that the influence
-of these islands in the next experiment is indeed negligible.
+\subsection{Initial tests}
+
+Initial tests with an evolutionary algorithm solving the 40-Trap
+problem were set up using the free PaaS (Platform as a
+Service) OpenShift; they are described in
+Table \ref{tab:summary:os}. In general, every tests took several
+days and during it the problem was solved more than 50 times with
+several hundreds different IPs participating in it; the
+evolutionary algorithm stopped when the solution was found. 
 %
 \begin{table*}
 \caption{Summary of time per run, number of IPs and number of PUTs per IP in the initial runs. \label{tab:summary:os}}
@@ -560,72 +544,33 @@ Date & Experiments &\#IPs &\#IPs &  \#IPs & Time (s) &  \#PUTs & $<$ 69s & $<$ 3
 \end{center}
 \end{table*}
 %
-The table shows that every run included more than 50 experiments. The
-number of different IPs intervening in them varied from more than one
-hundred to more than five hundred in the second experiment.
 
-A summary of the results of each run is also shown in Table
-\ref{tab:summary:os}, which shows the median number of IPs
-intervening in each experiment,  median time needed
-to finish the experiment, median number of HTTP PUTs per IP, and
-then two columns showing the percentage of experiments that took less
-than the two baseline experiments shown in the introduction to this
-section. The first striking result is that in all cases, 50\% of the
-experiments involved 5 or less IPs. This is consistent with results
-previously obtained \cite{DBLP:conf/gecco/GuervosG15anom} which found 6 to be
-the usual number of IPs that participated in an experiment. The
-maximum number of different IPs for each experiment is also in the
-same range and of the order of 10, which is also consistent with
-prior work. The median time has a big range of variation, but 50\% of
-the time takes less than several minutes, from around 4 minutes in the
-best case to roughly 2/3 of an hour in the worst case. That figure is
-not competitive, {\em a priori}, with the baseline experiment, that is
-why it is interesting to look at the columns which measure
-the percentage of experiments in which the solution was found in less
-time than the baseline. It is similar in all three cases, with around
-20\% on average for the first baseline experiment, roughly 3\% in the
-second case. The comparison is not totally fair: this experiment takes
-place in a browser, and in fact most of the time is devoted to
-presenting the charts; the server is also not the same since it is run in a
-PaaS instead of a high-performance desktop computer, and it is also a
-remote server, not a local server as in the baseline experiment. But
-even in this case, we were looking for creating a framework that
-allowed us to run evolutionary computation experiments {\em faster} than
-in our very own computer. And the results indicate that although it will
-happen in 1 out of roughly 5 or roughly 20 cases, depending on what baseline
-experiment you choose, it will not happen always or even most of
-the time. One of the problems is shown in the last column, which
-indicates the statistical correlation between the number of IPs
-participating in one experiment and the next. In all cases,
-correlation is so low as to affirm that there is almost no
-relationship between them, that is, computing nodes are not {\em
-  staying} after the solution has been found. This is a feature of
-this implementation: the user has to actively reload the page to make
-the evolutionary algorithm start again. Thus, the user can decide if to 
-continue sharing resources or not. % (Paloma) Feature or disadvantage?
-However, it puts a probably            % (Mario) Feature if you only want to share your CPU a little  
-unnecessary upper limit on the time, or number of experiments, that a user
-will voluntarily perform.
+The last column shows the percentage of experiments in which running the
+experiment in the browser takes {\em less} time than in the
+desktop. Although volunteer computing systems do not exclude desktop
+computing and, in fact, the server can handle any client, not only
+those running JavaScript on the browser, we include it here for the
+sake of comparison and to show that, being a free resource, it can
+anyway make a valid and valuable contribution to any distributed or
+desktop computing experiment. An interesting result is also that the
+correlation between users of an experiment and the next is
+non-existent, that is, computing nodes are not {\em
+  staying} after the solution has been found. This is an issue that we
+will address in this paper. 
 
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=0.32\linewidth]{time-vs-ips-OS-4-4.png}
-\includegraphics[width=0.32\linewidth]{time-vs-ips-OS-4-24.png}
-\includegraphics[width=0.32\linewidth]{time-vs-ips-OS-7-31.png}
-\caption{Duration of experiments vs. number of different IPs (nodes)
-  participating in it, with averages and standard deviation shown as
-  black dots and lines; in the case there is a single dot, there was a single
-  experiment in which so many computers participated (for instance, 16
-  computers in the experiment in the far left or 29 in the middle
-  one). 
-Shade of gray or color indicate how many experiments included that many unique IPs,
-so lighter (bluer) shade for a column of dots indicates that a particular number
-of computers happened less frequently, while darker shade or closer to
-red means more frequency. 
-From left to right, experiments 4/4, 4/24 and 7/31.}
-\label{fig:duration}
-\end{figure}
-% ../data/time-vs-IPs-openshift.R
+% \begin{figure}[!htb]
+% \centering
+% \includegraphics[width=0.32\linewidth]{time-vs-ips-OS-4-4.png}
+% \includegraphics[width=0.32\linewidth]{time-vs-ips-OS-4-24.png}
+% \includegraphics[width=0.32\linewidth]{time-vs-ips-OS-7-31.png}
+% \caption{Duration of experiments vs. number of different IPs (nodes)
+%   participating in it, with averages and standard deviation shown as
+%   black dots and lines, single dot if it was 1). Shade of gray or
+%   color indicate how many experiments included that many unique IPs.
+% From left to right, experiments 4/4, 4/24 and 7/31.}
+% \label{fig:duration}
+% \end{figure}
+% % ../data/time-vs-IPs-openshift.R
 %
 \begin{figure}[!htb]
 \centering
@@ -640,24 +585,24 @@ From left to right, experiments 4/4, 4/24 and 7/31.}
 % computed via ../data/time-vs-IPs-openshift.R
 \end{figure}
 %
-We will have to analyze experimental data a bit further to find out why
-this happens and also if there are some patterns in the three sets of
-experiments. An interesting question to ask, for instance, is if
-by adding more computers makes the experiment take less. In fact, as
-shown in Figure \ref{fig:duration}, the {\em addition} of more computers does
-not seem to contribute to decreasing the time needed to finish the
-experiment. However, the cause-effect relationship is not clear at
-all. It might be the opposite: since experiments take longer to finish
-and might in fact be abandoned with no one contributing for some time,
-that increases the probability of someone new joining them. In fact,
-with experiments taking a few seconds and due to the way the
-experiments are announced, it is quite difficult that several
-volunteers join in in such a short period of time, even more if we take
-into account that volunteers are not {\em carried over} from previous
-experiments. This implies that it would be convenient to use a problem
-of a bigger size to check this hypothesis as we have done in the next
-experiment. 
-%  however, at this point we
+% We will have to analyze experimental data a bit further to find out why
+% this happens and also if there are some patterns in the three sets of
+% experiments. An interesting question to ask, for instance, is if
+% by adding more computers makes the experiment take less. In fact, as
+% shown in Figure \ref{fig:duration}, the {\em addition} of more computers does
+% not seem to contribute to decreasing the time needed to finish the
+% experiment. However, the cause-effect relationship is not clear at
+% all. It might be the opposite: since experiments take longer to finish
+% and might in fact be abandoned with no one contributing for some time,
+% that increases the probability of someone new joining them. In fact,
+% with experiments taking a few seconds and due to the way the
+% experiments are announced, it is quite difficult that several
+% volunteers join in in such a short period of time, even more if we take
+% into account that volunteers are not {\em carried over} from previous
+% experiments. This implies that it would be convenient to use a problem
+% of a bigger size to check this hypothesis as we have done in the next
+% experiment. 
+%  However, at this point we
 % have not found this convenient since there are several other issues
 % that have to be solved, as it will be shown next. %Creo que este párrafo
 %saldría sobrando ahora que hicmios un experimento más grande
@@ -1123,14 +1068,15 @@ Besides, the two versions of the framework include as an
 algorithmic variant using random population size. We do not think this
 has had a big influence on the results and in fact this is not noticed
 for F15, which is the second version tested, but it would be interesting to
-measure exactly what this influence has been. In general there are
-many issues with the evolutionary algorithm implementation itself,
-including using different, or adaptive, policies for inserting and
-sending individuals to the pool as was done in \cite{araujo2008mam},
-using different policies for population initialization, and also the
-incorporation of high-speed local resources to the pool to check what
-would be the real influence of the volunteer pool to the final
-performance. 
+measure exactly what this influence has been. 
+% In general there are
+% many issues with the evolutionary algorithm implementation itself,
+% including using different, or adaptive, policies for inserting and
+% sending individuals to the pool as was done in \cite{araujo2008mam},
+% using different policies for population initialization, and also the
+% incorporation of high-speed local resources to the pool to check what
+% would be the real influence of the volunteer pool to the final
+% performance. 
 
 Another area is how to enhance the number and quality of
 volunteers. For instance, adding a bit of more
