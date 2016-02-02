@@ -976,24 +976,6 @@ few minutes and the second a few seconds less, the difference between
 the first and second in this experiment might be in the scale of
 hours. 
 
-% (Paloma) Mario, isn't this the future work? Should it be in conclusions? If not, just ignore this comment.
-There are several validity threats to the design of this study.
-Participants of the experiments were mainly members of our 
-own social networks, personal colleagues, friends 
-and acquaintances, therefore to extend this work other options 
-should be considered in order to include 
-a wider audience with different motives for participation.
-Another threat is that participants were anonymous so the amount of repeated 
-participations and the effects this might have had in the outcome is not
-known. Another issue is that the scalability of the system was not thoroughly tested
-but for the amount of participants the basic configuration 
-was more than adequate, then again more experiments are needed in order
-to assess the capability both with more clients and other server
-configurations. Although care was taken to include representative benchmarks
-of real world problems, more experiments with a broader coverage 
-should allow a better understanding of the practical limitations of
-the architecture and the tools chosen.
-
 
 In general, this experiment confirms what was found in the others in
 several aspects: first, there is a regularity in the distribution of the
@@ -1014,57 +996,81 @@ conclusions.
 \section{Conclusions and future work}
 \label{sec:conclusion}
 
-In this paper two versions of a client-server architecture for volunteer and distributed
-evolutionary algorithms have been evaluated. The architecture uses the browser and has been generated using {\sf
-  NodIO}, based on the {\sf NodEO} evolutionary algorithm library. Volunteers are {\em in the cloud}, as stated in the title,
+In this paper several experiments with a client-server architecture for volunteer and distributed
+evolutionary algorithms have been performed. The architecture uses the
+browser and has been generated using the {\sf
+  NodIO} framework, which includes  {\sf NodEO} as an evolutionary
+algorithm library. Volunteers are {\em in the cloud}, as stated in the
+title, 
 since they are a {\em CPU as a service} for the persons running the
 experiment. In fact, in this paper we have tried to put some figures
-on the real size of that {\em cloud} and how it can be used standalone
-if there is no alternative, or in conjunction with other local or
+on the real size of that {\em cloud} in case it is used by itself or
+in conjunction with other local or 
 cloud-based methods to add computing power in a seamless way through
 the pool that {\sf NodIO} creates. 
 
-In order to establish a baseline performance, the evolutionary
-algorithm was run in a desktop client-program written in JavaScript
-using NodEO to solve the 40-trap function. The first experiments with
-{\sf NodIO} proved that, although obtaining better performance than the
-baseline was possible, it did not happen, mainly because of the
+In order to establish a baseline performance, which was published in
+\cite{2016arXiv160101607Manom}, the evolutionary algorithm was run in a desktop client application written in JavaScript
+using NodEO to solve the 40-trap function. The first experiments in a
+volunteer computing scenario proved that, although obtaining better performance than the
+baseline  was possible, it did not happen, mainly because of the
 difficulty in carrying over other experiments to volunteers when the
 experiment they were participating on was finished. This has been shown in the low
-correlation between the number of IPs in successive experiments, and also resulted in a low number of generations allotted by users. 
+correlation between the number of IPs in successive experiments, and
+also resulted in a low number of generations allotted by users.  
 
-In the second implementation, {\sf NodIO-W$^2$}, Web Workers
-were used so that several clients per browser could be executed and
-they could run in the background, so that the the number of
-generations per user could be improved. The number of generations per
-user increased to the point that baseline performance was improved in
-most cases. The architectural changes led to a high correlation
+In the second implementation, Web Workers
+were used so that several clients per browser page could be executed and
+run in the background; our intention was to increase the time spent by
+the users and, in fact, the number of generations per
+user increased to the point that we obtained a performance better than
+baseline in most cases. The architectural changes led to a high correlation
 between successive experiments, so that, even as the median number of
 volunteers per experiment decreased, they were probably contributing
-to the experiment at the same time, so that our objective was
+to the experiment simultaneously, so that our objective was
 achieved. In general, one of the first conclusions for this paper is
 that the browser technologies should be used to its full extent so
 that the user time is leveraged to its full potential, and this was
-achieved with {\sf NodIO-W$^2$}. 
+achieved using web workers. 
 
 The second objective of this paper was to model the user behavior in a
 first attempt to try and predict performance. As should be expected,
-the model depends on the implementation, with contributions following
-a GEV distribution in the case of {\sf NodIO} and a
-Weibull distribution for {\sf NodIO-W$^2$}. These distributions are
+the model and its parameters depends on the implementation, with contributions following
+a GEV distribution with single-thread and a
+Weibull distribution when web workers are used. These distributions are
 close enough to each other and, in the second case, reflect the fact
-that all time spent in the page is actually devoted to computing,
+that most time spent in the page is actually devoted to computing, as
+opposed to presenting the chart or not doing anything,
 which is why the time spent (represented by the number of
 contributions to the pool) follows a model quite similar to that found
-for games or other online activities. The reverse might be true: if we
+for games or other online activities. The reverse implication, from
+games to volunteer computing,  might also be true: if we
 want to have returning users for the experiments, it is probable that
-we should {\em gamify} the experience so that once they have done it
-once, they might do it more times. In the spirit of Open Science, this
+we should {\em gamify} the experience so that once they have participated
+once, they would be encouraged to do for a longer time or to share
+it. In the spirit of Open Science, this 
 gamification might involve computing in real-time data such as the one
 presented in this paper, while showing it in the same page. 
 
 In general, linking and finding correlations between user choices and
-performance is an interesting avenue to explore in the future.
+performance is an interesting avenue to explore in the future. % (Paloma) Mario, isn't this the future work? Should it be in conclusions? If not, just ignore this comment.
+% Moved to conclusions. 
+There are several validity threats to the design of this study.
+Participants of the experiments were mainly members of our 
+own social networks, personal colleagues, friends 
+and acquaintances, therefore to extend this work other options 
+should be considered in order to include 
+a wider audience with different motives for participation.
+Another threat is that participants were anonymous so the amount of repeated 
+participations and the effects this might have had in the outcome is not
+known. Another issue is that the scalability of the system was not thoroughly tested
+but for the amount of participants the basic configuration 
+was more than adequate, then again more experiments are needed in order
+to assess the capability both with more clients and other server
+configurations. Although care was taken to include representative benchmarks
+of real world problems, more experiments with a broader coverage 
+should allow a better understanding of the practical limitations of
+the architecture and the tools chosen.
 %  Even if
 % the three previous experiments were published in a similar way, one
 % obtained up to 5 times more total cycles  than the one with the least
