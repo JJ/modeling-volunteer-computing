@@ -77,7 +77,7 @@
 % --- End of Author Metadata ---
 
 \title{Performance for the masses: Experiments with A Web Based Architecture to Harness Volunteer Resources 
-for Low Cost Distributed Evolutionary Computation }
+for Low Cost Distributed Evolutionary Computation}
 %
 % You need the command \numberofauthors to handle the 'placement
 % and alignment' of the authors beneath the title.
@@ -312,11 +312,10 @@ have an influence on it.
 So, the rest of the paper is organized as follows: Next we present the
 state of the art in web-based distributed
 computational systems along with attempts to predict and model its
-behavior  in Section \ref{sec:soa}. The first results in a volunteer
-setting are described 
-in Section \ref{sec:exp1}, and experiments using a new client
-architecture that uses web workers in Section \ref{sec:w2} and then
-applied to a different problem in Section \ref{sec:rastrigin}. 
+behavior  in Section \ref{sec:soa}. A brief presentation of the
+methodology used and the results of the experiments are presented in
+Section \ref{sec:exp1}, including new results using web workers on the
+same problem and on a new problem, Rastrigin's or F15 function. 
 Finally, conclusions and future lines of work are presented in Section
 \ref{sec:conclusion}. 
 
@@ -526,15 +525,16 @@ results using a volunteer computing system which uses  % (Paloma) Change to "whi
 very diverse computational resources; these will be described next.
 
 
-\section{Experimental results}
+\section{Methodology and experimental results}
 \label{sec:exp1}
 
 % A bit of description of the framework, with reference to published
 % reports - JJ
 
-We set up different experiments by deploying the server in a cloud
-service, which changed in every one. This server runs a web service
-which stores chromosomes sent from clients and sends them back. It is
+We set up different experiments by deploying the server in free cloud
+services, changing it from one experiment to the next if needed. This server runs a web service
+which stores chromosomes sent from clients and serves requests to
+them; it is 
 an open source system that has been described extensively in
 \cite{2016arXiv160101607Manom}. The client runs an evolutionary
 algorithm written in JavaScript, that after a number of generations
@@ -737,7 +737,7 @@ Date & Median \#IPs & Max \#IPs & Median time (s) & Median \# PUTs & $<$ 69s & $
 \label{sec:w2}
 
 The results reported above indicated that we should look for a way of
-increasing the time that every user devotes. This led us to create an
+increasing the time users spend on the page. This led us to create an
 architecture that uses Web Workers, which is described in
 \cite{2016arXiv160101607Manom}; web workers work in the background even if
 the web page is not in focus. A few improvements were also tested,
@@ -863,7 +863,7 @@ providing reasonable algorithmic performance and being, in general,
 easy to use with a straightforward modification of the fitness
 function. 
 
-\section{Working on a hard optimization problem}
+\subsection{A hard optimization problem: Rastrigin's function}
 \label{sec:rastrigin}
 
 The fact that the solution of this particular problem was found in a
