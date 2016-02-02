@@ -172,11 +172,12 @@ one who did all the really hard work.}\\
 \begin{abstract}
 
 Using the browser as a computing resource in volunteer computing presents several advantages, 
-but it remains a challenge to harness the browser's capabilities and
+but it remains a challenge to fully harness the browser's capabilities and
 to model the user's behavior so that those capabilities can be
 leveraged optimally. In this paper, we present the results of several
-experiments with a volunteer computing framework called {\sf NodIO}
-that is easily deployable in using free cloud resources. We use 
+evolutionary computation experiments with different implementations of
+a volunteer computing framework called {\sf NodIO}, designed to be
+easily deployable in using free cloud resources. We use  
 %Pablo: "deployable in using free cloud resources" is correct?
 % why not? - JJ
 different implementations to find out which one is 
@@ -203,28 +204,22 @@ essential to be as open as possible with software and data.
 %---------------------------------------------------------------
 \section{Introduction}
 
-Nowadays there is a big and increasing number of
-distributed evolutionary computation software frameworks available on
-the market, usually as open source frameworks \cite{Parejo12Survey}. 
-Most of these frameworks have 
+Nowadays there is a big and increasing number of distributed
+evolutionary computation (EC) software frameworks available, usually
+as open source frameworks \cite{Parejo12Survey}.  Most of them have
 two features: they are {\em desktop} applications, that is, they must
 be compiled or run directly on the operating system layer and, second,
 they assume that the nodes that are going to run the system are under
 the control of developers or they at least have access to them.
 
-%Mario: Is NodIO presented here after the cut? 
-% Not sure. Maybe not. - JJ
-%TO DO: Add reference
-There is, then, space for frameworks that do not make any of these
-assumptions, such as {\sf NodIO} presented in \cite{2016arXiv160101607Manom}. {\sf NodIO} is basically 
-%assumptions, such as the one presented in this paper, which will be
-% named {\sf NodIO}. {\sf NodIO} is basically
-% (Paloma) Is the "first" word really needed? 
-% (Mario) I guess is more related to fundamentally or primarily but "basically" sounds better
-a two tier client/server 
-application, in which clients can run on a browser. 
-Therefore, they can be embedded in any web-enabled device, including many over which 
-developers have no control.
+There is, then, space for other EC frameworks that do not make any of
+these assumptions, such as {\sf NodIO} presented in
+\cite{2016arXiv160101607Manom}. {\sf NodIO} implements the server of
+client/server application and has some support to program an
+evolutionary algorithm embedded in pages served by them which can then
+communicate via that server. The client part can run in any
+web-enabled device, including many over which developers have no
+control, that is, volunteers.
 
 Some time ago, our group faced the problem of diminishing funds for
 buying new hardware. This was aggravated by the increasing maintenance costs and
@@ -250,16 +245,17 @@ such as C++ or Java, that, in principle, can achieve better performance than
 JavaScript. However, one of the advantages of our architecture is that
 clients do not need to install anything in their machines, they just
 need to open a web page  
-% Somewhat redundant 
-% Javascript is the only language that can be executed in this way without any installation, 
-% also removed the default, redundant with next sentence
-in a compatible browser, such as Chrome, Safari or Firefox, which are
+in a compatible, that is, almost any, browser, such as Chrome, Safari or Firefox, which are
 available in almost every desktop or mobile device. Other advantage is
 that the source code can be directly examined by volunteers, because it is not
 compiled as other options such as Java Applets, ActionScript or
-ActiveX.
-Also, as we will discuss in this paper, it can provide some extra
-features such as enhanced security or operating system independence. 
+ActiveX are. Also, as we will discuss in this paper, it can provide some extra
+features such as enhanced security or operating system
+independence. This system, however, is not intended to substitute
+frameworks running in dedicated hardware or the cloud, but to
+complement it. In general, several volunteers will be needed to
+overcome the overhead involved in using a client-server architecture
+and this number of volunteers is obviously not guaranteed. 
 
 %PABLO: hay que enlazar con el siguiente párrafo
 %Desktop clients have the same issues as any 
@@ -268,27 +264,36 @@ features such as enhanced security or operating system independence.
 %related to security as well as
 %safety, which introduce 
 
-When developing volunteer based frameworks, designers must
-also consider the whole {\em social} aspect in the design, with
+One of the aspects that must be taken into account in volunteer based
+frameworks is its {\em social} aspect in the design, with 
 issues related to security, trust, and privacy among others. 
-The computing system becomes then a {\em techno-social system} \cite{vespignani2009predicting}.  
-% (Paloma) Is the social aspect related to the word "safety"? It's not completely clear.
-%a {\em social} aspect to the design of a
-%computing system that makes it a {\em techno-social system}
-In this paper, our intention is to
-analyze the {\sf NodIO} framework from two different
-%Mario: Edit this?
-%present the {\sf NodIO} framework and analyze it from two different
-angles: the purely technical angle, including the decisions that went
-into its features, and the social angle, to account on how the persons
-that voluntarily choose to enter the web page running the experiment
-determine its performance and how it can be modeled and, eventually,
-predicted.
+The computing system becomes then a {\em techno-social system}
+\cite{vespignani2009predicting}. In that sense, its social aspects
+cannot be separated from its technical specifications, with one
+feeding into the other. One of these aspects is safety for the user
+and the scientist running it: the user must be reasonably sure that the
+experiment is not misusing its resources and the scientist must have a
+certain safety in the sense that its server is not going to be
+attacked via cheating or denial or service attacks. We have decided to
+approach this in a pragmatic way. Including many security features
+would decrease performance; on the other hand, we publish all data
+resulting from the experiment once private information, such as IPs,
+has been processed to a untraceable hash. The experiments themselves
+are a proof that there are enough users trusting the experiment to
+give it its CPU time and that there has been no attempt to cheat by
+sending specially crafted chromosomes or to attack the server to make
+it stop working because there was no incentive in doing so. The
+system, besides, is running in a dedicated Platform as a Service
+container or Virtual Private Server so accessing the server would only
+show a few data obtained from the experiment, nothing more. Making it
+free software ensured this was known by anyone in the experiment, via
+links in the web page that hosted it.
 
 The rest of the paper is organized as follows: Next we present the
-state of the art (Section \ref{sec:soa}) in web-based distributed
+state of the art in web-based distributed
 computational systems along with attempts to predict and model its
-behavior. The first results in a volunteer setting are described
+behavior  in Section \ref{sec:soa}. The first results in a volunteer
+setting are described 
 in Section \ref{sec:exp1}, and experiments using a new client
 architecture that uses web workers in Section \ref{sec:w2} and then
 applied to a different problem in Section \ref{sec:rastrigin}. 
