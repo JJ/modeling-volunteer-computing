@@ -53,12 +53,6 @@ J.~Duda and W.~Dlubacz.
 \newblock In {\em System Theory, Control and Computing (ICSTCC), 2013 17th
   International Conference}, pages 751--756. IEEE, 2013.
 
-\bibitem{ford2009analyzing}
-S.~Ford, M.~Cova, C.~Kruegel, and G.~Vigna.
-\newblock Analyzing and detecting malicious flash advertisements.
-\newblock In {\em Computer Security Applications Conference, 2009. ACSAC'09.
-  Annual}, pages 363--372. IEEE, 2009.
-
 \bibitem{DBLP:journals/corr/abs-0801-1210}
 D.~L. Gonzalez, F.~F. de~Vega, L.~Trujillo, G.~Olague, F.~C. de~la O,
   M.~Cardenas, L.~Araujo, P.~A. Castillo, and K.~Sharman.
@@ -181,12 +175,5 @@ D.~Stutzbach and R.~Rejaie.
 A.~Vespignani et~al.
 \newblock Predicting the behavior of techno-social systems.
 \newblock {\em Science}, 325(5939):425, 2009.
-
-\bibitem{watanabe2010new}
-T.~Watanabe, Z.~Cheng, M.~Kansen, and M.~Hisada.
-\newblock A new security testing method for detecting flash vulnerabilities by
-  generating test patterns.
-\newblock In {\em Network-Based Information Systems (NBiS), 2010 13th
-  International Conference on}, pages 469--474. IEEE, 2010.
 
 \end{thebibliography}

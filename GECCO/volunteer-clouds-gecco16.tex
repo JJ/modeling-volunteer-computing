@@ -297,7 +297,7 @@ Platform as a Service, and a simple Ajax client that does not
 restart. Second, we change a bit the client so that it uses web
 workers, that is, it runs in the background and it restarts. Third, we use the same
 client but with a harder problem that cannot be solved by a single
-client and thus needs the contribution of many volunteers to
+volunteer and thus needs the contribution of many volunteers to
 proceed. With these three experiments we want mainly to try and model
 the behavior of users and how different problems and implementations
 have an influence on it. 
@@ -401,8 +401,7 @@ brokers for resource discovery. SuperWeb is focused,
 % (Paloma) Careful with starting using plural ("Other proposals", "are") and continuig with singular. If you are referring to "SuperWeb", change "It" for "SuperWeb"
 however, in solving the
 issues involved in browser-based computing and also in making a system
-that is able to work across different types of computers, mentioning
-SPARCstations and PCs with Windows-95. Interestingly enough, this
+that is able to work across different types of computers. Interestingly enough, this
 paper incorporates a discussion on the economic model, paving the way
 for the for-profit distributed computing systems that arose later on. 
 On the other hand, the potential for volunteer computing using
@@ -417,13 +416,14 @@ The main problem with using Java and all the other browser-embedded
 technologies is that they are not {\em universal} in the
 sense that an extra component, namely, the Java virtual machine or another
 virtual environment has to be installed in the browser.
-Also these virtual environments have become targets of malicious attacks; 
-for instance numerous vulnerabilities have been discovered in 
-the proprietary Adobe Flash runtime environment and
-video player \cite{ford2009analyzing,watanabe2010new}. The need for
+% Also these virtual environments have become targets of malicious attacks; 
+% for instance numerous vulnerabilities have been discovered in 
+% the proprietary Adobe Flash runtime environment and
+% video player \cite{ford2009analyzing,watanabe2010new}. 
+The need for
 these additional environments has been mitigated with the
-adoption of the HTML5 standard \cite{anthes2012html5}.
-JavaScript however, has become a set of standards that include the language and its components. 
+adoption of the HTML5 standard \cite{anthes2012html5}, which is
+tightly integrated with JavaScript.
 
 JavaScript can be used either for unwitting, that is, stealth,
 \cite{unwitting-ec} or volunteer 
@@ -654,7 +654,7 @@ in Figure \ref{fig:puts:os}. These results show a Zipf-like behavior,
 so we have fitted it to the Generalized Extreme Value distribution,
 with the resulting parameters shown in Table \ref{tab:puts:os}.
 %
-\begin{table*}
+\begin{table}
 \caption{Summary of fit to Generalized Extreme Value distribution of
   the number of PUTs per unique IP. \label{tab:puts:os}}
 \begin{center}
@@ -669,7 +669,7 @@ Date  & Location $\mu$ & Scale $\sigma$ & Shape $\xi$ \\
 \hline
 \end{tabular}
 \end{center}
-\end{table*}
+\end{table}
 %
 This distribution was originally proposed to fit extreme values
 \cite{resnick2013extreme} and contains, as a special case, the inverse
@@ -754,7 +754,7 @@ of the times is better than we would by using a similar, non-parallel,
 desktop setup, which makes this system suitable for massively
 distributed evolutionary algorithms.
 %
-\begin{table*}
+\begin{table}
 \caption{Summary of fit to GEV and Weibull distribution of
   the number of PUTs per worker. \label{tab:puts:ww}}
 \begin{center}
@@ -762,13 +762,12 @@ distributed evolutionary algorithms.
 \hline
 Distribution & Location $\mu$ & Scale $\sigma$ & Shape $\xi$ \\
 \hline
-GEV & 18.275 $\pm$ 0.83719  &  25.962  $\pm$ 1.22015 & 1.242   $\pm$
-0.04746 \\
-Weibull & ND & 75.11457519 $\pm$ 2.97470251  & 0.69714410 $\pm$ 0.01383976 \\
+GEV & 18.275 $\pm$ 0.837  &  25.96  $\pm$ 1.22 & 1.242   $\pm$ 0.047 \\
+Weibull & ND & 75.11 $\pm$ 2.97  & 0.697 $\pm$ 0.014 \\
 \hline
 \end{tabular}
 \end{center}
-\end{table*}
+\end{table}
 %
 
 However, it is interesting to note why this is so, and the first hint
@@ -1012,7 +1011,7 @@ We will discuss this and the rest of the findings of the paper in the
 conclusions. 
 
 %---------------------------------------------------------------
-\section{Conclusion}
+\section{Conclusions and future work}
 \label{sec:conclusion}
 
 In this paper two versions of a client-server architecture for volunteer and distributed
@@ -1065,27 +1064,26 @@ gamification might involve computing in real-time data such as the one
 presented in this paper, while showing it in the same page. 
 
 In general, linking and finding correlations between user choices and
-performance is an interesting avenue to explore in the future. Even if
-the three previous experiments were published in a similar way, one
-obtained up to 5 times more total cycles  than the one with the least
-number of cycles. It is also essential to obtain volunteers as
+performance is an interesting avenue to explore in the future.
+%  Even if
+% the three previous experiments were published in a similar way, one
+% obtained up to 5 times more total cycles  than the one with the least
+% number of cycles. 
+It is also essential to obtain volunteers as
 simultaneously as possible, so it is possible that the features of the
 social network in terms of real-time use will also play a big
 role. Even as it is difficult to create controlled experiments in this
 area, it is an interesting challenge to face in the future. % (Paloma) Wrong collocation
 
-Although we think that, in general, the results presented in this
-paper are independent of the problem chosen, it is true that even if
-it is a difficult problem for evolutionary algorithms, it takes a few
-seconds with the right settings to solve. This makes it difficult also
-for this kind of asynchronous framework, but it would be interesting
-to check the performance for other computationally demanding
+This paper also shows that the time needed to find a solution or if it
+is eventually found have an influence on the time people devote to
+it. It would be so interesting to check the performance for other computationally demanding
 tasks, especially ones that cover the middle ground between a problem
 finishing in seconds or minutes (Trap) and weeks (Rastrigin F15). 
 Besides, the two versions of the framework include as an
 algorithmic variant using random population size. We do not think this
 has had a big influence on the results and in fact this is not noticed
-for F15, which is the second version tested, but it would be interesting to
+for F15, which is the last version tested, but it would be interesting to
 measure exactly what this influence has been. 
 % In general there are
 % many issues with the evolutionary algorithm implementation itself,
@@ -1104,11 +1102,11 @@ open more tabs in the browser, giving more Web Workers, but it would be
 interesting to put everything in a single page and under our control,
 to check how often this happens and under which conditions. 
 
-Finally, the implementation needs some refinement in terms of
-programming and also ease of use. Tools such as Yeoman might be used % ¿añadir una cita o la URL http://yeoman.io/ a pie de página ?
-to create a generator in which the user just has to create a fitness
-function, with the rest of the framework wrapped around
-automatically.
+% Finally, the implementation needs some refinement in terms of
+% programming and also ease of use. Tools such as Yeoman might be used % ¿añadir una cita o la URL http://yeoman.io/ a pie de página ?
+% to create a generator in which the user just has to create a fitness
+% function, with the rest of the framework wrapped around
+% automatically.
 %  All this, as well as the data used for this paper and the paper
 % itself, has been published with a free license in GitHub at
 % \url{https://github.com/JJ/modeling-volunteer-computing}.  
