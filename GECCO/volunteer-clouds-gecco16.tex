@@ -305,19 +305,23 @@ based system and its comparison with other languages in
 Platform as a Service, and a simple Ajax client that does not
 restart. Second, we change a bit the client so that it uses web
 workers, that is, it runs in the background and it restarts. Third, we use the same
+% Pablo: it restarts when the solution is found (it has not been mentioned yet)
 client, but with a harder problem that cannot be solved by a single
 volunteer and thus needs the contribution of many volunteers to
 proceed. With these three experiments we want mainly to try and model
 the behavior of users and how different problems and implementations
 have an influence on it. 
+%Pablo: To do this we compare the time spent by each user because...
 
-So, the rest of the paper is organized as follows: Next we present the
+So, the rest of the paper is organized as follows: next we present the
 state of the art in web-based distributed
 computational systems along with attempts to predict and model its
 behavior  in Section \ref{sec:soa}. A brief presentation of the
 methodology used and the results of the experiments are presented in
+%Pablo: mention the problems used in the first experiments
 Section \ref{sec:exp1}, including new results using web workers on the
-same problem and on a new problem, Rastrigin's or F15 function. 
+same problem and on a new problem, Rastrigin or F15 function. 
+%Pablo: Rastrigin is not the owner of the function
 Finally, conclusions and future lines of work are presented in Section
 \ref{sec:conclusion}. 
 
