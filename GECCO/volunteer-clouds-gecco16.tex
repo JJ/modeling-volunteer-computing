@@ -289,7 +289,20 @@ show a few data obtained from the experiment, nothing more. Making it
 free software ensured this was known by anyone in the experiment, via
 links in the web page that hosted it.
 
-The rest of the paper is organized as follows: Next we present the
+In this paper we will carry out three experiments, after establishing
+the baseline of the performance that can be expected in a JavaScript
+based system and its comparison with other languages in
+\cite{2016arXiv160101607Manom}. First, several experiments using a
+Platform as a Service, and a simple Ajax client that does not
+restart. Second, we change a bit the client so that it uses web
+workers, that is, it runs in the background and it restarts. Third, we use the same
+client but with a harder problem that cannot be solved by a single
+client and thus needs the contribution of many volunteers to
+proceed. With these three experiments we want mainly to try and model
+the behavior of users and how different problems and implementations
+have an influence on it. 
+
+So, the rest of the paper is organized as follows: Next we present the
 state of the art in web-based distributed
 computational systems along with attempts to predict and model its
 behavior  in Section \ref{sec:soa}. The first results in a volunteer
