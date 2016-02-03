@@ -564,9 +564,9 @@ staying there for a while.
 
 
 Initial tests with an evolutionary algorithm solving the 40-Trap
-problem were set up using the free PaaS OpenShift; they are described in
-Table \ref{tab:summary:os}. In general, every tests took several
-days and during it the problem was solved more than 50 times with
+problem were set up using the free PaaS OpenShift; the results are described in
+Table \ref{tab:summary:os}. In general, every test took several
+days and during its performance the problem was solved more than 50 times with
 several hundreds different IPs participating in it; each
 evolutionary algorithm stopped when the solution was found. 
 %
@@ -587,14 +587,14 @@ Date & Experiments &\#IPs &\#IPs &  \#IPs & Time (s) &  \#PUTs & $<$ 69s & $<$ 3
 \end{table*}
 %
 
-The last column shows the percentage of experiments in which running the
+The second-to-last column in Table \ref{tab:summary:os} shows the percentage of experiments in which running the
 experiment in the browser takes {\em less} time than in the
-desktop. Although volunteer computing systems do not exclude desktop
+desktop. Volunteer computing systems do not exclude desktop
 computing and, in fact, the server can handle any client, not only
-those running JavaScript on the browser, we include it here for the
+those running JavaScript on the browser. Although, we include it here for the
 sake of comparison and to show that, being a free resource, it can
 anyway make a valid and valuable contribution to any distributed or
-desktop computing experiment. An interesting result is also that the
+desktop computing experiment. Another interesting result is that the
 correlation between users of an experiment and the next is
 non-existent, that is, computing nodes are not {\em
   staying} after the solution has been found. This is the issue that we
@@ -665,17 +665,16 @@ address in the next experiments.
 It is also interesting to check the distribution of the experiment
 duration, shown in Figure \ref{fig:zipf:os} and which roughly follows
 a Zipf's law, with similar distribution along all three runs. The 4/24
-run is the most complete and shows a S-shape, which implies an
+run is the most complete and shows an S-shape, which implies an
 accumulation of experiments taking similar time and around 100
 seconds. The most interesting part is the {\em tail}, which shows how
 many experiments took a desirable amount of time, of the order of
 10 seconds, and which appears in all three graphs. As it can be seen,
 it sharply drops implying there are 
 just a few of them, and with diminishing probability as time
-decreases. This exponential distribution also appears in the
+decreases. This exponential distribution also appears in Figure \ref{fig:puts:os}, which shows the
 distribution of HTTP PUTs, equivalent to the number of
-generations divided by 100, contributed by every user, which is shown
-in Figure \ref{fig:puts:os}. These results show a Zipf-like behavior,
+generations divided by 100, contributed by every user. These results show a Zipf-like behavior,
 so we have fitted it to the Generalized Extreme Value distribution,
 with the resulting parameters shown in Table \ref{tab:puts:os}.
 %
