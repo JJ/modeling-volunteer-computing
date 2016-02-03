@@ -885,8 +885,10 @@ function.
 \subsection{A hard optimization problem: A Shifted Rotated Rastrigin's function}
 \label{sec:rastrigin}
 
+% (Paloma) I would propose as section title "A hard optimization problem: The Shifted Rotated Rastrigin's function"
+
 The fact that the solution of this particular problem was found in a
-few seconds and restarts were necessary yielded interesting results,
+few seconds and restarts were necessary yielded interesting results, % (Paloma) Where?
 but we needed to work on a harder problem, that is why created a new
 client version that optimized a harder variation of the Rastrigin's function, 
 used as a benchmark in evolutionary
@@ -898,12 +900,12 @@ the implementation have also been extensively described.
 Specifically, this experiment was deployed in a virtual private server with 512MB of memory
 running Ubuntu OS version 14.04 and hosted in DigitalOcean.com. Unlike previous
 experiments where the optimum was expected to be found many times, 
-this problem was expected to run constantly for many days finding only
+this problem was expected to constantly run for many days finding only
 sub-optimal approximations. In order to achieve this, the only change needed 
 in the framework was to limit the number of chromosomes kept in the pool. 
 Previously, every PUT request which included a new chromosome increased 
 the size of the pool. But in a long-running experiment this has to be avoided
-in order to not exhaust the available memory. In this experiment the size
+in order to not exhausting the available memory. In this experiment the size
 of a chromosome was 1000 double precision numbers, so that considering this
 and the memory available in the server, the pool was limited 
 to 10,000 chromosomes.  In order to keep this size
