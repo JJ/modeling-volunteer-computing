@@ -115,7 +115,6 @@ for Low Cost Distributed Evolutionary Computation}
 % Pablo Garc\'ia-S\'anchez, Dept. of Computer Architecture and Technology, University of Granada, Granada, Spain\\
 % Paloma de las Cuevas, Dept. of Computer Architecture and Technology,
 % University of Granada, Granada, Spain\\
-% Nuria Rico, Dept. of Statistics and Operational Research, University of Granada, Granada, Spain%
 
 % \thanks{Corresponding author: Juan-J.~Merelo (Email: jmerelo@ugr.es).}%
 % }
@@ -235,7 +234,8 @@ evolutionary algorithm that is embedded in the served pages, and those pages can
 web-enabled device, including many over which developers have no
 control, that is, volunteers.
 
-Some time ago, our group faced the problem of diminishing funds for
+We were interested in this kind of systems because, during the big
+global crisis, our group faced the problem of diminishing funds for
 buying new hardware. This was aggravated by the increasing maintenance costs and
 extended downtime resulting from the continuous failures of existing
 clusters.
@@ -246,7 +246,11 @@ unconventional distributed evolutionary computing systems to
 design and release a new free framework that would allow anyone to
 create a volunteer distributed evolutionary computation (EC) experiment using cloud resources as
 servers, and browsers as clients.
-% (Paloma) It seems that you've started the introduction twice. The first two paragraphs "introduce the introduction", and so does the third. It is specially noticeable when you find "evolutionary computation (EC)" twice.
+% (Paloma) It seems that you've started the introduction twice. The
+% first two paragraphs "introduce the introduction", and so does the
+% third. It is specially noticeable when you find "evolutionary
+% computation (EC)" twice.
+% Yep, I want to say it all, but don't know how to put it together.
 
 %PABLO: He añadido el siguiente párrafo para el issue #31
 There exist other volunteer computing frameworks written in compiled languages,
@@ -284,11 +288,17 @@ issues related to security, trust, and privacy among others.
 The computing system becomes then a {\em techno-social system}
 \cite{vespignani2009predicting}, in the sense that its social aspects
 cannot be separated from its technical specifications, with one
-feeding into the other. One of these aspects is safety for the user running it, as well as for the scientist: the user must be reasonably sure that the
+feeding into the other. One of these aspects is safety for the user
+running it, as well as for the scientist: the user must be reasonably
+sure that the 
 experiment is not misusing their resources and the scientist must have a
 certain safety in the sense that their server is not going to be
-attacked via cheating or denial of service attacks. We have decided to
-approach this in a pragmatic way. Including many security features % (Paloma) I'm kind of lost here... Sentences seem to be unconnected and unrelated...
+attacked via cheating or denial of service attacks. 
+
+We have decided to approach security in a pragmatic way. Including
+many security features % (Paloma) I'm kind of lost here... Sentences
+                       % seem to be unconnected and unrelated...  
+% Separated paragraph and substituting wildcard words - JJ
 would decrease performance; on the other hand, we publish all data
 resulting from the experiment once private information, such as IPs,
 has been processed to an untraceable hash. The experiments themselves
@@ -296,20 +306,35 @@ are a proof that there are enough users trusting the experiment to
 give it their CPU time and that there has been no attempt to cheat by
 sending specially crafted chromosomes or to attack the server to make
 it stop working because there was no incentive in doing so.
-% (Paloma) Is this really true? Can we really state that there were no attacks because there was no incentive? Attackers don't always need an incentive to perform an attack, or the incentive could not be perceived by us. And why do the experiments prove this? Are there specific measures?
+% (Paloma) Is this really true? Can we really state that there were no
+% attacks because there was no incentive? Attackers don't always need
+% an incentive to perform an attack, or the incentive could not be
+% perceived by us. And why do the experiments prove this? Are there
+% specific measures? 
+% There were no attacks, that's a fact. There could be in the future,
+% but not for the time being - JJ
 The
 system, besides, is running in a dedicated Platform as a Service (PaaS)
 container or Virtual Private Server so accessing the server would only
 show the few data obtained from the experiment, adding security against attackers. In addition, making it
-free software ensured this was known by anyone in the experiment, via
-links in the web page that hosted it. % (Paloma) What was known? The fact that it was running in a PaaS? Why was that known by links?
+free software ensured the meager bounty obtained by attackers were
+known by anyone participating in the experiment, via 
+links in the web page that hosted it. % (Paloma) What was known? The
+                                % fact that it was running in a PaaS?
+                                % Why was that known by links?
+%That there wasn't anything to hunt. Cleared, I expect. 
 
 In this paper, we will carry out three experiments, after establishing
 the baseline of the performance that can be expected in a JavaScript
 based system and its comparison with other languages in
-\cite{2016arXiv160101607Manom}. First, several experiments are performed using a PaaS, and a simple Ajax client that does not
-restart when a solution is found. Second, we change the client a bit so that it uses web workers, that is, it runs in the background process and then it restarts. Third, we use the same
-% Pablo: it restarts when the solution is found (it has not been mentioned yet)
+\cite{2016arXiv160101607Manom}. First, several experiments are
+performed using a simple Ajax client that does not 
+restart when a solution is found. Second, we change the client a bit
+so that it uses web workers, that is, it runs in the background
+process and then it restarts when the solution is found. Third, we use the same
+% Pablo: it restarts when the solution is found (it has not been
+% mentioned yet)
+% Just do it! - JJ
 client, but with a harder problem that cannot be easily solved by a single
 volunteer and thus needs the contribution of many volunteers to
 proceed. 
@@ -947,7 +972,7 @@ As in previous experiments, a few calls to participation were published in socia
 \label{fig:ips:rastrigin}
 \end{figure}
 %
-\begin{table*}
+\begin{table}
 \caption{Summary of fit to GEV and Weibull distribution of
   the number of PUTs per worker for the F15 (Rastrigin) function. \label{tab:puts:ww:f15}}
 \begin{center}
@@ -956,11 +981,11 @@ As in previous experiments, a few calls to participation were published in socia
 Distribution & Location $\mu$ & Scale $\sigma$ & Shape $\xi$ \\
 \hline
 GEV & 35.759  &  343.336   & 9.877 \\
-Weibull & ND & 29.002625061 $\pm$ 2.153034198  & 0.402393903 $\pm$ 0.007586468 \\
+Weibull & ND & 29.00 $\pm$ 2.15  & 0.40 $\pm$ 0.01 \\
 \hline
 \end{tabular}
 \end{center}
-\end{table*}
+\end{table}
 %
 \begin{figure}[!htb]
 \centering
