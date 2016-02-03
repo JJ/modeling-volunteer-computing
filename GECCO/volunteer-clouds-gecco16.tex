@@ -327,7 +327,7 @@ behavior in Section \ref{sec:soa}. A brief presentation of the
 methodology used and the results of the experiments are presented in
 %Pablo: mention the problems used in the first experiments
 Section \ref{sec:exp1}, including new results using web workers on the
-same problem and on a new problem, a modified Rastrigin (F15) function. 
+same problem and on a new problem, a modified Rastrigin's function. 
 %Pablo: Rastrigin is not the owner of the function
 %Mario: In many places is called  Rastrigin's function because it was proposed by him.
 Finally, conclusions and future lines of work are presented in Section
@@ -881,14 +881,14 @@ providing reasonable algorithmic performance and being, in general,
 easy to use with a straightforward modification of the fitness
 function. 
 
-\subsection{A hard optimization problem: Rastrigin's function}
+\subsection{A hard optimization problem: A Shifted Rotated Rastrigin's function}
 \label{sec:rastrigin}
 
 The fact that the solution of this particular problem was found in a
 few seconds and restarts were necessary yielded interesting results,
 but we needed to work on a harder problem, that is why created a new
-client version that optimized Rastrigin function, a multimodal
-floating-point problem used as a benchmark in evolutionary
+client version that optimized a harder variation of the Rastrigin's function, 
+used as a benchmark in evolutionary
 algorithms. The set up for this function, and a comparison of the
 baseline speed for JavaScript in an standalone experiment and other
 languages is shown in \cite{2016arXiv160101607Manom}, where the details of
@@ -961,19 +961,19 @@ Weibull & ND & 29.002625061 $\pm$ 2.153034198  & 0.402393903 $\pm$ 0.007586468 \
 %
 
 The results for this new experiment have been extremely interesting
-and quite different from the previous one. The most important
-characteristic that set this experiment apart from the previous one is
+and quite different from the others. The most important
+characteristic that set this experiment apart is
 the fact that it did not find the solution for the time it was
 running, instead lowering, little by little, the fitness until it was
 disconnected. The fitness of chromosomes sent by clients managed to
-surpass the 9000 value by the end of the; and although initially there
-was a high number of new nodes, this number decreases with time.
+surpass the 9000 value by the end of the execution; and although initially there
+was a high number of new nodes, this number decreased with time.
 
 This is in part due to the fact that the presence of nodes is not
 constant, as shown in Figure \ref{fig:ips:rastrigin}, which plots the
 number of unique IPs participating in the experiment per minute (left)
 and hour (right). The two graphs have the same shape: At the beginning there are very few or only
-one, but later one there are peaks of almost 30 unique machine a
+one, but later one there are peaks of almost 30 unique machines a
 minute; these peaks appear again when new announcements are made in
 Twitter or any other social networks, to go down to a few remaining
 nodes later on. It is interesting to note that, at the most, more than
@@ -1009,8 +1009,9 @@ time assigned by volunteers to it, second, there is a good and certain
 amount of volunteers that will become part of the distributed
 computer, in some cases up to one hundred; also, in some cases there
 will be users that will spend several hours, two orders of magnitude
-more generations in this case than in the previous one. There is a
-clear influence of the time to solution: a short time means that every
+more generations in this case than in the previous one.
+%Mario: than in the previous one. Are we refereing to the Wˆ2 version?
+There is a clear influence of the time to solution: a short time means that every
 experiment will only gather a few volunteers, but also that they will
 stay only for a short time. A long time will make users stay for
 longer, but if it takes too long, they will eventually lose interest. 
