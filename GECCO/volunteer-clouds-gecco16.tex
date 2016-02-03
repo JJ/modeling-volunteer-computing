@@ -501,7 +501,7 @@ available nodes. Lately, several approaches have focused on the
 fault-tolerance of volunteer algorithms
 \cite{gonzalez2010characterizing} which it can, of course, be studied in
 the more general context of distributed computing 
-\cite{nogueras2015studying} or be included in a more general study of the
+\cite{nogueras2015studying} or be included in a broader study of the
 performance of the EA itself
 \cite{DBLP:journals/gpem/LaredoBGVAGF14}.
 
@@ -519,7 +519,7 @@ only been studied in a limited way in
 \cite{DBLP:journals/gpem/LaredoBGVAGF14} on the basis of a single
 run. Studies using volunteer computing platforms such as SETI@home
 \cite{javadi2009mining} found out that the Weibull, log-normal, and
-Gamma distribution 
+Gamma distributions 
 modeled quite well the availability of resources in several clusters
 of that framework; the shape of those distributions is a skewed bell
 with more resources in the {\em low} areas than in the high areas:
@@ -531,9 +531,8 @@ our initial tests indicate that
 this kind of distribution might be the most appropriate to describe
 user participation in several different metrics. However, in this
 paper we will perform different experiments in different setups and
-will try to come up with a more precise model. Next we describe the
-framework itself.
-
+will try to come up with a more precise model. 
+%Mario: erase: Next we describe the framework itself.
 As far as we know, this paper presents one of the few experimental
 results using a volunteer computing system which uses  % (Paloma) Change to "which" in order to not repeating "that" all the time
 very diverse computational resources; these will be described next.
@@ -552,20 +551,22 @@ them; it is
 an open source system that has been described extensively in
 \cite{2016arXiv160101607Manom}. The client runs an evolutionary
 algorithm written in JavaScript, that after a number of generations
-sends back the best individual to the server, requesting at the same
+sends the best individual back to the server, requesting at the same
 time a random individual of those stored in the server. The experiment
 starts by setting up a website that is sent by the server and announcing it on several social
 networks so that people contribute to them by going to the page and
 staying there for a while. 
 
-\subsection{Initial tests}
+\subsection{Initial tests with a simple Ajax client}
+%% Above we mention three experiments:  Simple Ajax client, Web Workers, Harder Problem
+%% Im renaming subsection to  reference the first experiment 
+
 
 Initial tests with an evolutionary algorithm solving the 40-Trap
-problem were set up using the free PaaS (Platform as a
-Service) OpenShift; they are described in
+problem were set up using the free PaaS OpenShift; they are described in
 Table \ref{tab:summary:os}. In general, every tests took several
 days and during it the problem was solved more than 50 times with
-several hundreds different IPs participating in it; the
+several hundreds different IPs participating in it; each
 evolutionary algorithm stopped when the solution was found. 
 %
 \begin{table*}
@@ -595,8 +596,9 @@ anyway make a valid and valuable contribution to any distributed or
 desktop computing experiment. An interesting result is also that the
 correlation between users of an experiment and the next is
 non-existent, that is, computing nodes are not {\em
-  staying} after the solution has been found. This is an issue that we
-will address in this paper. 
+  staying} after the solution has been found. This is the issue that we
+address in the next experiments. 
+%Mario: changed: will address in this paper. 
 
 % \begin{figure}[!htb]
 % \centering
@@ -717,7 +719,8 @@ into account the low correlation between successive events shown
 above.
 
 At any rate, this also shows that a convenient way of increasing the
-computing power would be increasing this minimum amount per user. This
+%Mario: As I understend is: 
+computing power would be increasing this minimum amount of experiments per user. This
 issue led us to create the next version of the framework, which is
 presented next. % (Paloma) This sentences are sort of alone here... Could we extend a bit the first "this" to connect them to the previous paragraph ?
 
@@ -806,6 +809,7 @@ stopped contributing after one solution was found. This is also
 reflected in the number of PUTs, which is the number of generations
 divided by 100; more than 50\% of the volunteers run the experiment for more than
 4000 generations. All things considered, this means than there are
+%Mario: many more more threads {\em simultaneously} running?
 many more computers {\em simultaneously} running, leading to this
 almost 5-fold increase in running time.
 
