@@ -941,7 +941,7 @@ sub-optimal approximations. In order to achieve this, the only change needed
 in the framework was to limit the number of chromosomes kept in the pool. 
 Previously, every PUT request which included a new chromosome increased 
 the size of the pool. But in a long-running experiment this has to be avoided
-in order to not exhaust the available memory. In this experiment the size
+in order to not exhausting the available memory. In this experiment the size
 of a chromosome was 1000 double precision numbers, so that considering this
 and the memory available in the server, the pool was limited 
 to 10,000 chromosomes.  In order to keep this size
