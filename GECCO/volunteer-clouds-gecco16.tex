@@ -756,7 +756,8 @@ Date & Median \#IPs & Max \#IPs & Median time (s) & Median \# PUTs & $<$ 69s & $
 The results reported above indicated that we should look for a way of
 increasing the time users spend on the page. This led us to create an
 architecture that uses Web Workers, which is described in
-\cite{2016arXiv160101607Manom}; web workers work in the background even if
+\cite{2016arXiv160101607Manom} and is called {\sf
+  NodIO-W$^2$}; web workers work in the background even if
 the web page is not in focus. A few improvements were also tested,
 basically using a random population and restarting the web worker when
 the solution was found.
@@ -806,8 +807,7 @@ foreground. This means that volunteers can leave the experiment
 running for as long as they want and they will be contributing 
 experiment after experiment, unlike the previous version, where they
 stopped contributing after one solution was found. This is also
-reflected in the number of PUTs, which is the number of generations
-divided by 100; more than 50\% of the volunteers run the experiment for more than
+reflected in the number of PUTs, more than 50\% of the volunteers run the experiment for more than
 4000 generations. All things considered, this means than there are
 %Mario: many more more threads {\em simultaneously} running?
 many more computers {\em simultaneously} running, leading to this
