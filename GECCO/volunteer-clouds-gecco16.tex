@@ -316,9 +316,18 @@ proceed.
 %Mario: refrased: 
 %With these three experiments we want mainly to try and model
 With these three experiments our main objective is to try and model
-the behavior of users and learn how different problems and implementation choices have an influence on it. 
+the behavior of users and learn how different problems and
+implementation choices have an influence on it. That is why in this
+paper we will collect information on the number of users participating
+in each experiment and also the time they spent doing so. In this
+paper we will show how this participation follows certain patterns,
+and that they depend on the implementation itself as well as the
+problem and its difficulty; however, certain implementations allow to
+extract more CPU cycles from volunteers. 
 
 %Pablo: To do this we compare the time spent by each user because...
+% Pablo, please, don't JJ me. Do the changes, because I'm not learning
+% now. I have added a bit anyway. 
 
 So, the rest of the paper is organized as follows: next we present the
 state of the art in web-based distributed
@@ -401,7 +410,7 @@ server. Additionally, since the Java virtual machine is a sandbox, it was safe t
 and as it runs compiled bytecode it also guaranteed a certain level of
 performance. % (Paloma) I've changed a bit this sentence to unify the use of past tense when talking about Charlotte
 Other issues such as scheduling, which are related to adaptive 
-parallelism, were solved on the server. It is interesting to note that,
+parallelism, were solved on the server. But it is interesting to note that,
 even in the early stages of the web, the possibility of
 % (Paloma) Re-write. For example, "but it is interesting to note that, even in the early stages of the web, the possibility of..."
 browser-based distributed computing was already researched. 
@@ -720,12 +729,13 @@ above.
 
 At any rate, this also shows that a convenient way of increasing the
 %Mario: As I understend is: 
-computing power would be increasing this minimum amount of experiments per user. This
-issue led us to create the next version of the framework, which is
-presented next. % (Paloma) This sentences are sort of alone here... Could we extend a bit the first "this" to connect them to the previous paragraph ?
+computing power would be increasing this minimum amount of experiments
+per user. For this reason, we made some changes to the implementation,
+whose results are presented in the next subsection. % (Paloma) This sentences are sort of alone here... Could we extend a bit the first "this" to connect them to the previous paragraph ?
 
 \begin{table*}[!htb]
-\caption{Summary of {\sf NodIO-W$^2$} and comparison with the previous
+\caption{Summary of {\sf NodIO-W$^2$} (an acronym for the version that
+  uses web workers) and comparison with the previous
   experiments, which have been aggregated to compute central measures. \label{tab:summary:ww}}
 \begin{center}
 \begin{tabular}{l|ccccccc}
@@ -755,8 +765,8 @@ Date & Median \#IPs & Max \#IPs & Median time (s) & Median \# PUTs & $<$ 69s & $
 
 The results reported above indicated that we should look for a way of
 increasing the time users spend on the page. This led us to create an
-architecture that uses Web Workers, which is described in
-\cite{2016arXiv160101607Manom} and is called {\sf
+architecture that uses web workers, which is described in
+\cite{2016arXiv160101607Manom} and we abbreviate to {\sf
   NodIO-W$^2$}; web workers work in the background even if
 the web page is not in focus. A few improvements were also tested,
 basically using a random population and restarting the web worker when
@@ -800,8 +810,8 @@ However, it is interesting to note why this is so, and the first hint
 is the inter-experiment correlation between the number of IPs in
 successive experiments. While before it was an unremarkable 10\%, it is
 now more than 43\%, making the number of IPs in contiguous experiments
-highly correlated. The main reason for this is the setup in {\sf
-  NodIO-W$^2$}, which restarts an island after a solution has been
+highly correlated. The main reason for this is the setup in the
+version using web workers, which restarts an island after a solution has been
 found and also that it keeps running even if the tab is not on the
 foreground. This means that volunteers can leave the experiment
 running for as long as they want and they will be contributing 
@@ -810,8 +820,8 @@ stopped contributing after one solution was found. This is also
 reflected in the number of PUTs, more than 50\% of the volunteers run the experiment for more than
 4000 generations. All things considered, this means than there are
 %Mario: many more more threads {\em simultaneously} running?
-many more computers {\em simultaneously} running, leading to this
-almost 5-fold increase in running time.
+more threads and many more computers {\em simultaneously} running,
+leading to this almost 5-fold increase in running time.
 
 
 We are also interested in measuring the scaling properties of this
