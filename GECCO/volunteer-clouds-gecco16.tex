@@ -293,20 +293,22 @@ would decrease performance; on the other hand, we publish all data
 resulting from the experiment once private information, such as IPs,
 has been processed to an untraceable hash. The experiments themselves
 are a proof that there are enough users trusting the experiment to
-give it its CPU time and that there has been no attempt to cheat by
+give it their CPU time and that there has been no attempt to cheat by
 sending specially crafted chromosomes or to attack the server to make
-it stop working because there was no incentive in doing so. The
+it stop working because there was no incentive in doing so.
+% (Paloma) Is this really true? Can we really state that there were no attacks because there was no incentive? Attackers don't always need an incentive to perform an attack, or the incentive could not be perceived by us. And why do the experiments prove this? Are there specific measures?
+The
 system, besides, is running in a dedicated Platform as a Service (PaaS)
 container or Virtual Private Server so accessing the server would only
-show the few data obtained from the experiment, nothing more. Making it
+show the few data obtained from the experiment, adding security against attackers. In addition, making it
 free software ensured this was known by anyone in the experiment, via
-links in the web page that hosted it.
+links in the web page that hosted it. % (Paloma) What was known? The fact that it was running in a PaaS? Why was that known by links?
 
 In this paper, we will carry out three experiments, after establishing
 the baseline of the performance that can be expected in a JavaScript
 based system and its comparison with other languages in
 \cite{2016arXiv160101607Manom}. First, several experiments are performed using a PaaS, and a simple Ajax client that does not
-restart when a solution is found. Second, we change the client a bit so that it uses web workers, that is, it runs in the background process and it restarts. Third, we use the same
+restart when a solution is found. Second, we change the client a bit so that it uses web workers, that is, it runs in the background process and then it restarts. Third, we use the same
 % Pablo: it restarts when the solution is found (it has not been mentioned yet)
 client, but with a harder problem that cannot be easily solved by a single
 volunteer and thus needs the contribution of many volunteers to
