@@ -177,9 +177,12 @@ to model the user's behavior so that those capabilities can be
 leveraged optimally. In this paper, we present the results of several
 evolutionary computation experiments with different implementations of
 a volunteer computing framework called {\sf NodIO}, designed to be
-easily deployable in using free cloud resources. We use  
+easily deployable on freely available cloud resources. We use  
 %Pablo: "deployable in using free cloud resources" is correct?
 % why not? - JJ
+% is easy deployable? yes! where? in free cloud resources! 
+% is easy deployable? yes! when?  (when) using free cloud resources
+% is one or the other, I like "on"      
 different implementations to find out which one is 
 able to get the user to lend more computing cycles and test different
 problems to check the influence it has on said performance.
@@ -221,10 +224,10 @@ the control of developers or they at least have access to them.
 
 There is, then, space for other EC frameworks that do not make any of
 these assumptions, such as {\sf NodIO} presented in
-\cite{2016arXiv160101607Manom}. {\sf NodIO} implements the server of
+\cite{2016arXiv160101607Manom}. {\sf NodIO} implements the server of a
 client/server application and has some support to program an
 evolutionary algorithm embedded in pages served by them which can then
-communicate via that server. The client part can run in any
+communicate each other via that server. The client part can run in any
 web-enabled device, including many over which developers have no
 control, that is, volunteers.
 
@@ -253,7 +256,7 @@ JavaScript. However, one of the advantages of our architecture is that
 clients do not need to install anything on their machines, they just
 %Pablo: According English Stack Exchange, you install "ON" a machine (but "IN" a directory)
 need to open a web page  
-in a compatible, that is, almost any, browser, such as Chrome, Safari or Firefox, which are
+in a compatible, that is, almost any, browser, such as Chrome, Safari or  Firefox, which are
 available in almost every desktop or mobile device. Another advantage is
 that the source code can be directly examined by volunteers, because it is not
 compiled as other options such as Java Applets, ActionScript or
@@ -262,7 +265,7 @@ features such as enhanced security or operating system
 independence. This system, however, is not intended to substitute
 frameworks running on dedicated hardware or the cloud, but to
 %Pablo: same here, I learnt this with my paper of EAs "on clusters"
-complement it. In general, several volunteers will be needed to
+complement them. In general, several volunteers will be needed to
 overcome the overhead involved in using a client-server architecture
 and this number of volunteers is obviously not guaranteed. 
 
@@ -273,8 +276,11 @@ and this number of volunteers is obviously not guaranteed.
 %related to security as well as
 %safety, which introduce 
 
-One of the aspects that must be taken into account in volunteer based
-frameworks is its {\em social} aspect in the design, with 
+%Mario: Rewrote: 
+%One of the aspects that must be taken into account in volunteer based
+%frameworks is its {\em social} aspect in the design, with 
+The {\em social} aspect must be taken into account when designing 
+volunteer based frameworks, with 
 issues related to security, trust, and privacy among others. 
 The computing system becomes then a {\em techno-social system}
 \cite{vespignani2009predicting}. In that sense, its social aspects
@@ -283,45 +289,47 @@ feeding into the other. One of these aspects is safety for the user
 and the scientist running it: the user must be reasonably sure that the
 experiment is not misusing its resources and the scientist must have a
 certain safety in the sense that its server is not going to be
-attacked via cheating or denial or service attacks. We have decided to
+attacked via cheating or denial of service attacks. We have decided to
 approach this in a pragmatic way. Including many security features
 would decrease performance; on the other hand, we publish all data
 resulting from the experiment once private information, such as IPs,
-has been processed to a untraceable hash. The experiments themselves
+has been processed to an untraceable hash. The experiments themselves
 are a proof that there are enough users trusting the experiment to
 give it its CPU time and that there has been no attempt to cheat by
 sending specially crafted chromosomes or to attack the server to make
 it stop working because there was no incentive in doing so. The
-system, besides, is running in a dedicated Platform as a Service
+system, besides, is running in a dedicated Platform as a Service (PaaS)
 container or Virtual Private Server so accessing the server would only
-show a few data obtained from the experiment, nothing more. Making it
+show the few data obtained from the experiment, nothing more. Making it
 free software ensured this was known by anyone in the experiment, via
 links in the web page that hosted it.
 
 In this paper, we will carry out three experiments, after establishing
 the baseline of the performance that can be expected in a JavaScript
 based system and its comparison with other languages in
-\cite{2016arXiv160101607Manom}. First, several experiments using a
-Platform as a Service, and a simple Ajax client that does not
-restart. Second, we change a bit the client so that it uses web
-workers, that is, it runs in the background and it restarts. Third, we use the same
+\cite{2016arXiv160101607Manom}. First, several experiments are performed using a PaaS, and a simple Ajax client that does not
+restart when a solution is found. Second, we change the client a bit so that it uses web workers, that is, it runs in the background process and it restarts. Third, we use the same
 % Pablo: it restarts when the solution is found (it has not been mentioned yet)
-client, but with a harder problem that cannot be solved by a single
+client, but with a harder problem that cannot be easily solved by a single
 volunteer and thus needs the contribution of many volunteers to
-proceed. With these three experiments we want mainly to try and model
-the behavior of users and how different problems and implementations
-have an influence on it. 
+proceed. 
+%Mario: refrased: 
+%With these three experiments we want mainly to try and model
+With these three experiments our main objective is to try and model
+the behavior of users and learn how different problems and implementation choices have an influence on it. 
+
 %Pablo: To do this we compare the time spent by each user because...
 
 So, the rest of the paper is organized as follows: next we present the
 state of the art in web-based distributed
-computational systems along with attempts to predict and model its
-behavior  in Section \ref{sec:soa}. A brief presentation of the
+computational systems along with attempts to predict and model their
+behavior in Section \ref{sec:soa}. A brief presentation of the
 methodology used and the results of the experiments are presented in
 %Pablo: mention the problems used in the first experiments
 Section \ref{sec:exp1}, including new results using web workers on the
-same problem and on a new problem, Rastrigin or F15 function. 
+same problem and on a new problem, a modified Rastrigin (F15) function. 
 %Pablo: Rastrigin is not the owner of the function
+%Mario: In many places is called  Rastrigin's function because it was proposed by him.
 Finally, conclusions and future lines of work are presented in Section
 \ref{sec:conclusion}. 
 
