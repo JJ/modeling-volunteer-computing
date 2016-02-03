@@ -342,8 +342,8 @@ long history, and almost since the beginning it was used for
 evolutionary computation even before JavaScript was
 introduced as a browser-based scripting language in 1997. Before that
 time other technologies,
- including Flash animations and VBScript, ActiveX or Java applets were
-used; for instance, Java was pointed out in \cite{soares1998get} as a
+ including Flash animations and VBScript, ActiveX, or Java applets were
+used with the same purpose; for instance, Java was pointed out in \cite{soares1998get} as a
 ``language for the internet'', providing some advantages such as multi-architecture compatibility or
 security mechanisms, and was proposed in \cite{chandy1996world} as the
 basis for the creation of a world-wide peer to peer system using compiled Java
@@ -380,7 +380,7 @@ metacomputers.
 % %%------------------- END
 The fulfillment of the desirable features of any distributed evolutionary 
 computation experiments that rely on volunteer computing \cite{2016arXiv160101607Manom} could be achieved by using any of the
-languages and associated technologies, mentioned above, provided that the user had
+languages and associated technologies mentioned above, provided that the user had
 installed the required virtual machine plugin first. 
 
 % (Paloma) These should be separate sentences
@@ -450,7 +450,7 @@ JavaScript can be used either for unwitting, that is, stealth,
 \cite{langdon:2005:metas,gecco07:workshop:dcor} distributed
 evolutionary computation and it has been used ever since by several
 authors, including more recent efforts
-\cite{duda2013distributed,DBLP:journals/corr/abs-0801-1210} 
+\cite{duda2013distributed,DBLP:journals/corr/abs-0801-1210}. 
 
 % that even
 % used the client's GPU \cite{duda2013gpu}. 
@@ -489,23 +489,23 @@ authors, including more recent efforts
 % % Don't know what you mean. Write it down and we'll see - JJ
 %  in the library itself. 
 
-On the other hand, we are also interested in measuring the performance
+Additionally, we are also interested in measuring the performance
 of volunteer computing systems, an area in which there have been
 relatively few efforts. There were some initial attempts to avoid the differences in performance
 that could be obtained from volunteers  by making
 the algorithm adaptive to the kind of resources allotted to it
 \cite{milani2004online}. This is actually not such a big problem in
-algorithms such as the EA that can easily be
+algorithms such as the Evolutionary Algorithm (EA) that can easily be
 parallelized via population splitting or by farming out evaluations to all
 available nodes. Lately, several approaches have focused on the
 fault-tolerance of volunteer algorithms
-\cite{gonzalez2010characterizing} which it can, of course, be studied in
+\cite{gonzalez2010characterizing} which can, of course, be studied in
 the more general context of distributed computing 
 \cite{nogueras2015studying} or be included in a broader study of the
 performance of the EA itself
 \cite{DBLP:journals/gpem/LaredoBGVAGF14}.
 
-On the other hand, measuring the performance of the resulting metacomputer
+Moreover, measuring the performance of the resulting metacomputer
 involves understanding its dynamics. Initial
 work was done for peer to peer systems by Stutzbach et
 al. \cite{stutzbach2006understanding} and extended to volunteer
@@ -525,7 +525,8 @@ of that framework; the shape of those distributions is a skewed bell
 with more resources in the {\em low} areas than in the high areas:
 there are many users that give a small amount of cycles, while there
 are just a few that give many cycles. This is in concordance with the
-results obtained in \cite{agajaj}. Although SETI@home works
+results obtained in \cite{agajaj}. % (Paloma) I have a doubt here, should this reference be anonymised or not?
+Although SETI@home works
 at a larger scale in both quantity of volunteers and the scope of projects, 
 our initial tests indicate that
 this kind of distribution might be the most appropriate to describe
