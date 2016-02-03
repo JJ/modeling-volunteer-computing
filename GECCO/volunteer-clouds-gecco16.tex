@@ -814,11 +814,12 @@ many more computers {\em simultaneously} running, leading to this
 almost 5-fold increase in running time.
 
 
-We are also interested in measuring the scaling properties in this
+We are also interested in measuring the scaling properties of this
 model, that is, the relationship between the number of IPs
 participating in an experiment and the time it takes to complete
 it. This is shown in Figure \ref{fig:ipstime:w2}, which displays every
-experiment in terms of time (in milliseconds) vs. the number of workers participating
+experiment in terms of time (in milliseconds) vs. % (Paloma) Isn't "vs." informal?
+the number of workers participating
 in it. Although there is not a clear trend, the graph seems to say
 that the time needed for finding the solution in this evolutionary
 algorithm does not depend on the number of workers participating in
@@ -826,7 +827,7 @@ it. This does not mean that it is independent on the number of {\em
   simultaneous} users, which is probably the case although it is more
 difficult to measure. There seems to be a trend towards a decreasing
 standard deviation in the time, with more volunteers adding both {\em
-  robustness} to an experiment, and certainty in the time it is taking. 
+  robustness} to an experiment, and certainty in the time it is taking. % (Paloma) Should "certainty" go in italics? Otherwise it's confusing. 
  However, more experiments would be needed to check this hypothesis.
 
 \begin{figure}[!htb]
@@ -850,10 +851,10 @@ previously observed. However, the shape $\xi$ parameter is
 substantially similar, with a {\em bell} shape leaning towards the
 origin, indicating a pattern of a few users with many contributions
 and many with few contributions. If we plot the model and the data
-side by side, as shown in Figure \ref{fig:gev:w2} we see that the fit
+side by side, as shown in Figure \ref{fig:gev:w2}, we see that the fit
 is not so tight as in the previous case, with the model overestimating
 the number of individuals with a high number contributions. This is
-probably due to the fact that in the previous case, the user needed to
+probably due to the fact that in the previous case the user needed to
 voluntarily reload the page to contribute the most generations, with a
 {\em phase change} between the people that did so and the people that
 just ran the experiment once until completion. In this case, however, the
