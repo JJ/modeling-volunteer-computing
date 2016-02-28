@@ -203,14 +203,19 @@ Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
   data storage \citep{jj:idc:lowcost}.
   The server has the capability to
   run a single experiment, storing the chromosomes in a data structure
-  that is reset when the solution is found.
+  that is reset when the solution is found. This data structure can
+  hold every chromosome in a particular experiment, or have a finite
+  size that erases the oldest chromosomes once it has filled to
+  capacity. In this paper we will test both implementations.  
 \item A client that includes the evolutionary algorithm as
   JavaScript code embedded in a web page that displays graphs, some
   additional links, and information on the experiment. This code runs
   an evolutionary algorithm {\em island} that starts with a random
   population, then after every 100 generations, it sends the best individual
   back to the server (via a {\tt PUT} request), and then requests a random
-  individual back from the server (via a {\tt GET} request). % (Paloma) Re-writing because there are 3 steps (island creation -> PUT -> GET)
+  individual back from the server (via a {\tt GET} request). We have
+  kept the number of generations between migrations fixed since it is
+  a way of finding out how many real work every client has done. 
 \end{enumerate}
 
 Figure \ref{fig:system} describes the general system architecture and
@@ -237,57 +242,8 @@ establish baseline performance and gather initial performance
 results. 
 
 %---------------------------------------------------------------
-\section{Baseline Experiment and obtained results} %Cambié el nombre
+\section{Modeling the performance of a volunteer-based distributed computer} %Cambié el nombre
 \label{sec:experiments}
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=3in]{baseline-times.png}
-\caption{Comparison of times to solution (labeled as {\bf times}) for the baseline system, using a {\tt
-    Node.js} client, for different population sizes. Only
-runs in which solution has been found are used for this graph.}
-% Plotted with: ~/Code/splash-volunteer/data/plot-baseline.R
-\label{fig:baseline}
-\end{figure}
-First, we establish the baseline performance by running the
-evolutionary algorithm in a desktop client written using {\sf NodEO}
-\citep{nodeo2014}, the basic JavaScript library we have used as base to
-build {\sf NodIO}, the framework. This experiment tries to 
-find the solution to the 40-trap function with parameters $l=4, a=1,
-b=2, z=3$ and a population size equal to 512. The algorithm in a
-single island was run until the solution (a string with all
-ones) was found or five million evaluations had been performed. It
-took around a minute, on average, that is $68.9694$ seconds, to
-perform the fifty runs. In this experiment only 33, that is, 66\% were
-successful. The experiments were repeated for population $p=1024$,
-with a success rate upgraded to 100\% and an {\em average} duration of $3.46$
-seconds. Results for these two experiments
-are shown in Figure \ref{fig:baseline}. The baseline hardware system has these
-characteristics: 
-\begin{verbatim}
-Linux penny 3.13.0-34-generic #60-Ubuntu SMP Wed Aug 13 15:45:27 UTC
-2014 x86_64 x86_64 x86_64 GNU/Linux
-\end{verbatim}
-with a 4-core {\tt Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz}.
-
-These two experiments establish a baseline result and show that
-the time to success depends on the population size, with a bigger population
-contributing to have more diversity and thus speeding up the solution \citep{DBLP:conf/lion/LaredoDFGB13}. The volunteer computing
-experiments that we will describe next do not and can not have the
-same conditions, but
-the baseline is that if they eventually take longer than a basic
-desktop, their interest will be purely academic. We will try and
-prove next that that target performance can be achieved by carrying
-out several experiments in different conditions. Second, they also act
-as a basic performance test for the server, and also prove that the
-basic server can be used for many kinds of different setups, as long
-as they follow the REST protocol to deposit and obtain individuals
-from the pool. It is obvious that, in this case, the server is not
-really needed, since there is a single client and no interaction
-between them, but there is a cost in sending and obtaining chromosomes
-from the server so it is included for the sake of fairer comparison.
-
-\subsection{Volunteer evolutionary computation: first experiments and results}
 
 Initial experiments were set up using the OpenShift
 PaaS, which provides a free tier within which this 
