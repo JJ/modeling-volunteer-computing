@@ -3,14 +3,13 @@
 \usepackage{hyperref}
 \usepackage{url}
 
-%\usepackage[pdftex]{graphicx}
 \graphicspath{{../img/}}
 \DeclareGraphicsExtensions{.pdf}
 
 \title{The human in the loop: volunteer computing as a socio-technical
 system}
 \author{Juan-J.~Merelo*$^1$, Paloma de las Cuevas $^1$, Pablo
-  García-Sánchez $^1$, Mario Garc\'ia-Valdez$^2$\\
+  Garc\'ia-S\'anchez $^1$, Mario Garc\'ia-Valdez$^2$\\
 \mbox{}\\
 $^1$Dept. of Computer Architecture and Technology and CITIC University of Granada \\
 $^2$Dept. of Graduate Studies at Instituto Tecnol\'ogico de Tijuana \\
@@ -88,17 +87,9 @@ angles: the purely technical angle, including the decisions that went
 into its features, and the social angle, to account on how the persons
 that voluntarily choose to enter the web page running the system
 determine its performance and how it can be modeled and, eventually,
-predicted.
-
-The rest of the paper is organized as follows: Next we present the
-state of the art (Section \ref{sec:soa}) in web-based distributed
-computational systems along with attempts to predict and model its behavior. 
-Then, a detailed description of the proposed framework is presented
-in Section \ref{sec:description}, followed by the baseline experiments
-in Section \ref{sec:experiments}, and experiments using a new client
-architecture that uses web workers in Section \ref{sec:w2}.
-Finally, conclusions and future lines of work are presented in Section
-\ref{sec:conclusion}. 
+predicted. Next we present the state of the art in web-based
+volunteer-based systems along with attempts to predict and model its
+behavior. 
 
 
 %---------------------------------------------------------------
@@ -108,22 +99,19 @@ Finally, conclusions and future lines of work are presented in Section
 Volunteer computing involves an user running a program voluntarily
 and, as such, has been deployed in many different ways from the
 beginning of the Internet, starting with the SETI@home framework for
-processing extraterrestrial signals \cite{david-seti:home}. However
+processing extraterrestrial signals \citep{david-seti:home}. However
 the dual introduction of JavaScript as an universal language for the
 browser and the browser as an ubiquitous web and Internet client has
 made this combination the most popular for volunteer computing
 frameworks such as the one we are using here and whose first version
-was described in \cite{DBLP:conf/gecco/GuervosG15}.
+was described in \citep{DBLP:conf/gecco/GuervosG15}.
 
 JavaScript can be used either for unwitting
-\citep{unwitting-ec} or volunteer 
+\citep{unwitting-ec,boldrin2007distributed} or volunteer 
 \citep{langdon:2005:metas,gecco07:workshop:dcor} distributed
 evolutionary computation and it has been used ever since by several
 authors, including more recent efforts
-\citep{Desell:2008:AHG:1389095.1389273,duda2013distributed,DBLP:journals/corr/abs-0801-1210} 
-that even
-used the client's GPU \citep{duda2013gpu} or create an object-oriented
-framework for evolution in the browser \citep{EvoStar2014:jsEO}. Many other researchers have
+\citep{Desell:2008:AHG:1389095.1389273,duda2013distributed,DBLP:journals/corr/abs-0801-1210}. Many other researchers have
 used Java \citep{chong:1999:jDGPi} and others have gone away from the
 server-based paradigm to embrace peer to peer systems
 \citep{jin2006constructing,10.1109/ICICSE.2008.99,DBLP:conf/3pgcic/GuervosMFEL12}. These computing
@@ -151,7 +139,12 @@ performance of the EA itself
 measured without understanding the dynamics of this kind of systems. Initial
 work was done for peer to peer systems by Stutzbach et
 al. \citep{stutzbach2006understanding} and extended to volunteer
-computing by Laredo et al. \citep{churn08,laredo2008rcp}. 
+computing by Laredo et al. \citep{churn08,laredo2008rcp}. A similar
+study was performed by Martínez et al. on the Capataz system
+\citep{martinez2015capataz}; however in this case the number of
+computers used was known in advance and the main focus was on
+measuring speed up and how job bundling helped to reduce overhead and
+enhance performance. 
 
 Some of the essential metrics in volunteer computing like the
 number of users or the time spent by every one in the
@@ -168,7 +161,12 @@ there are many users that give a small amount of cycles, while there
 are just a few that give many cycles. 
 
 As far as we know, this paper presents one of the few experiments
-that measure the performance of a sociotechnical metacomputer. 
+that measure the performance of a sociotechnical
+metacomputer. Apolónia et al. \citep{apolonia2012enhancing} used the
+Facebook protocol to distribute tasks among the {\em walls} of
+friends, explicitly using the social network for computing. However,
+it stopped short of relating performance to the macro measures of the
+users' social networks. 
 The algorithms used, as well as the methodology 
 for gathering resources will be described next, 
 together with the results obtained in this initial setup.
@@ -710,11 +708,7 @@ area, it is an interesting challenge to explore in the future.
 Although we think that, in general, the results presented in this
 paper are independent of the problem chosen, it is true that even if
 it is a difficult problem for evolutionary algorithms, it takes a few
-seconds with the right settings to solve. This makes it difficult also
-for this kind of asynchronous framework, but it would be interesting
-to check the performance for other computationally demanding
-tasks, especially ones that cover the middle ground between a problem
-finishing in seconds or minutes (Trap) and weeks (Rastrigin F15). 
+seconds with the right settings to solve. 
 Besides, the two versions of the framework include as an
 algorithmic variant using random population size. We do not think this
 has had a big influence on the results and in fact this is not noticed
@@ -722,7 +716,7 @@ for F15, which is the second version tested but it would be interesting to
 measure exactly what this influence has been. In general there are
 many issues with the evolutionary algorithm implementation itself,
 including using different, or adaptive, policies for inserting and
-sending individuals to the pool as was done in \citep{araujo2008mam},
+sending individuals to the pool,
 using different policies for population initialization, and also the
 incorporation of high-speed local resources to the pool to check what
 would be the real influence of the volunteer pool to the final
