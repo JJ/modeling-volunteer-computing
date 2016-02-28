@@ -1,6 +1,6 @@
 \documentclass[letterpaper]{article}
 \usepackage{natbib,alifeconf}
-\usepackage{hyperref}
+\usepackage[breaklinks=true]{hyperref}
 \usepackage{url}
 
 \graphicspath{{../img/}}
@@ -274,7 +274,7 @@ Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
   the system. 
 %%%%%%%
 
-Figure \nameref{fig:system} describes the general system architecture and
+Figure \ref{fig:system} describes the general system architecture and
 algorithm behavior. Different web technologies, such as JQuery or {\tt
   Chart.js} have
 been used to build the user interface elements of the framework.
@@ -301,7 +301,7 @@ used. JavaScript is a functional language and declaring a different
 function and handing at the creation of the algorithm object, called
 {\tt Classic}, is the only change needed to work with a different
 problem. Let us see how this system addresses the different challenges
-outlined in the State of the Art (Section \nameref{sec:soa}):
+outlined in the State of the Art (Section \ref{sec:soa}):
 \begin{itemize}
 \item {\em Scalability} is provided via the use of a lightweight and
   high-performance, single-threaded, server based in Node.js and
@@ -388,7 +388,7 @@ perform the fifty runs. In this experiment only 33, that is, 66\% were
 successful. The experiments were repeated for population $p=1024$,
 with a success rate upgraded to 100\% and an {\em average} duration of $3.46$
 seconds. Results for these two experiments
-are shown in Figure \nameref{fig:baseline}. The baseline hardware system has these
+are shown in Figure \ref{fig:baseline}. The baseline hardware system has these
 characteristics: 
 \begin{verbatim}
 Linux penny 3.13.0-34-generic #60-Ubuntu SMP Wed Aug 13 15:45:27 UTC
@@ -424,7 +424,7 @@ results were published here \citep{DBLP:conf/gecco/GuervosG15}. For the
 purpose of this paper, we repeated the announcement several times
 through the month of April and then by the beginning of August. All
 in all, we have the set of runs with the characteristics shown in
-Table \nameref{tab:runs}. In general, every experiment took several
+Table \ref{tab:runs}. In general, every experiment took several
 days. No particular care was taken about the time of the announcement
 or the particular wording. Every {\em experiment} consisted in running
 until the solution of the 40-trap problem was found. When the correct
@@ -472,7 +472,7 @@ number of different IPs intervening in them varied from more than one
 hundred to more than five hundred in the second experiment.
 
 A summary of the results of each run is also shown in Table
-\nameref{tab:summary:os}, which shows the median number of IPs
+\ref{tab:summary:os}, which shows the median number of IPs
 intervening in each experiment,  median time needed
 to finish the experiment, median number of HTTP {\tt PUT}s per IP, and
 then two columns showing the percentage of experiments that took less
@@ -548,7 +548,7 @@ We will have to analyze experimental data a bit further to find out why
 this happens and also if there are some patterns in the three sets of
 experiments. An interesting question to ask, for instance, is if
 by adding more computers makes the experiment take less. In fact, as
-shown in Figure \nameref{fig:duration}, the {\em addition} of more computers does
+shown in Figure \ref{fig:duration}, the {\em addition} of more computers does
 not seem to contribute to decreasing the time needed to finish the
 experiment. However, the cause-effect relationship is not clear at
 all. It might be the opposite: since experiments take longer to finish
@@ -575,7 +575,7 @@ experiment.
 \end{figure}
 %
 It is also interesting to check the distribution of the experiment
-duration, shown in Figure \nameref{fig:zipf:os} and which roughly follows
+duration, shown in Figure \ref{fig:zipf:os} and which roughly follows
 a Zipf's law, with similar distribution along all three runs. The 4/24
 run is the most complete and shows a S-shape, which implies an
 accumulation of experiments taking similar time and around 100
@@ -587,9 +587,9 @@ just a few of them, and with diminishing probability as time
 decreases. This exponential distribution also appears in the
 distribution of HTTP {\tt PUT}s, equivalent to the number of
 generations divided by 100, contributed by every user, which is shown
-in Figure \nameref{fig:puts:os}. These results show a Zipf-like behavior,
+in Figure \ref{fig:puts:os}. These results show a Zipf-like behavior,
 so we have fitted it to the Generalized Extreme Value distribution,
-with the resulting parameters shown in Table \nameref{tab:puts:os}.
+with the resulting parameters shown in Table \ref{tab:puts:os}.
 %
 \begin{table*}
 \caption{Summary of fit to Generalized Extreme Value distribution of
@@ -621,12 +621,12 @@ related to the size, but also a third shape $\xi$ parameter that is
 related to its skewness, that is, how skewed it is around the central
 location. Positive parameters indicate that the distribution {\em
   leans} towards the origin, and negative ones towards the other extreme
-value. In this case, Table \nameref{tab:puts:os} shows $\xi$ values
+value. In this case, Table \ref{tab:puts:os} shows $\xi$ values
 greater than one and between one and 1.4, which indicates that the
 three experiments share this origin-leaning pattern, with many users
 donating a few cycles and just a few donating extreme values. Random
 distributions with these parameters have been plotted in red in
-Figure \nameref{fig:puts:os}, indicating that the fit is good enough. The
+Figure \ref{fig:puts:os}, indicating that the fit is good enough. The
 predictive value of these fits, however, is limited, over all taking
 into account the low correlation between successive events shown
 above.
