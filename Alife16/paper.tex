@@ -28,6 +28,7 @@ result of several volunteer distributed evolutionary computation
 experiments and try to find out which are those patterns and what
 makes an experiment successful or not, including the feedback loop
 that is created between the users and the algorithm itself.
+%Pablo: The patterns we are looking for are... 
 \end{abstract}
 
 \section{Introduction}
@@ -43,7 +44,7 @@ and release a new free framework that would allow anyone to create a
 volunteer distributed evolutionary computation (EC) experiment using
 cloud resources as servers and browsers as clients. This framework was
 called NodIO \citep{2016arXiv160101607M}. NodIO provides server
-infraestructure for volunteer-based distributed evolutionary computing
+infrastructure for volunteer-based distributed evolutionary computing
 experiments by providing a chromosome {\em pool}. This pool is used by
 clients in browsers and any other using the application programming
 interface (API) to put chromosomes and retrieve them, working then as
@@ -54,7 +55,7 @@ This loose connection provides a low-overhead way to connect desktop
 experiments with volunteer-based ones, with all of them contributing
 to the pool, but every one of them working as separate island 
 carrying out their own evolutionary algorithms. This is why NodIO is
-proposed mainly as a {\em complement} to existent resources such as
+proposed mainly as a {\em complement} to existing resources such as
 desktop systems or laptops. As long as it provides a non-null
 computational capability that can help existing resources find the
 solution faster it will have found its purpose. The main use case is
@@ -64,8 +65,10 @@ requesting help in social networks for additional resources. That is
 why, in this system,  we have considered the whole {\em social} aspect
 in the design, with issues related to security, trust and privacy
 among others. The computing system becomes a {\em techno-social
-  system} \citep{vespignani2009predicting}. In this paper we are going
+%Pablo: In abstract is named 'sociotechnical'. Which one is the correct form for the rest of the paper?
+  system} \citep{vespignani2009predicting}. In this paper, we are going
 to focus on measuring the response of users to experiments, but at the
+%Pablo: which metric are we going to measure this response?
 same time we will also focus on the technical aspects of the server and how
 those might change the behavior of users, improving the capability of % Mario: How these might change
 the system.
