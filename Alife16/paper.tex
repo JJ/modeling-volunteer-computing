@@ -1,6 +1,6 @@
 \documentclass[letterpaper]{article}
 \usepackage{natbib,alifeconf}
-\usepackage{hyperref}
+\usepackage[breaklinks=true]{hyperref}
 \usepackage{url}
 
 \graphicspath{{../img/}}
@@ -263,25 +263,10 @@ Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
   individual back from the server (via a {\tt GET} request). % (Paloma) Re-writing because there are 3 steps (island creation -> PUT -> GET)
 \end{enumerate}
 
-
-%%%%% DELETE THIS PARAGRAPH? References Web Workers  %%%%%%
-
-  This is the invariant part of the framework, but other than that,
-  the algorithm can be run in many different ways: 
-  stopping when a solution is found or , as we have done in this paper,
-  using Web Workers. In fact, since it is a pool-based system such as
-  the one described in \citep{LNCS86720702}, any kind of client that
-  calls the application programming interface (API) can be used, % (Paloma) I thought that a client implements an API, or uses an API, or even works with an API. But never heard of a client which "works" an API. Is this correct?
-  written in any kind of language. However, in this paper we are going
-  to focus on the dynamics and measurements of the volunteer part of
-  the system. 
-%%%%%%%
-
 Figure \ref{fig:system} describes the general system architecture and
 algorithm behavior. Different web technologies, such as JQuery or {\tt
   Chart.js} have
 been used to build the user interface elements of the framework.
-
 
 
 \begin{figure}[!t]
@@ -293,12 +278,6 @@ been used to build the user interface elements of the framework.
 \label{fig:system}
 \end{figure}
 
-%%%% DELETE? Repeats lines 186 - 191
-The researcher only has to change a function, which can be written in
-JavaScript or in any other language with cross-compilation to
-JavaScript \citep{web:compilersjs} to solve a different
-problem. 
-%%%%  
 In this case the classical Trap function \citep{Ackley1987} has been
 used. JavaScript is a functional language and declaring a different 
 function and handing at the creation of the algorithm object, called
@@ -563,11 +542,7 @@ volunteers join in in such a short period of time, even more if we take
 into account that volunteers are not {\em carried over} from previous
 experiments. This implies that it would be convenient to use a problem
 of a bigger size to check this hypothesis as we have done in the next
-experiment. 
-%  however, at this point we
-% have not found this convenient since there are several other issues
-% that have to be solved, as it will be shown next. %Creo que este párrafo
-%saldría sobrando ahora que hicmios un experimento más grande
+experiment.
 
 \begin{figure}[!htb]
 \centering
