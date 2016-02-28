@@ -7,8 +7,8 @@
 \graphicspath{{../img/}}
 \DeclareGraphicsExtensions{.pdf}
 
-\title{ Volunteers in the Clouds: A Web Based Architecture to Harness Volunteer Resources 
-for Low Cost Distributed Evolutionary Computation}
+\title{The human in the loop: volunteer computing as a socio-technical
+system}
 \author{Juan-J.~Merelo*$^1$, Paloma de las Cuevas $^1$, Pablo
   García-Sánchez $^1$, Mario Garc\'ia-Valdez$^2$\\
 \mbox{}\\
@@ -20,33 +20,15 @@ $^2$Dept. of Graduate Studies at Instituto Tecnol\'ogico de Tijuana \\
 \maketitle
 
 \begin{abstract}
-Volunteer computing is extensively used 
-in science and industry, but it
-still has a long way to go in order to become
- a mainstream
-technology in the same way the cloud technologies in general have. The
-lack of 
-general purpose and open source tools with built-in analytics 
-could be one of the reasons of why this is so, as well as the lack of
-proofs of concept. That is why in this paper we present {\sf NodIO}, a
-framework used to create client-server architectures for distributed
-evolutionary algorithms, entirely written  
-in JavaScript, which needs
-minimal server support to work and is able to support persistent,
-asynchronous, distributed evolutionary algorithms running in the
-browser, as well as any other client consuming its REST application
-programming interface. The architecture, along with some initial
-results on the expected performance and scaling behavior when the
-number of users is increased is presented. We also use
-the algorithm data to find out what kind of patterns the user behavior
-follows by examining the resources they devote to our experiment, and
-try to fit them to some statistical distribution to create the bases
-of a model of user behavior in volunteer computing experiments of this
-kind that can be used by researchers to predict its performance. 
-In general, our experiments prove, first, that {\sf NodIO} is a flexible and
-low-overhead platform to perform distributed computation experiments
-that include volunteers, and then that user behavior follows some patterns,
-and, thus, are amenable to a model.
+Volunteer computing is a form of distributed computing where users
+decide on their participation and the amount of time they will
+``lend''. This makes them an essential part of the algorithm and of
+the performance of the whole system. As a sociotechnical system, this
+participation follows some patterns and in this paper we examine the
+result of several volunteer distributed evolutionary computation
+experiments and try to find out which are those patterns and what
+makes an experiment successful or not, including the feedback loop
+that is created between the users and the algorithm itself.
 \end{abstract}
 
 \section{Introduction}
@@ -916,3 +898,7 @@ gathering users for the new experiments.
 \bibliography{volunteer,GA-general,geneura,javascript,ror-js}
 
 \end{document}
+
+%%% Local Variables:
+%%% ispell-local-dictionary: "english"
+%%% End:
