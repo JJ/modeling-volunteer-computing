@@ -286,16 +286,18 @@ been used to build the user interface elements of the framework.
 \includegraphics[width=3in]{system.pdf}
 \caption{Description of the proposed system. Clients execute a JavaScript EA
   in the browser, which, every 100 generations, sends the best
-  individual and receives a random one from the server.}
+  individual and receives a random one back from the server.}
 \label{fig:system}
 \end{figure}
 
+%%%% DELETE? Repeats lines 186 - 191
 The researcher only has to change a function, which can be written in
 JavaScript or in any other language with cross-compilation to
 JavaScript \citep{web:compilersjs} to solve a different
-problem. In this case the classical Trap function \citep{Ackley1987} has been
-used as well as the Rastrigin's floating-point optimization
-problem. JavaScript is a functional language and declaring a different 
+problem. 
+%%%%  
+In this case the classical Trap function \citep{Ackley1987} has been
+used. JavaScript is a functional language and declaring a different 
 function and handing at the creation of the algorithm object, called
 {\tt Classic}, is the only change needed to work with a different
 problem. Let us see how this system addresses the different challenges
@@ -313,9 +315,6 @@ outlined in the State of the Art (Section \ref{sec:soa}):
   performance, operating system, or even browser requirement as long
   as JavaScript is enabled: anyone
   visiting the page, even from mobile devices, can load the algorithm.
-  In case the browser does not support HTML5 Web workers (e.g., 
-  Windows Phone or some version of Android) or their use
-  has been disabled, a basic version of {\sf NodIO} can also be used.
 \item {\em Fault tolerance} is always an issue, and in this case, the
   single point of failure would be the server: the system, as such,
   would break down if the server fails. However, the individual
@@ -361,7 +360,7 @@ will be experimented by dropping the server and checking the continuity
 of the experiments. 
 
 All these points will be established in the next two sections,
-starting with the baseline, single worker system next. 
+starting with the baseline, single worker system next. %%%  Single worker? 
 
 %---------------------------------------------------------------
 \section{Baseline Experiment and obtained results} %Cambié el nombre
