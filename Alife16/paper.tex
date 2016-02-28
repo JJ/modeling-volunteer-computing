@@ -254,23 +254,25 @@ Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
 \item A client that includes the evolutionary algorithm as
   JavaScript code embedded in a web page that displays graphs, some
   additional links, and information on the experiment. This code runs
-  an evolutionary algorithm {\em island} starting with a random
-  population, then it sends, every 100 generations, the best individual
-  back to the server (via a {\tt PUT} request), and requests a random
-  individual from the server (via a {\tt GET} request). % (Paloma) Re-writing because there are 3 steps (island creation -> PUT -> GET)
+  an evolutionary algorithm {\em island} that starts with a random
+  population, then after every 100 generations, it sends the best individual
+  back to the server (via a {\tt PUT} request), and then requests a random
+  individual back from the server (via a {\tt GET} request). % (Paloma) Re-writing because there are 3 steps (island creation -> PUT -> GET)
 \end{enumerate}
 
 
+%%%%% DELETE THIS PARAGRAPH? References Web Workers  %%%%%%
+
   This is the invariant part of the framework, but other than that,
   the algorithm can be run in many different ways: 
-  stopping when a solution is found or, as we have done in this paper,
+  stopping when a solution is found or , as we have done in this paper,
   using Web Workers. In fact, since it is a pool-based system such as
   the one described in \citep{LNCS86720702}, any kind of client that
   calls the application programming interface (API) can be used, % (Paloma) I thought that a client implements an API, or uses an API, or even works with an API. But never heard of a client which "works" an API. Is this correct?
   written in any kind of language. However, in this paper we are going
   to focus on the dynamics and measurements of the volunteer part of
   the system. 
-
+%%%%%%%
 
 Figure \ref{fig:system} describes the general system architecture and
 algorithm behavior. Different web technologies, such as JQuery or {\tt
