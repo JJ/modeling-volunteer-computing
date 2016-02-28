@@ -168,64 +168,14 @@ In general, a distributed volunteer-based evolutionary computation
 system based on the browser is simply a client-server system
 whose client is, or it can be, embedded in the browser via
 JavaScript. Since JavaScript is  the only language that is present
-across all browsers, the choice was quite clear. Even so, there might
-be some issues with the performance of the language itself; which % (Paloma) I recommend the use of "which" here
- is
-why we have made a comparison between JavaScript and other languages
-\citep{2015arXiv151101088M}. The results of this work show that JavaScript can be
-faster than compiled languages such as Scala and, in any case, it provides
-a performance that is comparable to other languages usually employed % (Paloma) Adverb
-in evolutionary computation and numerical optimization such as Python. 
-% (Paloma) Bit of a too long sentence here. Why not changing the ; for a . ?
-Compiled languages such as
-Java or C might be faster when % (Paloma) Too many "fact" words. There was another one in the previous sentence.
-considering the performance of a single-user, 
-but this is more than offset by the computational power of
-the spontaneous volunteers we can gather at whim, including people
-using their mobile phones or tablets. Together, the performance is several orders of magnitude
-higher, which is the objective in this kind of systems.
-% (Paloma) This sentence needs re-writing
-% "Other compiled languages such as Java or C might be, in fact, faster, but the fact that single-user performance is higher (than what?) is over the offset. This is because the number of spontaneous volunteers we can gather at whim, including people using their mobile phones or tablets, is several orders of magnitude higher, which is the objective in this kind of systems." (?)
- JavaScript is
-quite a popular language nowadays, providing compilers from a number
-of languages, many of them in their family (like CoffeeScript), but
-many other outside, so researchers can, in fact, write their fitness
-function in Python, Erlang, Scala, or even Java, and them compile it to
-JavaScript. 
-
-As a volunteer based system, there are some issues worth 
-noting \citep{sarmenta2001volunteer} :\begin{enumerate}
-\item Volunteers are anonymous, only the Internet Protocol addresses (IP) sent in 
-each request is known.
-\item As anonymous entities, volunteers are not accountable. 
-If a volunteer misbehaves in some way the provider cannot 
-prosecute or discipline the volunteer. In the case of JavaScript,
-this issue is aggravated because even if it is obfuscated, source code
-and data is sent to clients. 
-\item Participants must also trust the application provider, 
-regarding invasion of privacy, the integrity of their devices, 
-and intended application. 
-\end{enumerate}
-
-Two kind of threats are possible in this environment; first, since the
-API is open and it is an open source framework, it is relatively easy to
-sabotage the system, as indicated in \citep{domingues2007sabotage}, by
-crafting a fake request which, for instance, assigns a fake fitness to
-a particular chromosome.
-% (Paloma) Where is the second kind of threat?
-Another two different attacks are also
-possible: a denial of service attack as well as penetration
-testing. We have approached this threat in a pragmatic way: all
-sources, client and server, for the application, are openly released. 
- We also release as open access the performed experiments \citep{DBLP:journals/corr/GuervosG15} 
- and all data, once anonymized, as open data. This
-builds trust between the user and the scientist, which indeed has an
-impact on the performance of the system, since there is no need to
-include cheating checks or other functions that would degrade the
-performance of the system. This socio-technical approach is, indeed,
-coherent with our whole approach to the study of a distributed volunteer
- system which can only be studied by approaching it from the
-technical as well as the social, as in social media, angle. 
+across all browsers, the choice was quite clear. We should emphasize
+that NodIO is more intended as an auxiliary computing engine, more
+than the main one, so performance of JavaScript as a language is not
+so important; even so, we have made a comparison between JavaScript and other languages
+\citep{2015arXiv151101088M} that shows that performance of JavaScript
+is comparable to other interpreted languages; compiled languages would
+be faster, but, of course, it is impossible to gather volunteers
+spontaneously and without any installation with them.
 
 In this sense, in this paper we propose the {\sf NodIO} framework, a
 cloud or bare metal based volunteer evolutionary computing system
@@ -282,67 +232,9 @@ In this case the classical Trap function \citep{Ackley1987} has been
 used. JavaScript is a functional language and declaring a different 
 function and handing at the creation of the algorithm object, called
 {\tt Classic}, is the only change needed to work with a different
-problem. Let us see how this system addresses the different challenges
-outlined in the State of the Art (Section \ref{sec:soa}):
-\begin{itemize}
-\item {\em Scalability} is provided via the use of a lightweight and
-  high-performance, single-threaded, server based in Node.js and
-  Express.js. Although this single server is a bottleneck since it
-  will eventually saturate, the fact that it runs as a non-blocking single thread
-  allows the service of many requests. In fact, a limit in the
-  number of simultaneous requests will be reached, but so far it has
-  not been found, unlike what we found in our previous systems, DCoR,
-  \citep{gecco07:workshop:dcor}, which had a low scalability. 
-\item The system is {\em heterogeneous} since it does not need any
-  performance, operating system, or even browser requirement as long
-  as JavaScript is enabled: anyone
-  visiting the page, even from mobile devices, can load the algorithm.
-\item {\em Fault tolerance} is always an issue, and in this case, the
-  single point of failure would be the server: the system, as such,
-  would break down if the server fails. However, the individual
-  islands in every browser would continue running, and having access
-  to just one of them would allow the local algorithm to proceed. In
-  fact, the island does not need the server to run: it runs locally if
-  needed, with the only exception that it is obviously unable to
-  communicate with the rest of the islands.
-\item {\em Adaptiveness} is achieved simply through the autonomous
-  operation of every individual island without any synchronization
-  mechanism. The islands in the system are, in fact, unaware of each
-  other, communicating only through the server. This architecture 
-  has been tested in other high demand systems with success, but 
-  in the case of {\sf NodIO}, additional experiments are needed to asses 
-  the scalability of the communication system. % (Paloma) Is it ok if we talk about scalability when we were talking about adaptiveness? Scalability was also described in the first point.
-  %(Mario) Scalability of the communication system in particular?
-\item Since the algorithm runs in the browser, {\em safety} is
-  achieved through its sandbox mechanisms. The user is thus assured
-  that there is no unsafe access either to their local files or even
-  to more resources than the browser should be allotted.
-\item Running the algorithm is just a matter of loading the page,
-  which makes the operation totally {\em anonymous}. For the same
-  reason, {\em ease of use} is optimal, being as easy as simply
-  clicking on an URL, available to anyone with access to a browser.
-\item {\em Reasonable performance} is not ensured. In fact, we should
-  make sure that there is a reasonable amount of clients over which
-  the performance achieved is better than what you would obtain in
-  your own desktop system. If this is not the case, it is a pointless
-  academic exercise.
-\end{itemize}
-
-There are many different ways to validate a framework that intends to
-address these challenges. Some of them are included by design: it is
-anonymous, since no accounts are needed to participate in the
-experiment, it is safe for the user, since we are using the browser
-black box, and it is also heterogeneous. We have designed the
-experiments so that they show adaptability to different types of
-experiments and clients, scalability with the number of clients and
-the problem size, and measured performance by comparing it with
-a baseline configuration, with which, as indicated above, is
-compatible and can be used in a complementary way. Fault tolerance
-will be experimented by dropping the server and checking the continuity
-of the experiments. 
-
-All these points will be established in the next two sections,
-starting with the baseline, single worker system next. %%%  Single worker? 
+problem. The next Section will describe experiments performed to
+establish baseline performance and gather initial performance
+results. 
 
 %---------------------------------------------------------------
 \section{Baseline Experiment and obtained results} %Cambié el nombre
