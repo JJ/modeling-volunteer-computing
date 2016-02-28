@@ -101,107 +101,19 @@ Finally, conclusions and future lines of work are presented in Section
 \ref{sec:conclusion}. 
 
 
-
-
 %---------------------------------------------------------------
 \section{State of the art}
 \label{sec:soa}
 
-The web used as a resource for distributed computing has a
-long history, and almost since the beginning it was used for
-evolutionary computation even before JavaScript was
-introduced as a browser-based scripting language in 1997. Before that
-time other technologies,
- including Flash animations and VBScript, ActiveX or Java applets were
-used; for instance, Java was pointed out in \citep{soares1998get} as a
-``language for the
-internet'', providing some advantages such as multi-architecture compatibility or
-security mechanisms, and was proposed in \citep{chandy1996world} as the
-basis for the creation of a world-wide peer to peer system using compiled Java
-programs. The ATLAS system
-\citep{Baldeschwieler:1996:TIG:504450.504482} also used Java together
-with another language called Cilk; all these papers indicated that
-the introduction of an architecture-independent system such as the
-Java virtual machine opened the doors for ultrascale, Internet-wide,
-metacomputers. This paper also establishes the desirable features of
-any {\em global computing} infrastructure, that can also be applied to
-distributed evolutionary computation experiments that rely on
-volunteer computing: scalability, heterogeneity, fault tolerance,
-adaptive parallelism, safety, anonymity, hierarchy, ease of use, and
-reasonable performance. But hierarchy, this is, the capability of
-preferentially using resources in the same organization, is a feature
-that could be either disregarded or included within adaptivity, which
-leaves us with eight desirable properties. 
-
-
-The fulfillment of these properties could be achieved by using any of the
-languages and associated technologies, mentioned above, provided that the user had
-installed the required virtual machine plugin first. 
-
-However, embedding a
-distributed computation client in the browser has the advantage of
-providing a single and universal way of accessing resources via an
-URI, something that is not guaranteed by using desktop applications. 
-Baratloo et al. tried in 1996 to create a framework with
-the aforementioned qualities called {\em Charlotte}
-\citep{baratloo1996charlotte}. This framework, which implemented a
-distributed shared memory, was inspired by a previous work
-on parallel computing systems PVM and MPI and solved most of the issues by
-using the Java virtual machine embedded in the browser,
-which provided
-security to the user, uniformity of computing environment
-independently of the operating system, and access to a common data store in the
-server. Since the Java virtual machine is a sandbox, it is safe to the user
-and as it runs compiled bytecode it also guarantees a certain level of
-performance.
-Other issues such as scheduling, which are related to adaptive 
-parallelism, were solved on the server. This
-paper was later extended and published in a journal in 1999
-\citep{baratloo1999charlotte}, but it is interesting to note that,
-even in the early stages of the web, the possibility of
-browser-based distributed computing was already researched. 
-
-
-Other systems, like JET, proposed by Soares et
-al. \citep{soares1998get}, also used Java. JET supports
-the execution of parallel applications over the Internet and features
-a comprehensive statistics collection subsystem, enabling its use for science, 
-since it allows 
-the collection of algorithm analytics by the
-experiment designer, unlike the other systems mentioned
-above. Other proposals contemporary to JET, such as {\em SuperWeb}
-\citep{alexandrov1997superweb} are roughly a translation of classical
-distribution techniques, with overly complicated architectures that include
-brokers for resource discovery. SuperWeb is focused,
-however, in solving the
-issues involved in browser-based computing and also in making a system
-that is able to work across different types of computers, mentioning
-SPARCstations and PCs with Windows-95. Interestingly enough, this
-paper incorporates a discussion on the economic model, paving the way
-for the for-profit distributed computing systems that arose later on. 
-On the other hand, the potential for volunteer computing using
-browsers was realized
-later on \citep{sarmenta-bayanihan} as well as the potential of
-user misconduct when having access to the source code.
-\citep{sarmenta-sabotagetolerance}. However, these early efforts by
-Sarmenta once again used Java and not JavaScript, making them % (Paloma) making them
-less widespread.
-
-The main problem with Java and all the other browser-embedded
-technologies is that they are not {\em universal} in the
-sense that an extra component, namely, the Java virtual machine or another
-virtual environment has to be installed in the browser.
-Also these virtual environments have become targets of malicious attacks; 
-for instance numerous vulnerabilities have been discovered in 
-the proprietary Adobe Flash runtime environment and
-video player \citep{ford2009analyzing,watanabe2010new}. The need for
-these additional environments has been mitigated with the
-adoption of the HTML5 standard \citep{anthes2012html5}.
-JavaScript \citep{flanagan2006javascript}, however, has become a set of standards
-\citep{ECMA-262} that include the language and its components. Since
-early on, it was adopted by the industry and also by scientists,
-who used them for creating an evolutionary algorithm (EA) on
-the browser as early as 1998 \citep{jj-ppsn98}.
+Volunteer computing involves an user running a program voluntarily
+and, as such, has been deployed in many different ways from the
+beginning of the Internet, starting with the SETI@home framework for
+processing extraterrestrial signals \cite{david-seti:home}. However
+the dual introduction of JavaScript as an universal language for the
+browser and the browser as an ubiquitous web and Internet client has
+made this combination the most popular for volunteer computing
+frameworks such as the one we are using here and whose first version
+was described in \cite{DBLP:conf/gecco/GuervosG15}.
 
 JavaScript can be used either for unwitting
 \citep{unwitting-ec} or volunteer 
@@ -219,35 +131,6 @@ platforms avoid single points of failure (the server) but, since they
 need a certain amount of infrastructure installed to start, the
 threshold to join them is much lower.
 
-Recent works propose the use of cloud computing services for the components of
-client-server distributed EAs. Cloud resources
-can reduce operational costs by outsourcing both hardware and software maintenance
-to the cloud provider. Another advantage is that they enable the provisioning of computing resources beyond what
-is available in most laboratories, allowing researches to
-scale algorithms at reasonable costs. Researchers have proposed the use of
-public clouds such as Amazon EC2 \citep{CloudScale}, Google App Engine\citep{di2013towards},
-and DropBox~\citep{mericloud}. The use of JavaScript to implement
-server side components
-gives software developers certain advantages in the cloud
-paradigm, since it is a first-class citizen
-in most Platforms as a Service (PaaS) products as the {\tt Node.js} framework is supported by most of them \citep{wood13:nodejs:paas}. Many web services
-have native JavaScript libraries too, and also use the JSON (JavaScript Object Notation) format for data interchange. Another advantage is that
-developers can use the same software tools for both client and server
-side development.
-
-JavaScript is also compatible with the functional programming paradigm \citep{Cousineau1998,MacLennan1990,Thompson1996}.
-According to \citep{swanresearch2015}, the benefit of using this kind of paradigm in
-metaheuristics optimization is that it allows an improvement in communicability,
-reproductibility, interoperability, automated assembly, knowledge engineering
-and efficiency.
-
-In the work presented in this paper, JavaScript has been used throughout the full
-stack, which has the advantage of using the self-same lines of code for
-writing an evolutionary algorithm for the
-desktop or command line and browser clients, both based in the EC
-library {\sf NodEO} \citep{DBLP:conf/gecco/GuervosVGES14}. This saves time 
-when writing code and leverages 
-the expertise acquired in the library itself. 
 
 On the other hand, we are also interested in measuring the performance
 of volunteer computing systems, an area in which there have been
@@ -264,47 +147,31 @@ fault-tolerance of volunteer algorithms
 the more general context of distributed computing 
 \citep{nogueras2015studying} or including it in a more general study of the
 performance of the EA itself
-\citep{DBLP:journals/gpem/LaredoBGVAGF14}.
-
-On the other hand, measuring the performance of the resulting metacomputer
-involves understanding the dynamics of this kind of systems. Initial
+\citep{DBLP:journals/gpem/LaredoBGVAGF14}. This performance cannot be
+measured without understanding the dynamics of this kind of systems. Initial
 work was done for peer to peer systems by Stutzbach et
 al. \citep{stutzbach2006understanding} and extended to volunteer
 computing by Laredo et al. \citep{churn08,laredo2008rcp}. 
 
-But some of the essential metrics in volunteer computing like the
+Some of the essential metrics in volunteer computing like the
 number of users or the time spent by every one in the
 computation in browser-based volunteer computing experiments, have
 only been studied in a limited way in 
 \citep{DBLP:journals/gpem/LaredoBGVAGF14} on the basis of a single
 run. Studies using volunteer computing platforms such as SETI@home
-\citep{javadi2009mining} found out that the Weibull, log-normal and
+\citep{javadi2009mining,agajaj} found out that the Weibull, log-normal and
 Gamma distribution 
 modeled quite well the availability of resources in several clusters
 of that framework; the shape of those distributions is a skewed bell
 with more resources in the {\em low} areas than in the high areas:
 there are many users that give a small amount of cycles, while there
-are just a few that give many cycles. This is in concordance with the
-results obtained in \citep{agajaj}. Although SETI@home works
-at a larger scale in both quantity of volunteers and the scope of projects, 
-our initial tests indicate that
-this kind of distribution might be the most appropriate to describe
-user participation in several different metrics. However, in this
-paper we will perform different experiments in different setups and
-will try to come up with a more precise model. Next we describe the
-framework itself.
+are just a few that give many cycles. 
 
-
-As far as we know, this paper presents one of the few experiments using 
-computational resources that are as dissimilar as smartphones and
-powerful laptops 
-or workstation computers in a research center. 
-%The methodology used
-% (Paloma) I would say "the used methodology"
+As far as we know, this paper presents one of the few experiments
+that measure the performance of a sociotechnical metacomputer. 
 The algorithms used, as well as the methodology 
 for gathering resources will be described next, 
 together with the results obtained in this initial setup.
-
 
 
 \section{Description of the framework}
@@ -337,9 +204,7 @@ quite a popular language nowadays, providing compilers from a number
 of languages, many of them in their family (like CoffeeScript), but
 many other outside, so researchers can, in fact, write their fitness
 function in Python, Erlang, Scala, or even Java, and them compile it to
-JavaScript. For completeness, an experiment comparing the performance of
-a JavaScript implementation versus Java and Matlab is included in section
-\ref{sec:w2}.
+JavaScript. 
 
 As a volunteer based system, there are some issues worth 
 noting \citep{sarmenta2001volunteer} :\begin{enumerate}
