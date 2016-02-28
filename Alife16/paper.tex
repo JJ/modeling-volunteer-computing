@@ -92,7 +92,7 @@ made this combination the most popular for volunteer computing
 frameworks such as the one we are using here and whose first version
 was described in \citep{DBLP:conf/gecco/GuervosG15}.
 
-JavaScript can be used either for unwitting
+JavaScript can be used for either unwitting
 \citep{unwitting-ec,boldrin2007distributed} or volunteer 
 \citep{langdon:2005:metas,gecco07:workshop:dcor} distributed
 evolutionary computation and it has been used ever since by several
@@ -113,23 +113,23 @@ There were some initial attempts to avoid the differences in performance
 that could be obtained from volunteers  by making
 the algorithm adaptive to the kind of resources allotted to it
 \citep{milani2004online}, which is actually not such a big problem in
-algorithms such as the EA that can easily be
-parallelized via population splitting or farming out evaluations to all
+algorithms such as the EA that can be easily 
+parallelized via population splitting or by farming out the evaluation to all
 the nodes available. Lately, several approaches have focused on the
-fault-tolerance of volunteer algorithms
+fault-tolerance of volunteer algorithms %volunteer systems?
 \citep{gonzalez2010characterizing} which it can, of course, be studied in
 the more general context of distributed computing 
 \citep{nogueras2015studying} or including it in a more general study of the
 performance of the EA itself
 \citep{DBLP:journals/gpem/LaredoBGVAGF14}. This performance cannot be
-measured without understanding the dynamics of this kind of systems. Initial
+measured without first understanding the dynamics of this kind of systems. Initial
 work was done for peer to peer systems by Stutzbach et
 al. \citep{stutzbach2006understanding} and extended to volunteer
 computing by Laredo et al. \citep{churn08,laredo2008rcp}. A similar
 study was performed by Martínez et al. on the Capataz system
 \citep{martinez2015capataz}; however in this case the number of
 computers used was known in advance and the main focus was on
-measuring speed up and how job bundling helped to reduce overhead and
+measuring the speed up and how job bundling helped to reduce overhead and
 enhance performance. 
 
 Some of the essential metrics in volunteer computing like the
