@@ -20,7 +20,7 @@ $^2$Dept. of Graduate Studies at Instituto Tecnol\'ogico de Tijuana \\
 
 \begin{abstract}
 Volunteer computing is a form of distributed computing where users
-decide on their participation and the amount of time they will
+decide on their participation and the amount of time and other resources they will
 ``lend''. This makes them an essential part of the algorithm and of
 the performance of the whole system. As a sociotechnical system, this
 participation follows some patterns and in this paper we examine the
@@ -52,8 +52,8 @@ using it.
 
 This loose connection provides a low-overhead way to connect desktop
 experiments with volunteer-based ones, with all of them contributing
-to the pool, but every one of them working as separate islands that
-carry out their own evolutionary algorithms. This is why NodIO is
+to the pool, but every one of them working as separate island 
+carrying out their own evolutionary algorithms. This is why NodIO is
 proposed mainly as a {\em complement} to existent resources such as
 desktop systems or laptops. As long as it provides a non-null
 computational capability that can help existing resources find the
@@ -67,7 +67,7 @@ among others. The computing system becomes a {\em techno-social
   system} \citep{vespignani2009predicting}. In this paper we are going
 to focus on measuring the response of users to experiments, but at the
 same time we will also focus on the technical aspects of the server and how
-those might change the behavior of users, improving the capability of
+those might change the behavior of users, improving the capability of % Mario: How these might change
 the system.
 
 Our research group is committed to open science, and we think this is
@@ -92,7 +92,7 @@ made this combination the most popular for volunteer computing
 frameworks such as the one we are using here and whose first version
 was described in \citep{DBLP:conf/gecco/GuervosG15}.
 
-JavaScript can be used either for unwitting
+JavaScript can be used for either unwitting
 \citep{unwitting-ec,boldrin2007distributed} or volunteer 
 \citep{langdon:2005:metas,gecco07:workshop:dcor} distributed
 evolutionary computation and it has been used ever since by several
@@ -113,23 +113,23 @@ There were some initial attempts to avoid the differences in performance
 that could be obtained from volunteers  by making
 the algorithm adaptive to the kind of resources allotted to it
 \citep{milani2004online}, which is actually not such a big problem in
-algorithms such as the EA that can easily be
-parallelized via population splitting or farming out evaluations to all
+algorithms such as the EA that can be easily 
+parallelized via population splitting or by farming out the evaluation to all
 the nodes available. Lately, several approaches have focused on the
-fault-tolerance of volunteer algorithms
+fault-tolerance of volunteer algorithms %volunteer systems?
 \citep{gonzalez2010characterizing} which it can, of course, be studied in
 the more general context of distributed computing 
 \citep{nogueras2015studying} or including it in a more general study of the
 performance of the EA itself
 \citep{DBLP:journals/gpem/LaredoBGVAGF14}. This performance cannot be
-measured without understanding the dynamics of this kind of systems. Initial
+measured without first understanding the dynamics of this kind of systems. Initial
 work was done for peer to peer systems by Stutzbach et
 al. \citep{stutzbach2006understanding} and extended to volunteer
 computing by Laredo et al. \citep{churn08,laredo2008rcp}. A similar
 study was performed by Martínez et al. on the Capataz system
 \citep{martinez2015capataz}; however in this case the number of
 computers used was known in advance and the main focus was on
-measuring speed up and how job bundling helped to reduce overhead and
+measuring the speed up and how job bundling helped to reduce overhead and
 enhance performance. 
 
 Some of the essential metrics in volunteer computing like the
@@ -254,23 +254,25 @@ Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
 \item A client that includes the evolutionary algorithm as
   JavaScript code embedded in a web page that displays graphs, some
   additional links, and information on the experiment. This code runs
-  an evolutionary algorithm {\em island} starting with a random
-  population, then it sends, every 100 generations, the best individual
-  back to the server (via a {\tt PUT} request), and requests a random
-  individual from the server (via a {\tt GET} request). % (Paloma) Re-writing because there are 3 steps (island creation -> PUT -> GET)
+  an evolutionary algorithm {\em island} that starts with a random
+  population, then after every 100 generations, it sends the best individual
+  back to the server (via a {\tt PUT} request), and then requests a random
+  individual back from the server (via a {\tt GET} request). % (Paloma) Re-writing because there are 3 steps (island creation -> PUT -> GET)
 \end{enumerate}
 
 
+%%%%% DELETE THIS PARAGRAPH? References Web Workers  %%%%%%
+
   This is the invariant part of the framework, but other than that,
   the algorithm can be run in many different ways: 
-  stopping when a solution is found or, as we have done in this paper,
+  stopping when a solution is found or , as we have done in this paper,
   using Web Workers. In fact, since it is a pool-based system such as
   the one described in \citep{LNCS86720702}, any kind of client that
   calls the application programming interface (API) can be used, % (Paloma) I thought that a client implements an API, or uses an API, or even works with an API. But never heard of a client which "works" an API. Is this correct?
   written in any kind of language. However, in this paper we are going
   to focus on the dynamics and measurements of the volunteer part of
   the system. 
-
+%%%%%%%
 
 Figure \ref{fig:system} describes the general system architecture and
 algorithm behavior. Different web technologies, such as JQuery or {\tt
@@ -284,16 +286,18 @@ been used to build the user interface elements of the framework.
 \includegraphics[width=3in]{system.pdf}
 \caption{Description of the proposed system. Clients execute a JavaScript EA
   in the browser, which, every 100 generations, sends the best
-  individual and receives a random one from the server.}
+  individual and receives a random one back from the server.}
 \label{fig:system}
 \end{figure}
 
+%%%% DELETE? Repeats lines 186 - 191
 The researcher only has to change a function, which can be written in
 JavaScript or in any other language with cross-compilation to
 JavaScript \citep{web:compilersjs} to solve a different
-problem. In this case the classical Trap function \citep{Ackley1987} has been
-used as well as the Rastrigin's floating-point optimization
-problem. JavaScript is a functional language and declaring a different 
+problem. 
+%%%%  
+In this case the classical Trap function \citep{Ackley1987} has been
+used. JavaScript is a functional language and declaring a different 
 function and handing at the creation of the algorithm object, called
 {\tt Classic}, is the only change needed to work with a different
 problem. Let us see how this system addresses the different challenges
@@ -311,9 +315,6 @@ outlined in the State of the Art (Section \ref{sec:soa}):
   performance, operating system, or even browser requirement as long
   as JavaScript is enabled: anyone
   visiting the page, even from mobile devices, can load the algorithm.
-  In case the browser does not support HTML5 Web workers (e.g., 
-  Windows Phone or some version of Android) or their use
-  has been disabled, a basic version of {\sf NodIO} can also be used.
 \item {\em Fault tolerance} is always an issue, and in this case, the
   single point of failure would be the server: the system, as such,
   would break down if the server fails. However, the individual
@@ -359,7 +360,7 @@ will be experimented by dropping the server and checking the continuity
 of the experiments. 
 
 All these points will be established in the next two sections,
-starting with the baseline, single worker system next. 
+starting with the baseline, single worker system next. %%%  Single worker? 
 
 %---------------------------------------------------------------
 \section{Baseline Experiment and obtained results} %Cambié el nombre
@@ -725,10 +726,11 @@ itself, has been published with a free license in GitHub at
 \url{https://github.com/JJ/modeling-volunteer-computing}.  
 
 %---------------------------------------------------------------
-\section*{Acknowledgment}
+\section*{Acknowledgments}
 
 This work has been supported in part by TIN2011-28627-C04-02 and
 TIN2014-56494-C4-3-P (Spanish Ministry of Economy and Competitivity),
+PROY-PP2015-06 (Plan Propio 2015 UGR),  % please, remember to include all the current projects   ;)   Thanks!
 SPIP2014-01437 (Direcci{\'o}n General de Tr{\'a}fico) and PYR-2014-17
 GENIL project (CEI-BIOTIC Granada). We would also like to thank the
 anonymous reviewers of previous versions of this paper who have really
