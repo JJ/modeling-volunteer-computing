@@ -631,23 +631,27 @@ user results alongside others.
 
 In general, linking and finding correlations between user choices and
 performance is an interesting avenue to explore in the future. Even if
-the three previous experiments were published in a similar way, one
-obtained up to 5 times more total cycles  than the one with the least
-number of cycles. It is also essential to obtain volunteers as
+these  experiments were published in a similar way, one
+obtained up to 5 times more total cycles than the one with the least
+number of cycles. It is also essential to obtain volunteers as fast and
 simultaneously as possible, so it is possible that the features of the
 social network in terms of real-time use will also play a big
-role. Even as it is difficult to create controlled experiments in this
+role; synchronous webs such as Snapchat, which mystifies the writers
+of this paper, and Twitter, thanks to its real time nature, might be
+better suited than Facebook, LinkedIn or Google plus. Even as it is
+difficult to create controlled experiments in this 
 area, it is an interesting challenge to explore in the future.
 
-Although we think that, in general, the results presented in this
-paper are independent of the problem chosen, it is true that even if
-it is a difficult problem for evolutionary algorithms, it takes a few
-seconds with the right settings to solve. 
-Besides, the two versions of the framework include as an
-algorithmic variant using random population size. We do not think this
-has had a big influence on the results and in fact this is not noticed
-for F15, which is the second version tested but it would be interesting to
-measure exactly what this influence has been. In general there are
+The other area to explore is the algorithmic area itself. Are there
+ways to change the evolutionary algorithm, or its visualization, so
+that the user has a bigger impact on the result? One of the users in
+Twitter even suggested to embed videos so that people spent time
+looking at them, but other possible way was to make the user engage
+the algorithm by giving him or her buttons to change the mutation rate
+when the algorithm is stalled, for instance. If this is combined with
+a score board where local performance is compared to other users,
+engagement might be increased and thus the performance of the
+system. In general there are 
 many issues with the evolutionary algorithm implementation itself,
 including using different, or adaptive, policies for inserting and
 sending individuals to the pool,
@@ -656,21 +660,19 @@ incorporation of high-speed local resources to the pool to check what
 would be the real influence of the volunteer pool to the final
 performance. 
 
-Another area is how to enhance the number and quality of
-volunteers. For instance, adding a bit of more
-control to the user might contribute also to gamification. Right now
-the user has only two Web Workers. It is a matter of a single click to
-open more tabs in the browser, giving more Web Workers, but it would be
-interesting to put everything in a single page and under our control,
-to check how often this happens and under which conditions. 
-
 Finally, the implementation needs some refinement in terms of
-programming and also ease of use. Tools such as Yeoman might be used % ¿añadir una cita o la URL http://yeoman.io/ a pie de página ?
-to create a generator in which the user just has to create a fitness
+programming and also ease of use. Tools such as Yeoman for generating
+easily new experiments might be used, so that the user would have  to
+create only a fitness
 function, with the rest of the framework wrapped around
-automatically. All this, as the data used for this paper and the paper
-itself, has been published with a free license in GitHub at
-\url{https://github.com/JJ/modeling-volunteer-computing}.  
+automatically. 
+
+All these avenues of experimentation will be done openly following the
+Open Science policy of our group, which, in fact, contributes to
+establish trust and security between us and volunteers and is an
+essential feature of the system. That is why this paper, as well as
+the data and processing scripts, are published with a free license in GitHub at
+\url{https://github.com/JJ/modeling-volunteer-computing}.
 
 %---------------------------------------------------------------
 \section*{Acknowledgments}
