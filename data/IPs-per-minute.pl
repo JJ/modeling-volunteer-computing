@@ -14,15 +14,15 @@ my %IPs_minute;
 my %total_IPs;
 for my $l (@lines[1..$#lines]) {
   my ($IP, $time ) = split(/;\s+/,$l);
-  my ($minute) = ($time =~ /(\d+-\d+-\d+.\d+:\d+)/ );
+  my ($day,$minute) = ($time =~ /(\d+-\d+-\d+).(\d+:\d+)/ );
   if (!$minute ) {
     die "Wrong format for $time ";
   }
   $total_IPs{$IP}++;
-  $IPs_minute{$minute}{$IP}++;
+  $IPs_minute{"$day $minute"}{$IP}++;
 }
 
-say "time,IPs-Total:".scalar keys %total_IPs;
+say "time,IPs";
 for my $t ( sort { $a cmp $b } keys %IPs_minute ) {
   say "$t, ", scalar keys %{$IPs_minute{$t}};
 }
