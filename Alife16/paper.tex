@@ -281,24 +281,26 @@ February, cache=32 & 39 & 86 & 50  \\
 Initial experiments were set up using the OpenShift
 PaaS, which provides a free tier, making the whole experiment cost
 equal to \$0.00. Experiments were
-announced through a series of posts in Twitter and, in the latest case, Telegram, and
+announced through a series of posts on Twitter and, in the latest case, Telegram, and
 results were published here \citep{DBLP:conf/gecco/GuervosG15}. For the
 purpose of this paper, we repeated the announcement several times
 through the month of February. All  %% April --> January ??
 in all, we have the set of runs with the characteristics shown in
 Table \ref{tab:runs}. In general, every experiment took several
 days. No particular care was taken about the time of the announcement
+%Pablo: but it would great at least describe how many times was announced and how long
 or the particular wording. Every {\em experiment} consisted in running
 until the solution of the 50-trap problem was found. When the correct
 solution was sent to the server, the counter was updated and the pool
-of solutions reset to the void set. There was no special intention to wait
-until all clients had finished, thus it might happen that, in fact,
+of solutions resets to the void set. There was no special intention to wait
+until all clients had finished, thus it might happen that. In fact,
 the islands running in the browser {\em spill} from one experiment to
 the next. However, previous experiments have proven that the influence
-of these islands in the next experiment is indeed negligible.
+of these islands in the next experiment is indeed negligible. %Pablo: cite
 
 
 The table shows that every run included more than 30 experiments. The
+%Pablo: reference to table? (maybe the final print will misplace it)
 number of different IPs intervening in them varied from more than one
 hundred to more than five hundred in the second experiment, with a
 number around 50 in the second, and most recent, batch of experiments. 
@@ -339,6 +341,7 @@ same range and of the order of 10, which is also consistent with
 prior work and does not vary across the two different batches. 
 
 We will have to analyze differently the median time, since the two
+%Pablo: different verbal times ("will have", and before, "is shown"). Homogenize.
 batches are solving different problems. In both cases it possesses a
 big range of variation, but 50\% of 
 the time takes less than several minutes, from around 4 minutes in the
@@ -348,7 +351,8 @@ around one minute, in two cases even less, and that happens when the
 median number of IPs is higher. It should be noted that while the
 first batch of experiments took several days in each case, the second
 only lasted for a few hours, with a more continued effort of
-publicizing it in social networks; this is specially true in the
+publicizing it in social networks. This is specially true in the
+%Pablo: removed semicolon before "This". @unintendedbear does not like them :P
 case of cache equal to 64, which is noticed by the high number of
 volunteers participating in the experiment. The conclusion is that,
 in general, the key factor in the time needed to find the solution
@@ -363,6 +367,7 @@ individuals sent from clients stored until the end of the
 experiment. However, we were interested in measuring also the
 performance of the algorithm itself by changing the cache size, after
 making it limited. As it can be seen in the table, there is a clear
+%Pablo: which table?
 change in the number of evaluations needed, with smaller cache sizes
 producing solutions in less evaluations, until it is for the cache
 size = 32 roughly twice as much as with the previous problem, with 40
@@ -373,7 +378,7 @@ improving the algorithm, a good conclusion of this paper is that
 having a small pool size helps clients to obtain ``good'' individuals
 from the pool, as opposed to any individual that could be obtained
 before. Besides, cache policy deletes the oldest individuals, which
-makes those in the pool be {\em current}, helping then newcomers and
+makes those in the pool be {\em current}, helping then newcomers and %Pablo: "then helping newcomers", instead?
 any participant obtain the best individuals found in the last part of
 the experiment. Besides, a limited cache helps also in cases with a
 bigger search space or longer running times when the server simply
@@ -426,14 +431,14 @@ experiments.
 
 
 That is why we used a more difficult problem in the second batch of
-experiments, which is shown in bottom row of Figure
+experiments, which is shown in the bottom row of Figure
 \ref{fig:duration}. The pattern is remarkably similar, showing a
 positive correlation between the time for solving the problem and the
 number of computers, at least for cache sizes 128 and 64. However, it
 is interesting to observe that, for cache=32, the time needed to find
 the solution decreases from one to approximately 4-5 nodes, to then
 increase for a higher number of participating computers, distinguished
-by IP. The green dot at the bottom is probably and outlier that we
+by IP. The green dot at the bottom is probably an outlier that we
 will try to explain later on. This leads us to conclude that a better
 amount of computers might contribute to speed up the solution, if the
 time the experiment ideally takes is sufficient, that is, of the order of a
@@ -448,9 +453,10 @@ hours with a minimum of 6 computers and peaks of more than 10. The
 long period after midnight where there is a single volunteer left
 masks the success achieved during this set of experiments, from which
 we draw two lessons: first, you need a social network influencer to
+%Pablo: people know the meaning of "influencer"? Probably yes, but I mention it just in case.
 announce your experiments and second, no matter what, do not do any
 experiment after midnight. This statement, which might seem tongue in
-cheek, in fact it is a conclusion drawn from the experimental data and
+cheek, in fact, it is a conclusion drawn from the experimental data and
 to what extent the social network is an essential part of the
 description and performance of the NodIO volunteer computing system. 
 
@@ -473,18 +479,18 @@ description and performance of the NodIO volunteer computing system.
 It is also interesting to check the distribution of the experiment
 duration, shown in Figure \ref{fig:zipf:os} and which roughly follows
 a Zipf's law, with similar distribution along all three runs. The 4/24
-run is the most complete and shows a S-shape, which implies an
+run is the most complete and shows an S-shape, which implies an
 accumulation of experiments taking similar time and around 100
 seconds; this S-shape appears too in the experiments with cache=128
 (bottom row, left). The most interesting part is the {\em tail}, which shows how
-many experiments took a desirable amount of time, of the order of
+many experiments took a desirable amount of time, on the order of
 10 seconds, and which appears in all three graphs. As it can be seen,
 it sharply drops implying there are 
 just a few of them, and with diminishing probability as time
 decreases. However, since they have a greenish color, implying a low
 number of IPs, they might be due to clients {\em carrying over} from
 the previous one. This is a characteristic of this implementation
-which will be examined later on, but at any rate if we discard those
+which will be examined later on, but at any rate, if we discard those
 experiments that take too much or too little, there is a decreasing
 exponential distribution that corresponds to the Zipf's law.
 
@@ -538,7 +544,7 @@ Cache 32 & 168.15 $\pm$ 49.28 & 0.57 $\pm$ 0.07 \\
 The inverse
 Weibull distribution is a special case of the GEV distribution we have
 used in those papers, and appears usually in natural sciences and
-artificial life, usually related to decay. I has been frequently
+artificial life, usually related to decay. It has been frequently
 fitted to volunteer computing frameworks such as SETI@home
 \citep{javadi2009mining}. The model that user behavior follows can be
 explained straighforwardly: when users visit the page, it draws their
@@ -546,11 +552,11 @@ attention for a limited amount of time. They give it a chance for a
 few seconds. If something there amuses them or they can engage in a
 conversation about it, they stay for a while longer, otherwise, they
 leave. The {\em scale} parameter, which is around 20-40 in the first
-batch for the 40 Trap problem and betwen 160 and 200 in the 60 traps
+batch for the 40 Trap problem and between 160 and 200 in the 60 traps
 problem, depends mainly on the maximum number of generations people
 leave it running. Since it finishes or stalls after a number of
 generations shown in Figure \cite{tab:summary:os}, volunteer just
-leave after that. Curiously enough, the scale parameter is roughly
+leaves after that. Curiously enough, the scale parameter is roughly
 twice the median number of {\tt PUT}s per experiment, showing that, on
 average, the most loyal users reload the page twice after finishing or
 after seeing the evolution does not progress. This rule of thumb
@@ -558,7 +564,7 @@ breaks down with the last experiment, however, which is interesting by
 itself, too. 
 
 The slope or shape parameter, on the other hand, indicates the overall
-shape of the curve. A value less than 1 indicates a concave (in an
+shape of the curve. A value less than 1 indicates a concave (in a
 non-algorithmic scale) curve,
 with figures closer to one indicating a smaller slope. In all cases
 values are between 0.54 and 0.77, independently of the experiment. It
