@@ -160,7 +160,8 @@ are just a few that give many cycles.
 As far as we know, this paper presents one of the few experiments
 that measure the performance of a sociotechnical
 metacomputer, that is, a spontaneously created parallel computer that
-uses social networks for operations such as gathering new users. Apol{\'o}nia et al. \citep{apolonia2012enhancing} used the
+uses social networks for operations such as gathering new
+users. Apol{\'o}nia et al. \citep{apolonia2012enhancing} used the 
 Facebook protocol to distribute tasks among the {\em walls} of
 friends, explicitly using the social network for computing. However,
 it stopped short of relating performance to the macro measures of the
@@ -190,14 +191,10 @@ spontaneously and without any installation with them.
 
 In this sense, in this paper we propose the {\sf NodIO} framework, a
 cloud or bare metal based volunteer evolutionary computing system
-derived from % (Paloma) In order to not sounding too repetitive, could we use "derived from", for example, here?
- the {\sf NodEO} library, whose architecture has been
+derived from the {\sf NodEO} library, whose architecture has been
 developed using JavaScript on the client as well as the server.
 All parts of the framework are free and available with a free license
 from \url{https://github.com/JJ/splash-volunteer}.
-
-%PABLO: el siguiente párrafo justifica Javascript
-
 
 Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
 \item A REST server, that is, a server that includes several {\em
@@ -482,26 +479,34 @@ exponential distribution that corresponds to the Zipf's law.
 \label{fig:puts:os}
 \end{figure}
 %
- This exponential distribution also appears in the
-distribution of HTTP {\tt PUT}s, equivalent to the number of
-generations divided by 100, contributed by every user, which is shown
+A similar exponential distribution also appears if we rank HTTP {\tt
+  PUT}s, equivalents to the number of 
+generations divided by 100, or to evaluations divided by 12800,
+contributed by every user, which is shown 
 in Figure \ref{fig:puts:os}. These results show a Zipf-like behavior,
-so we have fitted it to the Generalized Extreme Value distribution,
-with the resulting parameters shown in Table \ref{tab:puts:os}.
+that is, a power law with a small {\em bump} in the lowest
+values. After testing the Generalized Extreme Value distribution and
+failing for the new batch of experiments, we have fitted it to a
+Weibull distribution \cite{thoman1969inferences} with the resulting
+parameters shown in Table \ref{tab:puts:os}. 
 %
 \begin{table}
-\caption{Summary of fit to Generalized Extreme Value distribution of
+\caption{Weibull distribution  parameters of the fit of
   the number of {\tt PUT}s per unique IP. \label{tab:puts:os}}
 \begin{center}
-\begin{tabular}{l|ccc}
+\begin{tabular}{l|cc}
 \hline
-Date  & Location $\mu$ & Scale $\sigma$ & Shape $\xi$ \\
+Experiment  &  Scale $\sigma$ & Shape $\xi$ \\
 \hline
-4/4 &  8.541 $\pm$ 1.0926  & 12.442 $\pm$ 1.7302 &  1.388 $\pm$
-0.1377 \\
-4/24 & 6.148 $\pm$ 0.3782 & 7.354 $\pm$ 0.5105 & 1.090 $\pm$  0.0697  \\
-7/31 & 11.645 $\pm$ 1.475 & 16.365 $\pm$ 2.201 &  1.265 $\pm$ 0.132   \\
+4/4 &  43.07 $\pm$ 5.80 &  0.57 $\pm$ 0.03 \\
+4/24 & 22.97 $\pm$ 1.57 & 0.66 $\pm$  0.02  \\
+7/31 &  53.18 $\pm$ 7.77 &  0.54 $\pm$ 0.03   \\
 \hline
+Cache 128 & 205.28 $\pm$ 32.10 & 0.77 $\pm$ 0.07 \\ 
+Cache 64 & 178.99 $\pm$ 36.44 & 0.60 $\pm$ 0.05 \\ 
+Cache 32 & 168.15 $\pm$ 49.28 & 0.57 $\pm$ 0.07 \\
+\hline
+% from plot-zipf-openshift.R and ips-puts-alife.R
 \end{tabular}
 \end{center}
 \end{table}

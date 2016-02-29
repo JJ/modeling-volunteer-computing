@@ -1,5 +1,6 @@
 library(ggplot2)
 library(evd)
+library(fitdistrplus)
 
 process.puts <- function(suffix ) {
     these.puts <- read.csv(paste0("ips-puts-openshift-",suffix,".dat"))
@@ -17,13 +18,14 @@ process.puts <- function(suffix ) {
 
     ## Weibull
     this.weibull <- fitdistr(this.df$puts,"weibull")
+    print(paste0("Fit ",preffix, " Weibull " ))
     print(this.weibull)
 
     this.fit.weibull <- data.frame(rank=1:length(this.df$puts),
                                 y=sort(rweibull(length(this.df$puts),
                                                 this.weibull$estimate["shape"],
                                                 this.weibull$estimate["scale"]),decreasing=T))
-    ggplot()+geom_point(data=this.df,aes(x=rank,y=puts,color='data',shape='data'))+geom_point(data=this.fit.weibull,aes(x=rank,y=y,color='fit',shape='fit'))+scale_y_log10()+ scale_colour_manual(name  ="Puts", breaks=c("data", "fit"), labels=c("Data", "Fit"), values=c("#11AA99",'#EE3333')) + scale_shape_discrete(name  ="Puts", breaks=c("data", "fit"), labels=c("Data", "Fit"))+theme(text = element_text(size=25), axis.text.y = element_text(angle=90, vjust=0.5))
+    ggplot()+geom_point(data=this.df,aes(x=rank,y=puts,color='data',shape='data'))+geom_point(data=this.fit.weibull,aes(x=rank,y=y,color='fit',shape='fit'))+scale_y_log10()+ scale_colour_manual(name  ="Puts", breaks=c("data", "fit"), labels=c("Data", "Fit"), values=c("#11AA99",'#EE3333')) + scale_shape_discrete(name  ="PUTs", breaks=c("data", "fit"), labels=c("Data", "Fit"))+theme(text = element_text(size=25), axis.text.y = element_text(angle=90, vjust=0.5))
     ggsave(paste0("../img/weibull-puts-openshift-",suffix,".png"),width=5,height=5)
     return(this.df)
 }
