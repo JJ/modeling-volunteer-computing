@@ -241,14 +241,18 @@ been used to build the user interface elements of the framework.
 \label{fig:system}
 \end{figure}
 
-In this case the classical Trap function \citep{Ackley1987} has been
-used. JavaScript is a functional language and declaring a different 
-function and handing at the creation of the algorithm object, called
-{\tt Classic}, is the only change needed to work with a different
-problem. The next Section will describe experiments performed to
-establish baseline performance and gather initial performance
+JavaScript is a functional language, so in order to work with a
+problem, a fitness function must be supplied at the creation of the algorithm object, 
+called {\tt Classic}. In this case the classical Trap 
+function \citep{Ackley1987} has been used. Depending on the
+problem additional handing functions and configurations 
+can be supplied. 
+
+The next Section will describe experiments performed to
+establish a baseline performance and gather initial performance
 results. In the experiments performed last year we used the 40-trap
-problem, while the current experiments changed to the more difficult 50-trap.
+problem, while the current experiments changed to the more difficult 50-trap
+in order to compare the performance with a more computationally intensive problem.
 
 %---------------------------------------------------------------
 \section{Modeling the performance of a volunteer-based distributed computer} 
@@ -276,16 +280,16 @@ February, cache=32 & 39 & 86 & 50  \\
 %
 Initial experiments were set up using the OpenShift
 PaaS, which provides a free tier, making the whole experiment cost
-equal to 0. Experiments were
-announced through a posts in Twitter and, the latest case, Telegram, and
+equal to \$0.00. Experiments were
+announced through a series of posts in Twitter and, in the latest case, Telegram, and
 results were published here \citep{DBLP:conf/gecco/GuervosG15}. For the
 purpose of this paper, we repeated the announcement several times
-through the month of April and then by the end of February. All
+through the month of February. All  %% April --> January ??
 in all, we have the set of runs with the characteristics shown in
 Table \ref{tab:runs}. In general, every experiment took several
 days. No particular care was taken about the time of the announcement
 or the particular wording. Every {\em experiment} consisted in running
-until the solution of the 40-trap problem was found. When the correct
+until the solution of the 50-trap problem was found. When the correct
 solution was sent to the server, the counter was updated and the pool
 of solutions reset to the void set. There was no special intention to wait
 until all clients had finished, thus it might happen that, in fact,
