@@ -412,6 +412,14 @@ experiments are announced, it is quite difficult that several
 volunteers join in in such a short period of time, even more if we take
 into account that volunteers are not {\em carried over} from previous
 experiments. 
+%
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.95\linewidth]{ips-per-minute-cache=64.png}
+\caption{Simultaneous IPs every minute of the experiment with cache =
+  64. \label{fig:otisdriftwood}}
+\end{figure}
+
 
 That is why we used a more difficult problem in the second batch of
 experiments, which is shown in bottom row of Figure
@@ -428,7 +436,16 @@ time the experiment ideally takes is sufficient, that is, of the order of a
 minute, and enough volunteers concur simultaneously. This is also
 observed, not so clearly, in the case of cache=64, with an interval of
 around 10 IPs obtaining less time than experiments with less or more
-IPs, and of the same order, between 10 and 100 seconds. 
+IPs, and of the same order, between 10 and 100 seconds. If we look at
+the graph that shows the number of IPs or volunteers per minute for
+this experiment, shown in Figure \ref{fig:otisdriftwood}, we see that
+there are peaks of more than 25 volunteers, and a period of several
+hours with a minimum of 6 computers and peaks of more than 10. The
+long period after midnight where there is a single volunteer left
+masks the success achieved during this set of experiments, from which
+we draw two lessons: first, you need a social network influencer to
+announce your experiments and second, no matter what, do not do any
+experiment after midnight. 
 
 \begin{figure}[!htb]
 \centering
@@ -544,7 +561,11 @@ middle, having values between 0.60 and 0.70. The distribution is
 remarkably similar which gives us a model of user behavior that is, to
 a certain extent, independent of the experiment.  
 
-
+These experiments show that, as it was proved for other volunteer
+computer frameworks and also in the case of games, user engagement
+follows a Weibull distribution. This makes engagement the key for
+leveraging the performance of the sociotechnical metacomputer and a
+way to improve results in the future. 
 
 %---------------------------------------------------------------
 \section{Conclusion}
