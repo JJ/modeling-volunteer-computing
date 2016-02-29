@@ -464,9 +464,9 @@ exponential distribution that corresponds to the Zipf's law.
 \includegraphics[width=0.32\linewidth]{weibull-fit-cache=128.png}
 \includegraphics[width=0.32\linewidth]{weibull-fit-cache=64.png}
 \includegraphics[width=0.32\linewidth]{weibull-fit-cache=32.png}
-\caption{Number of {\tt PUT}s per unique IP and fit to a Generalized
-  Extreme Value distribution (in red). From left to right, experiments
-  4/4, 4/24 and 7/31.} 
+\caption{Number of {\tt PUT}s per unique IP and fit to a Weibull
+  distribution (in red). From left to right and top to bottom, experiments
+  4/4, 4/24 and 7/31 and new experiments with cache=128, 64, 32.} 
 % Plotted with ../data/plot-zipf-openshift.R
 \label{fig:puts:os}
 \end{figure}
@@ -478,7 +478,7 @@ in Figure \ref{fig:puts:os}. These results show a Zipf-like behavior,
 so we have fitted it to the Generalized Extreme Value distribution,
 with the resulting parameters shown in Table \ref{tab:puts:os}.
 %
-\begin{table*}
+\begin{table}
 \caption{Summary of fit to Generalized Extreme Value distribution of
   the number of {\tt PUT}s per unique IP. \label{tab:puts:os}}
 \begin{center}
@@ -493,7 +493,7 @@ Date  & Location $\mu$ & Scale $\sigma$ & Shape $\xi$ \\
 \hline
 \end{tabular}
 \end{center}
-\end{table*}
+\end{table}
 %
 This distribution was originally proposed to fit extreme values
 \citep{resnick2013extreme} and contains, as a special case, the inverse
@@ -611,11 +611,9 @@ itself, has been published with a free license in GitHub at
 %---------------------------------------------------------------
 \section*{Acknowledgments}
 
-This work has been supported in part by TIN2011-28627-C04-02 and
-TIN2014-56494-C4-3-P (Spanish Ministry of Economy and Competitivity),
-PROY-PP2015-06 (Plan Propio 2015 UGR),  % please, remember to include all the current projects   ;)   Thanks!
-SPIP2014-01437 (Direcci{\'o}n General de Tr{\'a}fico) and PYR-2014-17
-GENIL project (CEI-BIOTIC Granada). We would also like to thank the
+This work has been supported in part by TIN2014-56494-C4-3-P (Spanish Ministry of Economy and Competitivity),
+PROY-PP2015-06 (Plan Propio 2015 UGR)  % please, remember to include all the current projects   ;)   Thanks!
+. We would also like to thank the
 anonymous reviewers of previous versions of this paper who have really
 helped us to improve 
 this paper (and our work) with their suggestions. We are also grateful
