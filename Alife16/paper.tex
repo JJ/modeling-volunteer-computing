@@ -239,7 +239,8 @@ function and handing at the creation of the algorithm object, called
 {\tt Classic}, is the only change needed to work with a different
 problem. The next Section will describe experiments performed to
 establish baseline performance and gather initial performance
-results. 
+results. In the experiments performed last year we used the 40-trap
+problem, while the current experiments changed to the more difficult 50-trap.
 
 %---------------------------------------------------------------
 \section{Modeling the performance of a volunteer-based distributed computer} 
@@ -265,40 +266,40 @@ the next. However, previous experiments have proven that the influence
 of these islands in the next experiment is indeed negligible.
 %
 \begin{table}
-\caption{Characteristics of the volunteer computing initial runs. \label{tab:runs}}
+\caption{Characteristics of the experiments. \label{tab:runs}}
 \begin{center}
-\begin{tabular}{l|rr}
+\begin{tabular}{l|rrl}
 \hline
-Date & \# experiments & Different IPs \\
+Experiment & \# experiments & Different IPs & Traps \\
 \hline
-April 4th 4/4 & 57 & 191 \\
-April 24th 4/24 &  231 & 559 \\
-July 31th 7/31 & 97 & 179 \\
-February, cache=128 & 61 & 75 \\
-February, cache=64 & 61 & 220 \\
-February, cache=32 & 39 & 86 \\
+April 4th 4/4 & 57 & 191 & 40 \\
+April 24th 4/24 &  231 & 559& 40  \\
+July 31th 7/31 & 97 & 179 & 40 \\
+February, cache=128 & 61 & 75 & 50  \\
+February, cache=64 & 61 & 220 & 50  \\
+February, cache=32 & 39 & 86 & 50  \\
 % grep start ~/Code/splash-volunteer/data/2016/nodio-2016-2-28-cache=32.log
 \hline
 \end{tabular}
 \end{center}
 \end{table}
 %
-\begin{table*}
+\begin{table}
 \caption{Summary of time per run, number of IPs and number of {\tt
     PUT}s per IP in the initial runs. \label{tab:summary:os}}
 \begin{center}
-\begin{tabular}{l|ccccccc}
+\begin{tabular}{l|cccc}
 \hline
-Date & Median \#IPs & Max \#IPs & Median time (s) & Median \#{\tt
-  PUT}s & $<$ 69s & $<$ 3.46s & Inter-exper. correlation\\
+     & \multicolumn{2}{c}{IPs} & \multicolumn{2}{c}{Median} \\
+Experiment & Median & Max & time (s) &  \#{\tt  PUT}s \\
 \hline
-4/4 & 5 & 16 & 2040 & 18 & 14.29\% & 5.36\% & 0.0082 \\
-4/24 &  5 & 29 & 732 & 11 & 47.39\% & 3.91\% & 0.0934\\
-7/31 & 5 & 14 & 260 & 23 & 27.08\% & 1.04\%  & 0.1741\\
+4/4 & 5 & 16 & 2040 & 18   \\
+4/24 &  5 & 29 & 732 & 11  \\
+7/31 & 5 & 14 & 260 & 23   \\
 \hline
 \end{tabular}
 \end{center}
-\end{table*}
+\end{table}
 %
 The table shows that every run included more than 50 experiments. The
 number of different IPs intervening in them varied from more than one
