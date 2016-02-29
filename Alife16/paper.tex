@@ -372,6 +372,9 @@ crashed due to lack of RAM.
 \includegraphics[width=0.32\linewidth]{time-vs-ips-OS-4-4.png}
 \includegraphics[width=0.32\linewidth]{time-vs-ips-OS-4-24.png}
 \includegraphics[width=0.32\linewidth]{time-vs-ips-OS-7-31.png}
+\includegraphics[width=0.32\linewidth]{time-vs-ips-alife-128.png}
+\includegraphics[width=0.32\linewidth]{time-vs-ips-alife-64.png}
+\includegraphics[width=0.32\linewidth]{time-vs-ips-alife-32.png}
 \caption{Duration of experiments vs. number of different IPs (nodes)
   participating in it, with averages and standard deviation shown as
   red dots; in the case there is a single red dot, there was a single
@@ -385,19 +388,6 @@ From left to right, experiments 4/4, 4/24 and 7/31.}
 \label{fig:duration}
 \end{figure}
 %
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=0.32\linewidth]{time-vs-rank-OS-4-4.png}
-\includegraphics[width=0.32\linewidth]{time-vs-rank-OS-4-24.png}
-\includegraphics[width=0.32\linewidth]{time-vs-rank-OS-7-31.png}
-\caption{Duration of experiments vs. rank, with $y$ axis in a
-  logarithmic scale. Dot color is related to the number of IPs
-  participating in the experiment. From left to right, experiments
-  4/4, 4/24 and 7/31.} 
-\label{fig:zipf:os}
-% First ones made with time-vs-IPs-openshift.R:  
-\end{figure}
-%
 We will have to analyze experimental data a bit further to find out why
 this happens and also if there are some patterns in the three sets of
 experiments. An interesting question to ask, for instance, is if
@@ -407,14 +397,44 @@ not seem to contribute to decreasing the time needed to finish the
 experiment. However, the cause-effect relationship is not clear at
 all. It might be the opposite: since experiments take longer to finish
 and might in fact be abandoned with no one contributing for some time,
-that increases the probability of someone new joining them. In fact,
+the probability of someone new joining them is higher. In fact,
 with experiments taking a few seconds and due to the way the
 experiments are announced, it is quite difficult that several
 volunteers join in in such a short period of time, even more if we take
 into account that volunteers are not {\em carried over} from previous
-experiments. This implies that it would be convenient to use a problem
-of a bigger size to check this hypothesis as we have done in the next
-experiment.
+experiments. 
+
+That is why we used a more difficult problem in the second batch of
+experiments, which is shown in bottom row of Figure
+\ref{fig:duration}. The pattern is remarkably similar, showing a
+positive correlation between the time for solving the problem and the
+number of computers, at least for cache sizes 128 and 64. However, it
+is interesting to observe that, for cache=32, the time needed to find
+the solution decreases from one to approximately 4-5 nodes, to then
+increase for a higher number of participating computers, distinguished
+by IP. The green dot at the bottom is probably and outlier that we
+will try to explain later on. This leads us to conclude that a better
+amount of computers might contribute to speed up the solution, if the
+time the experiment ideally takes is sufficient, that is, of the order of a
+minute, and enough volunteers concur simultaneously. This is also
+observed, not so clearly, in the case of cache=64, with an interval of
+around 10 IPs obtaining less time than experiments with less or more
+IPs, and of the same order, between 10 and 100 seconds. 
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.32\linewidth]{time-vs-rank-OS-4-4.png}
+\includegraphics[width=0.32\linewidth]{time-vs-rank-OS-4-24.png}
+\includegraphics[width=0.32\linewidth]{time-vs-rank-OS-7-31.png}
+\caption{Duration of experiments vs. rank, with $y$ axis in a
+  logarithmic scale. Dot color is related to the number of IPs
+  participating in the experiment. From left to right, top to bottom, experiments
+  4/4, 4/24 and 7/31 and caches=128,64, 32} 
+\label{fig:zipf:os}
+% First ones made with time-vs-IPs-openshift.R:  
+\end{figure}
+%
+
 
 \begin{figure}[!htb]
 \centering
