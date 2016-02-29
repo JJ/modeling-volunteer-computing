@@ -256,6 +256,7 @@ Experiment & \#Runs & Different IPs & Traps \\
 April 4th 4/4 & 57 & 191 & 40 \\
 April 24th 4/24 &  231 & 559& 40  \\
 July 31th 7/31 & 97 & 179 & 40 \\
+\hline
 February, cache=128 & 61 & 75 & 50  \\
 February, cache=64 & 61 & 220 & 50  \\
 February, cache=32 & 39 & 86 & 50  \\
@@ -302,6 +303,7 @@ Experiment & Median & Max & time (s) &  \#{\tt  PUT}s \\
 4/4 & 5 & 16 & 2040 & 18   \\
 4/24 &  5 & 29 & 732 & 11  \\
 7/31 & 5 & 14 & 260 & 23   \\
+\hline
 Cache=128 & 5 & 17 & 222.2 & 124 \\ 
 Cache=64 & 8 & 38 & 51.3 & 100 \\
 Cache=32 & 6 & 19 & 58.9 & 45 \\
@@ -341,6 +343,30 @@ in general, the key factor in the time needed to find the solution
 is, as expected, the number of volunteers it is able to gather on a
 short notice. 
 
+The number of {\tt PUTs}, every one corresponding to 100 generations,
+is the algorithmic result. It is relatively unchanged for the first
+batch and around 20, that is, 2000 generations or 2000*128 = 256000
+evaluations. In this case, an ``unlimited'' cache was used, with all
+individuals sent from clients stored until the end of the
+experiment. However, we were interested in measuring also the
+performance of the algorithm itself by changing the cache size, after
+making it limited. As it can be seen in the table, there is a clear
+change in the number of evaluations needed, with smaller cache sizes
+producing solutions in less evaluations, until it is for the cache
+size = 32 roughly twice as much as with the previous problem, with 40
+traps. This is a good result and is also algorithmically consistent
+with other results obtained using the same type of problems. Since in
+this paper we were interested in leveraging the user's CPU cycles by
+improving the algorithm, a good conclusion of this paper is that
+having a small pool size helps clients to obtain ``good'' individuals
+from the pool, as opposed to any individual that could be obtained
+before. Besides, cache policy deletes the oldest individuals, which
+makes those in the pool be {\em current}, helping then newcomers and
+any participant obtain the best individuals found in the last part of
+the experiment. Besides, a limited cache helps also in cases with a
+bigger search space or longer running times when the server simply
+crashed due to lack of RAM. 
+
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=0.32\linewidth]{time-vs-ips-OS-4-4.png}
@@ -369,6 +395,7 @@ From left to right, experiments 4/4, 4/24 and 7/31.}
   participating in the experiment. From left to right, experiments
   4/4, 4/24 and 7/31.} 
 \label{fig:zipf:os}
+% First ones made with time-vs-IPs-openshift.R:  
 \end{figure}
 %
 We will have to analyze experimental data a bit further to find out why
