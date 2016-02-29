@@ -384,7 +384,8 @@ crashed due to lack of RAM.
 Shades of blue indicate how many experiments included that many unique IPs,
 so lighter shade for a column of dots indicates that a particular number
 of computers happened less frequently, while darker shadow means more frequency. 
-From left to right, experiments 4/4, 4/24 and 7/31.}
+From left to right and top to bottom experiments 4/4, 4/24 and 7/31,
+followed by experiments with 50 traps, cache=128, 64, 32.}
 \label{fig:duration}
 \end{figure}
 %
@@ -426,26 +427,15 @@ IPs, and of the same order, between 10 and 100 seconds.
 \includegraphics[width=0.32\linewidth]{time-vs-rank-OS-4-4.png}
 \includegraphics[width=0.32\linewidth]{time-vs-rank-OS-4-24.png}
 \includegraphics[width=0.32\linewidth]{time-vs-rank-OS-7-31.png}
+\includegraphics[width=0.32\linewidth]{time-vs-rank-alife-128.png}
+\includegraphics[width=0.32\linewidth]{time-vs-rank-alife-64.png}
+\includegraphics[width=0.32\linewidth]{time-vs-rank-alife-32.png}
 \caption{Duration of experiments vs. rank, with $y$ axis in a
   logarithmic scale. Dot color is related to the number of IPs
-  participating in the experiment. From left to right, top to bottom, experiments
+  participating in the experiment. From left to right and top to bottom, experiments
   4/4, 4/24 and 7/31 and caches=128,64, 32} 
 \label{fig:zipf:os}
 % First ones made with time-vs-IPs-openshift.R:  
-\end{figure}
-%
-
-
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=0.32\linewidth]{puts-openshift-4-4.png}
-\includegraphics[width=0.32\linewidth]{puts-openshift-4-24.png}
-\includegraphics[width=0.32\linewidth]{puts-openshift-7-31.png}
-\caption{Number of {\tt PUT}s per unique IP and fit to a Generalized
-  Extreme Value distribution (in red). From left to right, experiments
-  4/4, 4/24 and 7/31.} 
-% Plotted with ../data/plot-zipf-openshift.R
-\label{fig:puts:os}
 \end{figure}
 %
 It is also interesting to check the distribution of the experiment
@@ -453,12 +443,35 @@ duration, shown in Figure \ref{fig:zipf:os} and which roughly follows
 a Zipf's law, with similar distribution along all three runs. The 4/24
 run is the most complete and shows a S-shape, which implies an
 accumulation of experiments taking similar time and around 100
-seconds. The most interesting part is the {\em tail}, which shows how
+seconds; this S-shape appears too in the experiments with cache=128
+(bottom row, left). The most interesting part is the {\em tail}, which shows how
 many experiments took a desirable amount of time, of the order of
 10 seconds, and which appears in all three graphs. As it can be seen,
 it sharply drops implying there are 
 just a few of them, and with diminishing probability as time
-decreases. This exponential distribution also appears in the
+decreases. However, since they have a greenish color, implying a low
+number of IPs, they might be due to clients {\em carrying over} from
+the previous one. This is a characteristic of this implementation
+which will be examined later on, but at any rate if we discard those
+experiments that take too much or too little, there is a decreasing
+exponential distribution that corresponds to the Zipf's law.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.32\linewidth]{weibull-puts-openshift-4-4.png}
+\includegraphics[width=0.32\linewidth]{weibull-puts-openshift-4-24.png}
+\includegraphics[width=0.32\linewidth]{weibull-puts-openshift-7-31.png}
+\includegraphics[width=0.32\linewidth]{weibull-fit-cache=128.png}
+\includegraphics[width=0.32\linewidth]{weibull-fit-cache=64.png}
+\includegraphics[width=0.32\linewidth]{weibull-fit-cache=32.png}
+\caption{Number of {\tt PUT}s per unique IP and fit to a Generalized
+  Extreme Value distribution (in red). From left to right, experiments
+  4/4, 4/24 and 7/31.} 
+% Plotted with ../data/plot-zipf-openshift.R
+\label{fig:puts:os}
+\end{figure}
+%
+ This exponential distribution also appears in the
 distribution of HTTP {\tt PUT}s, equivalent to the number of
 generations divided by 100, contributed by every user, which is shown
 in Figure \ref{fig:puts:os}. These results show a Zipf-like behavior,
@@ -473,7 +486,7 @@ with the resulting parameters shown in Table \ref{tab:puts:os}.
 \hline
 Date  & Location $\mu$ & Scale $\sigma$ & Shape $\xi$ \\
 \hline
-4/4 &  8.541 $\pm$ 1.0926  &    12.442 $\pm$ 1.7302 &  1.388 $\pm$
+4/4 &  8.541 $\pm$ 1.0926  & 12.442 $\pm$ 1.7302 &  1.388 $\pm$
 0.1377 \\
 4/24 & 6.148 $\pm$ 0.3782 & 7.354 $\pm$ 0.5105 & 1.090 $\pm$  0.0697  \\
 7/31 & 11.645 $\pm$ 1.475 & 16.365 $\pm$ 2.201 &  1.265 $\pm$ 0.132   \\
