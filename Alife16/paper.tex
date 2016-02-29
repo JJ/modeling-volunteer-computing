@@ -228,10 +228,18 @@ Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
 
 Figure \ref{fig:system} describes the general system architecture and
 algorithm behavior. Different web technologies, such as JQuery or {\tt
-  Chart.js} have
-been used to build the user interface elements of the framework.
+  Chart.js} have been used to build the user interface elements of the
+framework, a part of which is shown in Figure \ref{fig:screenshot} and
+should be running in \url{http://nodio-jmerelo.rhcloud.com}.
 
-
+\begin{figure}[!t]
+\centering
+\includegraphics[width=0.95\linewidth]{nodio-screenshot.png}
+\caption{Screenshot showing the fitness and number of users as seen by
+volunteers. The one on the left shows fitness, on the right the
+accumulated number of users. \label{fig:screenshot}}
+\end{figure}
+%
 \begin{figure}[!t]
 \centering
 \includegraphics[width=3in]{system.pdf}
@@ -549,7 +557,7 @@ leave. The {\em scale} parameter, which is around 20-40 in the first
 batch for the 40 Trap problem and betwen 160 and 200 in the 60 traps
 problem, depends mainly on the maximum number of generations people
 leave it running. Since it finishes or stalls after a number of
-generations shown in Figure \cite{tab:summary:os}, volunteer just
+generations shown in Figure \ref{tab:summary:os}, volunteer just
 leave after that. Curiously enough, the scale parameter is roughly
 twice the median number of {\tt PUT}s per experiment, showing that, on
 average, the most loyal users reload the page twice after finishing or
