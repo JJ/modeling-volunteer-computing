@@ -7,7 +7,9 @@ use v5.14;
 
 use File::Slurp::Tiny qw(read_lines);
 
-my @lines = read_lines("rastrigin-IPs.csv");
+my $file_name = shift || "rastrigin-IPs.csv";
+
+my @lines = read_lines($file_name);
 
 my %IPs_hour;
 for my $l (@lines[1..$#lines]) {
