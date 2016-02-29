@@ -85,14 +85,14 @@ behavior.
 \section{State of the art}
 \label{sec:soa}
 
-Volunteer computing involves an user running a program voluntarily
+Volunteer computing involves a user running a program voluntarily
 and, as such, has been deployed in many different ways from the
 beginning of the Internet, starting with the SETI@home framework for
 processing extraterrestrial signals \citep{david-seti:home}. However
-the dual introduction of JavaScript as an universal language for the
+the dual introduction of JavaScript as a universal language for the
 browser and the browser as an ubiquitous web and Internet client has
 made this combination the most popular for volunteer computing
-frameworks such as the one we are using here and whose first version
+frameworks such as the one we are using here, and whose first version
 was described in \citep{DBLP:conf/gecco/GuervosG15}.
 
 JavaScript can be used for either unwitting
@@ -101,12 +101,13 @@ JavaScript can be used for either unwitting
 evolutionary computation and it has been used ever since by several
 authors, including more recent efforts
 \citep{Desell:2008:AHG:1389095.1389273,duda2013distributed,DBLP:journals/corr/abs-0801-1210}. Many other researchers have
+%Pablo: Desell in 2008 is not so recent
 used Java \citep{chong:1999:jDGPi} and others have gone away from the
 server-based paradigm to embrace peer to peer systems
 \citep{jin2006constructing,10.1109/ICICSE.2008.99,DBLP:conf/3pgcic/GuervosMFEL12}. These computing
 platforms avoid single points of failure (the server) but, since they
 need a certain amount of infrastructure installed to start, the
-threshold to join them is much lower.
+threshold to join them is much lower. %Pablo: this is useful for us because...
 
 
 On the other hand, we are also interested in measuring the performance
@@ -130,10 +131,10 @@ work was done for peer to peer systems by Stutzbach et
 al. \citep{stutzbach2006understanding} and extended to volunteer
 computing by Laredo et al. \citep{churn08,laredo2008rcp}. A similar
 study was performed by Martínez et al. on the Capataz system
-\citep{martinez2015capataz}; however in this case the number of
+\citep{martinez2015capataz}; however, in this case the number of
 computers used was known in advance and the main focus was on
 measuring the speed up and how job bundling helped to reduce overhead and
-enhance performance. 
+enhance performance. %Pablo: On the contrary, in this paper, we...
 
 Some of the essential metrics in volunteer computing like the
 number of users or the time spent by every one in the
@@ -151,11 +152,12 @@ are just a few that give many cycles.
 
 As far as we know, this paper presents one of the few experiments
 that measure the performance of a sociotechnical
-metacomputer. Apolónia et al. \citep{apolonia2012enhancing} used the
+%Pablo: I miss some definition for the concept "sociotechnical metacomputer" in the introduction
+metacomputer. Apol{\'o}nia et al. \citep{apolonia2012enhancing} used the
 Facebook protocol to distribute tasks among the {\em walls} of
 friends, explicitly using the social network for computing. However,
 it stopped short of relating performance to the macro measures of the
-users' social networks. 
+users' social networks. %Pablo: Add a phrase here to better link with the previous description of the work of Apolonia (it is a sudden huge jump from one topic to another)
 The algorithms used, as well as the methodology 
 for gathering resources will be described next, 
 together with the results obtained in this initial setup.
