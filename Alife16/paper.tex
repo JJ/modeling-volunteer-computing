@@ -511,33 +511,40 @@ Cache 32 & 168.15 $\pm$ 49.28 & 0.57 $\pm$ 0.07 \\
 \end{center}
 \end{table}
 %
-This distribution was originally proposed to fit extreme values
-\citep{resnick2013extreme} and contains, as a special case, the inverse
-Weibull distribution which was fitted to volunteer computing
-frameworks such as SETI@home \citep{javadi2009mining}. We obviously do
-not pretend to compare our system in scale or complexity with it, but
-to point out that the behavior of volunteer computing nodes follows a
-certain pattern, found in SETI@home, and which also appears in our system. This
-distribution is governed by three parameters, the usual location $\mu$
-which is related to where it has its {\em center} and a scale $\sigma$,
-related to the size, but also a third shape $\xi$ parameter that is
-related to its skewness, that is, how skewed it is around the central
-location. Positive parameters indicate that the distribution {\em
-  leans} towards the origin, and negative ones towards the other extreme
-value. In this case, Table \ref{tab:puts:os} shows $\xi$ values
-greater than one and between one and 1.4, which indicates that the
-three experiments share this origin-leaning pattern, with many users
-donating a few cycles and just a few donating extreme values. Random
-distributions with these parameters have been plotted in red in
-Figure \ref{fig:puts:os}, indicating that the fit is good enough. The
-predictive value of these fits, however, is limited, over all taking
-into account the low correlation between successive events shown
-above.
+The inverse
+Weibull distribution is a special case of the GEV distribution we have
+used in those papers, and appears usually in natural sciences and
+artificial life, usually related to decay. I has been frequently
+fitted to volunteer computing frameworks such as SETI@home
+\citep{javadi2009mining}. The model that user behavior follows can be
+explained straighforwardly: when users visit the page, it draws their
+attention for a limited amount of time. They give it a chance for a
+few seconds. If something there amuses them or they can engage in a
+conversation about it, they stay for a while longer, otherwise, they
+leave. The {\em scale} parameter, which is around 20-40 in the first
+batch for the 40 Trap problem and betwen 160 and 200 in the 60 traps
+problem, depends mainly on the maximum number of generations people
+leave it running. Since it finishes or stalls after a number of
+generations shown in Figure \cite{tab:summary:os}, volunteer just
+leave after that. Curiously enough, the scale parameter is roughly
+twice the median number of {\tt PUT}s per experiment, showing that, on
+average, the most loyal users reload the page twice after finishing or
+after seeing the evolution does not progress. This rule of thumb
+breaks down with the last experiment, however, which is interesting by
+itself, too. 
 
-At any rate, this also shows that a convenient way of increasing the
-computing power would be increasing this minimum amount per user. This
-issue led us to create the next version of the framework, which is
-presented next. % (Paloma) This sentences are sort of alone here... Could we extend a bit the first "this" to connect them to the previous paragraph ?
+The slope or shape parameter, on the other hand, indicates the overall
+shape of the curve. A value less than 1 indicates a concave (in an
+non-algorithmic scale) curve,
+with figures closer to one indicating a smaller slope. In all cases
+values are between 0.54 and 0.77, independently of the experiment. It
+might be the case that this number depends more on the total number of
+experiments carried out, with sets with more experiments, both in the
+middle, having values between 0.60 and 0.70. The distribution is
+remarkably similar which gives us a model of user behavior that is, to
+a certain extent, independent of the experiment.  
+
+
 
 %---------------------------------------------------------------
 \section{Conclusion}
