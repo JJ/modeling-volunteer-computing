@@ -246,6 +246,25 @@ problem, while the current experiments changed to the more difficult 50-trap.
 \section{Modeling the performance of a volunteer-based distributed computer} 
 \label{sec:experiments}
 
+\begin{table}[htb]
+\caption{Experiment table, with summary of results. \label{tab:runs}}
+\begin{center}
+\begin{tabular}{l|rrl}
+\hline
+Experiment & \#Runs & Different IPs & Traps \\
+\hline
+April 4th 4/4 & 57 & 191 & 40 \\
+April 24th 4/24 &  231 & 559& 40  \\
+July 31th 7/31 & 97 & 179 & 40 \\
+February, cache=128 & 61 & 75 & 50  \\
+February, cache=64 & 61 & 220 & 50  \\
+February, cache=32 & 39 & 86 & 50  \\
+% grep start ~/Code/splash-volunteer/data/2016/nodio-2016-2-28-cache=32.log
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+%
 Initial experiments were set up using the OpenShift
 PaaS, which provides a free tier, making the whole experiment cost
 equal to 0. Experiments were
@@ -264,27 +283,14 @@ until all clients had finished, thus it might happen that, in fact,
 the islands running in the browser {\em spill} from one experiment to
 the next. However, previous experiments have proven that the influence
 of these islands in the next experiment is indeed negligible.
+
+
+The table shows that every run included more than 30 experiments. The
+number of different IPs intervening in them varied from more than one
+hundred to more than five hundred in the second experiment, with a
+number around 50 in the second, and most recent, batch of experiments. 
 %
-\begin{table}
-\caption{Characteristics of the experiments. \label{tab:runs}}
-\begin{center}
-\begin{tabular}{l|rrl}
-\hline
-Experiment & \# experiments & Different IPs & Traps \\
-\hline
-April 4th 4/4 & 57 & 191 & 40 \\
-April 24th 4/24 &  231 & 559& 40  \\
-July 31th 7/31 & 97 & 179 & 40 \\
-February, cache=128 & 61 & 75 & 50  \\
-February, cache=64 & 61 & 220 & 50  \\
-February, cache=32 & 39 & 86 & 50  \\
-% grep start ~/Code/splash-volunteer/data/2016/nodio-2016-2-28-cache=32.log
-\hline
-\end{tabular}
-\end{center}
-\end{table}
-%
-\begin{table}
+\begin{table}[htb]
 \caption{Summary of time per run, number of IPs and number of {\tt
     PUT}s per IP in the initial runs. \label{tab:summary:os}}
 \begin{center}
@@ -296,61 +302,44 @@ Experiment & Median & Max & time (s) &  \#{\tt  PUT}s \\
 4/4 & 5 & 16 & 2040 & 18   \\
 4/24 &  5 & 29 & 732 & 11  \\
 7/31 & 5 & 14 & 260 & 23   \\
-Cache=128 & 5 & 17 & 222217 & 124 \\ 
-Cache=64 & 8 & 38 & 51378 & 100 \\
-Cache=32 & 6 & 19 & 58853 & 45 \\
+Cache=128 & 5 & 17 & 222.2 & 124 \\ 
+Cache=64 & 8 & 38 & 51.3 & 100 \\
+Cache=32 & 6 & 19 & 58.9 & 45 \\
 \hline
 % Data in .RData file in Splash-volunteer
 \end{tabular}
 \end{center}
 \end{table}
 %
-The table shows that every run included more than 50 experiments. The
-number of different IPs intervening in them varied from more than one
-hundred to more than five hundred in the second experiment.
 
 A summary of the results of each run is also shown in Table
 \ref{tab:summary:os}, which shows the median number of IPs
 intervening in each experiment,  median time needed
-to finish the experiment, median number of HTTP {\tt PUT}s per IP, and
-then two columns showing the percentage of experiments that took less
-than the two baseline experiments shown in the introduction to this
-section. The first striking result is that in all cases, 50\% of the
-experiments involved 5 or less IPs. This is consistent with results
-previously obtained \citep{DBLP:conf/gecco/GuervosG15} which found 6 to be
-the usual number of IPs that participated in an experiment. The
+to finish the experiment, median number of HTTP {\tt PUT}s per IP. The
+first striking result is that in all cases, 50\% of the 
+experiments involved 5 or less IPs. This is consistent with previous results
+\citep{DBLP:conf/gecco/GuervosG15} which found 6 to be
+the expected number of volunteer IPs. The
 maximum number of different IPs for each experiment is also in the
 same range and of the order of 10, which is also consistent with
-prior work. The median time has a big range of variation, but 50\% of
+prior work and does not vary across the two different batches. 
+
+We will have to analyze differently the median time, since the two
+batches are solving different problems. In both cases it possesses a
+big range of variation, but 50\% of 
 the time takes less than several minutes, from around 4 minutes in the
-best case to roughly 2/3 of an hour in the worst case. That figure is
-not competitive, {\em a priori}, with the baseline experiment, that is
-why it is interesting to look at the columns which measure
-the percentage of experiments in which the solution was found in less
-time than the baseline. It is similar in all three cases, with around
-20\% on average for the first baseline experiment, roughly 3\% in the
-second case. The comparison is not totally fair: this experiment takes
-place in a browser, and in fact most of the time is devoted to
-presenting the charts; the server is also not the same since it is run in a
-PaaS instead of a high-performance desktop computer, and it is also a
-remote server, not a local server as in the baseline experiment. But
-even in this case, we were looking for creating a framework that
-allowed us to run evolutionary computation experiments {\em faster} than
-in our very own computer. And the results indicate that although it will
-happen in 1 out of roughly 5 or roughly 20 cases, depending on what baseline
-experiment you choose, it will not happen always or even most of
-the time. One of the problems is shown in the last column, which
-indicates the statistical correlation between the number of IPs
-participating in one experiment and the next. In all cases,
-correlation is so low as to affirm that there is almost no
-relationship between them, that is, computing nodes are not {\em
-  staying} after the solution has been found. This is a feature of
-this implementation: the user has to actively reload the page to make
-the evolutionary algorithm start again. Thus, the user can decide if to 
-continue sharing resources or not. % (Paloma) Feature or disadvantage?
-However, it puts a probably            % (Mario) Feature if you only want to share your CPU a little  
-unnecessary upper limit on the time, or number of experiments, that a user
-will voluntarily perform.
+best case to roughly 2/3 of an hour in the worst case. Remarkably
+enough, the time is more consistent in the second batch and always
+around one minute, in two cases even less, and that happens when the
+median number of IPs is higher. It should be noted that while the
+first batch of experiments took several days in each case, the second
+only lasted for a few hours, with a more continued effort of
+publicizing it in social networks; this is specially true in the
+case of cache equal to 64, which is noticed by the high number of
+volunteers participating in the experiment. The conclusion is that,
+in general, the key factor in the time needed to find the solution
+is, as expected, the number of volunteers it is able to gather on a
+short notice. 
 
 \begin{figure}[!htb]
 \centering
