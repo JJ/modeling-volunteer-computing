@@ -20,18 +20,17 @@ $^2$Dept. of Graduate Studies at Instituto Tecnol\'ogico de Tijuana \\
 
 \begin{abstract}
 Volunteer computing is a form of distributed computing where users
-decide on their participation and the amount of time and other resources they will
-``lend''. This makes them an essential part of the algorithm and of
-the performance of the whole system. As a sociotechnical system, this
-participation follows some patterns and in this paper we examine the
-result of several volunteer distributed evolutionary computation
-experiments and try to find out which are those patterns and what
-makes an experiment successful or not, including the feedback loop
-that is created between the users and the algorithm itself. In this
-paper we will examine what kind of patterns we can expect and what
-influence those patterns have on the implementation of the
-evolutionary algorithm. 
-%Pablo: The patterns we are looking for are... 
+decide on their participation and the amount of time and other
+resources they will ``lend''. This makes them an essential part of the
+algorithm and of the performance of the whole system. As a
+sociotechnical system, this participation follows some patterns and in
+this paper we examine the result of several volunteer distributed
+evolutionary computation experiments and try to find out which are
+those patterns and what makes an experiment successful or not,
+including the feedback loop that is created between the users and the
+algorithm itself. In this paper we will examine what kind of patterns
+we can expect and what influence those patterns have on the
+implementation of the evolutionary algorithm.
 \end{abstract}
 
 \section{Introduction}
@@ -56,32 +55,30 @@ using it.
 
 This loose connection provides a low-overhead way to connect desktop
 experiments with volunteer-based ones, with all of them contributing
-to the pool, but every one of them working as separate island 
-carrying out their own evolutionary algorithms. This is why NodIO is
-proposed mainly as a {\em complement} to existing resources such as
-desktop systems or laptops. As long as it provides a non-null
-computational capability that can help existing resources find the
-solution faster it will have found its purpose. The main use case is
-someone setting up NodIO in the cloud, writing a fitness evaluation
-function and running a client from his or her own computer, but
-requesting help in social networks for additional resources. That is
-why, in this system,  we have considered the whole {\em social} aspect
-in the design, with issues related to security, trust and privacy
-among others. The computing system becomes a {\em techno-social
-%Pablo: In abstract is named 'sociotechnical'. Which one is the correct form for the rest of the paper?
-  system} \citep{vespignani2009predicting}. In this paper, we are going
-to focus on measuring the response of users to experiments, but at the
-%Pablo: which metric are we going to measure this response?
-same time we will also focus on the technical aspects of the server and how
-those might change the behavior of users, improving the capability of % Mario: How these might change
-the system.
+to the pool, but every one of them working as separate island carrying
+out their own evolutionary algorithms. This is why NodIO is proposed
+mainly as a {\em complement} to existing resources such as desktop
+systems or laptops. As long as it provides a non-null computational
+capability that can help existing resources find the solution faster
+it will have found its purpose. The main use case is someone setting
+up NodIO in the cloud, writing a fitness evaluation function and
+running a client from his or her own computer, but requesting help in
+social networks for additional resources. That is why, in this system,
+we have considered the whole {\em social} aspect in the design, with
+issues related to security, trust and privacy among others. The
+computing system becomes a {\em sociotechnical} system}
+\citep{vespignani2009predicting}. In this paper, we are going to focus
+on measuring the response of users to experiments, that is, the time
+they spend running it, but at the same time we will also focus on the
+technical aspects of the server and how these might change the
+behavior of users, improving the capability of the system.
 
 Our research group is committed to open science, and we think this is
 a very important part of the techno-social system. By being
 transparent, incentives to cheat are reduced and, in fact, we have
-detected no issue for the time being. Next we present the state of the art in web-based
-volunteer-based systems along with attempts to predict and model its
-behavior. 
+detected no issue for the time being. Next we present the state of the
+art in web-based volunteer computing systems along with attempts to
+predict and model its behavior. 
 
 
 %---------------------------------------------------------------
