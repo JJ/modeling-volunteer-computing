@@ -25,42 +25,48 @@
 <<setup, cache=FALSE,echo=FALSE>>=
 library("ggplot2")
 experiment.data <- data.frame(Experiment=character(),
-                                 newgraph = character(),
-                                 nooverlap = character(),
-                                 reboot = character(),
-                                 cachereboot = character(),
-                                 milliseconds=character(),                           
-                                 IPs=character(), 
-                                 actualIPs=character(),
-                                 PUTs=character(),
-                                 actualPUTs=character())
+                              milliseconds=character(),                           
+                              IPs=character(), 
+                              actualIPs=character(),
+                              PUTs=character(),
+                              actualPUTs=character())
 
-these.experiments <- c("nooverlap-1","nooverlap-newgraph", "nooverlap-newgraph-2","nooverlap-newgraph-3","nooverlap-newgraph-reboot")
+these.experiments <- c("nooverlap-1","nooverlap-newgraph", "nooverlap-newgraph-2","nooverlap-newgraph-3","nooverlap-newgraph-reboot","nooverlap-newgraph-reboot-cachecrash")
 
 for ( i in these.experiments ) {
-    print(i)
     this.data <- read.csv(paste0("../data/2016-PPSN/ips-time-cache-2016-03-cache=32-",i,".csv"))
-    newgraph = TRUE
-    nooverlap = TRUE
-    reboot = TRUE
-    cachereboot = TRUE
-
 
     experiment.data <- rbind( experiment.data,
-                             data.frame( Experiment=rep(i, length(this.data$IPs)),
-                                        newgraph = rep(newgraph, length(this.data$IPs)),
-                                        nooverlap = rep(nooverlap, length(this.data$IPs)),
-                                        reboot = rep(reboot, length(this.data$IPs)),
-                                        cachereboot = rep(cachereboot, length(this.data$IPs)),
+                             data.frame( Experiment=rep(i, length(this.data$IPs)),                   
                                         milliseconds=as.integer(this.data$milliseconds),
                                         IPs=as.integer(this.data$IPs),
                                         actualIPs=as.integer(this.data$actualIPs),
                                         PUTs=as.integer(this.data$PUTs),
                                         actualPUTs=as.integer(this.data$actualPUTs)))
+
 }
 
+experiment.data$newgraph <- grepl("newgraph",experiment.data$Experiment)
+experiment.data$nooverlap <- grepl("nooverlap",experiment.data$Experiment)
+experiment.data$reboot <- grepl("reboot",experiment.data$Experiment)
+experiment.data$cachecrash <- grepl("cache",experiment.data$Experiment)
 
+time.data <- data.frame(Experiment=character(),
+                        minute=as.Date(character()),
+                        IPs=character())
+
+these.experiments <- c("nooverlap-0","nooverlap","nooverlap-newgraph","nooverlap-newgraph-reboot-cachecrash")
+
+for ( i in these.experiments ) {
+    this.data <- read.csv(paste0("../data/2016-PPSN/ips-per-minute-cache=32-",i,".csv"))
+    time.data <- rbind(time.data,
+                       data.frame(Experiment=rep(i,length(this.data$IPs)),
+                                  minute=strptime(this.data$time,"%Y-%m-%d %H:%M"),
+                                  IPs=as.integer(this.data$IPs))
+                       )
+}
 @
+
 \title{The human in the loop: volunteer computing as a socio-technical
 system}
 
