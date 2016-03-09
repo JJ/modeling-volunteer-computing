@@ -16,16 +16,61 @@
 
 \providecommand{\tabularnewline}{\\}
 
-%\documentclass[letterpaper]{article}
-%\usepackage{natbib,alifeconf}
-%\usepackage[breaklinks=true]{hyperref}
-%\usepackage{url}
-
 \graphicspath{{../img/}}
 \DeclareGraphicsExtensions{.pdf}
 
 
 \begin{document}
+
+<<setup, cache=FALSE,echo=FALSE>>=
+library("ggplot2")
+experiment.data <- <- data.frame(Experiment=character(),
+                                 newgraph = character(),
+                                 nooverlap = character(),
+                                 reboot = character(),
+                                 cachereboot = character(),
+                                 milliseconds=character(),                           
+                                 IPs=character(), 
+                                 actualIPs=character(),
+                                 PUTs=character(),
+                                 actualPUTs=character())
+these.experiments <- c("nooverlap-1","nooverlap-newgraph", "nooverlap-newgraph-2","nooverlap-newgraph-3","nooverlap-newgraph-reboot")
+
+for ( i in these.experiments ) {
+    print(i)
+    this.data <- read.csv(paste0("../data/2016-PPSN/ips-time-cache-2016-03-cache=32-",i,".csv"))
+    newgraph = TRUE
+    nooverlap = TRUE
+    reboot = TRUE
+    cachereboot = TRUE
+    if ( ! grep("newgraph",i)) {
+        newgraph = FALSE
+    }
+    if ( ! grep("noover",i)) {
+        nooverlap = FALSE
+    }
+    if ( ! grep("reboot",i)) {
+        reboot = FALSE
+    }
+    if ( ! grep("cache",i)) {
+        cachereboot = FALSE
+    }
+
+    these.experiments <- rbind( these.experiments,
+                               data.frame( Experiment=rep(i, length(this.data$IPs)),
+                                          newgraph = rep(newgraph, length(this.data$IPs)),
+                                          nooverlap = rep(nooverlap, length(this.data$IPs)),
+                                          reboot = rep(reboot, length(this.data$IPs)),
+                                          cachereboot = rep(cachereboot, length(this.data$IPs)),
+                                          milliseconds=this.data$milliseconds,
+                                          IPs=this.data$IPs,
+                                          actualIPs=this.data$actualIPs,
+                                          PUTs=this.data$PUTs,
+                                          actualPUTs=this.data$actualPUTs))
+}
+                                        
+
+@
 \title{The human in the loop: volunteer computing as a socio-technical
 system}
 
