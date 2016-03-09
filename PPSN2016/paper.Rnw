@@ -24,7 +24,7 @@
 
 <<setup, cache=FALSE,echo=FALSE>>=
 library("ggplot2")
-experiment.data <- <- data.frame(Experiment=character(),
+experiment.data <- data.frame(Experiment=character(),
                                  newgraph = character(),
                                  nooverlap = character(),
                                  reboot = character(),
@@ -34,6 +34,7 @@ experiment.data <- <- data.frame(Experiment=character(),
                                  actualIPs=character(),
                                  PUTs=character(),
                                  actualPUTs=character())
+
 these.experiments <- c("nooverlap-1","nooverlap-newgraph", "nooverlap-newgraph-2","nooverlap-newgraph-3","nooverlap-newgraph-reboot")
 
 for ( i in these.experiments ) {
@@ -43,32 +44,21 @@ for ( i in these.experiments ) {
     nooverlap = TRUE
     reboot = TRUE
     cachereboot = TRUE
-    if ( ! grep("newgraph",i)) {
-        newgraph = FALSE
-    }
-    if ( ! grep("noover",i)) {
-        nooverlap = FALSE
-    }
-    if ( ! grep("reboot",i)) {
-        reboot = FALSE
-    }
-    if ( ! grep("cache",i)) {
-        cachereboot = FALSE
-    }
 
-    these.experiments <- rbind( these.experiments,
-                               data.frame( Experiment=rep(i, length(this.data$IPs)),
-                                          newgraph = rep(newgraph, length(this.data$IPs)),
-                                          nooverlap = rep(nooverlap, length(this.data$IPs)),
-                                          reboot = rep(reboot, length(this.data$IPs)),
-                                          cachereboot = rep(cachereboot, length(this.data$IPs)),
-                                          milliseconds=this.data$milliseconds,
-                                          IPs=this.data$IPs,
-                                          actualIPs=this.data$actualIPs,
-                                          PUTs=this.data$PUTs,
-                                          actualPUTs=this.data$actualPUTs))
+
+    experiment.data <- rbind( experiment.data,
+                             data.frame( Experiment=rep(i, length(this.data$IPs)),
+                                        newgraph = rep(newgraph, length(this.data$IPs)),
+                                        nooverlap = rep(nooverlap, length(this.data$IPs)),
+                                        reboot = rep(reboot, length(this.data$IPs)),
+                                        cachereboot = rep(cachereboot, length(this.data$IPs)),
+                                        milliseconds=as.integer(this.data$milliseconds),
+                                        IPs=as.integer(this.data$IPs),
+                                        actualIPs=as.integer(this.data$actualIPs),
+                                        PUTs=as.integer(this.data$PUTs),
+                                        actualPUTs=as.integer(this.data$actualPUTs)))
 }
-                                        
+
 
 @
 \title{The human in the loop: volunteer computing as a socio-technical
