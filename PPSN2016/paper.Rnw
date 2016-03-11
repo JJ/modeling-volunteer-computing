@@ -136,50 +136,59 @@ improvements and leveraging of these contributions.
 \section{Introduction}
 \label{introduction}
 
-Some time ago, our group faced the problem of diminishing funds for
-buying new hardware. This was aggravated by the increasing maintenance
-costs and extended downtime resulting from the continuous failures of
-existing clusters.  Considering this, we leveraged our experience in
-the design of web applications with JavaScript and other volunteer and
-unconventional distributed evolutionary computing systems to design
-and release a new free framework that would allow anyone to create a
-volunteer distributed evolutionary computation (EC) experiment using
-cloud resources as servers and browsers as clients. This framework was
-called NodIO \cite{2016arXiv160101607M}. NodIO provides server
-infrastructure for volunteer-based distributed evolutionary computing
-experiments by providing a chromosome {\em pool}. This pool is used by
-clients in browsers and any other using the application programming
-interface (API) to put chromosomes and retrieve them, working then as
-a loose, asynchronous and {\em ad hoc} connection among all clients
-using it. 
 
-This loose connection provides a low-overhead way to connect desktop
-experiments with volunteer-based ones, with all of them contributing
-to the pool, but every one of them working as separate island carrying
-out their own evolutionary algorithms. This is why NodIO is proposed
-mainly as a {\em complement} to existing resources such as desktop
-systems or laptops. As long as it provides a non-null computational
-capability that can help existing resources find the solution faster
-it will have found its purpose. The main use case is someone setting
-up NodIO in the cloud, writing a fitness evaluation function and
-running a client from his or her own computer, but requesting help in
-social networks for additional resources. That is why, in this system,
-we have considered the whole {\em social} aspect in the design, with
-issues related to security, trust and privacy among others. The
-computing system becomes a {\em sociotechnical} system
-\cite{vespignani2009predicting}. In this paper, we are going to focus
-on measuring the response of users to experiments, that is, the time
-they spend running it, but at the same time we will also focus on the
-technical aspects of the server and how these might change the
-behavior of users, improving the capability of the system.
+The world wide web provides not only a platform for content
+distribution, but an increasingly reliable and high-performance
+platform for running distributed applications. This is based in two
+key facts: the Javascript virtual machine every browser runs and a
+simplified standard interface for interacting with servers. Thus
+creating a distributed computing experiment is just a matter of making
+a JavaScript application interchange information with a server, called
+rest. From the point of view of the programmer, this involves
+relatively common skills and no special libraries, since that
+interface is built in the browser, and a simple application that
+responds to those requests on the server side; both involve just a few
+dozens lines of code additionally to whatever business logic your
+application has. But, more importantly and from the point of view of
+the user, that application can be run by simply visiting a web page. 
 
-Our research group is committed to open science, and we think this is
-a very important part of the techno-social system. By being
-transparent, incentives to cheat are reduced and, in fact, we have
-detected no issue for the time being. Next we present the state of the
-art in web-based volunteer computing systems along with attempts to
-predict and model its behavior. 
+Using this system for creating distributed experiments is called {\em
+  volunteer}, {\em cycle-scavenging} or {\em opportunistic} computing
+\cite{sarmenta2001volunteer} and it dates back, in different shapes
+and underlying mechanisms, to the origin of the web \cite{david-seti:home}. Our interest
+here, however, is to use it as a resource for evolutionary
+computation. This has been a line of research in our group for a long
+time \cite{jj-ppsn98}, but has lately been revisited thanks to the
+ubiquity of social networks and handheld computing devices. 
 
+In this line of research that uses volunteer computing for
+evolutionary algorithms, there are several pending issues. The first
+and maybe most important is approaching volunteer computing as a
+techno-social system \cite{vespignani2009predicting} which integrates
+user decisions and behavioral patterns in the system model; this
+includes trying to optimize the number of users in a particular
+experiment. The second line of research, although related to the
+first, is more focused on the evolutionary algorithm itself and how
+different design decisions will affect its performance.
+
+In this paper our focus will be in the second aspect: we will try to
+design a decentralized system that, at the same time, is able to use
+all resources available. This design will be done incrementally by
+changing the system on the client and the server and measuring its
+impact on the overall performance: time and evaluations needed to find
+the solution. Eventually, we want to find a system that, whatever the
+number of users available to perform the experiment, is able to
+maximize their contribution to the evolutionary algorithm, at the same
+time that the evolutionary algorithm itself makes the most of those
+contributions, independently of how many they are.
+
+The rest of the paper is organized as follows: Next we will briefly
+present the state of the art in opportunistic distributed evolutionary
+computation (EC). Section \ref{sec:description} will describe the
+framework and problem used in the experiments, which are publicly
+available under a free license. We will present the results of the
+different steps in the incremental design in Section
+\ref{sec:experiments}, to finally wrap up with the conclusions. 
 
 %---------------------------------------------------------------
 \section{State of the art}
