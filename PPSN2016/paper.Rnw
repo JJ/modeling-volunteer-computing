@@ -33,9 +33,25 @@ experiment.data <- data.frame(Experiment=character(),
 
 these.experiments <- c("nooverlap-1","nooverlap-newgraph", "nooverlap-newgraph-2","nooverlap-newgraph-3","nooverlap-newgraph-reboot","nooverlap-newgraph-reboot-cachecrash")
 
+experiment.aggregates <- data.frame(Experiment=character(),
+                                     milliseconds=character(),
+                                     IPs=character(),
+                                     actualIPs = character(),
+                                     PUTss = character(),
+                                     actualPUTs = character());
+
 for ( i in these.experiments ) {
     this.data <- read.csv(paste0("../data/2016-PPSN/ips-time-cache-2016-03-cache=32-",i,".csv"))
 
+    experiment.aggregates <- rbind( experiment.aggregates,
+                                   data.frame( Experiment=i,                   
+                                              milliseconds=median(as.integer(this.data$milliseconds)),
+                                              IPs=median(as.integer(this.data$IPs)),
+                                              actualIPs=median(as.integer(this.data$actualIPs)),
+                                              PUTs=median(as.integer(this.data$PUTs)),
+                                              actualPUTs=median(as.integer(this.data$actualPUTs)))
+                                   )
+    
     experiment.data <- rbind( experiment.data,
                              data.frame( Experiment=rep(i, length(this.data$IPs)),                   
                                         milliseconds=as.integer(this.data$milliseconds),
@@ -56,9 +72,16 @@ time.data <- data.frame(Experiment=character(),
                         IPs=character())
 
 these.experiments <- c("nooverlap-0","nooverlap","nooverlap-newgraph","nooverlap-newgraph-reboot-cachecrash")
+ip.correlations <- data.frame(Experiment=character(),
+                              correlation=character())
 
 for ( i in these.experiments ) {
     this.data <- read.csv(paste0("../data/2016-PPSN/ips-per-minute-cache=32-",i,".csv"))
+    this.data.plus1 <- this.data[2:length(this.data$IPs),]
+    ip.correlations <- rbind(ip.correlations, 
+                             data.frame(Experiment=i,
+                                        correlation = cor(this.data[c(1:length(this.data$IPs)-1),]$IPs
+                                                         ,this.data.plus1$IPs)))
     time.data <- rbind(time.data,
                        data.frame(Experiment=rep(i,length(this.data$IPs)),
                                   minute=strptime(this.data$time,"%Y-%m-%d %H:%M"),
@@ -67,8 +90,8 @@ for ( i in these.experiments ) {
 }
 @
 
-\title{The human in the loop: volunteer computing as a socio-technical
-system}
+\title{Evolutionary algorithms in a volunteer computing system:
+  performance assessment}
 
 \author{Juan-J.~Merelo \and Paloma de las Cuevas \and Pablo
   Garc\'ia-S\'anchez \inst{1} \and Mario Garc\'ia-Valdez \inst{2}}
@@ -82,18 +105,16 @@ Dept. of Graduate Studies at Instituto Tecnol\'ogico de Tijuana}
 \pagestyle{empty}
 
 \begin{abstract}
-Volunteer computing is a form of distributed computing where users
-decide on their participation and the amount of time and other
-resources they will ``lend''. This makes them an essential part of the
-algorithm and of the performance of the whole system. As a
-sociotechnical system, this participation follows some patterns and in
-this paper we examine the result of several volunteer distributed
-evolutionary computation experiments and try to find out which are
-those patterns and what makes an experiment successful or not,
-including the feedback loop that is created between the users and the
-algorithm itself. In this paper we will examine what kind of patterns
-we can expect and what influence those patterns have on the
-implementation of the evolutionary algorithm.
+In a volunteer distributed computing system, users run a program in
+their own machine to contribute to a common effort. If they are
+embedded in a web page, collaboration is easy, but also ephemeral. In
+this paper we analyze a volunteer evolutionary computing system called
+NodIO and try to find out a few rules that encourage volunteer
+participation and how to make the most of their contributions to the
+evolutionary algorithm. We will show different measures of
+participation and contribution to the algorithm and how different
+volunteer usage patterns and tweaks in the algorithm contribute to
+improvements and leveraging of these contributions. 
 \end{abstract}
 
 \section{Introduction}
