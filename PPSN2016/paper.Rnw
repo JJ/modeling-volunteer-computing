@@ -34,18 +34,14 @@ experiment.data <- data.frame(Experiment=character(),
 these.experiments <- c("nooverlap-1","nooverlap-newgraph", "nooverlap-newgraph-2","nooverlap-newgraph-3","nooverlap-newgraph-reboot","nooverlap-newgraph-reboot-cachecrash")
 
 experiment.aggregates <- data.frame(Experiment=character(),
-                                     milliseconds=character(),
-                                     IPs=character(),
-                                     actualIPs = character(),
-                                     PUTss = character(),
-                                     actualPUTs = character());
+                                    milliseconds=character(),
+                                    IPs=character(),
+                                    actualIPs = character(),
+                                    PUTss = character(),
+                                    actualPUTs = character(),
+                                    count = character())
 
-experiment.aggregates.filtered <- data.frame(Experiment=character(),
-                                             milliseconds=character(),
-                                             IPs=character(),
-                                             actualIPs = character(),
-                                             PUTss = character(),
-                                             actualPUTs = character());
+experiment.aggregates.filtered = experiment.aggregates
 
 for ( i in these.experiments ) {
     this.data <- read.csv(paste0("../data/2016-PPSN/ips-time-cache-2016-03-cache=32-",i,".csv"))
@@ -56,7 +52,8 @@ for ( i in these.experiments ) {
                                               IPs=median(as.integer(this.data$IPs)),
                                               actualIPs=median(as.integer(this.data$actualIPs)),
                                               PUTs=median(as.integer(this.data$PUTs)),
-                                              actualPUTs=median(as.integer(this.data$actualPUTs)))
+                                              actualPUTs=median(as.integer(this.data$actualPUTs)),
+                                              count= length(this.data$IPs))
                                    )
     
     experiment.data <- rbind( experiment.data,
@@ -74,7 +71,8 @@ for ( i in these.experiments ) {
                                                        IPs=median(as.integer(this.data$IPs)),
                                                        actualIPs=median(as.integer(this.data$actualIPs)),
                                                        PUTs=median(as.integer(this.data$PUTs)),
-                                                       actualPUTs=median(as.integer(this.data$actualPUTs))))
+                                                       actualPUTs=median(as.integer(this.data$actualPUTs)),
+                                                       count= length(this.data$IPs)))
 
 }
 
