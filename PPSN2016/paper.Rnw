@@ -31,7 +31,7 @@ experiment.data <- data.frame(Experiment=character(),
                               PUTs=character(),
                               actualPUTs=character())
 
-these.experiments <- c("nooverlap-1","nooverlap-newgraph", "nooverlap-newgraph-2","nooverlap-newgraph-3","nooverlap-newgraph-reboot","nooverlap-newgraph-reboot-cachecrash")
+these.experiments <- c("nooverlap-1","nooverlap-newgraph-1", "nooverlap-newgraph-2","nooverlap-newgraph-reboot","nooverlap-newgraph-reboot-cachecrash")
 
 experiment.aggregates <- data.frame(Experiment=character(),
                                     milliseconds=character(),
@@ -327,8 +327,7 @@ Experiment & Time (ms) & \multicolumn{2}{|c|}{IPs} & \multicolumn{2}{|c|}{PUTs} 
 base & 120056.0 & 10 & 4 & 256.0 & 21.0 & 81\\
 \hline
 graph1 & 152619.5 & 9 & 4 & 212.5 & 26.5 & 36\\
-graph2 & 152619.5 & 9 & 4 & 212.5 & 26.5 & 36\\
-graph3 & 1173561.5 & 6 & 4 & 761.5 & 22.0 & 36\\
+graph2 & 1173561.5 & 6 & 4 & 761.5 & 22.0 & 36\\
 \hline
 reboot & 513354.5 & 9 & 6 & 545.5 & 62.5 & 40\\
 \hline
