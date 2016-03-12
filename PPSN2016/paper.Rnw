@@ -319,11 +319,27 @@ algorithm will be explained next.
 \begin{table}[htb]
 \caption{Experiment table, with summary of results. \label{tab:runs}}
 \begin{center}
-
-<<experiments, cache=FALSE,echo=FALSE>>=
-experiment.aggregates$Experiment <- c("base","graph1","graph2","graph3","reboot","cachereboot")
-kable(experiment.aggregates)
-@ %def 
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+Experiment & Time (ms) & \multicolumn{2}{|c|}{IPs} & \multicolumn{2}{|c|}{PUTs} & \#Runs\\
+           &           & Total & Contributing & Total & Contributing & \\
+\hline
+base & 120056.0 & 10 & 4 & 256.0 & 21.0 & 81\\
+\hline
+graph1 & 152619.5 & 9 & 4 & 212.5 & 26.5 & 36\\
+graph2 & 152619.5 & 9 & 4 & 212.5 & 26.5 & 36\\
+graph3 & 1173561.5 & 6 & 4 & 761.5 & 22.0 & 36\\
+\hline
+reboot & 513354.5 & 9 & 6 & 545.5 & 62.5 & 40\\
+\hline
+cachereboot & 392917.0 & 12 & 12 & 576.0 & 79.0 & 55\\
+\hline
+\end{tabular}
+%% Initially generated with this code, 
+%% <<experiments, cache=FALSE,echo=FALSE>>=
+%% experiment.aggregates$Experiment <- c("base","graph1","graph2","graph3","reboot","cachereboot")
+%% kable(experiment.aggregates)
+%% @ %def 
 
 \end{center}
 \end{table}
@@ -349,286 +365,7 @@ the next. However, previous experiments have proven that the influence
 of these islands in the next experiment is indeed negligible. %Pablo: cite
 
 
-The table shows that every run included more than 30 experiments. The
-%Pablo: reference to table? (maybe the final print will misplace it)
-number of different IPs intervening in them varied from more than one
-hundred to more than five hundred in the second experiment, with a
-number around 50 in the second, and most recent, batch of experiments. 
-%
-\begin{table}[htb]
-\caption{Summary of time per run, number of IPs and number of {\tt
-    PUT}s per IP in the initial runs. \label{tab:summary:os}}
-\begin{center}
-\begin{tabular}{l|cccc}
-\hline
-     & \multicolumn{2}{c}{IPs} & \multicolumn{2}{c}{Median} \\
-Experiment & Median & Max & time (s) &  \#{\tt  PUT}s \\
-\hline
-4/4 & 5 & 16 & 2040 & 18   \\
-4/24 &  5 & 29 & 732 & 11  \\
-7/31 & 5 & 14 & 260 & 23   \\
-\hline
-Cache=128 & 5 & 17 & 222.2 & 124 \\ 
-Cache=64 & 8 & 38 & 51.3 & 100 \\
-Cache=32 & 6 & 19 & 58.9 & 45 \\
-\hline
-% Data in .RData file in Splash-volunteer
-\end{tabular}
-\end{center}
-\end{table}
-%
 
-A summary of the results of each run is also shown in Table
-\ref{tab:summary:os}, which shows the median number of IPs
-intervening in each experiment,  median time needed
-to finish the experiment, median number of HTTP {\tt PUT}s per IP. The
-first striking result is that in all cases, 50\% of the 
-experiments involved 5 or less IPs. This is consistent with previous results
-\cite{DBLP:conf/gecco/GuervosG15} which found 6 to be
-the expected number of volunteer IPs. The
-maximum number of different IPs for each experiment is also in the
-same range and of the order of 10, which is also consistent with
-prior work and does not vary across the two different batches. 
-
-We will have to analyze differently the median time, since the two
-%Pablo: different verbal times ("will have", and before, "is shown"). Homogenize.
-batches are solving different problems. In both cases it possesses a
-big range of variation, but 50\% of 
-the time takes less than several minutes, from around 4 minutes in the
-best case to roughly 2/3 of an hour in the worst case. Remarkably
-enough, the time is more consistent in the second batch and always
-around one minute, in two cases even less, and that happens when the
-median number of IPs is higher. It should be noted that while the
-first batch of experiments took several days in each case, the second
-only lasted for a few hours, with a more continued effort of
-publicizing it in social networks. This is specially true in the
-%Pablo: removed semicolon before "This". @unintendedbear does not like them :P
-case of cache equal to 64, which is noticed by the high number of
-volunteers participating in the experiment. The conclusion is that,
-in general, the key factor in the time needed to find the solution
-is, as expected, the number of volunteers it is able to gather on a
-short notice. 
-
-The number of {\tt PUTs}, every one corresponding to 100 generations,
-is the algorithmic result. It is relatively unchanged for the first
-batch and around 20, that is, 2000 generations or 2000*128 = 256000
-evaluations. In this case, an ``unlimited'' cache was used, with all
-individuals sent from clients stored until the end of the
-experiment. However, we were interested in measuring also the
-performance of the algorithm itself by changing the cache size, after
-making it limited. As it can be seen in the table, there is a clear
-%Pablo: which table?
-change in the number of evaluations needed, with smaller cache sizes
-producing solutions in less evaluations, until it is for the cache
-size = 32 roughly twice as much as with the previous problem, with 40
-traps. This is a good result and is also algorithmically consistent
-with other results obtained using the same type of problems. Since in
-this paper we were interested in leveraging the user's CPU cycles by
-improving the algorithm, a good conclusion of this paper is that
-having a small pool size helps clients to obtain ``good'' individuals
-from the pool, as opposed to any individual that could be obtained
-before. Besides, cache policy deletes the oldest individuals, which
-makes those in the pool be {\em current}, helping then newcomers and %Pablo: "then helping newcomers", instead?
-any participant obtain the best individuals found in the last part of
-the experiment. Besides, a limited cache helps also in cases with a
-bigger search space or longer running times when the server simply
-crashed due to lack of RAM. 
-
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=0.32\linewidth]{time-vs-ips-OS-4-4.png}
-\includegraphics[width=0.32\linewidth]{time-vs-ips-OS-4-24.png}
-\includegraphics[width=0.32\linewidth]{time-vs-ips-OS-7-31.png}
-\includegraphics[width=0.32\linewidth]{time-vs-ips-alife-128.png}
-\includegraphics[width=0.32\linewidth]{time-vs-ips-alife-64.png}
-\includegraphics[width=0.32\linewidth]{time-vs-ips-alife-32.png}
-\caption{Duration of experiments vs. number of different IPs (nodes)
-  participating in it, with averages and standard deviation shown as
-  red dots; in the case there is a single red dot, there was a single
-  experiment in which many computers participated (for instance, 16
-  computers in the experiment in the far left or 29 in the middle
-  one). 
-Shades of blue indicate how many experiments included that many unique IPs,
-so lighter shade for a column of dots indicates that a particular number
-of computers happened less frequently, while darker shadow means more frequency. 
-From left to right and top to bottom experiments 4/4, 4/24 and 7/31,
-followed by experiments with 50 traps, cache=128, 64, 32.}
-\label{fig:duration}
-\end{figure}
-%
-We will have to analyze experimental data a bit further to find out why
-this happens and also if there are some patterns in the three sets of
-experiments. An interesting question to ask, for instance, is if
-by adding more computers makes the experiment take less. In fact, as
-shown in Figure \ref{fig:duration}, the {\em addition} of more computers does
-not seem to contribute to decreasing the time needed to finish the
-experiment. However, the cause-effect relationship is not clear at
-all. It might be the opposite: since experiments take longer to finish
-and might in fact be abandoned with no one contributing for some time,
-the probability of someone new joining them is higher. In fact,
-with experiments taking a few seconds and due to the way the
-experiments are announced, it is quite difficult that several
-volunteers join in in such a short period of time, even more if we take
-into account that volunteers are not {\em carried over} from previous
-experiments. 
-%
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=0.95\linewidth]{ips-per-minute-cache=64.png}
-\caption{Simultaneous IPs every minute of the experiment with cache =
-  64. \label{fig:otisdriftwood}}
-\end{figure}
-
-
-That is why we used a more difficult problem in the second batch of
-experiments, which is shown in the bottom row of Figure
-\ref{fig:duration}. The pattern is remarkably similar, showing a
-positive correlation between the time for solving the problem and the
-number of computers, at least for cache sizes 128 and 64. However, it
-is interesting to observe that, for cache=32, the time needed to find
-the solution decreases from one to approximately 4-5 nodes, to then
-increase for a higher number of participating computers, distinguished
-by IP. The green dot at the bottom is probably an outlier that we
-will try to explain later on. This leads us to conclude that a better
-amount of computers might contribute to speed up the solution, if the
-time the experiment ideally takes is sufficient, that is, of the order of a
-minute, and enough volunteers concur simultaneously. This is also
-observed, not so clearly, in the case of cache=64, with an interval of
-around 10 IPs obtaining less time than experiments with less or more
-IPs, and of the same order, between 10 and 100 seconds. If we look at
-the graph that shows the number of IPs or volunteers per minute for
-this experiment, shown in Figure \ref{fig:otisdriftwood}, we see that
-there are peaks of more than 25 volunteers, and a period of several
-hours with a minimum of 6 computers and peaks of more than 10. The
-long period after midnight where there is a single volunteer left
-masks the success achieved during this set of experiments, from which
-we draw two lessons: first, you need a social network influencer to
-%Pablo: people know the meaning of "influencer"? Probably yes, but I mention it just in case.
-announce your experiments and second, no matter what, do not do any
-experiment after midnight. This statement, which might seem tongue in
-cheek, in fact, it is a conclusion drawn from the experimental data and
-to what extent the social network is an essential part of the
-description and performance of the NodIO volunteer computing system. 
-
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=0.32\linewidth]{time-vs-rank-OS-4-4.png}
-\includegraphics[width=0.32\linewidth]{time-vs-rank-OS-4-24.png}
-\includegraphics[width=0.32\linewidth]{time-vs-rank-OS-7-31.png}
-\includegraphics[width=0.32\linewidth]{time-vs-rank-alife-128.png}
-\includegraphics[width=0.32\linewidth]{time-vs-rank-alife-64.png}
-\includegraphics[width=0.32\linewidth]{time-vs-rank-alife-32.png}
-\caption{Duration of experiments vs. rank, with $y$ axis in a
-  logarithmic scale. Dot color is related to the number of IPs
-  participating in the experiment. From left to right and top to bottom, experiments
-  4/4, 4/24 and 7/31 and caches=128,64, 32} 
-\label{fig:zipf:os}
-% First ones made with time-vs-IPs-openshift.R:  
-\end{figure}
-%
-It is also interesting to check the distribution of the experiment
-duration, shown in Figure \ref{fig:zipf:os} and which roughly follows
-a Zipf's law, with similar distribution along all three runs. The 4/24
-run is the most complete and shows an S-shape, which implies an
-accumulation of experiments taking similar time and around 100
-seconds; this S-shape appears too in the experiments with cache=128
-(bottom row, left). The most interesting part is the {\em tail}, which shows how
-many experiments took a desirable amount of time, on the order of
-10 seconds, and which appears in all three graphs. As it can be seen,
-it sharply drops implying there are 
-just a few of them, and with diminishing probability as time
-decreases. However, since they have a greenish color, implying a low
-number of IPs, they might be due to clients {\em carrying over} from
-the previous one. This is a characteristic of this implementation
-which will be examined later on, but at any rate, if we discard those
-experiments that take too much or too little, there is a decreasing
-exponential distribution that corresponds to the Zipf's law.
-
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=0.32\linewidth]{weibull-puts-openshift-4-4.png}
-\includegraphics[width=0.32\linewidth]{weibull-puts-openshift-4-24.png}
-\includegraphics[width=0.32\linewidth]{weibull-puts-openshift-7-31.png}
-\includegraphics[width=0.32\linewidth]{weibull-fit-cache=128.png}
-\includegraphics[width=0.32\linewidth]{weibull-fit-cache=64.png}
-\includegraphics[width=0.32\linewidth]{weibull-fit-cache=32.png}
-\caption{Number of {\tt PUT}s per unique IP and fit to a Weibull
-  distribution (in red). From left to right and top to bottom, experiments
-  4/4, 4/24 and 7/31 and new experiments with cache=128, 64, 32.} 
-% Plotted with ../data/plot-zipf-openshift.R
-\label{fig:puts:os}
-\end{figure}
-%
-A similar exponential distribution also appears if we rank HTTP {\tt
-  PUT}s, equivalents to the number of 
-generations divided by 100, or to evaluations divided by 12800,
-contributed by every user, which is shown 
-in Figure \ref{fig:puts:os}. These results show a Zipf-like behavior,
-that is, a power law with a small {\em bump} in the lowest
-values. After testing the Generalized Extreme Value distribution and
-failing for the new batch of experiments, we have fitted it to a
-Weibull distribution \cite{thoman1969inferences} with the resulting
-parameters shown in Table \ref{tab:puts:os}. 
-%
-\begin{table}
-\caption{Weibull distribution  parameters of the fit of
-  the number of {\tt PUT}s per unique IP. \label{tab:puts:os}}
-\begin{center}
-\begin{tabular}{l|cc}
-\hline
-Experiment  &  Scale $\sigma$ & Shape $\xi$ \\
-\hline
-4/4 &  43.07 $\pm$ 5.80 &  0.57 $\pm$ 0.03 \\
-4/24 & 22.97 $\pm$ 1.57 & 0.66 $\pm$  0.02  \\
-7/31 &  53.18 $\pm$ 7.77 &  0.54 $\pm$ 0.03   \\
-\hline
-Cache 128 & 205.28 $\pm$ 32.10 & 0.77 $\pm$ 0.07 \\ 
-Cache 64 & 178.99 $\pm$ 36.44 & 0.60 $\pm$ 0.05 \\ 
-Cache 32 & 168.15 $\pm$ 49.28 & 0.57 $\pm$ 0.07 \\
-\hline
-% from plot-zipf-openshift.R and ips-puts-alife.R
-\end{tabular}
-\end{center}
-\end{table}
-%
-The inverse
-Weibull distribution is a special case of the GEV distribution we have
-used in those papers, and appears usually in natural sciences and
-artificial life, usually related to decay. It has been frequently
-fitted to volunteer computing frameworks such as SETI@home
-\cite{javadi2009mining}. The model that user behavior follows can be
-explained straighforwardly: when users visit the page, it draws their
-attention for a limited amount of time. They give it a chance for a
-few seconds. If something there amuses them or they can engage in a
-conversation about it, they stay for a while longer, otherwise, they
-leave. The {\em scale} parameter, which is around 20-40 in the first
-batch for the 40 Trap problem and between 160 and 200 in the 60 traps
-problem, depends mainly on the maximum number of generations people
-leave it running. Since it finishes or stalls after a number of
-generations shown in Figure \cite{tab:summary:os}, volunteers just
-leave after that. Curiously enough, the scale parameter is roughly
-twice the median number of {\tt PUT}s per experiment, showing that, on
-average, the most loyal users reload the page twice after finishing or
-after seeing the evolution does not progress. This rule of thumb
-breaks down with the last experiment, however, which is interesting by
-itself, too. 
-
-The slope or shape parameter, on the other hand, indicates the overall
-shape of the curve. A value less than 1 indicates a concave (in a
-non-algorithmic scale) curve,
-with figures closer to one indicating a smaller slope. In all cases
-values are between 0.54 and 0.77, independently of the experiment. It
-might be the case that this number depends more on the total number of
-experiments carried out, with sets with more experiments, both in the
-middle, having values between 0.60 and 0.70. The distribution is
-remarkably similar which gives us a model of user behavior that is, to
-a certain extent, independent of the experiment.  
-
-These experiments show that, as it was proved for other volunteer
-computer frameworks and also in the case of games, user engagement
-follows a Weibull distribution. This makes engagement the key for
-leveraging the performance of the sociotechnical metacomputer and a
-way to improve results in the future. 
 
 %---------------------------------------------------------------
 \section{Conclusion}
