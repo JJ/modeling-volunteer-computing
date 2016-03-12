@@ -281,6 +281,19 @@ The architecture of the {\sf NodIO} system is divided in two tiers:\begin{enumer
   started. This did not completely avoid these contributions: if the
   clients of the {\em old} run increased their new fitness, it would
   still be allowed. 
+  % As I remember we kept the run_number so IPs with old runs
+  % did not interfere with newer ones. But you are saying: what if they are super slow 
+  % and always PUT when the run is already over?, we want to receive 
+  % those individuals? 
+  % "That means that if a particular IP
+  % sends the fitness 99 into the server, it will be accepted only
+  % once."  
+  % once per run?
+  %  but different individuals could have the same fitness, are we limiting the search? 
+  %  maybe we could have multiple versions of the pool a la MVCC  :)
+  % I think if we are just trying to limit overlapping of the experiments
+  % then PUTs should send the run's seq_number and completly remove it.  
+  
 \end{enumerate}
 
 Figure \ref{fig:system} describes the general system architecture and
