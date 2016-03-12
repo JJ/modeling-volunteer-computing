@@ -374,7 +374,17 @@ solution was found. The number of runs was controlled by polling an
 URL that indicated the number of runs made in the present batch so
 far. A summary of the experiments and  its results is shown in Table
 \ref{tab:runs}. This table shows the median time needed to find the
-solution as well as the median number of IPs and PUTs.
+solution as well as the median number of IPs and PUTs. In this case we
+distinguish between the total number of clients participating in that
+particular run, and the {\em actual} number whose contributions were
+accepted into the cache, which was set up to accept those only if {\em
+  new} chromosomes were sent to the server in order to avoid overlaps
+between one run and the next. That is why, in both cases, the
+``Contributing'' column includes a value that is less than the total
+number. The final column includes the total number of runs in that
+particular batch, finished after a minimum number of 30 was reached. 
+
+
 
 
 
