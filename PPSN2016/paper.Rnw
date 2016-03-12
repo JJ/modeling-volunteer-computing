@@ -197,7 +197,7 @@ and, as such, has been deployed in many different ways from the
 beginning of the Internet, starting with the SETI@home framework for
 processing extraterrestrial signals \cite{david-seti:home}. However
 the dual introduction of JavaScript as a universal language for the
-browser and the browser as an ubiquitous web and Internet client has
+browser and the browser itself as an ubiquitous web and Internet client has
 made this combination the most popular for volunteer computing
 frameworks such as the one we are using here, and whose first version
 was described in \cite{DBLP:conf/gecco/GuervosG15}.
@@ -207,76 +207,39 @@ JavaScript can be used for either unwitting
 \cite{langdon:2005:metas,gecco07:workshop:dcor} distributed
 evolutionary computation and it has been used ever since by several
 authors, including more recent efforts
-\cite{Desell:2008:AHG:1389095.1389273,duda2013distributed,DBLP:journals/corr/abs-0801-1210}. Many other researchers have
-%Pablo: Desell in 2008 is not so recent
-used Java \cite{chong:1999:jDGPi} and others have gone away from the
-server-based paradigm to embrace peer to peer systems
-\cite{jin2006constructing,10.1109/ICICSE.2008.99,DBLP:conf/3pgcic/GuervosMFEL12}. These computing
-platforms avoid single points of failure (the server) but, since they
-need a certain amount of infrastructure installed to start, the
-threshold to join them is much lower; this makes gathering new users
-immediate and spontaneous, so that they can be used for short
-algorithms on call.
+\cite{duda2013distributed,DBLP:journals/corr/abs-0801-1210,EvoStar2014:jsEO}. 
 
+In general, those papers go no further than a proof of concept,
+attempting to gauge how many users join the effort and also how long
+would it take a concrete amount of users to reach the solution. In
+general, they do not try to assess the performance of the algorithm
+itself in the precise conditions they find in a volunteer computing
+system, although papers such as the one by Laredo et
+al. \cite{churn08:ijhpsa}, using models, try to find out the resulting
+performance when the users are changing continously according to a
+Weibull distribution. In the case of Klein and Spector \cite{unwitting-ec}, the algorithm
+is actually run on the server, using the browser mainly for fitness
+evaluation so no actual contribution to the evaluation of the
+evolutionary algorithm itself is made.
 
-On the other hand, we are also interested in measuring the performance
-of volunteer computing systems, an area in which there have been
-relatively few efforts.
-There were some initial attempts to avoid the differences in performance
-that could be obtained from volunteers  by making
-the algorithm adaptive to the kind of resources allotted to it
-\cite{milani2004online}, which is actually not such a big problem in
-algorithms such as the EA that can be easily 
-parallelized via population splitting or by farming out the evaluation to all
-the nodes available. Lately, several approaches have focused on the
-fault-tolerance of volunteer systems
-\cite{gonzalez2010characterizing} which it can, of course, be studied in
-the more general context of distributed computing 
-\cite{nogueras2015studying} or including it in a more general study of the
-performance of the EA itself
-\cite{DBLP:journals/gpem/LaredoBGVAGF14}. This performance cannot be
-measured without first understanding the dynamics of this kind of systems. Initial
-work was done for peer to peer systems by Stutzbach et
-al. \cite{stutzbach2006understanding} and extended to volunteer
-computing by Laredo et al. \cite{churn08,laredo2008rcp}. A similar
-study was performed by Martínez et al. on the Capataz system
-\cite{martinez2015capataz}; however, in this case the number of
-computers used was known in advance and the main focus was on
-measuring the speed up and how job bundling helped to reduce overhead and
-enhance performance. On the contrary, in this paper, we will use {\em
-  actual} volunteers, anonymous persons that are requested to join an
-experiment through social networks.
+There is another factor that should be taken into account: since the
+user has control of the browser, there is a limited amount of
+interaction with it, namely, the fact that by reloading the webpage he
+can apply a kind of hypermutation killing the current population and
+generating new individuals some of which will make their way to the
+common pool via migration. In that sense, volunteer computing is also
+a way of {\em human computation} \cite{quinn2011human}, a concept that
+has also been applied to evolutionary algorithms \cite{972056}, in
+this case extensively and with all operators. It is quite difficult to
+find out how many times this happens and what is their effect on the
+overall algorithm, but this only reaffirms the fact that there is a
+long list of issues with volunteer evolutionary computation, and that
+the volunteer him or herself is at the center of many of them.
 
-Some of the essential metrics in volunteer computing like the
-number of users or the time spent by every one in the
-computation in browser-based volunteer computing experiments, have
-only been studied in a limited way in 
-\cite{DBLP:journals/gpem/LaredoBGVAGF14} on the basis of a single
-run. Studies using volunteer computing platforms such as SETI@home
-\cite{javadi2009mining,agajaj} found out that the Weibull, log-normal and
-Gamma distribution 
-modeled quite well the availability of resources in several clusters
-of that framework; the shape of those distributions is a skewed bell
-with more resources in the {\em low} areas than in the high areas:
-there are many users that give a small amount of cycles, while there
-are just a few that give many cycles. 
-
-As far as we know, this paper presents one of the few experiments
-that measure the performance of a sociotechnical
-metacomputer, that is, a spontaneously created parallel computer that
-uses social networks for operations such as gathering new
-users. Apol{\'o}nia et al. \cite{apolonia2012enhancing} used the 
-Facebook protocol to distribute tasks among the {\em walls} of
-friends, explicitly using the social network for computing. However,
-it stopped short of relating performance to the macro measures of the
-users' social networks. As in the previous example, a social network
-was used to get new network nodes; in the previous case a web page was
-used, while Facebook's wall was used here.
-
-In our case, social networks are an integral part of the system and
-used to spontaneously obtain users. The algorithms used, as well as the methodology 
-for gathering resources will be described next, 
-together with the results obtained in this initial setup.
+In this paper we will make contributions towards the design of
+efficient volunteer evolutionary algorithms by studying the effect of
+several design decisions on performance. In the next Section we will
+present the general framework and the initial setup.
 
 
 \section{Description of the framework}
