@@ -119,7 +119,7 @@ Dept. of Graduate Studies at Instituto Tecnol\'ogico de Tijuana}
 
 \begin{abstract}
 In a volunteer distributed computing system, users run a program in
-their own machine to contribute to a common effort. If they are
+their own machine to contribute to a common effort. If the program is
 embedded in a web page, collaboration is easy, but also ephemeral. In
 this paper we analyze a volunteer evolutionary computing system called
 NodIO and try to find out a few rules that encourage volunteer
@@ -134,14 +134,14 @@ improvements and leveraging of these contributions.
 \label{introduction}
 
 
-The world wide web provides not only a platform for content
-distribution, but an increasingly reliable and high-performance
+The world wide web not only provides a platform for content
+distribution, but also an increasingly reliable and high-performance
 platform for running distributed applications. This is based in two
 key facts: the Javascript virtual machine every browser runs and a
 simplified standard interface for interacting with servers. Thus
 creating a distributed computing experiment is just a matter of making
 a JavaScript application interchange information with a server, called
-rest. From the point of view of the programmer, this involves
+REST. From the point of view of the programmer, this involves
 relatively common skills and no special libraries, since that
 interface is built in the browser, and a simple application that
 responds to those requests on the server side; both involve just a few
