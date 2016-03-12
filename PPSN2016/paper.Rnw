@@ -270,7 +270,17 @@ The architecture of the {\sf NodIO} system is divided in two tiers:\begin{enumer
   back to the server (via a {\tt PUT} request), and then requests a random
   individual back from the server (via a {\tt GET} request). We have
   kept the number of generations between migrations fixed since it is
-  a way of finding out how much real work every client is doing. 
+  a way of finding out how much real work every client is doing. In
+  the version of the server used in this paper, we implemented a
+  policy by which the combination IP-fitness value could only be
+  inserted once into the cache. That means that if a particular IP
+  sends the fitness 99 into the server, it will be accepted only
+  once. The main intention of this policy was to avoid {\em
+    overlapping} of contributions, with clients still running an {\em
+    old} run of the experiment contributing after a new one had
+  started. This did not completely avoid these contributions: if the
+  clients of the {\em old} run increased their new fitness, it would
+  still be allowed. 
 \end{enumerate}
 
 Figure \ref{fig:system} describes the general system architecture and
@@ -299,6 +309,11 @@ option in the server. In all cases we are using 50 Traps, a problem
 that is difficult enough to need the intervention of several users for
 an extended amount of minutes.
 
+For every new individual sent by the clients to the cache, several
+pieces of meta data were stored: a time stamp, the client IP, the chromosome and
+value, the cache size in that particular moment, and also if that
+individual actually updated the cache or not. 
+
 All experiments are announced in the same way: we use social networks,
 mainly Twitter, to announce the start of a new experiment. LinkedIn,
 Facebook, and also private groups in Telegram and WhatsApp have been
@@ -321,7 +336,7 @@ algorithm will be explained next.
 \begin{center}
 \begin{tabular}{|l|c|c|c|c|c|c|}
 \hline
-Experiment & Time (ms) & \multicolumn{2}{|c|}{IPs} & \multicolumn{2}{|c|}{PUTs} & \#Runs\\
+Experiment & Median Time (ms) & \multicolumn{2}{|c|}{Median IPs} & \multicolumn{2}{|c|}{Median PUTs} & \#Runs\\
            &           & Total & Contributing & Total & Contributing & \\
 \hline
 base & 120056.0 & 10 & 4 & 256.0 & 21.0 & 81\\
@@ -343,25 +358,23 @@ cachereboot & 392917.0 & 12 & 12 & 576.0 & 79.0 & 55\\
 \end{center}
 \end{table}
 %
-Initial experiments were set up using the OpenShift
+Since the point of using volunteer computing system is to cut costs,
+all experiments were set up using the OpenShift
 PaaS, which provides a free tier, making the whole experiment cost
-equal to \$0.00. Experiments were
-announced through a series of posts on Twitter and, in the latest case, Telegram, and
-results were published here \cite{DBLP:conf/gecco/GuervosG15}. For the
-purpose of this paper, we repeated the announcement several times
-through the month of February. All  %% April --> January ??
-in all, we have the set of runs with the characteristics shown in
-Table \ref{tab:runs}. In general, every experiment took several
-days. No particular care was taken about the time of the announcement
-%Pablo: but it would great at least describe how many times was announced and how long
-or the particular wording. Every {\em experiment} consisted in running
-until the solution of the 50-trap problem was found. When the correct
-solution was sent to the server, the counter was updated and the pool
-of solutions resets to the void set. There was no special intention to wait
-until all clients had finished, thus it might happen that. In fact,
-the islands running in the browser {\em spill} from one experiment to
-the next. However, previous experiments have proven that the influence
-of these islands in the next experiment is indeed negligible. %Pablo: cite
+equal to \$0.00. In fact, the NodIO system can be deployed to any
+system as long as it can run node.js and access to the filesystem, for
+log files, is available. All these logs are available under
+request. Processed files are available in the same repository that
+hosts this paper, as well as the scripts needed to process them. 
+
+Every run had slightly different conditions, although in some cases it
+was just a server reboot and a new round of announcements. Each run
+batch included at least 30 competions, that is, running until the
+solution was found. The number of runs was controlled by polling an
+URL that indicated the number of runs made in the present batch so
+far. A summary of the experiments and  its results is shown in Table
+\ref{tab:runs}. This table shows the median time needed to find the
+solution as well as the median number of IPs and PUTs.
 
 
 
