@@ -104,8 +104,7 @@ for ( i in these.experiments ) {
 }
 @
 
-\title{Evolutionary algorithms in a volunteer computing system:
-  performance assessment}
+\title{A performance assessment of evolutionary algorithms in a volunteer computing system}
 
 \author{Juan-J.~Merelo \and Paloma de las Cuevas \and Pablo
   Garc\'ia-S\'anchez \inst{1} \and Mario Garc\'ia-Valdez \inst{2}}
@@ -247,67 +246,41 @@ present the general framework and the initial setup.
 
 In general, a distributed volunteer-based evolutionary computation
 system based on the browser is simply a client-server system
-whose client is, or it can be, embedded in the browser via
-JavaScript. Since JavaScript is  the only language that is present
-across all browsers, the choice was quite clear. We should emphasize
-that NodIO is more intended as an auxiliary computing engine, more
-than the main one, so performance of JavaScript as a language is not
-so important; even so, we have made a comparison between JavaScript and other languages
-\cite{2015arXiv151101088M} that shows that performance of JavaScript
-is comparable to other interpreted languages; compiled languages would
-be faster, but, of course, it is impossible to gather volunteers
-spontaneously and without any installation with them.
+with a client embedded in the browser via JavaScript. We call this
+system {\sf NodIO}. All parts of the framework are free and available
+with a free license from
+\url{https://github.com/JJ/splash-volunteer}. 
 
-In this sense, in this paper we propose the {\sf NodIO} framework, a
-cloud or bare metal based volunteer evolutionary computing system
-derived from the {\sf NodEO} library, whose architecture has been
-developed using JavaScript on the client as well as the server.
-All parts of the framework are free and available with a free license
-from \url{https://github.com/JJ/splash-volunteer}.
-
-Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
-\item A REST server, that is, a server that includes several {\em
-  routes} 
-  that can be called for storing and retrieving information (the ''CRUD'' cycle:
-  create, request, update, and delete) from the server. 
-  A JSON data format is used for the communication between 
-  clients and the server. There are two kinds of information:
-  {\em problem} based, that is, related to the
-  evolutionary algorithm such as {\tt PUT}ing a chromosome in or {\tt
-  GET}ing a random chromosome from it, and {\em information} related
-  to the performance and state of the experiments. It also performs logging
-  duties, but they are basically a very lightweight and high performance
-  data storage \cite{jj:idc:lowcost}.
-  The server has the capability to
-  run a single experiment, storing the chromosomes in a data structure
-  that is reset when the solution is found. This data structure can
-  hold every chromosome in a particular experiment, or have a finite
+The architecture of the {\sf NodIO} system is divided in two tiers:\begin{enumerate}
+\item A REST (representational state transfer) server that responds to
+  HTTP requests made by the browsers. These HTTP requests use JSON for
+  encoding information, in this case chromosomes and associates
+  information send by the clients and return requests made by the
+  server.  The server has the capability to
+  run a single experiment, storing the incoming chromosomes in a data structure
+  that is reset when the solution is found. This data has a finite
   size that erases the oldest chromosomes once it has filled to
-  capacity. In this paper we will test both implementations.  
+  capacity.  
 \item A client that includes the evolutionary algorithm as
-  JavaScript code embedded in a web page that displays graphs, some
+  JavaScript code embedded in a web page that displays the fitness and
+  other graphs, some
   additional links, and information on the experiment. This code runs
   an evolutionary algorithm {\em island} that starts with a random
   population, then after every 100 generations, it sends the best individual
   back to the server (via a {\tt PUT} request), and then requests a random
   individual back from the server (via a {\tt GET} request). We have
   kept the number of generations between migrations fixed since it is
-  a way of finding out how many real work every client has done. 
+  a way of finding out how much real work every client is doing. 
 \end{enumerate}
 
 Figure \ref{fig:system} describes the general system architecture and
 algorithm behavior. Different web technologies, such as JQuery or {\tt
   Chart.js} have been used to build the user interface elements of the
-framework, a part of which is shown in Figure \ref{fig:screenshot} and
-should be running in \url{http://nodio-jmerelo.rhcloud.com}.
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=0.95\linewidth]{nodio-screenshot.png}
-\caption{Screenshot showing the fitness and number of users as seen by
-volunteers. The one on the left shows fitness, on the right the
-accumulated number of users. \label{fig:screenshot}}
-\end{figure}
+framework, which should be running in
+\url{http://nodio-jmerelo.rhcloud.com}, a free resource hosted in the
+OpenShift Platform as a Service.\footnote{It is not guaranteed to be running,
+or running the same version, when you read this, however; you can always get
+the sources from GitHub and set it up yourself.}
 %
 \begin{figure}[!t]
 \centering
@@ -318,40 +291,40 @@ accumulated number of users. \label{fig:screenshot}}
 \label{fig:system}
 \end{figure}
 
-JavaScript is a functional language, so in order to work with a
-problem, a fitness function must be supplied at the creation of the algorithm object, 
-called {\tt Classic}. In this case the classical Trap 
-function \cite{Ackley1987} has been used. Depending on the
-problem additional handing functions and configurations 
-can be supplied. 
+NodIO needs a fitness function to work with; in this case the classical Trap 
+function \cite{Ackley1987} has been used; this function runs in the
+browser, but the server needs to know when the solution has been
+found, so a termination condition is also included as a configuration
+option in the server. In all cases we are using 50 Traps, a problem
+that is difficult enough to need the intervention of several users for
+an extended amount of minutes.
 
-The next Section will describe experiments performed to
-establish a baseline performance and gather initial performance
-results. In the first set of experiments, performed last year, we used the 40-trap
-problem, while the current experiments changed to the more difficult 50-trap
-in order to compare the performance with a more computationally intensive problem.
+All experiments are announced in the same way: we use social networks,
+mainly Twitter, to announce the start of a new experiment. LinkedIn,
+Facebook, and also private groups in Telegram and WhatsApp have been
+used too for announcements. We also encourage friends and followers to
+put an original post for announcing it, instead of just sharing, in
+the way allowed by the platform, the original post. During the running
+of the experiments, users are engaged, questions answered, and all
+kind of explanations given if requested. In general, announcements
+have been made in Spanish, but in some cases English was used
+too. This makes for a certainly unrealiable experimentation framework,
+but it is a realistic one. The steps in the design of the evolutionary
+algorithm will be explained next.
 
 %---------------------------------------------------------------
-\section{Modeling the performance of a volunteer-based distributed computer} 
+\section{Experiments and results} 
 \label{sec:experiments}
 
 \begin{table}[htb]
 \caption{Experiment table, with summary of results. \label{tab:runs}}
 \begin{center}
-\begin{tabular}{l|rrl}
-\hline
-Experiment & \#Runs & Different IPs & Traps \\
-\hline
-April 4th 4/4 & 57 & 191 & 40 \\
-April 24th 4/24 &  231 & 559& 40  \\
-July 31th 7/31 & 97 & 179 & 40 \\
-\hline
-February, cache=128 & 61 & 75 & 50  \\
-February, cache=64 & 61 & 220 & 50  \\
-February, cache=32 & 39 & 86 & 50  \\
-% grep start ~/Code/splash-volunteer/data/2016/nodio-2016-2-28-cache=32.log
-\hline
-\end{tabular}
+
+<<experiments, cache=FALSE,echo=FALSE>>=
+experiment.aggregates$Experiment <- c("base","graph1","graph2","graph3","reboot","cachereboot")
+kable(experiment.aggregates)
+@ %def 
+
 \end{center}
 \end{table}
 %
