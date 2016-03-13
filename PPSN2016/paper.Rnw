@@ -465,7 +465,7 @@ ggplot(ips.data,aes(x=idx,y=PUTs,group=Experiment,color=Experiment))+geom_point(
 @ %def graph for IPs and puts
 
 \caption{Ranked and normalized number of contributions (PUTs) per IP,
-  plotted in a log $y$ scale.}
+  plotted in a log $y$ scale.\label{fig:zipf}}
 \label{fig:zipf}
 \end{figure}
 
@@ -480,10 +480,24 @@ hosts this paper, as well as the scripts needed to process them.
 
 Every run had slightly different conditions, although in some cases it
 was just a server reboot and a new round of announcements. Each run
-batch included at least 30 competions, that is, running until the
+batch included at least 30 completions, that is, evolution until the
 solution was found. The number of runs was controlled by polling an
 URL that indicated the number of runs made in the present batch so
-far. A summary of the experiments and  its results is shown in Table
+far. Every volunteer contributed a certain number of individuals
+(represented by the PUT HTTP order) to the server. The ranked number
+of contributions per unique IP is shown in Figure \ref{fig:zipf} in a
+log-log scale. Besides following the usual Zipf's law found in our
+previous work and having a very similar appearance for all 5 sets, it
+is interesting to see how some sets have a number of contributions per
+IP that is slightly superior to the rest, specially so in {\tt
+  graph2}. The last two sets, {\tt reboot} and {\tt cachereboot}, also
+show a regime in the middle of the graph that shows that some users
+are contributing more than in other similar sets. In general, these
+differences in behavior are due more to the specific users that show
+up in these experiments than to general laws, but it should also be
+noted that those behaviors can be encouraged by design.
+
+A summary of the experiments and  its results is shown in Table
 \ref{tab:runs}. This table shows the median time needed to find the
 solution as well as the median number of IPs and PUTs. In this case we
 distinguish between the total number of clients participating in that
@@ -528,7 +542,17 @@ difficult problem will be found. Let us filter then the runs,
 eliminating those that use less than 1600 generations to find the
 solution which can reasonably be said that they did so because some
 browser ``carried over'' a chromosome from the previous run. The
-results are shown in Table \ref{tab:filtered}
+results are shown in Table \ref{tab:filtered}. The first change is in
+the column \#Runs, that shows that most of the runs in the initial
+configurations found the solution thanks to these carried over
+clients. However, in the last two rows, the ones that rebooted clients
+when they detected changes in cache, the difference is minimal. This
+means that one objective has been reached: if clients reboot when they
+detect changes in the cache that imply a new run, overlaps are almost
+eliminated. 
+
+However, the rest of the measures also changes and so we will refer to
+this table from now on. 
 
 
 
