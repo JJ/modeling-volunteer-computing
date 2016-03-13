@@ -129,7 +129,7 @@ time.data <- data.frame(Experiment=character(),
                         minute=as.Date(character()),
                         IPs=character())
 
-these.experiments <- c("nooverlap-0","nooverlap","nooverlap-newgraph","nooverlap-newgraph-reboot-cachecrash")
+these.experiments <- c("nooverlap-0","nooverlap-newgraph","nooverlap-newgraph-reboot","nooverlap-newgraph-reboot-cachecrash")
 ip.correlations <- data.frame(Experiment=character(),
                               correlation=character())
 
@@ -560,6 +560,16 @@ resulting in a slow change in the cache and a lower diversity of
 clients that tap that cache. At any rate, an increased number of
 effective PUTs will have a positive impact in the algorithm.
 
+\begin{table}[htbp]
+  \caption{Minute-wise correlation for number of participating volunteers. \label{tab:correlation}}
+\begin{center}
+<<correlations, cache=FALSE,echo=FALSE>>=
+#experiment.aggregates$Experiment <- c("base","graph1","graph2","reboot","cachereboot")
+kable(ip.correlations)
+@ %def correlations
+\end{center}
+\end{table}
+%
 We can check this impact by looking at the column that refers to
 median time in Table \ref{tab:filtered} and its relation to the median
 number of PUTs, which reflects the number of evaluations performed by
