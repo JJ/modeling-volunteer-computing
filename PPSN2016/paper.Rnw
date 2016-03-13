@@ -564,7 +564,7 @@ effective PUTs will have a positive impact in the algorithm.
   \caption{Minute-wise correlation for number of participating volunteers. \label{tab:correlation}}
 \begin{center}
 <<correlations, cache=FALSE,echo=FALSE>>=
-#experiment.aggregates$Experiment <- c("base","graph1","graph2","reboot","cachereboot")
+ip.correlations$Experiment <- c("base","graph1","reboot","cachereboot")
 kable(ip.correlations)
 @ %def correlations
 \end{center}
@@ -591,6 +591,17 @@ strategy 30\% of users do not. This might be due to the fact that {\tt
 fast clients there might be some clients that do not detect that
 change and might, in fact continue with their former run, thus not
 contributing to the common cache.  
+
+In fact, as can be seen in Table \ref{tab:correlations}, which shows
+the correlation between the number of IPs from one minute to the next,
+the behavior of all experiments but the last one are similar, with a
+very high correlation indicating that the number of volunteers does
+not change from one minute to the next. However, there is a sharp drop
+for the {\tt cachereboot} experiment, which indicates a bigger
+dynamism, with individuals joining and leaving the experiment all the
+time. This might be circumstancial, but it also reflects the fact
+that the solution is found in less time and that users need less
+contributions to find it personally. 
 
 
 
