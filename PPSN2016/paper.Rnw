@@ -119,7 +119,7 @@ Dept. of Graduate Studies at Instituto Tecnol\'ogico de Tijuana}
 
 \begin{abstract}
 In a volunteer distributed computing system, users run a program in
-their own machine to contribute to a common effort. If they are
+their own machine to contribute to a common effort. If the program is
 embedded in a web page, collaboration is easy, but also ephemeral. In
 this paper we analyze a volunteer evolutionary computing system called
 NodIO and try to find out a few rules that encourage volunteer
@@ -134,14 +134,14 @@ improvements and leveraging of these contributions.
 \label{introduction}
 
 
-The world wide web provides not only a platform for content
-distribution, but an increasingly reliable and high-performance
+The world wide web not only provides a platform for content
+distribution, but also an increasingly reliable and high-performance
 platform for running distributed applications. This is based in two
 key facts: the Javascript virtual machine every browser runs and a
 simplified standard interface for interacting with servers. Thus
 creating a distributed computing experiment is just a matter of making
 a JavaScript application interchange information with a server, called
-rest. From the point of view of the programmer, this involves
+REST. From the point of view of the programmer, this involves
 relatively common skills and no special libraries, since that
 interface is built in the browser, and a simple application that
 responds to those requests on the server side; both involve just a few
@@ -257,7 +257,7 @@ The architecture of the {\sf NodIO} system is divided in two tiers:\begin{enumer
   encoding information, in this case chromosomes and associates
   information send by the clients and return requests made by the
   server.  The server has the capability to
-  run a single experiment, storing the incoming chromosomes in a data structure
+  run a single experiment, storing the incoming chromosomes in a cache data structure
   that is reset when the solution is found. This data has a finite
   size that erases the oldest chromosomes once it has filled to
   capacity.  
@@ -281,10 +281,23 @@ The architecture of the {\sf NodIO} system is divided in two tiers:\begin{enumer
   started. This did not completely avoid these contributions: if the
   clients of the {\em old} run increased their new fitness, it would
   still be allowed. 
+  % As I remember we kept the run_number so IPs with old runs
+  % did not interfere with newer ones. But you are saying: what if they are super slow 
+  % and always PUT when the run is already over?, we want to receive 
+  % those individuals? 
+  % "That means that if a particular IP
+  % sends the fitness 99 into the server, it will be accepted only
+  % once."  
+  % once per run?
+  %  but different individuals could have the same fitness, are we limiting the search? 
+  %  maybe we could have multiple versions of the pool a la MVCC  :)
+  % I think if we are just trying to limit overlapping of the experiments
+  % then PUTs should send the run's seq_number and completly remove it.  
+  
 \end{enumerate}
 
 Figure \ref{fig:system} describes the general system architecture and
-algorithm behavior. Different web technologies, such as JQuery or {\tt
+algorithm behavior. Different JavaScript libraries, such as JQuery or {\tt
   Chart.js} have been used to build the user interface elements of the
 framework, which should be running in
 \url{http://nodio-jmerelo.rhcloud.com}, a free resource hosted in the
@@ -310,6 +323,9 @@ that is difficult enough to need the intervention of several users for
 an extended amount of minutes.
 
 For every new individual sent by the clients to the cache, several
+% We have not presented the "cache",  only the server and
+% ..storing the incoming chromosomes in a data structure
+% Im changing over there to cache
 pieces of meta data were stored: a time stamp, the client IP, the chromosome and
 value, the cache size in that particular moment, and also if that
 individual actually updated the cache or not. 
