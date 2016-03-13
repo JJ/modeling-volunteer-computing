@@ -37,7 +37,7 @@ experiment.aggregates <- data.frame(Experiment=character(),
                                     milliseconds=character(),
                                     IPs=character(),
                                     actualIPs = character(),
-                                    PUTss = character(),
+                                    PUTs = character(),
                                     actualPUTs = character(),
                                     count = character())
 
@@ -101,6 +101,33 @@ for ( i in these.experiments ) {
                                   minute=strptime(this.data$time,"%Y-%m-%d %H:%M"),
                                   IPs=as.integer(this.data$IPs))
                        )
+}
+
+ips.data <- data.frame(Experiment=character(),                      
+                       PUTs=character(),
+                       reboots=character())
+
+ips.aggregates <- data.frame(Experiment=character(),
+                             PUTs = character(),
+                             reboots = character(),
+                             avgPUTs = character(),
+                             avgreboots = character() )
+
+for ( i in these.experiments ) {
+    this.data <- read.csv(paste0("../data/2016-PPSN/ips-reboots-cache=32-",i,".csv"))
+    ips.data <- rbind(ips.data,
+                      data.frame(Experiment=rep(i,length(this.data$PUTs)),
+                                 PUTs=as.integer(this.data$PUTs),
+                                 reboots=as.integer(this.data$reboots))
+                       )
+    
+    ips.aggregates <- rbind( ips.aggregates,
+                            data.frame(Experiment=i,
+                                       PUTs = median(this.data$PUTs),
+                                       reboots = median(this.data$reboots),
+                                       avgPUTs = mean(this.data$PUTs),
+                                       avgreboots = mean(this.data$reboots) )
+                            )
 }
 @
 
