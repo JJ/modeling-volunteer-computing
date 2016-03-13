@@ -223,7 +223,8 @@ the solution. Eventually, we want to find a system that, whatever the
 number of users available to perform the experiment, is able to
 maximize their contribution to the evolutionary algorithm, at the same
 time that the evolutionary algorithm itself makes the most of those
-contributions, independently of how many they are.
+contributions, independently of how many they are, and is able to find
+the solution to the problem in less time and with less contributions.
 
 The rest of the paper is organized as follows: Next we will briefly
 present the state of the art in opportunistic distributed evolutionary
@@ -429,32 +430,16 @@ cachereboot & 392917.0 & 12 & 12 & 576.0 & 79.0 & 0.1575092 & 55 & 225 & 43.2857
 \end{table}
 %
 %
-\begin{table}
-  \caption{Experiments with overlaps eliminated:  summary of results. \label{tab:filtered}}
-\begin{center}
-\begin{tabular}{|l|c|c|c|c|c|c|c|}
-\hline
-Experiment & Median Time & \multicolumn{2}{|c|}{Median IPs} &\multicolumn{2}{|c|}{Median PUTs} & \#Runs &  Puts/IP \\
-&   (ms)        & Total & Used & Total & Used &  & \\
-\hline
-base & 293685 & 13.0 & 8.0 & 483.0 & 57.0 & 47 & 35.50000\\
-\hline
-graph1 & 768053 & 12.0 & 5.0 & 601.0 & 79.0 & 21 & 45.84615\\
-graph2 & 1477969 & 6.0 & 4.0 & 901.0 & 52.0 & 25 & 149.42857\\
-\hline
-reboot & 799471 & 9.5 & 6.5 & 656.5 & 67.0 & 44 & 76.48016\\
-\hline
-cachereboot & 463347 & 12.0 & 12.0 & 638.5 & 80.5 & 52 & 44.25911\\
-\hline
-\end{tabular}
-%% Initially generated with this code, 
-%%<<experiments.filtered, cache=FALSE,echo=FALSE>>=
-%%experiment.aggregates.filtered$Experiment <- c("base","graph1","graph2","reboot","cachereboot")
-%%kable(experiment.aggregates.filtered)
-%%@ %def 
 %
-\end{center}
-\end{table}
+Since the point of using volunteer computing system is to cut costs,
+all experiments were set up using the OpenShift
+PaaS, which provides a free tier, making the whole experiment cost
+equal to \$0.00. In fact, the NodIO system can be deployed to any
+system as long as it can run node.js and access to the filesystem, for
+log files, is available. All these logs are available under
+rrequest. Processed files are available in the same repository that
+hosts this paper, as well as the scripts needed to process them. 
+
 %
 %
 \begin{figure}[htbp]
@@ -467,16 +452,7 @@ ggplot(ips.data,aes(x=idx,y=PUTs,group=Experiment,color=Experiment))+geom_point(
   plotted in a log $y$ scale.\label{fig:zipf}}
 \label{fig:zipf}
 \end{figure}
-
-Since the point of using volunteer computing system is to cut costs,
-all experiments were set up using the OpenShift
-PaaS, which provides a free tier, making the whole experiment cost
-equal to \$0.00. In fact, the NodIO system can be deployed to any
-system as long as it can run node.js and access to the filesystem, for
-log files, is available. All these logs are available under
-rrequest. Processed files are available in the same repository that
-hosts this paper, as well as the scripts needed to process them. 
-
+%
 Every run had slightly different conditions, although in some cases it
 was just a server reboot and a new round of announcements. Each run
 batch included at least 30 completions, that is, evolution until the
@@ -530,6 +506,34 @@ encourage engagement by the users and also to increase the involvement
 of every client in the common experiment, eliminating at the same time
 overlaps between runs. 
 
+%
+\begin{table}
+  \caption{Experiments with overlaps eliminated:  summary of results. \label{tab:filtered}}
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\hline
+Experiment & Median Time & \multicolumn{2}{|c|}{Median IPs} &\multicolumn{2}{|c|}{Median PUTs} & \#Runs &  Puts/IP \\
+&   (ms)        & Total & Used & Total & Used &  & \\
+\hline
+base & 293685 & 13.0 & 8.0 & 483.0 & 57.0 & 47 & 35.50000\\
+\hline
+graph1 & 768053 & 12.0 & 5.0 & 601.0 & 79.0 & 21 & 45.84615\\
+graph2 & 1477969 & 6.0 & 4.0 & 901.0 & 52.0 & 25 & 149.42857\\
+\hline
+reboot & 799471 & 9.5 & 6.5 & 656.5 & 67.0 & 44 & 76.48016\\
+\hline
+cachereboot & 463347 & 12.0 & 12.0 & 638.5 & 80.5 & 52 & 44.25911\\
+\hline
+\end{tabular}
+%% Initially generated with this code, 
+%%<<experiments.filtered, cache=FALSE,echo=FALSE>>=
+%%experiment.aggregates.filtered$Experiment <- c("base","graph1","graph2","reboot","cachereboot")
+%%kable(experiment.aggregates.filtered)
+%%@ %def 
+%
+\end{center}
+\end{table}
+%
 So we will have to check whether we have effectively eliminated these
 overlaps. In order to do that, we will have to establish a threshold
 under which reasonably the solution cannot be found. In every
@@ -603,18 +607,60 @@ time. This might be circumstancial, but it also reflects the fact
 that the solution is found in less time and that users need less
 contributions to find it personally. 
 
-
-
-
-
-
-
-
 %---------------------------------------------------------------
 \section{Conclusion}
 \label{sec:conclusion}
 
-% TODO
+Our main intention in this paper was to focus on the algorithm itself
+so that it became as effective as possible, and able to use
+computation by volunteers in the best possible way, or at least better
+than the initial configuration. This initial configuration included
+{\em overlaps} or clients running islands that had actually started in
+a previous experiment in the set. If we are interested in measuring
+how many users or their behavior in bulk this is not so important, but
+in this case our focus was on the algorithm so we had to try that all
+clients participating in it started more or less at the same time and
+from a random population. In fact, we managed to do so, except in some
+byzantine cases, by making the clients restart when the cache size
+collapses to 1 or to a size much smaller than the current; we called
+this client configuration {\tt reboot} and {\tt cachecrash}.  This
+configuration achiever a positive secondary effect: all clients
+contribute to fill the cache, having thus an actual effect on the
+chromosome pool and effectively making all clients present contribute
+to the simulation. 
+
+The last configuration managed to find, with a relatively small number
+of evaluations, solutions in half the time that in previous sets of
+experiments. Although in the {\tt base} and {\tt graph} the median
+time and number of contributions was smaller, we cannot disregard the
+possibility that many of those solutions were found thanks to
+contributions from {\em carried over} islands with an algorithm that
+has run a big amount of evaluations already. At any rate, the {\tt
+  cachereboot} finds on average solutions four times as fast as {\tt
+  graph2} with twice as many average volunteers (or three times as
+many if we consider {\em effective} volunteers), needing 50\% less
+evaluations, thus meaning a big improvement in the performance of the
+evolutionary algorithm, which was the target of this paper. This
+improvement is less with respect to {\tt reboot}, but in any case the
+method to detect the beginning of a new run is much more effective and
+will be kept in the future.
+
+This future holds many challenges which once again will go in two
+different directions: gathering more users and improving the
+efficiency of the algorithm run in an asynchronous way by the
+users. In the first case, it will be interesting to make it more {\em
+  social} by comparing local performance to other's contributions, and
+showing it in a graph or being able to tweet advances or the fact that
+the solution has been found. Anything that keeps the users running the
+system and attracts new users will contribute to the speed of finding
+the solution. And the algorithm will have to be improved, mainly by
+making the population more diverse. Right now there is a rigid policy
+of contribution to the pool: send the best individual, but this could
+be relaxed. Some other policies could also be tested, as well as
+running heterogenous algorithms in the same way that was done in
+\cite{DBLP:journals/grid/ValdezTGVO15}. Diversity, as in any other
+evolutionary algorith, seems to be the key, but there are many ways of
+approaching it. 
 
 All these avenues of experimentation will be done openly following the
 Open Science policy of our group, which, in fact, contributes to
@@ -626,15 +672,14 @@ the data and processing scripts, are published with a free license in GitHub at
 %---------------------------------------------------------------
 \section*{Acknowledgments}
 
-This work has been supported in part by TIN2014-56494-C4-3-P (Spanish Ministry of Economy and Competitivity),
-PROY-PP2015-06 (Plan Propio 2015 UGR)  % please, remember to include all the current projects   ;)   Thanks!
-. We would also like to thank the
-anonymous reviewers of previous versions of this paper who have really
-helped us to improve 
+This work has been supported in part by TIN2014-56494-C4-3-P (Spanish
+Ministry of Economy and Competitivity), PROY-PP2015-06 (Plan Propio
+2015 UGR) . We would also like to thank the anonymous reviewers of
+previous versions of this paper who have really helped us to improve
 this paper (and our work) with their suggestions. We are also grateful
 to Anna S\'aez de Tejada for her help with the data processing
 scripts. We are also grateful to {\tt @otisdriftwood} for his help
-gathering users for the new experiments. 
+gathering users for the new experiments.
 
 
 \bibliographystyle{splncs}
