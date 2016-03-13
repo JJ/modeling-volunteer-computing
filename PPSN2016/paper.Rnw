@@ -289,11 +289,17 @@ The architecture of the {\sf NodIO} system is divided in two tiers:\begin{enumer
   % sends the fitness 99 into the server, it will be accepted only
   % once."  
   % once per run?
+% JJ - once per run or experiment. But we didn't keep that run_number
+% to avoid interference, just to keep track
   %  but different individuals could have the same fitness, are we limiting the search? 
+% We are actually checking for the same individual, not only the fitness
   %  maybe we could have multiple versions of the pool a la MVCC  :)
+% Let's leave that for the future...- JJ
   % I think if we are just trying to limit overlapping of the experiments
   % then PUTs should send the run's seq_number and completly remove it.  
-  
+% The client does not keep track of the seq number. Maybe we should do
+% just that, but sending back and forth the seq number implies
+% refactoring. - JJ
 \end{enumerate}
 
 Figure \ref{fig:system} describes the general system architecture and
