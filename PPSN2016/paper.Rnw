@@ -257,7 +257,7 @@ The architecture of the {\sf NodIO} system is divided in two tiers:\begin{enumer
   encoding information, in this case chromosomes and associates
   information send by the clients and return requests made by the
   server.  The server has the capability to
-  run a single experiment, storing the incoming chromosomes in a data structure
+  run a single experiment, storing the incoming chromosomes in a cache data structure
   that is reset when the solution is found. This data has a finite
   size that erases the oldest chromosomes once it has filled to
   capacity.  
@@ -297,7 +297,7 @@ The architecture of the {\sf NodIO} system is divided in two tiers:\begin{enumer
 \end{enumerate}
 
 Figure \ref{fig:system} describes the general system architecture and
-algorithm behavior. Different web technologies, such as JQuery or {\tt
+algorithm behavior. Different JavaScript libraries, such as JQuery or {\tt
   Chart.js} have been used to build the user interface elements of the
 framework, which should be running in
 \url{http://nodio-jmerelo.rhcloud.com}, a free resource hosted in the
@@ -323,6 +323,9 @@ that is difficult enough to need the intervention of several users for
 an extended amount of minutes.
 
 For every new individual sent by the clients to the cache, several
+% We have not presented the "cache",  only the server and
+% ..storing the incoming chromosomes in a data structure
+% Im changing over there to cache
 pieces of meta data were stored: a time stamp, the client IP, the chromosome and
 value, the cache size in that particular moment, and also if that
 individual actually updated the cache or not. 
