@@ -30,6 +30,7 @@ experiment.data <- data.frame(Experiment=character(),
                               actualIPs=character(),
                               PUTs=character(),
                               actualPUTs=character(),
+                              PUTratio = character(),
                               PUTsIP =character())
 
 these.experiments <- c("nooverlap-1","nooverlap-newgraph-1", "nooverlap-newgraph-2","nooverlap-newgraph-reboot","nooverlap-newgraph-reboot-cachecrash")
@@ -89,6 +90,7 @@ for ( i in these.experiments ) {
                                               actualIPs=median(as.integer(this.data$actualIPs)),
                                               PUTs=median(as.integer(this.data$PUTs)),
                                               actualPUTs=median(as.integer(this.data$actualPUTs)),
+                                              PUTratio=median(as.integer(this.data$actualPUTs)/as.integer(this.data$PUTs)),
                                               count= length(this.data$IPs),
                                               totalIPs=this.len,
                                               PUTsIP=median(as.integer(this.data$PUTs)/as.integer(this.data$IPs)))
@@ -103,7 +105,7 @@ for ( i in these.experiments ) {
                                         actualPUTs=as.integer(this.data$actualPUTs),
                                         PUTsIP=as.integer(this.data$PUTs)/as.integer(this.data$IPs)))
 
-    this.data <- this.data[this.data$actualPUTs>=10,]
+    this.data <- this.data[this.data$actualPUTs>=16,]
     experiment.aggregates.filtered <- rbind( experiment.aggregates.filtered,
                                             data.frame( Experiment=i,                   
                                                        milliseconds=median(as.integer(this.data$milliseconds)),
