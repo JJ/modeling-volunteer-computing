@@ -105,18 +105,25 @@ for ( i in these.experiments ) {
 
 ips.data <- data.frame(Experiment=character(),                      
                        PUTs=character(),
-                       reboots=character())
+                       reboots=character(),
+                       idu=character(),
+                       idx=character())
 
 ips.aggregates <- data.frame(Experiment=character(),
                              PUTs = character(),
                              reboots = character(),
                              avgPUTs = character(),
-                             avgreboots = character() )
+                             avgreboots = character(),
+                             totalIPs = character())
 
 for ( i in these.experiments ) {
     this.data <- read.csv(paste0("../data/2016-PPSN/ips-reboots-cache=32-",i,".csv"))
+    this.len <- length(this.data$PUTs)
+    seq <- 1:this.len
     ips.data <- rbind(ips.data,
                       data.frame(Experiment=rep(i,length(this.data$PUTs)),
+                                 idu=seq,
+                                 idx=seq/this.len,
                                  PUTs=as.integer(this.data$PUTs),
                                  reboots=as.integer(this.data$reboots))
                        )
@@ -126,7 +133,8 @@ for ( i in these.experiments ) {
                                        PUTs = median(this.data$PUTs),
                                        reboots = median(this.data$reboots),
                                        avgPUTs = mean(this.data$PUTs),
-                                       avgreboots = mean(this.data$reboots) )
+                                       avgreboots = mean(this.data$reboots),
+                                       totalIPs =this.len )
                             )
 }
 @
