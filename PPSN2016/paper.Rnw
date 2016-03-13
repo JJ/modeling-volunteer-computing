@@ -384,6 +384,8 @@ between one run and the next. That is why, in both cases, the
 number. The final column includes the total number of runs in that
 particular batch, finished after a minimum number of 30 was reached. 
 
+The baseline, called {\em base} in the 
+
 
 
 
