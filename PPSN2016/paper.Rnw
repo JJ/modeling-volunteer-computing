@@ -474,7 +474,10 @@ run recently initiated. This batch of runs is labelled {\tt
 skipped by some slow clients or too fast evolutions, so that in the
 last case, labeled {\tt cachecrash}, clients rebooted if the cache
 collapsed by more than a certain length, indicating a cache that had
-been voided and was filling again. 
+been voided and was filling again. Our objective was twofold: to
+encourage engagement by the users and also to increase the involvement
+of every client in the common experiment, eliminating at the same time
+overlaps between runs. 
 
 
 
