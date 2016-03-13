@@ -402,28 +402,29 @@ algorithm will be explained next.
 \begin{table}[htb]
 \caption{Experiment table, with summary of results. \label{tab:runs}}
 \begin{center}
-\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|}
 \hline
 Experiment & Median Time & \multicolumn{2}{|c|}{Median IPs} &
-\multicolumn{2}{|c|}{Median PUTs} & \#Runs & Different IPs\\
-           &   (ms)        & Total & Used & Total & Used &
-           &\\
+\multicolumn{3}{|c|}{Median PUTs} & \#Runs & Unique IPs & Puts/IP \\
+           &   (ms)        & Total & Used & Total & Used & Ratio &  & & \\
 \hline
-base & 120056.0 & 10 & 4 & 256.0 & 21.0 & 81 & 262\\
+base & 120056.0 & 10 & 4 & 256.0 & 21.0 & 0.1290323 & 81 & 262 & 21.33333\\
 \hline
-graph1 & 152619.5 & 9 & 4 & 212.5 & 26.5 & 36 & 96\\
-graph2 & 1173561.5 & 6 & 4 & 761.5 & 22.0 & 36 & 73\\
+graph1 & 152619.5 & 9 & 4 & 212.5 & 26.5 & 0.1282238 & 36 & 96 & 24.30000\\
 \hline
-reboot & 796214.0 & 9 & 6 & 646.0 & 67.0 & 45 & 168\\
+graph2 & 1173561.5 & 6 & 4 & 761.5 & 22.0 & 0.0520509 & 36 & 73 & 129.04545\\
 \hline
-cachereboot & 392917.0 & 12 & 12 & 576.0 & 79.0 & 55 & 225\\
+reboot & 796214.0 & 9 & 6 & 646.0 & 67.0 & 0.0955121 & 45 & 168 & 75.88889\\
+\hline
+cachereboot & 392917.0 & 12 & 12 & 576.0 & 79.0 & 0.1575092 & 55 & 225 & 43.28571\\
 \hline
 \end{tabular}
+%% \end{tabular}
 %% Initially generated with this code, 
-%% <<experiments, cache=FALSE,echo=FALSE>>=
-%% experiment.aggregates$Experiment <- c("base","graph1","graph2","reboot","cachereboot")
-%% kable(experiment.aggregates)
-%% @ %def 
+% <<experiments, cache=FALSE,echo=FALSE>>=
+%experiment.aggregates$Experiment <- c("base","graph1","graph2","reboot","cachereboot")
+%kable(experiment.aggregates)
+%@ %def 
 
 \end{center}
 \end{table}
