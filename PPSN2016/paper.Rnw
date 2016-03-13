@@ -411,7 +411,7 @@ Experiment & Median Time & \multicolumn{2}{|c|}{Median IPs} &
 base & 120056.0 & 10 & 4 & 256.0 & 21.0 & 0.1290323 & 81 & 262 & 21.33333\\
 \hline
 graph1 & 152619.5 & 9 & 4 & 212.5 & 26.5 & 0.1282238 & 36 & 96 & 24.30000\\
-\hline
+
 graph2 & 1173561.5 & 6 & 4 & 761.5 & 22.0 & 0.0520509 & 36 & 73 & 129.04545\\
 \hline
 reboot & 796214.0 & 9 & 6 & 646.0 & 67.0 & 0.0955121 & 45 & 168 & 75.88889\\
@@ -433,7 +433,7 @@ cachereboot & 392917.0 & 12 & 12 & 576.0 & 79.0 & 0.1575092 & 55 & 225 & 43.2857
 \centering
 
 <<zipf, cache=FALSE,echo=FALSE,fig.height=3>>=
-ggplot(ips.data,aes(x=idx,y=PUTs,group=Experiment,color=Experiment))+geom_point()+scale_y_log10()+ scale_colour_discrete(labels=c('base','graph1','graph2','reboot','cachereboot'))
+ggplot(ips.data,aes(x=idx,y=PUTs,group=Experiment,color=Experiment))+geom_point()+scale_y_log10()+ scale_colour_discrete(labels=c('base','graph1','graph2','reboot','cachereboot'))+scale_x_log10()
 @ %def graph for IPs and puts
 
 \caption{Ranked and normalized number of contributions (PUTs) per IP,
