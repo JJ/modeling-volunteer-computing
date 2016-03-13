@@ -39,13 +39,47 @@ experiment.aggregates <- data.frame(Experiment=character(),
                                     actualIPs = character(),
                                     PUTs = character(),
                                     actualPUTs = character(),
-                                    count = character())
+                                    count = character(),
+                                    totalIPs = character())
 
 experiment.aggregates.filtered = experiment.aggregates
+
+ips.data <- data.frame(Experiment=character(),                      
+                       PUTs=character(),
+                       reboots=character(),
+                       idu=character(),
+                       idx=character())
+
+ips.aggregates <- data.frame(Experiment=character(),
+                             PUTs = character(),
+                             reboots = character(),
+                             avgPUTs = character(),
+                             avgreboots = character(),
+                             totalIPs = character())
 
 for ( i in these.experiments ) {
     this.data <- read.csv(paste0("../data/2016-PPSN/ips-time-cache-2016-03-cache=32-",i,".csv"))
 
+    this.ip.data <- read.csv(paste0("../data/2016-PPSN/ips-reboots-cache=32-",i,".csv"))
+    this.len <- length(this.ip.data$PUTs)
+    seq <- 1:this.len
+    ips.data <- rbind(ips.data,
+                      data.frame(Experiment=rep(i,length(this.ip.data$PUTs)),
+                                 idu=seq,
+                                 idx=seq/this.len,
+                                 PUTs=as.integer(this.ip.data$PUTs),
+                                 reboots=as.integer(this.ip.data$reboots))
+                       )
+    
+    ips.aggregates <- rbind( ips.aggregates,
+                            data.frame(Experiment=i,
+                                       PUTs = median(this.ip.data$PUTs),
+                                       reboots = median(this.ip.data$reboots),
+                                       avgPUTs = mean(this.ip.data$PUTs),
+                                       avgreboots = mean(this.ip.data$reboots),
+                                       totalIPs =this.len )
+                            )
+    
     experiment.aggregates <- rbind( experiment.aggregates,
                                    data.frame( Experiment=i,                   
                                               milliseconds=median(as.integer(this.data$milliseconds)),
@@ -53,7 +87,8 @@ for ( i in these.experiments ) {
                                               actualIPs=median(as.integer(this.data$actualIPs)),
                                               PUTs=median(as.integer(this.data$PUTs)),
                                               actualPUTs=median(as.integer(this.data$actualPUTs)),
-                                              count= length(this.data$IPs))
+                                              count= length(this.data$IPs),
+                                              totalIPs=this.len)
                                    )
     
     experiment.data <- rbind( experiment.data,
@@ -103,40 +138,7 @@ for ( i in these.experiments ) {
                        )
 }
 
-ips.data <- data.frame(Experiment=character(),                      
-                       PUTs=character(),
-                       reboots=character(),
-                       idu=character(),
-                       idx=character())
 
-ips.aggregates <- data.frame(Experiment=character(),
-                             PUTs = character(),
-                             reboots = character(),
-                             avgPUTs = character(),
-                             avgreboots = character(),
-                             totalIPs = character())
-
-for ( i in these.experiments ) {
-    this.data <- read.csv(paste0("../data/2016-PPSN/ips-reboots-cache=32-",i,".csv"))
-    this.len <- length(this.data$PUTs)
-    seq <- 1:this.len
-    ips.data <- rbind(ips.data,
-                      data.frame(Experiment=rep(i,length(this.data$PUTs)),
-                                 idu=seq,
-                                 idx=seq/this.len,
-                                 PUTs=as.integer(this.data$PUTs),
-                                 reboots=as.integer(this.data$reboots))
-                       )
-    
-    ips.aggregates <- rbind( ips.aggregates,
-                            data.frame(Experiment=i,
-                                       PUTs = median(this.data$PUTs),
-                                       reboots = median(this.data$reboots),
-                                       avgPUTs = mean(this.data$PUTs),
-                                       avgreboots = mean(this.data$reboots),
-                                       totalIPs =this.len )
-                            )
-}
 @
 
 \title{A performance assessment of evolutionary algorithms in a volunteer computing system}
@@ -391,37 +393,51 @@ algorithm will be explained next.
 \begin{table}[htb]
 \caption{Experiment table, with summary of results. \label{tab:runs}}
 \begin{center}
-\begin{tabular}{|l|c|c|c|c|c|c|}
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
 \hline
-Experiment & Median Time (ms) & \multicolumn{2}{|c|}{Median IPs} & \multicolumn{2}{|c|}{Median PUTs} & \#Runs\\
-           &           & Total & Contributing & Total & Contributing & \\
+Experiment & Median Time & \multicolumn{2}{|c|}{Median IPs} &
+\multicolumn{2}{|c|}{Median PUTs} & \#Runs & Different IPs\\
+           &   (ms)        & Total & Used & Total & Used &
+           &\\
 \hline
-base & 120056.0 & 10 & 4 & 256.0 & 21.0 & 81\\
+base & 120056.0 & 10 & 4 & 256.0 & 21.0 & 81 & 262\\
 \hline
-graph1 & 152619.5 & 9 & 4 & 212.5 & 26.5 & 36\\
-graph2 & 1173561.5 & 6 & 4 & 761.5 & 22.0 & 36\\
+graph1 & 152619.5 & 9 & 4 & 212.5 & 26.5 & 36 & 96\\
+graph2 & 1173561.5 & 6 & 4 & 761.5 & 22.0 & 36 & 73\\
 \hline
-reboot & 513354.5 & 9 & 6 & 545.5 & 62.5 & 40\\
+reboot & 796214.0 & 9 & 6 & 646.0 & 67.0 & 45 & 168\\
 \hline
-cachereboot & 392917.0 & 12 & 12 & 576.0 & 79.0 & 55\\
+cachereboot & 392917.0 & 12 & 12 & 576.0 & 79.0 & 55 & 225\\
 \hline
 \end{tabular}
 %% Initially generated with this code, 
 %% <<experiments, cache=FALSE,echo=FALSE>>=
-%% experiment.aggregates$Experiment <- c("base","graph1","graph2","graph3","reboot","cachereboot")
+%% experiment.aggregates$Experiment <- c("base","graph1","graph2","reboot","cachereboot")
 %% kable(experiment.aggregates)
 %% @ %def 
 
 \end{center}
 \end{table}
 %
+\begin{figure}[htbp]
+\centering
+
+<<zipf, cache=FALSE,echo=FALSE,fig.height=3>>=
+ggplot(ips.data,aes(x=idx,y=PUTs,group=Experiment,color=Experiment))+geom_point()+scale_y_log10()+ scale_colour_discrete(labels=c('base','graph1','graph2','reboot','cachereboot'))
+@ %def graph for IPs and puts
+
+\caption{Ranked and normalized number of contributions (PUTs) per IP,
+  plotted in a log $y$ scale.}
+\label{fig:zipf}
+\end{figure}
+
 Since the point of using volunteer computing system is to cut costs,
 all experiments were set up using the OpenShift
 PaaS, which provides a free tier, making the whole experiment cost
 equal to \$0.00. In fact, the NodIO system can be deployed to any
 system as long as it can run node.js and access to the filesystem, for
 log files, is available. All these logs are available under
-request. Processed files are available in the same repository that
+rrequest. Processed files are available in the same repository that
 hosts this paper, as well as the scripts needed to process them. 
 
 Every run had slightly different conditions, although in some cases it
@@ -441,7 +457,24 @@ between one run and the next. That is why, in both cases, the
 number. The final column includes the total number of runs in that
 particular batch, finished after a minimum number of 30 was reached. 
 
-The baseline, called {\em base} in the 
+The baseline, called {\em base} in the Table, uses simply the
+mechanism of dropping contributions from clients if they are repeated
+to avoid overlap. Clients still get a random chromosome from the
+server, so they can in fact proceed with the algorithm and even finish
+it. The fact that these users were not contributing to the pool was
+conveyed by inserting a graph in the client that represented the size
+of the cache and labeled ``How am I contributing''. The user could
+then realize if his contribution was being 0 and thus do something
+about it; these are labeled {\tt graph1} and 2. However, a stuck
+client could still add to the pool if evolution got unstuck, so we
+added a mechanism for rebooting the client, that is, reloading the
+page, if the cache size was found to be less than 1, which indicated a
+run recently initiated. This batch of runs is labelled {\tt
+  reboot}. However, we found that this size of the cache was actually
+skipped by some slow clients or too fast evolutions, so that in the
+last case, labeled {\tt cachecrash}, clients rebooted if the cache
+collapsed by more than a certain length, indicating a cache that had
+been voided and was filling again. 
 
 
 
