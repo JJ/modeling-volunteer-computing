@@ -452,18 +452,17 @@ cachereboot & 463347 & 12.0 & 12.0 & 638.5 & 80.5 & 52 & 44.25911\\
 %%experiment.aggregates.filtered$Experiment <- c("base","graph1","graph2","reboot","cachereboot")
 %%kable(experiment.aggregates.filtered)
 %%@ %def 
-
+%
 \end{center}
 \end{table}
 %
 %
 \begin{figure}[htbp]
 \centering
-
 <<zipf, cache=FALSE,echo=FALSE,fig.height=3>>=
 ggplot(ips.data,aes(x=idx,y=PUTs,group=Experiment,color=Experiment))+geom_point()+scale_y_log10()+ scale_colour_discrete(labels=c('base','graph1','graph2','reboot','cachereboot'))+scale_x_log10()
 @ %def graph for IPs and puts
-
+%
 \caption{Ranked and normalized number of contributions (PUTs) per IP,
   plotted in a log $y$ scale.\label{fig:zipf}}
 \label{fig:zipf}
@@ -549,10 +548,39 @@ clients. However, in the last two rows, the ones that rebooted clients
 when they detected changes in cache, the difference is minimal. This
 means that one objective has been reached: if clients reboot when they
 detect changes in the cache that imply a new run, overlaps are almost
-eliminated. 
+eliminated. Going back to Table \ref{tab:runs}, we can see than the
+ratio of effective contributions, those that feed the cache, increases
+from around 13\% in the first case to almost 16\% in the last,
+reaching lows of less than 6\% in some cases ({\tt graph2}). This
+indicates that rebooting the clients has the positive  effect of
+increasing the contribution of clients to the common pool. However, we
+should remark that still the clients will stop contributing if they
+get stuck in a particular solution, so the ratio keeps being low
+resulting in a slow change in the cache and a lower diversity of
+clients that tap that cache. At any rate, an increased number of
+effective PUTs will have a positive impact in the algorithm.
 
-However, the rest of the measures also changes and so we will refer to
-this table from now on. 
+We can check this impact by looking at the column that refers to
+median time in Table \ref{tab:filtered} and its relation to the median
+number of PUTs, which reflects the number of evaluations performed by
+the clients. The two last rows have a low number of evaluations,
+around 650, which is higher than the first two, probably due to the
+lower volunteer supply, but better than the middle one; besides, the
+amount is remarkably similar. But in the last case, it takes much less
+time to find the solution {\em using the same number of
+  evaluations}. All variables are difficult to control in this
+environment, but it might be due to the fact that parallelism has
+increased, there are more volunteers contributing at the same time. In
+fact, as can be seen in the last column, the median number of
+contributions per user is {\em much lower} in the last row, which
+indicates that {\tt cachereboot} needs less contributions by users to
+find the same solution. Besides, the last row shows that {\em all}
+users actively contribute to the cache, while in the {\tt reboot}
+strategy 30\% of users do not. This might be due to the fact that {\tt
+  reboot} only does so when cache size is less than one. With very
+fast clients there might be some clients that do not detect that
+change and might, in fact continue with their former run, thus not
+contributing to the common cache.  
 
 
 
@@ -565,84 +593,7 @@ this table from now on.
 \section{Conclusion}
 \label{sec:conclusion}
 
-Our intention in this paper was to assess the capabilities of a
-sociotechnical system formed by a client-server web-based framework
-running a distributed evolutionary algorithms and the volunteers that
-participate in the experiment. These volunteers are {\em in the
-  cloud}, that is, available as {\em CPU as a service} for the persons
-running the experiment. In this paper we have tried to put some figures
-on the real size of that {\em cloud} and how it can be used standalone
-if there is no alternative, or, if other computing resources are
-available, in conjunction with other local or cloud-based methods to
-add computing power in a seamless way through the pool that NodIO creates. 
-
-After running the experiment on the 40-trap problem whose running time
-could be as low as a few seconds, we switched to another batch of
-experiments where we used the 50-trap problem and also to a pool of
-limited, and dwindling through the three experiments, size. Since our
-initial results indicated that what happened on the screen, a flat
-graph with no improvements or the experiment finished, influenced the
-amount of time that the users devoted to the experiment, a longer one
-could yield different results and, at the same time, result in a big
-pool that might either crash the server or return useless individuals
-to the volunteers. These new experiments have proved that using the
-limited pool is beneficial to finding the solution, since less
-evaluations are needed, but also that since the problem is more
-difficult, the users stay for longer in the web page, making less
-ephemeral the sociotechnical computing system created by the
-simulation. 
-
-
-The second objective of this paper was to model the user behavior in a
-first attempt to try and predict performance. As should be expected,
-the model depends on the implementation, with contributions following
-a Weibull distribution, which reflects the fact
-that volunteer computing follows a model quite similar to that found
-for games or other online activities. The reverse might be true: if we
-want to have returning users for the experiments, it is probable that
-we should {\em gamify} the experience so that once they've done it
-once, they might do it more times. In the spirit of Open Science, this
-gamification might involve computing in real time data such as the one
-presented in this paper and showing it in the same page or presenting
-user results alongside others.
-
-In general, linking and finding correlations between user choices and
-performance is an interesting avenue to explore in the future. Even if
-these  experiments were published in a similar way, one
-obtained up to 5 times more total cycles than the one with the least
-number of cycles. It is also essential to obtain volunteers as fast and
-simultaneously as possible, so it is possible that the features of the
-social network in terms of real-time use will also play a big
-role; synchronous webs such as Snapchat, which mystifies the writers
-of this paper, and Twitter, thanks to its real time nature, might be
-better suited than Facebook, LinkedIn or Google plus. Even as it is
-difficult to create controlled experiments in this 
-area, it is an interesting challenge to explore in the future.
-
-The other area to explore is the algorithmic area itself. Are there
-ways to change the evolutionary algorithm, or its visualization, so
-that the user has a bigger impact on the result? One of the users in
-Twitter even suggested to embed videos so that people spent time
-looking at them, but other possible way was to make the user engage
-the algorithm by giving him or her buttons to change the mutation rate
-when the algorithm is stalled, for instance. If this is combined with
-a score board where local performance is compared to other users,
-engagement might be increased and thus the performance of the
-system. In general there are 
-many issues with the evolutionary algorithm implementation itself,
-including using different, or adaptive, policies for inserting and
-sending individuals to the pool,
-using different policies for population initialization, and also the
-incorporation of high-speed local resources to the pool to check what
-would be the real influence of the volunteer pool to the final
-performance. 
-
-Finally, the implementation needs some refinement in terms of
-programming and also ease of use. Tools such as Yeoman for generating
-easily new experiments might be used, so that the user would have  to
-create only a fitness
-function, with the rest of the framework wrapped around
-automatically. 
+% TODO
 
 All these avenues of experimentation will be done openly following the
 Open Science policy of our group, which, in fact, contributes to
