@@ -185,7 +185,9 @@ The world wide web not only provides a platform for content
 distribution, but also an increasingly reliable and high-performance
 platform for running distributed applications. This is based in two
 key facts: the Javascript virtual machine every browser runs and a
-simplified standard interface for interacting with servers. Thus
+simplified standard interface for interacting with servers.
+% These are "things", not "facts". As facts would be... "every browser runs a Javascript virtual machine and that there is a simplified standard interface for interacting with servers (?)
+Thus
 creating a distributed computing experiment is just a matter of making
 a JavaScript application interchange information with a server, called
 REST. From the point of view of the programmer, this involves
@@ -214,10 +216,10 @@ includes trying to optimize the number of users in a particular
 experiment. The second line of research, although related to the
 first, is more focused on the evolutionary algorithm itself and how
 different design decisions will affect its performance.
-
+% Is it ok that we say that the first line of research is the most important... but then we focus on the second?
 In this paper our focus will be in the second aspect: we will try to
 design a decentralized system that, at the same time, is able to use
-all resources available. This design will be done incrementally by
+all available resources. This design will be done incrementally by
 changing the system on the client and the server and measuring its
 impact on the overall performance: time and evaluations needed to find
 the solution. Eventually, we want to find a system that, whatever the
