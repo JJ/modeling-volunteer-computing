@@ -484,7 +484,7 @@ between one run and the next. That is why, in both cases, the
 number. The final column includes the total number of runs in that
 particular batch, finished after a minimum number of 30 was reached. 
 
-The baseline, called {\em base} in the Table, uses the simple
+The baseline, called {\em base} in the Table, uses the
 mechanism of dropping contributions from clients if they are repeated
 to avoid overlap. Clients still get a random chromosome from the
 server, so they can in fact proceed with the algorithm and even finish
@@ -536,13 +536,13 @@ cachereboot & 463347 & 12.0 & 12.0 & 638.5 & 80.5 & 52 & 44.25911\\
 %
 So we will have to check whether we have effectively eliminated these
 overlaps. In order to do that, we will have to establish a threshold
-under which reasonably the solution cannot be found. In every
+under which we can reasonably expect that the solution cannot be found. In every
 evolutionary algorithm it might happen, by chance, that the solution
 is found in just a few evaluations, but that is usually not the
 case. By looking at the logs in the last case we have established that
 minimun as 16 PUTs; in less than 1600 generations no solution to that
 difficult problem will be found. Let us filter then the runs,
-eliminating those that use less than 1600 generations to find the
+eliminating those that used less than 1600 generations to find the
 solution which can reasonably be said that they did so because some
 browser ``carried over'' a chromosome from the previous run. The
 results are shown in Table \ref{tab:filtered}. The first change is in
@@ -556,13 +556,13 @@ eliminated. Going back to Table \ref{tab:runs}, we can see than the
 ratio of effective contributions, those that feed the cache, increases
 from around 13\% in the first case to almost 16\% in the last,
 reaching lows of less than 6\% in some cases ({\tt graph2}). This
-indicates that rebooting the clients has the positive  effect of
+indicates that rebooting the clients has the positive effect of
 increasing the contribution of clients to the common pool. However, we
-should remark that still the clients will stop contributing if they
+should remark that the clients will still stop contributing if they
 get stuck in a particular solution, so the ratio keeps being low
 resulting in a slow change in the cache and a lower diversity of
 clients that tap that cache. At any rate, an increased number of
-effective PUTs will have a positive impact in the algorithm.
+effective PUTs will have a positive impact on the algorithm.
 
 \begin{table}[htbp]
   \caption{Minute-wise correlation for number of participating volunteers. \label{tab:correlation}}
@@ -585,7 +585,7 @@ time to find the solution {\em using the same number of
   evaluations}. All variables are difficult to control in this
 environment, but it might be due to the fact that parallelism has
 increased, there are more volunteers contributing at the same time. In
-fact, as can be seen in the last column, the median number of
+fact, as it can be seen in the last column, the median number of
 contributions per user is {\em much lower} in the last row, which
 indicates that {\tt cachereboot} needs less contributions by users to
 find the same solution. Besides, the last row shows that {\em all}
@@ -594,7 +594,7 @@ strategy 30\% of users do not. This might be due to the fact that {\tt
   reboot} only does so when cache size is less than one. With very
 fast clients there might be some clients that do not detect that
 change and might, in fact continue with their former run, thus not
-contributing to the common cache.  
+contributing to the current common cache.  
 
 In fact, as can be seen in Table \ref{tab:correlations}, which shows
 the correlation between the number of IPs from one minute to the next,
