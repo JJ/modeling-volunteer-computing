@@ -300,12 +300,12 @@ with a free license from
 
 The architecture of the {\sf NodIO} system is divided in two tiers:\begin{enumerate}
 \item A REST (representational state transfer) server that responds to
-  HTTP requests made by the browsers. These HTTP requests use JSON for
-  encoding information, in this case chromosomes and associates
-  information send by the clients and return requests made by the
+  HTTP requests made by the browsers. These HTTP requests use JSON for information 
+  encoding, in this case chromosomes and related
+  information sent by the clients and responses returned by the
   server.  The server has the capability to
   run a single experiment, storing the incoming chromosomes in a cache data structure
-  that is reset when the solution is found. This data has a finite
+  that is reset when the solution is found. This cache has a finite
   size that erases the oldest chromosomes once it has filled to
   capacity.  
 \item A client that includes the evolutionary algorithm as
@@ -319,7 +319,7 @@ The architecture of the {\sf NodIO} system is divided in two tiers:\begin{enumer
   kept the number of generations between migrations fixed since it is
   a way of finding out how much real work every client is doing. In
   the version of the server used in this paper, we implemented a
-  policy by which the combination IP-fitness value could only be
+  policy by which the combination IP-fitness chromosome could only be
   inserted once into the cache. That means that if a particular IP
   sends the fitness 99 into the server, it will be accepted only
   once. The main intention of this policy was to avoid {\em
@@ -370,8 +370,8 @@ the sources from GitHub and set it up yourself.}
 NodIO needs a fitness function to work with; in this case the classical Trap 
 function \cite{Ackley1987} has been used; this function runs in the
 browser, but the server needs to know when the solution has been
-found, so a termination condition is also included as a configuration
-option in the server. In all cases we are using 50 Traps, a problem
+found, so a termination condition is also included in the server, as a configuration
+option. In all cases we are using 50 Traps, a problem
 that is difficult enough to need the intervention of several users for
 an extended amount of minutes.
 
@@ -380,7 +380,7 @@ For every new individual sent by the clients to the cache, several
 % ..storing the incoming chromosomes in a data structure
 % Im changing over there to cache
 pieces of meta data were stored: a time stamp, the client IP, the chromosome and
-value, the cache size in that particular moment, and also if that
+fitness value, the cache size in that particular moment, and also if that
 individual actually updated the cache or not. 
 
 All experiments are announced in the same way: we use social networks,
@@ -435,9 +435,9 @@ Since the point of using volunteer computing system is to cut costs,
 all experiments were set up using the OpenShift
 PaaS, which provides a free tier, making the whole experiment cost
 equal to \$0.00. In fact, the NodIO system can be deployed to any
-system as long as it can run node.js and access to the filesystem, for
-log files, is available. All these logs are available under
-rrequest. Processed files are available in the same repository that
+system as long as it can run node.js and has access to the filesystem, for
+log files, if available. All these logs are available upon
+request. Processed files are available in the same repository that
 hosts this paper, as well as the scripts needed to process them. 
 
 %
@@ -459,12 +459,12 @@ batch included at least 30 completions, that is, evolution until the
 solution was found. The number of runs was controlled by polling an
 URL that indicated the number of runs made in the present batch so
 far. Every volunteer contributed a certain number of individuals
-(represented by the PUT HTTP order) to the server. The ranked number
+(represented by the PUT HTTP request) to the server. The ranked number
 of contributions per unique IP is shown in Figure \ref{fig:zipf} in a
 log-log scale. Besides following the usual Zipf's law found in our
 previous work and having a very similar appearance for all 5 sets, it
 is interesting to see how some sets have a number of contributions per
-IP that is slightly superior to the rest, specially so in {\tt
+IP that are slightly superior to the rest, specially so in {\tt
   graph2}. The last two sets, {\tt reboot} and {\tt cachereboot}, also
 show a regime in the middle of the graph that shows that some users
 are contributing more than in other similar sets. In general, these
@@ -484,7 +484,7 @@ between one run and the next. That is why, in both cases, the
 number. The final column includes the total number of runs in that
 particular batch, finished after a minimum number of 30 was reached. 
 
-The baseline, called {\em base} in the Table, uses simply the
+The baseline, called {\em base} in the Table, uses the simple
 mechanism of dropping contributions from clients if they are repeated
 to avoid overlap. Clients still get a random chromosome from the
 server, so they can in fact proceed with the algorithm and even finish
