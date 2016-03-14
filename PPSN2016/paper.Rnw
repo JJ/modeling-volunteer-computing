@@ -296,7 +296,7 @@ present the general framework and the initial setup.
 
 In general, a distributed volunteer-based evolutionary computation
 system based on the browser is simply a client-server system
-with a client embedded in the browser via JavaScript. We call this
+which client is embedded in the browser via JavaScript. We call this
 system {\sf NodIO}. All parts of the framework are free and available
 with a free license from
 \url{https://github.com/JJ/splash-volunteer}. 
@@ -309,7 +309,7 @@ The architecture of the {\sf NodIO} system is divided in two tiers:\begin{enumer
   server.  The server has the capability to
   run a single experiment, storing the incoming chromosomes in a cache data structure
   that is reset when the solution is found. This cache has a finite
-  size that erases the oldest chromosomes once it has filled to
+  size that erases the oldest chromosomes once it has reached its % Also "it has been filled to its"
   capacity.  
 \item A client that includes the evolutionary algorithm as
   JavaScript code embedded in a web page that displays the fitness and
@@ -371,7 +371,8 @@ the sources from GitHub and set it up yourself.}
 \end{figure}
 
 NodIO needs a fitness function to work with; in this case the classical Trap 
-function \cite{Ackley1987} has been used; this function runs in the
+function \cite{Ackley1987} has been used; % I don't think this use of the ; is correct
+this function runs in the
 browser, but the server needs to know when the solution has been
 found, so a termination condition is also included in the server, as a configuration
 option. In all cases we are using 50 Traps, a problem
@@ -389,7 +390,7 @@ individual actually updated the cache or not.
 All experiments are announced in the same way: we use social networks,
 mainly Twitter, to announce the start of a new experiment. LinkedIn,
 Facebook, and also private groups in Telegram and WhatsApp have been
-used too for announcements. We also encourage friends and followers to
+used for announcements too. We also encourage friends and followers to
 put an original post for announcing it, instead of just sharing, in
 the way allowed by the platform, the original post. During the running
 of the experiments, users are engaged, questions answered, and all
