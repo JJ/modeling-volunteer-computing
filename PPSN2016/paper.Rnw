@@ -21,6 +21,7 @@
 
 
 \begin{document}
+\SweaveOpts{concordance=TRUE}
 
 <<setup, cache=FALSE,echo=FALSE>>=
 library("ggplot2")
@@ -168,7 +169,7 @@ In a volunteer distributed computing system, users run a program in
 their own machine to contribute to a common effort. If the program is
 embedded in a web page, collaboration is easy, but also ephemeral. In
 this paper we analyze a volunteer evolutionary computing system called
-NodIO and try to find out a few rules that encourage volunteer
+NodIO, trying to find out a few rules that encourage volunteer
 participation and how to make the most of their contributions to the
 evolutionary algorithm. We will show different measures of
 participation and contribution to the algorithm and how different
