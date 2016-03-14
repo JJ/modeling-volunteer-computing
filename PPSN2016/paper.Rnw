@@ -260,7 +260,7 @@ authors, including more recent efforts
 
 In general, those papers go no further than a proof of concept,
 attempting to gauge how many users join the effort and also how long
-would it take a concrete amount of users to reach the solution. In
+would it take for a concrete amount of users to reach the solution. In
 general, they do not try to assess the performance of the algorithm
 itself in the precise conditions they find in a volunteer computing
 system, although papers such as the one by Laredo et
@@ -273,8 +273,8 @@ evolutionary algorithm itself is made.
 
 There is another factor that should be taken into account: since the
 user has control of the browser, there is a limited amount of
-interaction with it, namely, the fact that by reloading the webpage he
-can apply a kind of hypermutation killing the current population and
+interaction with it, namely, the fact that by reloading the webpage they
+can apply a kind of hypermutation, killing the current population and
 generating new individuals some of which will make their way to the
 common pool via migration. In that sense, volunteer computing is also
 a way of {\em human computation} \cite{quinn2011human}, a concept that
