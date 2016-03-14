@@ -612,8 +612,8 @@ contributions to find it personally.
 \label{sec:conclusion}
 
 Our main intention in this paper was to focus on the algorithm itself
-so that it became as effective as possible, and able to use
-computation by volunteers in the best possible way, or at least better
+so that it could became as effective as possible, and would be able to use
+computations by volunteers in the best possible way, or at least better
 than the initial configuration. This initial configuration included
 {\em overlaps} or clients running islands that had actually started in
 a previous experiment in the set. If we are interested in measuring
@@ -645,7 +645,7 @@ improvement is less with respect to {\tt reboot}, but in any case the
 method to detect the beginning of a new run is much more effective and
 will be kept in the future.
 
-This future holds many challenges which once again will go in two
+This future work holds many challenges which once again will go in two
 different directions: gathering more users and improving the
 efficiency of the algorithm run in an asynchronous way by the
 users. In the first case, it will be interesting to make it more {\em
