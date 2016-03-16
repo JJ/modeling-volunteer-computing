@@ -165,15 +165,16 @@ Dept. of Graduate Studies at Instituto Tecnol\'ogico de Tijuana}
 \pagestyle{empty}
 
 \begin{abstract}
-In a volunteer distributed computing system, users run a program in
+In a volunteer distributed computing system, users run a program on
 their own machine to contribute to a common effort. If the program is
 embedded in a web page, collaboration is easy, but also ephemeral. In
-this paper we analyze a volunteer evolutionary computing system called
+this paper, we analyse a volunteer evolutionary computing system called
 NodIO, trying to find out a few rules that encourage volunteer
 participation and how to make the most of their contributions to the
 evolutionary algorithm. We will show different measures of
 participation and contribution to the algorithm and how different
 volunteer usage patterns and tweaks in the algorithm contribute to
+%Pablo: añadiría un ", such as...," con un ejemplo entre "algorithm" y "contribute"
 improvements and leveraging of these contributions. 
 \end{abstract}
 
