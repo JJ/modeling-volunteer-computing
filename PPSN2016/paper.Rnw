@@ -21,7 +21,7 @@
 
 
 \begin{document}
-\SweaveOpts{concordance=TRUE}
+%\SweaveOpts{concordance=TRUE}
 
 <<setup, cache=FALSE,echo=FALSE>>=
 library("ggplot2")
@@ -358,9 +358,10 @@ algorithm behavior. Different JavaScript libraries, such as JQuery or {\tt
   Chart.js} have been used to build the user interface elements of the
 framework, which should be running in
 \url{http://nodio-jmerelo.rhcloud.com}, a free resource hosted in the
-OpenShift Platform as a Service.\footnote{It is not guaranteed to be running,
-or running the same version, when you read this, however; you can always get
-the sources from GitHub and set it up yourself.}
+OpenShift Platform as a Service.
+%% \footnote{It is not guaranteed to be running,
+%% or running the same version, when you read this, however; you can always get
+%% the sources from GitHub and set it up yourself.}
 %
 \begin{figure}[!t]
 \centering
@@ -598,19 +599,18 @@ users actively contribute to the cache, while in the {\tt reboot}
 strategy 30\% of users do not. This might be due to the fact that {\tt
   reboot} only does so when cache size is less than one. With very
 fast clients there might be some clients that do not detect that
-change and might, in fact continue with their former run, thus not
+change and might, in fact, continue with their former run, thus not
 contributing to the current common cache.  
 
-In fact, as can be seen in Table \ref{tab:correlations}, which shows
-the correlation between the number of IPs from one minute to the next,
-the behavior of all experiments but the last one are similar, with a
-very high correlation indicating that the number of volunteers does
-not change from one minute to the next. However, there is a sharp drop
-for the {\tt cachereboot} experiment, which indicates a bigger
+In fact, Table \ref{tab:correlation}, which shows
+the correlation between the number of IPs from one minute to the
+next, presents a similar  behavior for all experiments but the last one: a
+very high correlation indicating that the number of volunteers changes
+slowly. The {\tt cachereboot} experiment correlation indicates a bigger
 dynamism, with individuals joining and leaving the experiment all the
-time. This might be circumstancial, but it also reflects the fact
+time. This might be circumstancial, but it also informs the fact
 that the solution is found in less time and that users need less
-contributions to find it personally. 
+contributions to find it. 
 
 %---------------------------------------------------------------
 \section{Conclusion}
