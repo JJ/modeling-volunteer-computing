@@ -456,7 +456,6 @@ ggplot(ips.data,aes(x=idx,y=PUTs,group=Experiment,color=Experiment))+geom_point(
 %
 \caption{Ranked and normalized number of contributions (PUTs) per IP,
   plotted in a log $y$ scale.\label{fig:zipf}}
-\label{fig:zipf}
 \end{figure}
 %
 Every run had slightly different conditions, although in some cases it
