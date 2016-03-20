@@ -409,7 +409,7 @@ algorithm will be explained next.
 \label{sec:experiments}
 
 \begin{table}[htb]
-\caption{Experiment table, with summary of results. \label{tab:runs}}
+\caption{Summary of results for the 5 sets of experiments.\label{tab:runs}}
 \begin{center}
 \begin{tabular}{|l|c|c|c|c|c|c|c|c|c|}
 \hline
@@ -456,8 +456,7 @@ log files, if available%% . All these logs are available upon
 ggplot(ips.data,aes(x=idx,y=PUTs,group=Experiment,color=Experiment))+geom_point()+scale_y_log10()+ scale_colour_discrete(labels=c('base','graph1','graph2','reboot','cachereboot'))+scale_x_log10()
 @ %def graph for IPs and puts
 %
-\caption{Ranked and normalized number of contributions (PUTs) per IP,
-  plotted in a log $y$ scale.\label{fig:zipf}}
+\caption{Log-log plot of ranked and normalized number of contributions (PUTs) per IP.\label{fig:zipf}}
 \end{figure}
 %
 Every run had slightly different conditions, although in some cases it
@@ -592,15 +591,12 @@ time to find the solution {\em using the same number of
 environment, but it might be due to the fact that parallelism has
 increased, there are more volunteers contributing at the same time. In
 fact, as it can be seen in the last column, the median number of
-contributions per user is {\em much lower} in the last row, which
-indicates that {\tt cachereboot} needs less contributions by users to
+contributions per user is the lowest for {\tt cachereboot}, which so needs less contributions by users to
 find the same solution. Besides, the last row shows that {\em all}
 users actively contribute to the cache, while in the {\tt reboot}
 strategy 30\% of users do not. This might be due to the fact that {\tt
-  reboot} only does so when cache size is less than one. With very
-fast clients there might be some clients that do not detect that
-change and might, in fact, continue with their former run, thus not
-contributing to the current common cache.  
+  reboot} only does so when cache size is less than one, indicating
+that this strategy is only partly successful in avoiding overlaps.  
 
 In fact, Table \ref{tab:correlation}, which shows
 the correlation between the number of IPs from one minute to the
