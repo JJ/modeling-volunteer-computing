@@ -582,12 +582,13 @@ kable(ip.correlations)
 We can check this impact by looking at the column that refers to
 median time in Table \ref{tab:filtered} and its relation to the median
 number of PUTs, which reflects the number of evaluations performed by
-the clients. The two last rows have a low number of evaluations,
+the clients. The last two rows have a low number of evaluations,
 around 650, which is higher than the first two, probably due to the
 lower volunteer supply, but better than the middle one; besides, the
 amount is remarkably similar. But in the last case, it takes much less
 time to find the solution {\em using the same number of
-  evaluations}. All variables are difficult to control in this
+  evaluations}; the same situation applies if we compare {\tt graph1}
+to {\tt cachereboot}. All variables are difficult to control in this
 environment, but it might be due to the fact that parallelism has
 increased, there are more volunteers contributing at the same time. In
 fact, as it can be seen in the last column, the median number of
@@ -609,10 +610,9 @@ time, maybe because experiments take less time and need less resources.
 \section{Conclusion}
 \label{sec:conclusion}
 
-Our main intention in this paper was to focus on the algorithm itself
-so that it could became as effective as possible, and would be able to use
-computations by volunteers in the best possible way, or at least better
-than the initial configuration. This initial configuration included
+Our main intention in this paper was to configure an evolutionary
+algorithm in a volunteer computing environment to improve its
+efficiency. This initial configuration included
 {\em overlaps} or clients running islands that had actually started in
 a previous experiment in the set. If we are interested in measuring
 how many users or their behavior in bulk this is not so important, but
