@@ -444,9 +444,9 @@ all experiments were set up using the OpenShift
 PaaS, which provides a free tier, making the whole experiment cost
 equal to \$0.00. In fact, the NodIO system can be deployed to any
 system as long as it can run node.js and has access to the filesystem, for
-log files, if available. All these logs are available upon
-request. Processed files are available in the same repository that
-hosts this paper, as well as the scripts needed to process them. 
+log files, if available%% . All these logs are available upon
+%% request. Processed files are available in the same repository that
+%% hosts this paper, as well as the scripts needed to process them. 
 
 %
 %
@@ -469,7 +469,7 @@ far. Every volunteer contributed a certain number of individuals
 (represented by the PUT HTTP request) to the server. The ranked number
 of contributions per unique IP is shown in Figure \ref{fig:zipf} in a
 log-log scale. Besides following the usual Zipf's law found in our
-previous work and having a very similar appearance for all 5 sets, it
+previous work and thus having a very similar appearance for all 5 sets, it
 is interesting to see how some sets have a number of contributions per
 IP that are slightly superior to the rest, specially so in {\tt
   graph2}. The last two sets, {\tt reboot} and {\tt cachereboot}, also
@@ -488,24 +488,23 @@ accepted into the cache, which was set up to accept those only if {\em
   new} chromosomes were sent to the server in order to avoid overlaps
 between one run and the next. That is why, in both cases, the
 ``Contributing'' column includes a value that is less than the total
-number. The final column includes the total number of runs in that
+number. The next column includes the total number of runs in that
 particular batch, finished roughly after a minimum number of 30 was reached. 
 
 The baseline, called {\em base} in the Table, uses the
 mechanism of dropping contributions from clients if they are repeated
 to avoid overlap. Clients still get a random chromosome from the
 server, so they can in fact proceed with the algorithm and even finish
-it. The fact that these users were not contributing to the pool was
+it. However, this was not known to the volunteer, so the fact that they were not contributing to the pool was
 conveyed by inserting a graph in the client that represented the size
 of the cache, labeled ``How am I contributing''. The user could
-then realize if his contribution was being 0 and thus do something
-about it; these are labeled {\tt graph1} and 2. However, a stuck
-client could still add to the pool if evolution got unstuck, so we
+then realize there was no contribution and do something
+about it. These sets of runs are labeled {\tt graph1} and 2. However, a stuck
+client could still add to the pool if it found a new optimum, so we
 added a mechanism for rebooting the client, that is, reloading the
 page, if the cache size was found to be less than 1, which indicated a
-run recently initiated. This batch of runs is labelled {\tt
-  reboot}. However, we found that this size of the cache was actually
-skipped by some slow clients or too fast evolutions, so that in the
+run recently started. This batch of runs is labelled {\tt
+  reboot}. This size of the cache was not really noticed by some slow clients or too fast runs, so that in the
 last case, labeled {\tt cachecrash}, clients rebooted if the cache
 collapsed by more than a certain length, indicating a cache that had
 been voided and was filling again. Our objective was twofold: to
@@ -541,7 +540,7 @@ cachereboot & 463347 & 12.0 & 12.0 & 638.5 & 80.5 & 52 & 44.25911\\
 \end{center}
 \end{table}
 %
-So we will have to check whether we have effectively eliminated these
+The first thin we will have to check is whether we have effectively eliminated these
 overlaps. In order to do that, we will have to establish a threshold
 under which we can reasonably expect that the solution cannot be found. In every
 evolutionary algorithm it might happen, by chance, that the solution
