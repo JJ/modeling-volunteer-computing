@@ -168,13 +168,12 @@ Dept. of Graduate Studies at Instituto Tecnol\'ogico de Tijuana}
 In a volunteer distributed computing system, users run a program on
 their own machine to contribute to a common effort. If the program is
 embedded in a web page, collaboration is easy, but also ephemeral. In
-this paper, we analyse a volunteer evolutionary computing system called
+this paper, we analyze a volunteer evolutionary computing system called
 NodIO, trying to find out a few rules that encourage volunteer
 participation and how to make the most of their contributions to the
 evolutionary algorithm. We will show different measures of
 participation and contribution to the algorithm and how different
-volunteer usage patterns and tweaks in the algorithm contribute to
-%Pablo: añadiría un ", such as...," con un ejemplo entre "algorithm" y "contribute"
+volunteer usage patterns and tweaks in the algorithm, such as restarting clients when solution has been found, contribute to
 improvements and leveraging of these contributions. 
 \end{abstract}
 
@@ -182,12 +181,13 @@ improvements and leveraging of these contributions.
 \label{introduction}
 
 
-The world wide web not only provides a platform for content
+The world wide web  provides not only a platform for content
 distribution, but also an increasingly reliable and high-performance
-platform for running distributed applications. This is based in two
-key facts: the Javascript virtual machine every browser runs and a
+operating system for running distributed applications. This is based in two
+key things: the Javascript virtual machine every browser runs and a
 simplified standard interface for interacting with servers.
 % These are "things", not "facts". As facts would be... "every browser runs a Javascript virtual machine and that there is a simplified standard interface for interacting with servers (?)
+% changed to things - JJ
 Thus
 creating a distributed computing experiment is just a matter of making
 a JavaScript application interchange information with a server, called
@@ -246,7 +246,7 @@ Volunteer computing involves a user running a program voluntarily
 and, as such, has been deployed in many different ways from the
 beginning of the Internet, starting with the SETI@home framework for
 processing extraterrestrial signals \cite{david-seti:home}. However
-the dual introduction of JavaScript as a universal language for the
+the dual facts of the introduction of JavaScript as a universal language for the
 browser and the browser itself as an ubiquitous web and Internet client has
 made this combination the most popular for volunteer computing
 frameworks such as the one we are using here, and whose first version
@@ -266,7 +266,7 @@ general, they do not try to assess the performance of the algorithm
 itself in the precise conditions they find in a volunteer computing
 system, although papers such as the one by Laredo et
 al. \cite{churn08:ijhpsa}, using models, try to find out the resulting
-performance when the users are changing continously according to a
+performance when the users are changing continuously according to a
 Weibull distribution. In the case of Klein and Spector \cite{unwitting-ec}, the algorithm
 is actually run on the server, using the browser mainly for fitness
 evaluation so no actual contribution to the evaluation of the
@@ -398,7 +398,7 @@ the way allowed by the platform, the original post. During the running
 of the experiments, users are engaged, questions answered, and all
 kind of explanations given if requested. In general, announcements
 have been made in Spanish, but in some cases English was used
-too. This makes for a certainly unrealiable experimentation framework,
+too. This makes for a certainly unreliable experimentation framework,
 but it is a realistic one. The steps in the design of the evolutionary
 algorithm will be explained next.
 
@@ -545,7 +545,7 @@ under which we can reasonably expect that the solution cannot be found. In every
 evolutionary algorithm it might happen, by chance, that the solution
 is found in just a few evaluations, but that is usually not the
 case. By looking at the logs in the last case we have established that
-minimun as 16 PUTs; in less than 1600 generations no solution to that
+minimum as 16 PUTs; in less than 1600 generations no solution to that
 difficult problem will be found. Let us filter then the runs,
 eliminating those that used less than 1600 generations to find the
 solution which can reasonably be said that they did so because some
@@ -607,7 +607,7 @@ next, presents a similar  behavior for all experiments but the last one: a
 very high correlation indicating that the number of volunteers changes
 slowly. The {\tt cachereboot} experiment correlation indicates a bigger
 dynamism, with individuals joining and leaving the experiment all the
-time. This might be circumstancial, but it also informs the fact
+time. This might be circumstantial, but it also informs the fact
 that the solution is found in less time and that users need less
 contributions to find it. 
 
@@ -661,9 +661,9 @@ the solution. And the algorithm will have to be improved, mainly by
 making the population more diverse. Right now there is a rigid policy
 of contribution to the pool: send the best individual, but this could
 be relaxed. Some other policies could also be tested, as well as
-running heterogenous algorithms in the same way that was done in
+running heterogeneous algorithms in the same way that was done in
 \cite{DBLP:journals/grid/ValdezTGVO15}. Diversity, as in any other
-evolutionary algorith, seems to be the key, but there are many ways of
+evolutionary algorithm, seems to be the key, but there are many ways of
 approaching it. 
 
 All these avenues of experimentation will be done openly following the
@@ -671,18 +671,14 @@ Open Science policy of our group, which, in fact, contributes to
 establish trust and security between us and volunteers and is an
 essential feature of the system. That is why this paper, as well as
 the data and processing scripts, are published with a free license in GitHub at
-\url{https://github.com/JJ/modeling-volunteer-computing}.
+\url{https://git.io/gecco-es-15}.
 
 %---------------------------------------------------------------
 \section*{Acknowledgments}
 
 This work has been supported in part by TIN2014-56494-C4-3-P (Spanish
 Ministry of Economy and Competitivity), PROY-PP2015-06 (Plan Propio
-2015 UGR) . We would also like to thank the anonymous reviewers of
-previous versions of this paper who have really helped us to improve
-this paper (and our work) with their suggestions. We are also grateful
-to Anna S\'aez de Tejada for her help with the data processing
-scripts. We are also grateful to {\tt @otisdriftwood} for his help
+2015 UGR). We are also grateful to {\tt @otisdriftwood} for his help
 gathering users for the new experiments.
 
 
