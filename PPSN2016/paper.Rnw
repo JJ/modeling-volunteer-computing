@@ -204,9 +204,7 @@ Using this system for creating distributed experiments is called {\em
 \cite{sarmenta2001volunteer} and it dates back, in different shapes
 and underlying mechanisms, to the origin of the web \cite{david-seti:home}. Our interest
 here, however, is to use it as a resource for evolutionary
-computation. This has been a line of research in our group for a long
-time \cite{jj-ppsn98}, but has lately been revisited thanks to the
-ubiquity of social networks and handheld computing devices. 
+computation, as our group has done for a long time \cite{jj-ppsn98}.
 
 In this line of research that uses volunteer computing for
 evolutionary algorithms, there are several pending issues. The first
@@ -218,17 +216,20 @@ experiment. The second line of research, although related to the
 first, is more focused on the evolutionary algorithm itself and how
 different design decisions will affect its performance.
 % Is it ok that we say that the first line of research is the most important... but then we focus on the second?
-In this paper our focus will be in the second aspect: we will try to
+We have approached the first issue in our previous work,
+% I have justified to focus, in this case, on the second
+but in this paper our focus will be in the second aspect: we will try to
 design a decentralized system that, at the same time, is able to use
-all available resources. This design will be done incrementally by
-changing the system on the client and the server and measuring its
+all available resources for finding the solution of an evolutionary algorithm. This design will be done incrementally by
+changing client and the server and measuring its
 impact on the overall performance: time and evaluations needed to find
 the solution. Eventually, we want to find a system that, whatever the
 number of users available to perform the experiment, is able to
 maximize their contribution to the evolutionary algorithm, at the same
 time that the evolutionary algorithm itself makes the most of those
-contributions, independently of how many they are, and is able to find
-the solution to the problem in less time and with less contributions.
+contributions and is able to find
+the solution to the problem in a minimum time and with the least
+number of contributions.
 
 The rest of the paper is organized as follows: Next we will briefly
 present the state of the art in opportunistic distributed evolutionary
@@ -308,9 +309,10 @@ The architecture of the {\sf NodIO} system is divided in two tiers:\begin{enumer
   encoding, in this case chromosomes and related
   information sent by the clients and responses returned by the
   server.  The server has the capability to
-  run a single experiment, storing the incoming chromosomes in a cache data structure
-  that is reset when the solution is found. This cache has a finite
-  size that erases the oldest chromosomes once it has reached its % Also "it has been filled to its"
+  run a single experiment, storing the incoming chromosomes in a
+  key-value cache that uses as key the chromosome string itself and is
+  reset when the solution is found. This cache has a finite 
+  size that erases the oldest chromosomes once it has been filled to % Also "it has been filled to its"
   capacity.  
 \item A client that includes the evolutionary algorithm as
   JavaScript code embedded in a web page that displays the fitness and
@@ -358,10 +360,9 @@ algorithm behavior. Different JavaScript libraries, such as JQuery or {\tt
   Chart.js} have been used to build the user interface elements of the
 framework, which should be running in
 \url{http://nodio-jmerelo.rhcloud.com}, a free resource hosted in the
-OpenShift Platform as a Service.
-%% \footnote{It is not guaranteed to be running,
-%% or running the same version, when you read this, however; you can always get
-%% the sources from GitHub and set it up yourself.}
+OpenShift Platform as a Service\footnote{It is not guaranteed to be running,
+or running the same version, when you read this, however; you can always get
+the sources from GitHub and set it up yourself.}.
 %
 \begin{figure}[!t]
 \centering
@@ -373,19 +374,20 @@ OpenShift Platform as a Service.
 \end{figure}
 
 NodIO needs a fitness function to work with; in this case the classical Trap 
-function \cite{Ackley1987} has been used; % I don't think this use of the ; is correct
-this function runs in the
+function \cite{Ackley1987} has been used. % I don't think this use of the ; is correct
+% Changed to .
+The evolutionary algorithm that evaluates that function runs in the
 browser, but the server needs to know when the solution has been
-found, so a termination condition is also included in the server, as a configuration
+found, so a function that checks termination condition is also included in the server, as a configuration
 option. In all cases we are using 50 Traps, a problem
 that is difficult enough to need the intervention of several users for
 an extended amount of minutes.
-
 For every new individual sent by the clients to the cache, several
 % We have not presented the "cache",  only the server and
 % ..storing the incoming chromosomes in a data structure
 % Im changing over there to cache
-pieces of meta data were stored: a time stamp, the client IP, the chromosome and
+% That's been changed - JJ
+pieces of metadata were stored: a time stamp, the client IP, the chromosome and
 fitness value, the cache size in that particular moment, and also if that
 individual actually updated the cache or not. 
 
@@ -487,7 +489,7 @@ accepted into the cache, which was set up to accept those only if {\em
 between one run and the next. That is why, in both cases, the
 ``Contributing'' column includes a value that is less than the total
 number. The final column includes the total number of runs in that
-particular batch, finished after a minimum number of 30 was reached. 
+particular batch, finished roughly after a minimum number of 30 was reached. 
 
 The baseline, called {\em base} in the Table, uses the
 mechanism of dropping contributions from clients if they are repeated
@@ -513,7 +515,7 @@ overlaps between runs.
 
 %
 \begin{table}
-  \caption{Experiments with overlaps eliminated:  summary of results. \label{tab:filtered}}
+  \caption{Experiments with {\em overlapped} runs filtered out: summary of results. \label{tab:filtered}}
 \begin{center}
 \begin{tabular}{|l|c|c|c|c|c|c|c|}
 \hline
