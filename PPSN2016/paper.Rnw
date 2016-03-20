@@ -600,13 +600,10 @@ that this strategy is only partly successful in avoiding overlaps.
 
 In fact, Table \ref{tab:correlation}, which shows
 the correlation between the number of IPs from one minute to the
-next, presents a similar  behavior for all experiments but the last one: a
-very high correlation indicating that the number of volunteers changes
-slowly. The {\tt cachereboot} experiment correlation indicates a bigger
-dynamism, with individuals joining and leaving the experiment all the
-time. This might be circumstantial, but it also informs the fact
-that the solution is found in less time and that users need less
-contributions to find it. 
+next, presents a similar  behavior for all experiments but the last one. A high correlation indicating that the number of volunteers changes
+slowly from one minute to the next; however, the {\tt cachereboot} experiment correlation indicates a bigger
+dynamism, with volunteers joining and leaving the experiment all the
+time, maybe because experiments take less time and need less resources. 
 
 %---------------------------------------------------------------
 \section{Conclusion}
