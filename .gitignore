@@ -29,3 +29,9 @@ auto/
 #Cosas latex
 *.pdf
 *.spl
+
+#Cosas generadas
+*.html
+
+#Otras cosas
+*.tgz
