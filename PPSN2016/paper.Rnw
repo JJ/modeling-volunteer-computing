@@ -151,7 +151,8 @@ for ( i in these.experiments ) {
 
 @
 
-\title{A performance assessment of evolutionary algorithms in a volunteer computing system}
+\title{A performance assessment of evolutionary algorithms in a
+  volunteer computing system} 
 
 \author{Juan-J.~Merelo \and Paloma de las Cuevas \and Pablo
   Garc\'ia-S\'anchez \inst{1} \and Mario Garc\'ia-Valdez \inst{2}}
@@ -161,8 +162,9 @@ of Granada, Spain \and
 Dept. of Graduate Studies at Instituto Tecnol\'ogico de Tijuana}
 
 \maketitle
-\thispagestyle{empty}
-\pagestyle{empty}
+
+%\thispagestyle{empty}
+%\pagestyle{empty}
 
 \begin{abstract}
 In a volunteer distributed computing system, users run a program on
@@ -181,23 +183,20 @@ improvements and leveraging of these contributions.
 \label{introduction}
 
 
-The world wide web  provides not only a platform for content
+The world wide web provides not only a platform for content
 distribution, but also an increasingly reliable and high-performance
-operating system for running distributed applications. This is based in two
-key things: the Javascript virtual machine every browser runs and a
-simplified standard interface for interacting with servers.
-% These are "things", not "facts". As facts would be... "every browser runs a Javascript virtual machine and that there is a simplified standard interface for interacting with servers (?)
-% changed to things - JJ
-Thus
-creating a distributed computing experiment is just a matter of making
-a JavaScript application interchange information with a server, called
-REST. From the point of view of the programmer, this involves
+operating system for running distributed applications. This is based
+in two key things: the Javascript virtual machine every browser runs
+and a simplified standard interface for interacting with servers.
+Thus creating a distributed computing experiment is just a matter of
+making a JavaScript application interchange information with a server,
+called REST. From the point of view of the programmer, this involves
 relatively common skills and no special libraries, since that
 interface is built in the browser, and a simple application that
 responds to those requests on the server side; both involve just a few
 dozens lines of code additionally to whatever business logic your
 application has. But, more importantly and from the point of view of
-the user, that application can be run by simply visiting a web page. 
+the user, that application can be run by simply visiting a web page.
 
 Using this system for creating distributed experiments is called {\em
   volunteer}, {\em cycle-scavenging} or {\em opportunistic} computing
