@@ -398,36 +398,41 @@ XMLHttpRequest object.
 The sequence of events happens as follows:
 \begin{enumerate}
 \item First the {\sf NodIO} process is started in Node.js. As part of the
-initialization procedure, the sequential number of experiments is initialized and a log
-file is created. The shared pool implemented as an array is reset.
-\item A volunteer follows the link of the experiment triggering a GET HTTP
-request, then the page is loaded.
-\item The main script renders the page and creates the worker instance. In
+initialization procedure, the sequential number of experiments held in
+a variable is initialized and a log
+file is created. The shared pool implemented as hash that uses as keys
+the chromosome strings is reset.
+\item A volunteer follows the link to the experiment triggering a GET HTTP
+request for static content and then the page is loaded.
+\item The main script renders the page and creates the worker
+  instance. In
 order to create a dedicated worker instance, another GET request is sent to the
 server, then the client receives the second worker implementation script.
 Each worker instance executes over time one or more evolutionary algorithms
 {\em islands}. Each island starts with a random population and it is assigned a
 universally unique identifier (UUID). The UUID is included in each of the HTTP
-requests sent to the server.
+requests sent to the server so that that particular worker can be
+identified and tracked in the logs. 
 The initial parameters for each island
 can be distinct. Once the worker is created and the parameters have been set,
 a message is sent to the worker to start the algorithm.
 \item The worker first creates the population following the previously
 specified parameters. Once the population has been initialized, the EA
-generation loop is started. After {\em n} generations the state of the population
-is evaluated. The chromosome with the best fitness is sent to the shared
+generation loop is started. After {\em n} generations  the chromosome
+with the best fitness is sent to the shared 
 population with a PUT HTTP request. If the best fitness is not the global best,
 the EA loop must continue, but first a chromosome is randomly selected from
-the shared population. The current generation number and the best
+the shared pool. The current generation number and the best
 chromosome are also sent to the client's main thread in order to update the DOM to
 display the current state of the island (described next). These messages are
 all asynchronous, so the EA loop of
-the worker continues even before a message is received by the target. If the best fitness is a global best, the best
+the worker continues even before a message is received by the
+target. If the best fitness is a global best, the best 
 chromosome is sent to the server and the loop ends. A message is sent to the
 main thread indicating that the best individual has been found.
 \item The main thread receives messages from workers as events handled by
 a callback function. When an iteration message is received, the page is
-updated by displaying a dynamic plot of the generation number and best
+updated by plotting a dynamic graph of the generation number and best
 fitness, and a representation of the chromosome is also generated.
 \item When a global best is received from an island, the current experiment
 ends, the experiment number is incremented, and the population array is reset.
@@ -438,16 +443,21 @@ assigned.
 \end{enumerate}
 %
 
-These two versions of the framework will have to be tested {\em in the
-  wild} to measure its performance. 
-However, before testing this framework in a real experiment, we have
-to establish a baseline for comparison. 
+These two versions of the framework have been tested {\em in the
+  wild} to measure its performance; results are published elsewhere,
+but we also have to establish a baseline for comparison. This is only
+for comparison purposes and not intended to prove that a volunteer
+framework, if used exclusively, is faster than other
+implementations. The main intention of this line of research is to
+check how evolutionary algorithms work in this context, and also how
+volunteer computing frameworks can be used to {\em supplement}
+whatever resources, desktop computers, laptop or cloud, are availab.e 
 
 \section{Baseline Experiments} 
 \label{sec:experiments}
 
 We have used the classical Trap function \cite{Ackley1987}
-used as well as the Rastrigin's floating-point optimization
+as well as the Rastrigin's floating-point optimization
 problem. Since JavaScript is a functional language and declaring a different 
 function and handing at the creation of the algorithm object, called
 {\tt Classic}, is the only change needed to work with a different
