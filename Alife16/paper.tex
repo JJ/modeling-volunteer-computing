@@ -392,7 +392,7 @@ crashed due to lack of RAM.
 \includegraphics[width=0.32\linewidth]{time-vs-ips-alife-64.png}
 \includegraphics[width=0.32\linewidth]{time-vs-ips-alife-32.png}
 \caption{Duration of experiments vs. number of different IPs (nodes)
-  participating in it, with averages and standard deviation shown as
+  participating in it, with averages per number of IPs and standard deviation shown as
   red dots; in the case there is a single red dot, there was a single
   experiment in which that many computers participated (for instance, 16
   computers in the experiment in the far left or 29 in the middle
@@ -467,10 +467,11 @@ description and performance of the NodIO volunteer computing system.
 \includegraphics[width=0.32\linewidth]{time-vs-rank-alife-128.png}
 \includegraphics[width=0.32\linewidth]{time-vs-rank-alife-64.png}
 \includegraphics[width=0.32\linewidth]{time-vs-rank-alife-32.png}
-\caption{Duration of experiments vs. rank, with $y$ axis in a
+\caption{Duration of experiments vs. rank of experiments sorted by
+  descending duration, with $y$ axis in a
   logarithmic scale. Dot color is related to the number of IPs
   participating in the experiment. From left to right and top to bottom, experiments
-  4/4, 4/24 and 7/31 and caches=128,64, 32} 
+  4/4, 4/24 and 7/31 and caches=128, 64, 32.} 
 \label{fig:zipf:os}
 % First ones made with time-vs-IPs-openshift.R:  
 \end{figure}
@@ -502,7 +503,8 @@ exponential distribution that corresponds to the Zipf's law.
 \includegraphics[width=0.32\linewidth]{weibull-fit-cache=64.png}
 \includegraphics[width=0.32\linewidth]{weibull-fit-cache=32.png}
 \caption{Number of {\tt PUT}s per unique IP and fit to a Weibull
-  distribution (in red). From left to right and top to bottom, experiments
+  distribution (in red); axis $x$ shows IPs sorted by descending
+  number of PUTs. From left to right and top to bottom, experiments
   4/4, 4/24 and 7/31 and new experiments with cache=128, 64, 32.} 
 % Plotted with ../data/plot-zipf-openshift.R
 \label{fig:puts:os}
