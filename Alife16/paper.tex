@@ -197,11 +197,11 @@ Thus, {\sf NodIO} architecture has two tiers:\begin{enumerate}
   duties, but they are basically a very lightweight and high performance
   data storage \citep{jj:idc:lowcost}.
   The server has the capability to
-  run a single experiment, storing the chromosomes in a data structure
-  that is reset when the solution is found. This data structure can
+  run a single experiment, storing the chromosomes in a key-value store
+  that is reset when the solution is found. This store can
   hold every chromosome in a particular experiment, or have a finite
   size that erases the oldest chromosomes once it has filled to
-  capacity. In this paper we will test both implementations.  
+  capacity, acting as a cache. In this paper we will test both implementations.  
 \item A client that includes the evolutionary algorithm as
   JavaScript code embedded in a web page that displays graphs, some
   additional links, and information on the experiment. This code runs
@@ -279,11 +279,13 @@ equal to \$0.00. Experiments were
 announced through a series of posts on Twitter and, in the latest case, Telegram, and
 results were published in\citep{DBLP:conf/gecco/GuervosG15}. For the
 purpose of this paper, we repeated the announcement several times
-through the month of February. All  %% April --> January ??
+through the month of February of the next year. All  
 in all, we have the set of runs with the characteristics shown in
 Table \ref{tab:runs}. In general, every experiment took several
 days. No particular care was taken about the time of the announcement
-%Pablo: but it would great at least describe how many times was announced and how long
+%Pablo: but it would great at least describe how many times was
+%announced and how long
+% We don't really tracked this... - JJ
 or the particular wording. Every {\em experiment} consisted in running
 until the solution of the 50-trap problem was found. When the correct
 solution was sent to the server, the counter was updated and the pool
@@ -298,8 +300,7 @@ system, however, time to solution is not the important measure here,
 where we are concerned with the computational 
 power of the system established by the number of volunteers. 
 
-The table shows that every experiment included more than 30 runs. The
-%Pablo: reference to table? (maybe the final print will misplace it)
+The table \ref{tab:runs}shows that every experiment included more than 30 runs. The
 number of different IPs intervening in them varied from more than one
 hundred to more than five hundred in the second experiment, with a
 number around 50 in the second, and most recent, batch of experiments. 
