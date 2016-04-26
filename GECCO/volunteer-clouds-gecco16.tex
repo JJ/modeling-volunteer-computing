@@ -45,7 +45,15 @@
 %
 % For tracking purposes - this is V2.0 - May 2012
 
-\documentclass{sig-alternate}
+\documentclass{sig-alternate-05-2015}
+\CopyrightYear{2016}
+\setcopyright{rightsretained}
+\conferenceinfo{GECCO'16 Companion}{July 20-24, 2016, Denver, CO, USA}
+\isbn{978-1-4503-4323-7/16/07}
+\doi{http://dx.doi.org/10.1145/2908961.2926999}
+
+\clubpenalty=10000
+\widowpenalty = 10000
 
 \graphicspath{{../img/}}
 
@@ -103,67 +111,19 @@ for Low Cost Distributed Evolutionary Computation}
 % without further effort on your part as the last section in
 % the body of your article BEFORE References or any Appendices.
 
-\numberofauthors{5} %  in this sample file, there are a *total*
-% of EIGHT authors. SIX appear on the 'first-page' (for formatting
-% reasons) and the remaining two appear in the \additionalauthors section.
-%
-% \author{Juan-J.~Merelo, Dept. of Computer Architecture and Technology
-%   and CITIC, University of Granada, Granada, Spain \\
-% Mario Garc\'ia-Valdez, Dept. of Graduate Studies, Instituto
-% Tecnológico de Tijuana, Tijuana, M\'exico\\
-% Pedro A. Castillo, Dept. of Computer Architecture and Technology, University of Granada, Granada, Spain\\
-% Pablo Garc\'ia-S\'anchez, Dept. of Computer Architecture and Technology, University of Granada, Granada, Spain\\
-% Paloma de las Cuevas, Dept. of Computer Architecture and Technology,
-% University of Granada, Granada, Spain\\
-
-% \thanks{Corresponding author: Juan-J.~Merelo (Email: jmerelo@ugr.es).}%
-% }
+\numberofauthors{6}
 \author{
-% You can go ahead and credit any number of authors here,
-% e.g. one 'row of three' or two rows (consisting of one row of three
-% and a second row of one, two or three).
-%
-% The command \alignauthor (no curly braces needed) should
-% precede each author name, affiliation/snail-mail address and
-% e-mail address. Additionally, tag each line of
-% affiliation/address with \affaddr, and tag the
-% e-mail address with \email.
-%
-% 1st. author
 \alignauthor
-Ben Trovato\titlenote{Dr.~Trovato insisted his name be first.}\\
-       \affaddr{Institute for Clarity in Documentation}\\
-       \affaddr{1932 Wallamaloo Lane}\\
-       \affaddr{Wallamaloo, New Zealand}\\
-       \email{trovato@corporation.com}
-% 2nd. author
+Juan-J.~Merelo, Pedro A. Castillo, Pablo Garc\'ia-S\'anchez, Paloma de las Cuevas\\
+\affaddr{Dept. of Computer Architecture and Technology
+  and CITIC, University of Granada, Granada, Spain} \\
+\email{(jmerelo|pacv|pgarcia|palomacd)@ugr.es}
+\alignauthor Nuria Rico\\
+\affaddr{Dept. of Statistics, University of Granada, Granada, Spain}\\
+\email{nrico@ugr.es}
 \alignauthor
-G.K.M. Tobin\titlenote{The secretary disavows
-any knowledge of this author's actions.}\\
-       \affaddr{Institute for Clarity in Documentation}\\
-       \affaddr{P.O. Box 1212}\\
-       \affaddr{Dublin, Ohio 43017-6221}\\
-       \email{webmaster@marysville-ohio.com}
-% 3rd. author
-\alignauthor Lars Th{\o}rv{\"a}ld\titlenote{This author is the
-one who did all the really hard work.}\\
-       \affaddr{The Th{\o}rv{\"a}ld Group}\\
-       \affaddr{1 Th{\o}rv{\"a}ld Circle}\\
-       \affaddr{Hekla, Iceland}\\
-       \email{larst@affiliation.org}
-\and  % use '\and' if you need 'another row' of author names
-% 4th. author
-\alignauthor Lawrence P. Leipuner\\
-       \affaddr{Brookhaven Laboratories}\\
-       \affaddr{Brookhaven National Lab}\\
-       \affaddr{P.O. Box 5000}\\
-       \email{lleipuner@researchlabs.org}
-% 5th. author
-\alignauthor Sean Fogarty\\
-       \affaddr{NASA Ames Research Center}\\
-       \affaddr{Moffett Field}\\
-       \affaddr{California 94035}\\
-       \email{fogartys@amesres.org}
+Mario Garc\'ia-Valdez,\affaddr{ Dept. of Graduate Studies, Instituto
+Tecnol\'ogico de Tijuana, Tijuana, M\'exico}\\
 }
 
 \maketitle
@@ -1163,18 +1123,13 @@ to check how often this happens and under which conditions.
 % Pablo: I should uncomment this last paragraph, but using the url: https://github.com/ANONYMOUS
 
 %---------------------------------------------------------------
-% \section*{Acknowledgment}
-% 
-% This work has been supported in part by
-% TIN2014-56494-C4-3-P (Spanish Ministry of Economy and Competitivity), PROY-PP2015-06 (Plan Propio 2015 UGR), 
-% SPIP2014-01437 (Direcci{\'o}n General de Tr{\'a}fico) and PYR-2014-17
-% GENIL project (CEI-BIOTIC Granada). Additional support was recieved by
-% Projects 5622.15-P (ITM) and  PROINNOVA 2015: 220590 (CONACYT).
-% We would also like to thank the
-% anonymous reviewers of previous versions of this paper who have really
-% helped us to improve 
-% this paper (and our work) with their suggestions. We are also grateful
-% to Anna S\'aez de Tejada for her help with the data processing scripts.
+\section*{Acknowledgment}
+ 
+This work has been supported in part by
+TIN2014-56494-C4-3-P (Spanish Ministry of Economy and Competitivity), PROY-PP2015-06 (Plan Propio 2015 UGR), 
+SPIP2014-01437 (Direcci{\'o}n General de Tr{\'a}fico) and PYR-2014-17
+GENIL project (CEI-BIOTIC Granada). Additional support was recieved by
+Projects 5622.15-P (ITM) and  PROINNOVA 2015: 220590 (CONACYT).
 
 \bibliographystyle{abbrv}
 \bibliography{geneura,volunteer,javascript,ror-js,GA-general}
