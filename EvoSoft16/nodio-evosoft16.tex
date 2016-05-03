@@ -12,6 +12,13 @@
 %
 \usepackage{url}
 
+% *** EXTRA HYPHENATION RULES ***
+%
+\usepackage[english]{babel}
+\hyphenation{
+  au-tonomous
+  non-de-ter-min-is-tic}
+
 \begin{document}
 
 % Copyright
@@ -257,8 +264,8 @@ Let us see how this system addresses the different challenges
 outlined above:
 \begin{itemize}
 \item {\em Scalability} is provided via the use of a lightweight and
-  high-performance, single-threaded, server based in Node.js and
-  Express.js. Although this single server is a bottleneck since it
+  high-performance, single-threaded, server based in Express.js and
+  Node.js. Although this single server is a bottleneck since it
   will eventually saturate, the fact that it runs as a non-blocking single thread
   allows the service of many requests. In fact, a limit in the
   number of simultaneous requests will be reached, but so far it has
@@ -279,7 +286,7 @@ outlined above:
   fact, the island does not need the server to run: it runs locally if
   needed, with the only exception that it is obviously unable to
   communicate with the rest of the islands.
-\item {\em Adaptiveness} is achieved simply through the autonomous
+\item {\em Adaptiveness} is achieved through the autonomous
   operation of every individual island without any synchronization
   mechanism. The islands in the system are, in fact, unaware of each
   other, communicating only through the server. The webpage itself can
@@ -480,8 +487,9 @@ seconds. Results for these two experiments
 are shown in Figure \ref{fig:baseline}. The baseline hardware system has these
 characteristics: 
 \begin{verbatim}
-Linux penny 3.13.0-34-generic #60-Ubuntu SMP Wed Aug 13 15:45:27 UTC
-2014 x86_64 x86_64 x86_64 GNU/Linux
+Linux penny 3.13.0-34-generic #60-Ubuntu SMP
+Wed Aug 13 15:45:27 UTC 2014
+x86_64 x86_64 x86_64 GNU/Linux
 \end{verbatim}
 with a 4-core {\tt Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz}.
 
@@ -571,8 +579,8 @@ double and uniformly distributed integers. Generators use a single
 {\tt long} seed. In order to implement the same functionality in
 JavaScript, the library {\tt random-js} was used, as there are inconsistencies 
 in the implementation of the standard {\tt Math.random()} between engines
-and also their results are non-deterministic. 
-The library {\tt random-js}, implements a Mersenne Twister algorithm producing 
+and also their results are non-de\-ter\-min\-is\-tic. 
+The library {\tt random-js} implements an algorithm called Mersenne Twister, producing 
 consistent results across all JavaScript VMs.
 \item {\em Timing functions} In order to compare the performance of 
 each implementation, an accurate and consistent way of measuring 
@@ -583,10 +591,10 @@ resolution given in milliseconds.
 In order to measure the runtime intervals with a higher precision two functions
 where used: for Node.js we used the native {\tt process.hrtime()} function
 which returns a high-resolution measure in a {\tt [seconds, nanoseconds]}
-array, and for measuring in the browser the {\tt Performance.now()} function was called,
+array, and for measuring in the browser the {\tt Per\-for\-mance.now()} function was called,
 which uses floating-point numbers with up to microsecond precision. 
 A drawback found is that the {\tt Performance.now()} function is only implemented
-in Firefox and Chrome browsers. Both functions are independent of the system clock. 
+in Firefox and Chrome brows\-ers. Both functions are independent of the system clock. 
 \item {\em Tools} An important consideration when choosing certain 
 language to write non-trivial programs is the availability of development tools. While developing
 the experiments, we used a comprehensive set of developer tools available for both
