@@ -34,12 +34,12 @@ ax1.yaxis.grid(True, linestyle='-', which='major', color='lightgrey',
 # Hide these grid behind plot objects
 ax1.set_axisbelow(True)
 ax1.set_title('Time in miliseconds for 10k evaluations, 30 runs')
-ax1.set_xlabel('Implementation Language')
-ax1.set_ylabel('Time in seconds')
+#ax1.set_xlabel('Implementation Language')
+ax1.set_ylabel('Time in miliseconds')
 
 xtickNames = plt.setp(ax1, xticklabels= ["Java","Matlab","node.js","chrome","chrome main","firefox","firefox main"] )
 plt.setp(xtickNames, rotation=30, fontsize=8)
 #plt.setp(xtickNames)
-plt.ylim((0,1600))
+plt.ylim((800,1600))
 #show()
-plt.savefig('../f15_times.eps')
+plt.savefig('../f15_times.png')
