@@ -470,14 +470,26 @@ evolutionary algorithm in a desktop client written using {\sf NodEO}
 \cite{nodeo2014}, the basic JavaScript library we have used as base to
 build {\sf NodIO}, the framework. This experiment tries to 
 find the solution to the 40-trap function with parameters $l=4, a=1,
-b=2, z=3$ and a population size equal to 512. The algorithm in a
+b=2, z=3$ and a population size equal to 512. 
+
+The algorithm in a
 single island was run until the solution (a string with all
 ones) was found or five million evaluations had been performed. It
 took around a minute, on average, that is $68.9694$ seconds, to
-perform these runs. In this experiment only 33, that is, 66\% were
-successful. The experiments were repeated for population $p=1024$,
+perform these runs, but in this experiment only 33 out of 50, that is, 66\% were
+successful. 
+
+In order to check running time for different initial conditions, the
+experiments were repeated for population $p=1024$, 
 with a success rate upgraded to 100\% and an {\em average} duration of $3.46$
-seconds. Results for these two experiments
+seconds. In general, deceptive problems such as this one are very
+sensitive to initial diversity. A bigger population size implies that
+there will be more schemata in it, leading to a greater degree of
+success in exploitation. In general, that seems to be the case in many
+deceptive problems so that explains this order-of-magnitude drop in
+running time \cite{goldberg1991genetic}. 
+
+Results for these two experiments
 are shown in Figure \ref{fig:baseline}. The baseline hardware system has these
 characteristics: 
 \begin{verbatim}
