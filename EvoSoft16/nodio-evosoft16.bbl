@@ -1,0 +1,119 @@
+\begin{thebibliography}{10}
+
+\bibitem{Ackley1987}
+D.~H. Ackley.
+\newblock {\em A connectionist machine for genetic hillclimbing}.
+\newblock Kluwer Academic Publishers, Norwell, MA, USA, 1987.
+
+\bibitem{Anderson06thecomputational}
+D.~P. Anderson and G.~Fedak.
+\newblock The computational and storage potential of volunteer computing.
+\newblock In {\em in 6th IEEE International Symposium on Cluster Computing and
+  the Grid (CCGrid)}, 2006.
+
+\bibitem{web:compilersjs}
+J.~Ashkenas.
+\newblock List of languages that compile to {JS}, November 2015.
+
+\bibitem{web:BOINC}
+What is volunteer computing?
+\newblock BOINC Wiki, 2012.
+\newblock [Internet; download 25-octubre-2013].
+
+\bibitem{domingues2007sabotage}
+P.~Domingues, B.~Sousa, and L.~M. Silva.
+\newblock Sabotage-tolerance and trust management in desktop grid computing.
+\newblock {\em Future Generation Computer Systems}, 23(7):904--912, 2007.
+
+\bibitem{flanagan2006javascript}
+D.~Flanagan.
+\newblock {\em {JavaScript: the definitive guide}}.
+\newblock O'Reilly Media, Inc., 2006.
+
+\bibitem{LNCS86720702}
+M.~Garc\'{\i}a-Valdez, L.~Trujillo, J.~J. Merelo-Guerv\'{o}s, and F.~F.
+  de~Vega.
+\newblock Randomized parameter settings for heterogeneous workers in a
+  pool-based evolutionary algorithm.
+\newblock In T.~Bartz-Beielstein, J.~Branke, B.~Filipi\v{c}, and J.~Smith,
+  editors, {\em Parallel Problem Solving from Nature -- PPSN XIII}, volume 8672
+  of {\em Lecture Notes in Computer Science}, pages 702--710. Springer, 2014.
+
+\bibitem{goldberg1991genetic}
+D.~E. Goldberg, K.~Deb, and J.~H. Clark.
+\newblock Genetic algorithms, noise, and the sizing of populations.
+\newblock Technical Report 61801, IlliGAL, UIUC, 1991.
+
+\bibitem{Gray:2009:GCM:1610564.1610565}
+J.~Gray.
+\newblock Google chrome: The making of a cross-platform browser.
+\newblock {\em Linux Journal}, 2009(185), Sept. 2009.
+
+\bibitem{hickson2012web}
+I.~Hickson.
+\newblock {Web Workers, W3C Candidate Recommendation}.
+\newblock {\em W3C. W3C}, 1, 2012.
+
+\bibitem{DBLP:conf/lion/LaredoDFGB13}
+J.~L.~J. Laredo, B.~Dorronsoro-D\'{\i}az, C.~Fernandes, J.-J.
+  Merelo-Guerv{\'o}s, and P.~Bouvry.
+\newblock Oversized populations and cooperative selection: Dealing with massive
+  resources in parallel infrastructures.
+\newblock In G.~Nicosia and P.~M. Pardalos, editors, {\em LION}, volume 7997 of
+  {\em Lecture Notes in Computer Science}, pages 444--449. Springer, 2013.
+
+\bibitem{jj:idc:lowcost}
+J.~J. Merelo.
+\newblock Low or no cost distributed evolutionary computation.
+\newblock In D.~Camacho, L.~Braubach, S.~Venticinque, and C.~Badica, editors,
+  {\em Intelligent Distributed Computing VIII}, volume 570 of {\em Studies in
+  Computational Intelligence}, pages 3--4. Springer International Publishing,
+  2015.
+
+\vfill\eject
+\bibitem{gecco07:workshop:dcor}
+J.~J. Merelo, A.~M. Garc\'{\i}a, J.~L.~J. Laredo, J.~Lupi\'{o}n, and F.~Tricas.
+\newblock Browser-based distributed evolutionary computation: performance and
+  scaling behavior.
+\newblock In {\em GECCO '07: Proceedings of the 2007 GECCO conference companion
+  on Genetic and evolutionary computation}, pages 2851--2858, New York, NY,
+  USA, 2007. ACM Press.
+
+\bibitem{2015arXiv151101088M}
+J.-J. {Merelo}, P.~{Garc{\'{\i}}a-S{\'a}nchez}, M.~{Garc{\'{\i}}a-Valdez}, and
+  I.~{Blancas}.
+\newblock {There is no fast lunch: an examination of the running speed of
+  evolutionary algorithms in several languages}.
+\newblock {\em ArXiv e-prints}, Nov. 2015.
+
+\bibitem{nodeo2014}
+J.~J. Merelo~Guerv\'{o}s.
+\newblock {NodEO}, a evolutionary algorithm library in {Node}.
+\newblock Technical report, GeNeura group, Mar. 2014.
+\newblock Available at \url{http://figshare.com/articles/nodeo/972892}.
+
+\bibitem{DBLP:journals/corr/GuervosG15}
+J.-J. Merelo-Guerv{\'{o}}s and P.~Garc{\'{\i}}a{-}S{\'{a}}nchez.
+\newblock Modeling browser-based distributed evolutionary computation systems.
+\newblock {\em CoRR}, abs/1503.06424, 2015.
+
+\bibitem{sarmenta2001volunteer}
+L.~F. Sarmenta.
+\newblock {\em Volunteer computing}.
+\newblock PhD thesis, Massachusetts Institute of Technology, 2001.
+
+\bibitem{tang2007benchmark}
+K.~Tang, X.~Yao, P.~N. Suganthan, C.~MacNish, Y.-P. Chen, C.-M. Chen, and
+  Z.~Yang.
+\newblock Benchmark functions for the CEC\'{}2008 special session and
+  competition on large scale global optimization.
+\newblock {\em Nature Inspired Computation and Applications Laboratory, USTC,
+  China}, pages 153--177, 2007.
+
+\bibitem{tilkov2010node}
+S.~Tilkov and S.~Vinoski.
+\newblock Node.js: Using {JavaScript} to build high-performance network
+  programs.
+\newblock {\em IEEE Internet Computing}, 14(6):80--83, 2010.
+
+\end{thebibliography}
