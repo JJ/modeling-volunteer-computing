@@ -1,0 +1,149 @@
+----------------------- REVIEW 1 ---------------------
+PAPER: 7
+TITLE: A performance assessment of evolutionary algorithms in a volunteer computing system
+AUTHORS: Jj Merelo, Paloma de Las Cuevas, Pablo García Sánchez and Mario Garcia Valdez
+
+OVERALL EVALUATION: -1 (weak reject)
+REVIEWER'S CONFIDENCE: 4 (high)
+
+----------- Review -----------
+This paper talks about the performance assessment of an evolutionary algorithms in a volunteer computing system.
+
+The topic itself is interesting. However, there are some weaknesses in this paper and for that reason I recommend rejection.
+
+The framework description does not present similar and more advanced frameworks doing the same thing like multi-agent model or island model. In these frameworks, several policies are presented and I think they could be applied to volunteer computing system.
+
+You work with an evolutionary algorithm but you never detail it. Do you use the same algorithm (same operators, same number of individuals, ...) in all the clients ? Do you include learning during your runs ?
+
+Your experimental section is interesting and permit to see the behaviour of your framework for different sets of runs. However, the notion of time is blurred. Do you include notion of latency or only computation time ?
+
+
+----------------------- REVIEW 2 ---------------------
+PAPER: 7
+TITLE: A performance assessment of evolutionary algorithms in a volunteer computing system
+AUTHORS: Jj Merelo, Paloma de Las Cuevas, Pablo García Sánchez and Mario Garcia Valdez
+
+OVERALL EVALUATION: 2 (accept)
+REVIEWER'S CONFIDENCE: 4 (high)
+
+----------- Review -----------
+The paper addresses a very interesting problem, which is correctly identified and
+originally faced. Conclusions are appropriate.
+
+I have only some minor remarks.
+
+1) Fig. 2: please use different symbols for different experiments in the plot.
+It is impossible to distinguish the diverse plots.
+
+2) Could you provide some details about the actual EA used in the experiments.
+
+
+----------------------- REVIEW 3 ---------------------
+PAPER: 7
+TITLE: A performance assessment of evolutionary algorithms in a volunteer computing system
+AUTHORS: Jj Merelo, Paloma de Las Cuevas, Pablo García Sánchez and Mario Garcia Valdez
+
+OVERALL EVALUATION: -2 (reject)
+REVIEWER'S CONFIDENCE: 4 (high)
+
+----------- Review -----------
+The topic of this paper is a distributed evolutionary computation
+system, based around volunteer resources, which users participate over
+the web. The initially stated aim is to maximise the use of available
+resources for the evolutionary algorithm, even though this is
+heterogeneous and changes over time.
+
+I really like the work that the authors have done, and they have made an
+effort to open up their experiments and code. However, I do not think
+the paper is ready for publication for two main reasons.
+
+First, the paper lacks sufficient technical detail about how the system
+works, but more importantly, how the EA is distributed and what is novel
+about this compared to previous similar approaches (which the authors do
+briefly discuss). The paper would benefit from a clearly laid out
+algorithm description, for example.
+
+Second, the claims the authors want to make concerning the system they
+have built are not clearly explained or supported. There is an aim
+around maximising the use of resources, which I assume is the same as
+the "efficiency" aim mentioned in Section 5. But it is not clear to me
+how this is measured, or how a claim about efficiency is supported,
+given the presented results. In Section 4 (results), however, we are
+told that the aim of this approach is to cut costs. But this was not
+mentioned before as an aim. On this front, the paper could do with some
+more clarity and results that clearly support the claims made.
+
+Instead, the results seem to focus on network traffic statistics. The
+numbers in Table 1 are reasonably context free, at least for me. I
+couldn't really understand what I might be looking for in them, or why
+they were important.
+
+Finally, the conclusions section has some fairly vague and apparently
+unsupported statements in it concerning diversity, and an increasing
+benefit to associated with increased participation. I would have liked
+to have seen these things, of course still speculative as future work, a
+bit more clearly described.
+
+A few minor points:
+
+1) p2: "...in our previous work" needs a citation
+
+2) This part doesn't make sense:
+
+"In general, a distributed volunteer-based evolutionary computation
+system based on the browser is simply a client-server system which
+client is embedded in the browser via JavaScript. We call this system
+NodIO."
+
+It's either a general statement, or it's a system called NodIO. It can't
+be both. Please tidy up the wording.
+
+3) Why do you encourage original posts to announce the new experiments?
+   No reason is given. Is this important?
+
+4) Fig. 2: What is "idx"?
+
+5) Fig. 1 calls it a "proposed system", but it is not just proposed --
+   you have actually built it!
+
+6) The reference to hypermutation by restarting the browser assumes some
+   knowledge of the distributed architecture of the EA, which is not
+   given.  If this example is to be kept, I would suggest a bit more
+   detail to explain this.
+
+7) What is the difference between a techno-social system and a
+   socio-technical system? The latter seems to be used more commonly (at
+   least in the literature I am familiar with). Are they different?
+
+
+----------------------- REVIEW 4 ---------------------
+PAPER: 7
+TITLE: A performance assessment of evolutionary algorithms in a volunteer computing system
+AUTHORS: Jj Merelo, Paloma de Las Cuevas, Pablo García Sánchez and Mario Garcia Valdez
+
+OVERALL EVALUATION: 0 (borderline paper)
+REVIEWER'S CONFIDENCE: 3 (medium)
+
+----------- Review -----------
+This paper describes a web based volunteer distributed processing system applied to the task of solving an evolutionary computing problem. The paper examines the results of using the proposed system in terms of the contribution of the web client nodes and user behaviour. It makes good use of the 'island model' design to distribute the task across web clients. Each client acts as an island and periodically submits high scoring individuals back to the server and vice versa.
+
+I think this is an interesting alternative to more traditional distributed processing approaches but the paper presents the idea more as a proof of concept rather than an in-depth study. The example analysis looks at just one problem and tries to derive some conclusive general results from this. In order to properly determine the benefits of using this system, it will be necessary to look at how different types of algorithm and problem alter the performance of the system and whether user behaviour changes if long runs are required. It may be possible that there are some general principles that will hold true across a diverse set of problems but it is not possible to determine if this is the case from the results presented in this paper.
+
+I would also have expected the paper to examine the difference in utility of this web based approach compared with more traditional process 'scavenging' systems such as HT Condor (research.cs.wisc.edu/htcondor/). In particular it would be interesting to look at the trade off between being able to use client nodes without user interaction (e.g. HT Condor) versus a potentially very large set of web clients which have the drawback that users are required to actively load a job. The net result could perhaps be that although the job submitter has a lot less control, the vastly larger set of web clients could result in more processing work being done.
+
+One thought that occurred that might enable the approach to side step the user initiation issue is whether or not a browser add-on could be distributed that would take care of automatically loading jobs from the server. Once the user had installed the add-on, they would not need any further interaction with the system apart from perhaps disabling it if it was affecting their normal work. This would probably be a lot simpler than trying to persuade users to download and install a Condor client but should have the same net effect.
+
+With regard to the actual implementation, the authors note that the server does not accept submissions from clients if they have the same score as previous submissions. I would have thought that they may want accept a score (or a score within a range) if the solution is quite different from other previously submitted solutions with a similar score. This would indicate that there were different ways of solving the  problem with the same net effect and maintain some diversity in the population.
+
+I think the paper may be viable as a poster since it would allow the authors to present their ideas and get feedback from an audience who would be most interested in using the proposed system. With its current level of detail, I do not think it has sufficiently robust results to be presented as a full paper.
+
+Typos:
+
+Section 4
+Paragraph 1. 'Since the point of using volunteer' -> 'Since the point of using a volunteer'
+Paragraph 2. 'to the rest, specially' -> 'to the rest, especially'
+Paragraph 5. 'The first thin we will' -> ''The first thing we will'
+Paragraph 6. ''which so needs less' -> 'which needs less'
+
+Section 5
+Paragraph 1. 'This configuration achieve a' -> 'This configuration achieved a'
