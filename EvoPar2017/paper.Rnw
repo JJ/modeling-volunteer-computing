@@ -154,12 +154,14 @@ for ( i in these.experiments ) {
 \title{A performance assessment of evolutionary algorithms in
   volunteer computing environments} 
 
-\author{Juan-J.~Merelo \and Paloma de las Cuevas \and Pablo
-  Garc\'ia-S\'anchez \inst{1} \and Mario Garc\'ia-Valdez \inst{2}}
+%% \author{Juan-J.~Merelo \and Paloma de las Cuevas \and Pablo
+%%   Garc\'ia-S\'anchez \inst{1} \and Mario Garc\'ia-Valdez \inst{2}}
+\author{First Author \and Second Author}
 
-\institute{Dept. of Computer Architecture and Technology, University
-of Granada, Spain \and
-Dept. of Graduate Studies at Instituto Tecnol\'ogico de Tijuana}
+%% \institute{Dept. of Computer Architecture and Technology, University
+%% of Granada, Spain \and
+%% Dept. of Graduate Studies at Instituto Tecnol\'ogico de Tijuana}
+\institute{First Institute in Somecountry \and Second University in Someothercountry}
 
 \maketitle
 
@@ -675,7 +677,10 @@ the data and processing scripts, are published with a free license in GitHub at
 %Ministry of Economy and Competitivity), PROY-PP2015-06 (Plan Propio
 %2015 UGR). We are also grateful to {\tt @otisdriftwood} for his help
 %gathering users for the new experiments.
-
+Acknowledgements\\
+taking\\
+this\\
+space
 
 \bibliographystyle{splncs}
 \bibliography{volunteer,GA-general,geneura,javascript,ror-js}
