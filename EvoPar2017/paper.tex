@@ -74,7 +74,7 @@
 
 
 \title{A performance assessment of evolutionary algorithms in
-  volunteer computing environments} 
+  volunteer computing environments: the importance of entropy} 
 
 
 % \author{Juan-J.~Merelo \and Paloma de las Cuevas \and Pablo
@@ -99,25 +99,32 @@ Institute of Higher Studies, Zootropa}
 \begin{abstract}
 In a volunteer distributed computing system, users run a program on
 their own machine to contribute to a common effort. If the program is
-embedded in a web page, collaboration is easy, but also ephemeral. In
+embedded in a web page, collaboration is straightforward, but also ephemeral. In
 this paper, we analyze a volunteer evolutionary computing system called
-NodIO, trying to find out a few rules that encourage volunteer
-participation and how to make the most of their contributions to the
-evolutionary algorithm. We will show different measures of
-participation and contribution to the algorithm and how different
-volunteer usage patterns and tweaks in the algorithm, such as restarting clients when solution has been found, contribute to
-improvements and leveraging of these contributions. 
+NodIO, by running several experiments, some of them massive. Our
+objective is to discover rules that encourage volunteer
+participation and also the interplay of these contributions with the
+dynamics of the algorithm itself, making it more or less efficient. We will show different measures of
+participation and contribution to the algorithm and how different 
+volunteer usage patterns and tweaks in the algorithm, such as
+restarting clients when solution has been found, contribute to 
+improvements and leveraging of these contributions. We will also try
+to find out what is the key factor in the early termination of the
+experiments, measuring entropy in the contributions and other large
+scale indicators. 
 \end{abstract}
 
 \section{Introduction}
 \label{introduction}
 
-
-The world wide web provides not only a platform for content
-distribution, but also an increasingly reliable and high-performance
-operating system for running distributed applications. This is based
-in two key things: the Javascript virtual machine every browser runs
-and a simplified standard interface for interacting with servers.
+The World Wide Web provides not only a platform for content
+distribution, but also, thanks to the maturity and reliability of the
+HTTP protocol, an increasingly reliable and high-performance
+operating system for running distributed applications. Besides the
+protocol itself, there are two factors that contribute to this fact:
+the Javascript virtual machine every browser runs \cite{paulson2005building}
+and the simplified standard interface for interacting with servers
+exemplified by the REST application interface convention \cite{masse2011rest}.
 Thus creating a distributed computing experiment is just a matter of
 making a JavaScript application interchange information with a server,
 called REST. From the point of view of the programmer, this involves
@@ -263,25 +270,6 @@ The architecture of the {\sf NodIO} system is divided in two tiers:\begin{enumer
   started. This did not completely avoid these contributions: if the
   clients of the {\em old} run increased their new fitness, it would
   still be allowed. 
-  % As I remember we kept the run_number so IPs with old runs
-  % did not interfere with newer ones. But you are saying: what if they are super slow 
-  % and always PUT when the run is already over?, we want to receive 
-  % those individuals? 
-  % "That means that if a particular IP
-  % sends the fitness 99 into the server, it will be accepted only
-  % once."  
-  % once per run?
-% JJ - once per run or experiment. But we didn't keep that run_number
-% to avoid interference, just to keep track
-  %  but different individuals could have the same fitness, are we limiting the search? 
-% We are actually checking for the same individual, not only the fitness
-  %  maybe we could have multiple versions of the pool a la MVCC  :)
-% Let's leave that for the future...- JJ
-  % I think if we are just trying to limit overlapping of the experiments
-  % then PUTs should send the run's seq_number and completly remove it.  
-% The client does not keep track of the seq number. Maybe we should do
-% just that, but sending back and forth the seq number implies
-% refactoring. - JJ
 \end{enumerate}
 
 Figure \ref{fig:system} describes the general system architecture and
@@ -304,19 +292,15 @@ the sources from GitHub and set it up yourself.}.
 \end{figure}
 
 NodIO needs a fitness function to work with; in this case the classical Trap 
-function \cite{Ackley1987} has been used. % I don't think this use of the ; is correct
-% Changed to .
-The evolutionary algorithm that evaluates that function runs in the
+function \cite{Ackley1987} has been used. 
+The evolutionary algorithm that uses Trap as fitness function is
+completely run in the
 browser, but the server needs to know when the solution has been
-found, so a function that checks termination condition is also included in the server, as a configuration
+found, so a subroutine that checks if the solution been found  is also included in the server, as a configuration
 option. In all cases we are using 50 Traps, a problem
 that is difficult enough to need the intervention of several users for
 an extended amount of minutes.
 For every new individual sent by the clients to the cache, several
-% We have not presented the "cache",  only the server and
-% ..storing the incoming chromosomes in a data structure
-% Im changing over there to cache
-% That's been changed - JJ
 pieces of metadata were stored: a time stamp, the client IP, the chromosome and
 fitness value, the cache size in that particular moment, and also if that
 individual actually updated the cache or not. 
@@ -372,11 +356,15 @@ cachereboot & 392917.0 & 12 & 12 & 576.0 & 79.0 & 0.1575092 & 55 & 225 & 43.2857
 Since the point of using volunteer computing system is to cut costs,
 all experiments were set up using the OpenShift
 PaaS, which provides a free tier, making the whole experiment cost
-equal to \$0.00. In fact, the NodIO system can be deployed to any
-system as long as it can run node.js and has access to the filesystem, for
-log files, if available%% . All these logs are available upon
-%% request. Processed files are available in the same repository that
-%% hosts this paper, as well as the scripts needed to process them. 
+equal to nil. In fact, the NodIO system can be deployed to any
+Platform or Infraestructure as a Service 
+system as long as it can run node.js and can store logs on the same
+place or in some other Log as a Service. Local storage can be used,
+but it is not a requisite and, in fact, Heroku does not allow
+persistent storage of files in its service. 
+All these logs are available upon
+request. Processed files are available in the same repository that
+hosts this paper, as well as the scripts needed to process them. 
 
 %
 %

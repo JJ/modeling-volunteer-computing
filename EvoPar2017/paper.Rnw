@@ -167,7 +167,7 @@ minutes.data <- data.frame(Experiment="17-0",
 @
 
 \title{A performance assessment of evolutionary algorithms in
-  volunteer computing environments} 
+  volunteer computing environments: the importance of entropy} 
 
 
 % \author{Juan-J.~Merelo \and Paloma de las Cuevas \and Pablo
@@ -192,25 +192,32 @@ Institute of Higher Studies, Zootropa}
 \begin{abstract}
 In a volunteer distributed computing system, users run a program on
 their own machine to contribute to a common effort. If the program is
-embedded in a web page, collaboration is easy, but also ephemeral. In
+embedded in a web page, collaboration is straightforward, but also ephemeral. In
 this paper, we analyze a volunteer evolutionary computing system called
-NodIO, trying to find out a few rules that encourage volunteer
-participation and how to make the most of their contributions to the
-evolutionary algorithm. We will show different measures of
-participation and contribution to the algorithm and how different
-volunteer usage patterns and tweaks in the algorithm, such as restarting clients when solution has been found, contribute to
-improvements and leveraging of these contributions. 
+NodIO, by running several experiments, some of them massive. Our
+objective is to discover rules that encourage volunteer
+participation and also the interplay of these contributions with the
+dynamics of the algorithm itself, making it more or less efficient. We will show different measures of
+participation and contribution to the algorithm and how different 
+volunteer usage patterns and tweaks in the algorithm, such as
+restarting clients when solution has been found, contribute to 
+improvements and leveraging of these contributions. We will also try
+to find out what is the key factor in the early termination of the
+experiments, measuring entropy in the contributions and other large
+scale indicators. 
 \end{abstract}
 
 \section{Introduction}
 \label{introduction}
 
-
-The world wide web provides not only a platform for content
-distribution, but also an increasingly reliable and high-performance
-operating system for running distributed applications. This is based
-in two key things: the Javascript virtual machine every browser runs
-and a simplified standard interface for interacting with servers.
+The World Wide Web provides not only a platform for content
+distribution, but also, thanks to the maturity and reliability of the
+HTTP protocol, an increasingly reliable and high-performance
+operating system for running distributed applications. Besides the
+protocol itself, there are two factors that contribute to this fact:
+the Javascript virtual machine every browser runs \cite{paulson2005building}
+and the simplified standard interface for interacting with servers
+exemplified by the REST application interface convention \cite{masse2011rest}.
 Thus creating a distributed computing experiment is just a matter of
 making a JavaScript application interchange information with a server,
 called REST. From the point of view of the programmer, this involves
