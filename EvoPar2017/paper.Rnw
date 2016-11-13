@@ -397,11 +397,11 @@ the sources from GitHub and set it up yourself.}.
 \end{figure}
 
 NodIO needs a fitness function to work with; in this case the classical Trap 
-function \cite{Ackley1987} has been used. % I don't think this use of the ; is correct
-% Changed to .
-The evolutionary algorithm that evaluates that function runs in the
+function \cite{Ackley1987} has been used. 
+The evolutionary algorithm that uses Trap as fitness function is
+completely run in the
 browser, but the server needs to know when the solution has been
-found, so a function that checks termination condition is also included in the server, as a configuration
+found, so a subroutine that checks if the solution been found  is also included in the server, as a configuration
 option. In all cases we are using 50 Traps, a problem
 that is difficult enough to need the intervention of several users for
 an extended amount of minutes.
