@@ -179,7 +179,8 @@ different steps in the incremental design in Section
 \section{State of the art}
 \label{sec:soa}
 
-Volunteer computing involves a user running a program voluntarily
+Volunteer computing involves users deciding to run a program that acts
+as a client or as a peer in an experiment
 and, as such, has been deployed in many different ways from the
 beginning of the Internet, starting with the SETI@home framework for
 processing extraterrestrial signals \cite{david-seti:home}. However
@@ -187,19 +188,36 @@ the dual facts of the introduction of JavaScript as a universal language for the
 browser and the browser itself as an ubiquitous web and Internet client has
 made this combination the most popular for volunteer computing
 frameworks such as the one we are using here, and whose first version
-was described in \cite{DBLP:conf/gecco/GuervosG15}.
+was described in [citation hidden]. 
+%\cite{DBLP:conf/gecco/GuervosG15}.
 
-JavaScript can be used for either unwitting
+Several authors have already described system using JavaScript  either
+for unwitting
 \cite{unwitting-ec,boldrin2007distributed} or volunteer 
 \cite{langdon:2005:metas,gecco07:workshop:dcor} distributed
 evolutionary computation and it has been used ever since by several
 authors, including more recent efforts
-\cite{duda2013distributed,DBLP:journals/corr/abs-0801-1210,EvoStar2014:jsEO}. 
+\cite{duda2013distributed,DBLP:journals/corr/abs-0801-1210,EvoStar2014:jsEO}. Most
+of these papers focused on testing the system by itself as proofs of
+concepts, more than on its performance or their actual influence on
+the result of an evolutionary algorithm. In fact, some of them do not
+even work in as a distributed computing system
+\cite{EvoStar2014:jsEO}, describing the expressive capabilities of
+JavaScript for evolutionary computation. 
 
-In general, those papers go no further than a proof of concept,
-attempting to gauge how many users join the effort and also how long
-would it take for a concrete amount of users to reach the solution. In
-general, they do not try to assess the performance of the algorithm
+The proof of concepts described above do not go further than trying to
+find out  how many users join the effort and how many the system is
+able to support. In fact, systems described in
+\cite{gecco07:workshop:dcor} had serious scaling issues; some of them
+also tried to find out how much time was needed to find the solution
+or, alternatively, how many users would be needed to be competitive
+with single-user single-computer implementations of the same
+algorithm. However, the latest systems try to enphasize the seamless
+integration of peer and volunteer computing systems \cite{leclerc2016seamless}. 
+
+This latest system offloads evaluation to browsers so the actual
+algorithm runs in some other place; in general, most researchers do
+not try to assess the performance of the algorithm 
 itself in the precise conditions they find in a volunteer computing
 system, although papers such as the one by Laredo et
 al. \cite{churn08:ijhpsa}, using models, try to find out the resulting
