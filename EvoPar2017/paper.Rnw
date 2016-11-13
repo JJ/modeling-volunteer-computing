@@ -25,6 +25,8 @@
 
 <<setup, cache=FALSE,echo=FALSE>>=
 library("ggplot2")
+library("RColorBrewer")
+
 experiment.data <- data.frame(Experiment=character(),
                               milliseconds=character(),                           
                               IPs=character(), 
@@ -147,6 +149,19 @@ for ( i in these.experiments ) {
                                   IPs=as.integer(this.data$IPs))
                        )
 }
+
+# New data for this paper
+
+IPs <- read.csv("../data/nodio-2016-3-17-0_per_minute.csv")
+IPs$minute <-  as.POSIXct(IPs$time, format="%Y-%m-%dT%H:%M")
+
+
+minutes.data <- data.frame(Experiment="17-0",                      
+                           minute=IPs$minute,
+                           IPs=IPs$IPs,
+                           PUTs=IPs$PUTs,
+                           updates=IPs$updates,
+                           ratio=IPs$updates/IPs$PUTs)
 
 
 @
@@ -391,10 +406,6 @@ option. In all cases we are using 50 Traps, a problem
 that is difficult enough to need the intervention of several users for
 an extended amount of minutes.
 For every new individual sent by the clients to the cache, several
-% We have not presented the "cache",  only the server and
-% ..storing the incoming chromosomes in a data structure
-% Im changing over there to cache
-% That's been changed - JJ
 pieces of metadata were stored: a time stamp, the client IP, the chromosome and
 fitness value, the cache size in that particular moment, and also if that
 individual actually updated the cache or not. 
@@ -460,7 +471,7 @@ log files, if available%% . All these logs are available upon
 %
 \begin{figure}[htbp]
 \centering
-<<zipf, cache=FALSE,echo=FALSE,fig.height=3>>=
+<<zipf, cache=FALSE,echo=FALSE,fig.height=4>>=
 ggplot(ips.data,aes(x=idx,y=PUTs,group=Experiment,color=Experiment))+geom_point()+scale_y_log10()+ scale_colour_discrete(labels=c('base','graph1','graph2','reboot','cachereboot'))+scale_x_log10()
 @ %def graph for IPs and puts
 %
@@ -612,7 +623,22 @@ the correlation between the number of IPs from one minute to the
 next, presents a similar  behavior for all experiments but the last one. A high correlation indicating that the number of volunteers changes
 slowly from one minute to the next; however, the {\tt cachereboot} experiment correlation indicates a bigger
 dynamism, with volunteers joining and leaving the experiment all the
-time, maybe because experiments take less time and need less resources. 
+time, maybe because experiments take less time and need less resources.
+
+\section{Finding the keys to a good performance}
+%
+%
+\begin{figure}[ht!b]
+\centering
+<<minutedata, cache=FALSE,echo=FALSE,fig.height=6>>=
+ggplot(data=minutes.data, aes(x=minute,y=PUTs,color=ratio))+ scale_x_datetime()+geom_point()+stat_smooth()
+@ %def graph on PUTs per minute
+%
+\caption{Plotting the contributions per minute in a new and massive
+  experiment, as well as the real number as color. Lighter color
+  indicates that all PUTs contributed new individuals to the
+  experiment, darker color few to none. \label{fig:minute}}
+\end{figure}
 
 %---------------------------------------------------------------
 \section{Conclusion}

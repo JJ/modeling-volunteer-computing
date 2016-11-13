@@ -550,7 +550,24 @@ the correlation between the number of IPs from one minute to the
 next, presents a similar  behavior for all experiments but the last one. A high correlation indicating that the number of volunteers changes
 slowly from one minute to the next; however, the {\tt cachereboot} experiment correlation indicates a bigger
 dynamism, with volunteers joining and leaving the experiment all the
-time, maybe because experiments take less time and need less resources. 
+time, maybe because experiments take less time and need less resources.
+
+\section{Finding the keys to a good performance}
+%
+%
+\begin{figure}[ht!b]
+\centering
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/minutedata-1} 
+
+\end{knitrout}
+%
+\caption{Plotting the contributions per minute in a new and massive
+  experiment, as well as the real number as color. Lighter color
+  indicates that all PUTs contributed new individuals to the
+  experiment, darker color few to none. \label{fig:minute}}
+\end{figure}
 
 %---------------------------------------------------------------
 \section{Conclusion}
