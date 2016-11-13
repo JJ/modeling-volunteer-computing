@@ -11,6 +11,7 @@
 .Rproj.user/
 
 #Latex
+*.out
 *.log
 *.blg
 *.aux
