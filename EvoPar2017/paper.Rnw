@@ -494,7 +494,7 @@ hosts this paper, as well as the scripts needed to process them.
 %
 \begin{figure}[htbp]
 \centering
-<<zipf, cache=FALSE,echo=FALSE,fig.height=4>>=
+<<zipf, cache=FALSE,echo=FALSE,fig.height=6>>=
 ggplot(ips.data,aes(x=idx,y=PUTs,group=Experiment,color=Experiment))+geom_point()+scale_y_log10()+ scale_colour_discrete(labels=c('base','graph1','graph2','reboot','cachereboot'))+scale_x_log10()
 @ %def graph for IPs and puts
 %
@@ -668,7 +668,14 @@ experiment was performed along several days with, eventually, several
 hundreds of persons participating on it. It was announced by several
 popular Twitter figures and found its way into Reddit. The number of
 PUTs per minute are shown in \ref{fig:minute}. Sudden peaks in them
-are due to new announcements. Please check also the dot color, which
+are due to new announcements in social networks, usually; this is one
+of the problems with this kind of volunteer computing systems: they
+feed on the continuous influx of new users; however, this can be
+automatized and also encouraged, and, as shown, once enough users have
+participated it is sometimes easier to find new ones. 
+
+In Figure \ref{fig:minute} check
+also the dot color, which 
 corresponds to the {\em ratio} or, as indicated above, the actual
 number of contributing PUTs, those that have not been discarded due to
 repeated sending by clients or (briefly) belonging to the previous
@@ -676,6 +683,19 @@ instance of the experiment. It reveals that, in some cases where the
 amount of PUTs really increases, they are actually not contributing so
 much, while light dots, corresponding to a ration close to 1, usually
 stay in the lowest part of the graphic. 
+%
+\begin{figure}[ht!b]
+\centering
+<<entropy, cache=FALSE,echo=FALSE>>=
+max <- max(new.experiment.data$IPs)
+entropy.lm <- lm( new.experiment.data$milliseconds ~ new.experiment.data$entropy )
+exp.palette <- colorRampPalette(brewer.pal(12,"Paired"))
+ggplot(data=new.experiment.data)+geom_point(aes(x=entropy,y=milliseconds,size=PUTs,color=IPs))+scale_x_log10()+scale_y_log10()+scale_color_gradient(limits=c(1,max),low='red')
+@ %def entropy data
+%
+\caption{Entropy of the user contribution vs. time to solution in the
+  volunteer computing experiment. The fit to a linear model is significant. \label{fig:entropy}}
+\end{figure}
 
 This is interesting in the sense that in indicates that there might be
 something more to performance that just the number of volunteers
@@ -695,18 +715,7 @@ entropy of sequences of events, such as arrhythmias
 \cite{baumert2004forecasting}. Unlike Jenssen-Shannon entropy, the
 range of the compression entropy will vary between 0 (lower, or worse
 compression rate) and 1 (no compression). 
-%
-\begin{figure}[ht!b]
-\centering
-<<entropy, cache=FALSE,echo=FALSE>>=
-max <- max(new.experiment.data$IPs)
-exp.palette <- colorRampPalette(brewer.pal(12,"Paired"))
-ggplot(data=new.experiment.data)+geom_point(aes(x=entropy,y=milliseconds,size=PUTs,color=IPs))+scale_x_log10()+scale_y_log10()+scale_color_gradient(limits=c(1,max),low='red')
-@ %def entropy data
-%
-\caption{Entropy of the user contribution vs. time to solution in the
-  volunteer computing experiment. \label{fig:entropy}}
-\end{figure}
+
 
 %---------------------------------------------------------------
 \section{Conclusion}
