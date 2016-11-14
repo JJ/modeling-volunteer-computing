@@ -213,7 +213,7 @@ participation and also the interplay of these contributions with the
 dynamics of the algorithm itself, making it more or less efficient. We will show different measures of
 participation and contribution to the algorithm and how different 
 volunteer usage patterns and tweaks in the algorithm, such as
-restarting clients when solution has been found, contribute to 
+restarting clients when a solution has been found, contribute to 
 improvements and leveraging of these contributions. We will also try
 to find out what is the key factor in the early termination of the
 experiments, measuring entropy in the contributions and other large
@@ -228,20 +228,20 @@ distribution, but also, thanks to the maturity and reliability of the
 HTTP protocol, an increasingly reliable and high-performance
 operating system for running distributed applications. Besides the
 protocol itself, there are two factors that contribute to this fact:
-the Javascript virtual machine every browser runs \cite{paulson2005building}
+the JavaScript virtual machine every browser runs \cite{paulson2005building}
 and the simplified standard interface for interacting with servers
 exemplified by the REST application interface convention \cite{masse2011rest}.
 Thus creating a distributed computing experiment is just a matter of
 making a JavaScript application interchange information with a server,
-called REST. From the point of view of the programmer, this involves
-relatively common skills and no special libraries, since that
+by using REST. From the point of view of the programmer, this involves
+relatively common skills and no special libraries, since the
 interface is built in the browser, and a simple application that
 responds to those requests on the server side; both involve just a few
-dozens lines of code additionally to whatever business logic your
+dozens lines of code additionally to whatever business logic the
 application has. But, more importantly and from the point of view of
 the user, that application can be run by simply visiting a web page.
 
-Using this system for creating distributed experiments is called {\em
+Using this approach for creating distributed experiments is called {\em
   volunteer}, {\em cycle-scavenging} or {\em opportunistic} computing
 \cite{sarmenta2001volunteer} and it dates back, in different shapes
 and underlying mechanisms, to the origin of the web \cite{david-seti:home}. Our interest
