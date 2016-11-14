@@ -297,13 +297,24 @@ frameworks such as the one we are using here, and whose first version
 was described in [citation hidden]. 
 %\cite{DBLP:conf/gecco/GuervosG15}.
 
-Several authors have already described system using JavaScript  either
+Several authors have already described systems using JavaScript  either
 for unwitting
 \cite{unwitting-ec,boldrin2007distributed} or volunteer 
 \cite{langdon:2005:metas,gecco07:workshop:dcor} distributed
 evolutionary computation and it has been used ever since by several
 authors, including more recent efforts
-\cite{duda2013distributed,DBLP:journals/corr/abs-0801-1210,EvoStar2014:jsEO}. Most
+\cite{duda2013distributed,DBLP:journals/corr/abs-0801-1210,EvoStar2014:jsEO}.
+
+Using a peer to peer approach, the SPACE framework \cite{Leclerc2016} distributes fitness 
+evaluations across a heterogeneous pool of cloud compute nodes and volunteer
+peer computers running a browser. In SPACE peers stablis a bi-directional 
+communication with the server using the Socket.io JavaScript library.  
+As an experiment they provide an ASM.js compiled version of the RoboGen 
+software platform, showing that JavaScript can be used in a broad 
+spectrum of applications.  
+
+
+Most
 of these papers focused on testing the system by itself as proofs of
 concepts, more than on its performance or their actual influence on
 the result of an evolutionary algorithm. In fact, some of them do not
