@@ -716,6 +716,32 @@ entropy of sequences of events, such as arrhythmias
 range of the compression entropy will vary between 0 (lower, or worse
 compression rate) and 1 (no compression). 
 
+The graph that plots the time to solution of every instance of the
+experiment vs. entrop is shown in \ref{fig:entropy}. There is a clear
+trend towards experiments with lower entropy taking more time and
+experiments with higher entropy taking more time, which indeed can be
+statistically fit to a linear model. This dependence on entropy is
+much clearer than the assumed dependence on the number of users, which
+is represented in the graph by dot color, and even the number of PUTs
+or contributions, which is represented by dot size. You can see a
+clearly blue and big dot, meaning more than 40 different IPs
+participating and around 1500 PUTs in the high end of the graph,
+showing that it took the longest to find the solution. On the other
+hand, clearly red and small dots are on the lowest end of the graph,
+indicating that it took a short time to find the solution as long as
+the entropy is high. 
+
+This is a very significant result which has many implications on
+volunteer computing experiment design, and is clearly something that
+has to do more with the fact that we are dealing with an evolutionary
+algorithm where creating and maintaining diversity is an important
+part of its exploration component, than with the fact that it is a
+volunteer computing experiment. This is why we claim that volunteer
+computing setups are, in some cases, a better option than synchronous
+and distributed implementations with a similar computing capability,
+because if diversity is kept high, the performance achieved can be
+much better than in similar synchronous and parallel experiments. 
+
 
 %---------------------------------------------------------------
 \section{Conclusion}
