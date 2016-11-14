@@ -679,7 +679,22 @@ stay in the lowest part of the graphic.
 
 This is interesting in the sense that in indicates that there might be
 something more to performance that just the number of volunteers
-contributing.
+contributing. In this experiment we include an additional measure:
+user-contribution entropy, which is measure by computing the
+compression entropy of the user contributions every for the whole
+experiment.  This is computed converting the sequence of the number of
+PUTs into a string and then compressing it using {\tt Zlib}, a
+standard compression library. Since the compression rate is related to
+the randomness of the sequence, a higher compression rate will
+correspond to an experiment with a low entropy, while a lower
+compression rate will indicate that there has been a certain amount of
+unexpected changes during the experiment. Although less popular than
+Jenssen-Shannon entropy, this way of measuring it is widely used
+\cite{ornstein1993entropy} in case where we want to compute the
+entropy of sequences of events, such as arrhythmias
+\cite{baumert2004forecasting}. Unlike Jenssen-Shannon entropy, the
+range of the compression entropy will vary between 0 (lower, or worse
+compression rate) and 1 (no compression). 
 %
 \begin{figure}[ht!b]
 \centering
