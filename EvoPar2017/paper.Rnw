@@ -258,7 +258,7 @@ experiment. The second line of research, although related to the
 first, is more focused on the evolutionary algorithm itself and how
 different design decisions will affect its performance.
 % Is it ok that we say that the first line of research is the most important... but then we focus on the second?
-We have approached the first issue in our previous work,
+We have approached the first issue in our previous work \cite{jj-ppsn98anonymous},
 % I have justified to focus, in this case, on the second
 but in this paper our focus will be in the second aspect: we will try to
 design a decentralized system that, at the same time, is able to use
