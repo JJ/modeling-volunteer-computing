@@ -315,8 +315,8 @@ spectrum of applications.
 
 Recent works have been using crowdsourcing in order to train robots 
 for human interaction, a representative work of this trend is that of  
-Anetsberger & Bongard in which they propose training simulated robots 
-the grounding of language symbols. They do this by using human 
+Anetsberger & Bongard \cite{anetsbergerrobots} in which they propose 
+training simulated robots  the grounding of language symbols. They do this by using human 
 observers that issue arbitrary commands to these robots via the web, 
 providing positive or negative reinforcement in response to the
 robot’s resulting actions. For interaction, they use the Twitch 
