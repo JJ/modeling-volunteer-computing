@@ -734,7 +734,7 @@ ggplot(data=new.experiment.data)+geom_point(aes(x=entropy,y=milliseconds,size=PU
   volunteer computing experiment. The fit to a linear model is significant. \label{fig:entropy}}
 \end{figure}
 
-This is interesting in the sense that in indicates that there might be
+This is interesting in the sense that it indicates that there might be
 something more to performance that just the number of volunteers
 contributing. In this experiment we include an additional measure:
 user-contribution entropy, which is measured by computing the
