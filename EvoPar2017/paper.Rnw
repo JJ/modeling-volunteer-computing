@@ -290,12 +290,20 @@ Volunteer computing involves users deciding to run a program that acts
 as a client or as a peer in an experiment
 and, as such, has been deployed in many different ways from the
 beginning of the Internet, starting with the SETI@home framework for
-processing extraterrestrial signals \cite{david-seti:home}. However
+processing extraterrestrial signals \cite{david-seti:home} or
+high-throughput queuing system that such as HTCondor \cite{HTCondor}.
+However
 the dual facts of the introduction of JavaScript as a universal language for the
 browser and the browser itself as an ubiquitous web and Internet client has
 made this combination the most popular for volunteer computing
 frameworks such as the one we are using here, and whose first version
-was described in [citation hidden]. 
+was described in [citation hidden]. Systems based on the
+JavaScript/browser combination
+emphasize the ephemerality, ease of use and universality, while
+systems such as HTCondor or BOINC might be more adequate for work that
+require higher availability of volunteer resources, achieving this
+with downloadable clients, in some cases like HTCondor needing
+administration access to the resources.
 %\cite{DBLP:conf/gecco/GuervosG15}.
 
 Several authors have already described systems using JavaScript  either
