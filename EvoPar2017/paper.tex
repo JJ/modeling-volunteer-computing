@@ -104,10 +104,11 @@ this paper, we analyze a volunteer evolutionary computing system called
 NodIO, by running several experiments, some of them massive. Our
 objective is to discover rules that encourage volunteer
 participation and also the interplay of these contributions with the
-dynamics of the algorithm itself, making it more or less efficient. We will show different measures of
+dynamics of the algorithm itself, making it more or less efficient. 
+We will show different measures of
 participation and contribution to the algorithm and how different 
 volunteer usage patterns and tweaks in the algorithm, such as
-restarting clients when solution has been found, contribute to 
+restarting clients when a solution has been found, contribute to 
 improvements and leveraging of these contributions. We will also try
 to find out what is the key factor in the early termination of the
 experiments, measuring entropy in the contributions and other large
@@ -122,20 +123,20 @@ distribution, but also, thanks to the maturity and reliability of the
 HTTP protocol, an increasingly reliable and high-performance
 operating system for running distributed applications. Besides the
 protocol itself, there are two factors that contribute to this fact:
-the Javascript virtual machine every browser runs \cite{paulson2005building}
+the JavaScript virtual machine every browser runs \cite{paulson2005building}
 and the simplified standard interface for interacting with servers
 exemplified by the REST application interface convention \cite{masse2011rest}.
 Thus creating a distributed computing experiment is just a matter of
 making a JavaScript application interchange information with a server,
-called REST. From the point of view of the programmer, this involves
-relatively common skills and no special libraries, since that
+by using REST. From the point of view of the programmer, this involves
+relatively common skills and no special libraries, since the
 interface is built in the browser, and a simple application that
 responds to those requests on the server side; both involve just a few
-dozens lines of code additionally to whatever business logic your
+dozens lines of code additionally to whatever business logic the
 application has. But, more importantly and from the point of view of
 the user, that application can be run by simply visiting a web page.
 
-Using this system for creating distributed experiments is called {\em
+Using this approach for creating distributed experiments is called {\em
   volunteer}, {\em cycle-scavenging} or {\em opportunistic} computing
 \cite{sarmenta2001volunteer} and it dates back, in different shapes
 and underlying mechanisms, to the origin of the web \cite{david-seti:home}. Our interest
@@ -145,14 +146,14 @@ computation, as our group has done for a long time \cite{jj-ppsn98}.
 In this line of research that uses volunteer computing for
 evolutionary algorithms, there are several pending issues. The first
 and maybe most important is approaching volunteer computing as a
-techno-social system \cite{vespignani2009predicting} which integrates
+socio-technical system \cite{vespignani2009predicting} which integrates
 user decisions and behavioral patterns in the system model; this
 includes trying to optimize the number of users in a particular
 experiment. The second line of research, although related to the
 first, is more focused on the evolutionary algorithm itself and how
 different design decisions will affect its performance.
 % Is it ok that we say that the first line of research is the most important... but then we focus on the second?
-We have approached the first issue in our previous work,
+We have approached the first issue in our previous work \cite{jj-ppsn98anonymous},
 % I have justified to focus, in this case, on the second
 but in this paper our focus will be in the second aspect: we will try to
 design a decentralized system that, at the same time, is able to use
@@ -191,19 +192,45 @@ frameworks such as the one we are using here, and whose first version
 was described in [citation hidden]. 
 %\cite{DBLP:conf/gecco/GuervosG15}.
 
-Several authors have already described system using JavaScript  either
+Several authors have already described systems using JavaScript  either
 for unwitting
 \cite{unwitting-ec,boldrin2007distributed} or volunteer 
 \cite{langdon:2005:metas,gecco07:workshop:dcor} distributed
 evolutionary computation and it has been used ever since by several
 authors, including more recent efforts
-\cite{duda2013distributed,DBLP:journals/corr/abs-0801-1210,EvoStar2014:jsEO}. Most
+\cite{duda2013distributed,DBLP:journals/corr/abs-0801-1210,EvoStar2014:jsEO}.
+
+Using a peer to peer approach, the SPACE framework \cite{leclerc2016seamless} distributes fitness 
+evaluations across a heterogeneous pool of cloud compute nodes and volunteer
+peer computers running a browser. In SPACE peers stablis a bi-directional 
+communication with the server using the Socket.io JavaScript library.  
+As an experiment they provide an ASM.js compiled version of the RoboGen 
+software platform, showing that JavaScript can be used in a broad 
+spectrum of applications.  
+
+Recent works have been using crowdsourcing in order to train robots 
+for human interaction, a representative work of this trend is that of  
+Anetsberger \& Bongard \cite{anetsbergerrobots} in which they propose 
+training simulated robots  the grounding of language symbols. They do this by using human 
+observers that issue arbitrary commands to these robots via the web, 
+providing positive or negative reinforcement in response to the
+robot\'s resulting actions. For interaction, they use the Twitch 
+video streaming platform where users can issue commands through the
+platform's integrated chat service. Subjects were incentivized to 
+interact with the system by GUI features that provided participants
+with a sense of involvement with the simulation. This kind of systems
+could add additional dynamics, because users can collaborate or 
+even compete with each other when issuing their commands.
+
+
+Most
 of these papers focused on testing the system by itself as proofs of
 concepts, more than on its performance or their actual influence on
 the result of an evolutionary algorithm. In fact, some of them do not
 even work in as a distributed computing system
 \cite{EvoStar2014:jsEO}, describing the expressive capabilities of
 JavaScript for evolutionary computation. 
+
 
 The proof of concepts described above do not go further than trying to
 find out  how many users join the effort and how many the system is
@@ -250,10 +277,9 @@ present the general framework and the initial setup.
 \section{Description of the framework}
 \label{sec:description}
 
-In general, a distributed volunteer-based evolutionary computation
-system based on the browser is simply a client-server system
-which client is embedded in the browser via JavaScript. We call this
-system {\sf NodIO}. All parts of the framework are free and available
+In this section we present {\sf NodIO}, a distributed volunteer-based 
+evolutionary computation system immplemented in JavaScript. 
+All parts of the framework are free and available
 with a free license from \url{https://ANONYMOUS-URL}.
 %\url{https://github.com/JJ/splash-volunteer}. 
 
@@ -267,11 +293,12 @@ The architecture of the {\sf NodIO} system is divided in two tiers:\begin{enumer
   key-value cache that uses as key the chromosome string itself and is
   reset when the solution is found. This cache has a finite 
   size that erases the oldest chromosomes once it has been filled to % Also "it has been filled to its"
-  capacity.  
+  its maximum capacity.  
 \item A client that includes the evolutionary algorithm as
   JavaScript code embedded in a web page that displays the fitness and
   other graphs, some
-  additional links, and information on the experiment. This code runs
+  additional links, and information on the experiment. 
+  This code runs
   an evolutionary algorithm {\em island} that starts with a random
   population, then after every 100 generations, it sends the best individual
   back to the server (via a {\tt PUT} request), and then requests a random
@@ -303,7 +330,7 @@ the sources from GitHub and set it up yourself.}.
 \begin{figure}[!t]
 \centering
 \includegraphics[width=3in]{system.pdf}
-\caption{Description of the proposed system. Clients execute a JavaScript EA
+\caption{Description of the NodIO system. Clients execute a JavaScript EA
   in the browser, which, every 100 generations, sends the best
   individual and receives a random one back from the server.}
 \label{fig:system}
@@ -314,12 +341,13 @@ function \cite{Ackley1987} has been used.
 The evolutionary algorithm that uses Trap as fitness function is
 completely run in the
 browser, but the server needs to know when the solution has been
-found, so a subroutine that checks if the solution been found  is also included in the server, as a configuration
+found, so a subroutine that checks if the solution been found  
+is also included in the server, as a configuration
 option. In all cases we are using 50 Traps, a problem
 that is difficult enough to need the intervention of several users for
 an extended amount of minutes.
 For every new individual sent by the clients to the cache, several
-pieces of metadata were stored: a time stamp, the client IP, the chromosome and
+pieces of metadata are stored: a time stamp, the client IP, the chromosome and
 fitness value, the cache size in that particular moment, and also if that
 individual actually updated the cache or not. 
 
@@ -371,7 +399,7 @@ cachereboot & 392917.0 & 12 & 12 & 576.0 & 79.0 & 0.1575092 & 55 & 225 & 43.2857
 %
 %
 %
-Since the point of using volunteer computing system is to cut costs,
+Since the point of using a volunteer computing system is to cut costs,
 all experiments were set up using the OpenShift
 PaaS, which provides a free tier, making the whole experiment cost
 equal to nil. In fact, the NodIO system can be deployed to any
@@ -408,7 +436,7 @@ of contributions per unique IP is shown in Figure \ref{fig:zipf} in a
 log-log scale. Besides following the usual Zipf's law found in our
 previous work and thus having a very similar appearance for all 5 sets, it
 is interesting to see how some sets have a number of contributions per
-IP that are slightly superior to the rest, specially so in {\tt
+IP that are slightly superior to the rest, especially so in {\tt
   graph2}. The last two sets, {\tt reboot} and {\tt cachereboot}, also
 show a regime in the middle of the graph that shows that some users
 are contributing more than in other similar sets. In general, these
@@ -477,7 +505,7 @@ cachereboot & 463347 & 12.0 & 12.0 & 638.5 & 80.5 & 52 & 44.25911\\
 \end{center}
 \end{table}
 %
-The first thin we will have to check is whether we have effectively eliminated these
+The first thing we will have to check is whether we have effectively eliminated these
 overlaps. In order to do that, we will have to establish a threshold
 under which we can reasonably expect that the solution cannot be found. In every
 evolutionary algorithm it might happen, by chance, that the solution
@@ -544,7 +572,8 @@ to {\tt cachereboot}. All variables are difficult to control in this
 environment, but it might be due to the fact that parallelism has
 increased, there are more volunteers contributing at the same time. In
 fact, as it can be seen in the last column, the median number of
-contributions per user is the lowest for {\tt cachereboot}, which so needs less contributions by users to
+contributions per user is the lowest for {\tt cachereboot}, which
+needs less contributions by users to
 find the same solution. Besides, the last row shows that {\em all}
 users actively contribute to the cache, while in the {\tt reboot}
 strategy 30\% of users do not. This might be due to the fact that {\tt
@@ -605,7 +634,7 @@ stay in the lowest part of the graphic.
 \end{knitrout}
 %
 \caption{Entropy of the user contribution vs. time to solution in the
-  volunteer computing experiment. \label{fig:entropy}}
+  volunteer computing experiment. The fit to a linear model is significant. \label{fig:entropy}}
 \end{figure}
 
 This is interesting in the sense that in indicates that there might be
@@ -627,6 +656,32 @@ entropy of sequences of events, such as arrhythmias
 range of the compression entropy will vary between 0 (lower, or worse
 compression rate) and 1 (no compression). 
 
+The graph that plots the time to solution of every instance of the
+experiment vs. entrop is shown in \ref{fig:entropy}. There is a clear
+trend towards experiments with lower entropy taking more time and
+experiments with higher entropy taking more time, which indeed can be
+statistically fit to a linear model. This dependence on entropy is
+much clearer than the assumed dependence on the number of users, which
+is represented in the graph by dot color, and even the number of PUTs
+or contributions, which is represented by dot size. You can see a
+clearly blue and big dot, meaning more than 40 different IPs
+participating and around 1500 PUTs in the high end of the graph,
+showing that it took the longest to find the solution. On the other
+hand, clearly red and small dots are on the lowest end of the graph,
+indicating that it took a short time to find the solution as long as
+the entropy is high. 
+
+This is a very significant result which has many implications on
+volunteer computing experiment design, and is clearly something that
+has to do more with the fact that we are dealing with an evolutionary
+algorithm where creating and maintaining diversity is an important
+part of its exploration component, than with the fact that it is a
+volunteer computing experiment. This is why we claim that volunteer
+computing setups are, in some cases, a better option than synchronous
+and distributed implementations with a similar computing capability,
+because if diversity is kept high, the performance achieved can be
+much better than in similar synchronous and parallel experiments. 
+
 
 %---------------------------------------------------------------
 \section{Conclusion}
@@ -634,17 +689,19 @@ compression rate) and 1 (no compression).
 
 Our main intention in this paper was to configure an evolutionary
 algorithm in a volunteer computing environment to improve its
-efficiency. This initial configuration included
-{\em overlaps} or clients running islands that had actually started in
-a previous experiment in the set. If we are interested in measuring
-how many users or their behavior in bulk this is not so important, but
-in this case our focus was on the algorithm so we had to try that all
-clients participating in it started more or less at the same time and
+efficiency and eventually find out what this efficiency depends
+on. The baseline configuration that we had used in other papers  included
+{\em overlaps} or volunteers running islands that had actually started in
+a previous experiment instance in the set. In previous papers, we were
+interested in measuring the number of users or their behavior in bulk
+and this overlap was not so important, but
+in this case our focus was on the evolutionary algorithm so we had to
+make all volunteers in it started more or less at the same time and
 from a random population. In fact, we managed to do so, except in some
 byzantine cases, by making the clients restart when the cache size
 collapses to 1 or to a size much smaller than the current; we called
 this client configuration {\tt reboot} and {\tt cachecrash}.  This
-configuration achiever a positive secondary effect: all clients
+configuration achieves a positive secondary effect: all clients
 contribute to fill the cache, having thus an actual effect on the
 chromosome pool and effectively making all clients present contribute
 to the simulation. 
@@ -663,7 +720,8 @@ evaluations, thus meaning a big improvement in the performance of the
 evolutionary algorithm, which was the target of this paper. This
 improvement is less with respect to {\tt reboot}, but in any case the
 method to detect the beginning of a new run is much more effective and
-will be kept in the future.
+will be kept in the future. But the fact that this happened was due to
+the {\em entropy} as proved in the last section of this paper. 
 
 This future work holds many challenges which once again will go in two
 different directions: gathering more users and improving the
