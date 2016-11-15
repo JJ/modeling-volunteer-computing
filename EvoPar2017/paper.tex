@@ -439,14 +439,14 @@ batch included at least 30 completions, that is, evolution until the
 solution was found. The number of runs was controlled by polling an
 URL that indicated the number of runs made in the present batch so
 far. Every volunteer contributed a certain number of individuals
-(represented by the PUT HTTP request) to the server. The ranked number
+(represented by the PUT HTTP request in Figure \ref{fig:system}) to the server. The ranked number
 of contributions per unique IP is shown in Figure \ref{fig:zipf} in a
 log-log scale. Besides following the usual Zipf's law found in our
 previous work and thus having a very similar appearance for all 5 sets, it
 is interesting to see how some sets have a number of contributions per
 IP that are slightly superior to the rest, especially so in {\tt
   graph2}. The last two sets, {\tt reboot} and {\tt cachereboot}, also
-show a regime in the middle of the graph that shows that some users
+show a regime in the middle of the graph which shows that some users
 are contributing more than in other similar sets. In general, these
 differences in behavior are due more to the specific users that show
 up in these experiments than to general laws, but it should also be
@@ -513,19 +513,20 @@ cachereboot & 463347 & 12.0 & 12.0 & 638.5 & 80.5 & 52 & 44.25911\\
 \end{center}
 \end{table}
 %
-The first thing we will have to check is whether we have effectively eliminated these
+The first thing we will have to check is whether we have effectively eliminated those
 overlaps. In order to do that, we will have to establish a threshold
 under which we can reasonably expect that the solution cannot be found. In every
 evolutionary algorithm it might happen, by chance, that the solution
 is found in just a few evaluations, but that is usually not the
-case. By looking at the logs in the last case we have established that
-minimum as 16 PUTs; in less than 1600 generations no solution to that
-difficult problem will be found. Let us filter then the runs,
+case. By looking at the logs in the last case we have established the
+minimum at 16 PUTs; in less than 1600 generations no solution to that
+difficult problem will be found. % Why?
+ Let us filter then the runs,
 eliminating those that used less than 1600 generations to find the
 solution which can reasonably be said that they did so because some
 browser ``carried over'' a chromosome from the previous run. The
 results are shown in Table \ref{tab:filtered}. The first change is in
-the column \#Runs, that shows that most of the runs in the initial
+the column \#Runs, which shows that most of the runs in the initial
 configurations found the solution thanks to these carried over
 clients. However, in the last two rows, the ones that rebooted clients
 when they detected changes in cache, the difference is minimal. This
