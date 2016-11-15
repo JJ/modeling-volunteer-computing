@@ -36,3 +36,6 @@ auto/
 
 #Otras cosas
 *.tgz
+
+#.tex generated from .Rnw
+*.tex
