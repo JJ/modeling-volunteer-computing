@@ -184,21 +184,20 @@ Volunteer computing involves users deciding to run a program that acts
 as a client or as a peer in an experiment
 and, as such, has been deployed in many different ways from the
 beginning of the Internet, starting with the SETI@home framework for
-processing extraterrestrial signals \cite{david-seti:home} or
-high-throughput queuing system that such as HTCondor \cite{HTCondor}.
-However
+processing extraterrestrial signals \cite{david-seti:home}, or a 
+high-throughput queuing system such as HTCondor \cite{HTCondor}.
+However,
 the dual facts of the introduction of JavaScript as a universal language for the
-browser and the browser itself as an ubiquitous web and Internet client has
+browser and the browser itself as both an ubiquitous web and Internet client has
 made this combination the most popular for volunteer computing
 frameworks such as the one we are using here, and whose first version
-was described in [citation hidden]. Systems based on the
+was described in \cite{DBLP:conf/gecco/GuervosG15anonymous}. Systems based on the
 JavaScript/browser combination
-emphasize the ephemerality, ease of use and universality, while
-systems such as HTCondor or BOINC might be more adequate for work that
+emphasize the ephemerality, ease of use, and universality, while
+systems such as HTCondor or BOINC might be more adequate for work that % citation for BOINC (?)
 require higher availability of volunteer resources, achieving this
-with downloadable clients, in some cases like HTCondor needing
+with downloadable clients which in some cases, like HTCondor, need
 administration access to the resources.
-%\cite{DBLP:conf/gecco/GuervosG15anonymous}.
 
 Several authors have already described systems using JavaScript  either
 for unwitting
@@ -210,16 +209,16 @@ authors, including more recent efforts
 
 Using a peer to peer approach, the SPACE framework \cite{leclerc2016seamless} distributes fitness 
 evaluations across a heterogeneous pool of cloud compute nodes and volunteer
-peer computers running a browser. In SPACE peers stablis a bi-directional 
-communication with the server using the Socket.io JavaScript library.  
-As an experiment they provide an ASM.js compiled version of the RoboGen 
+peer computers running a browser. In SPACE peers establish a bi-directional 
+communication with the server using the \texttt{Socket.io} JavaScript library.  
+As an experiment they provide an \texttt{ASM.js} compiled version of the RoboGen 
 software platform, showing that JavaScript can be used in a broad 
 spectrum of applications.  
 
 Recent works have been using crowdsourcing in order to train robots 
 for human interaction, a representative work of this trend is that of  
 Anetsberger \& Bongard \cite{anetsbergerrobots} in which they propose 
-training simulated robots  the grounding of language symbols. They do this by using human 
+training simulated robots for the grounding of language symbols. They do this by using human 
 observers that issue arbitrary commands to these robots via the web, 
 providing positive or negative reinforcement in response to the
 robot\'s resulting actions. For interaction, they use the Twitch 
@@ -240,14 +239,14 @@ even work in as a distributed computing system
 JavaScript for evolutionary computation. 
 
 
-The proof of concepts described above do not go further than trying to
+The proofs of concept described above do not go further than trying to
 find out  how many users join the effort and how many the system is
 able to support. In fact, systems described in
 \cite{gecco07:workshop:dcor} had serious scaling issues; some of them
 also tried to find out how much time was needed to find the solution
 or, alternatively, how many users would be needed to be competitive
 with single-user single-computer implementations of the same
-algorithm. However, the latest systems try to enphasize the seamless
+algorithm. However, the latest systems try to emphasize the seamless
 integration of peer and volunteer computing systems \cite{leclerc2016seamless}. 
 
 This latest system offloads evaluation to browsers so the actual
@@ -259,7 +258,7 @@ al. \cite{churn08:ijhpsa}, using models, try to find out the resulting
 performance when the users are changing continuously according to a
 Weibull distribution. In the case of Klein and Spector \cite{unwitting-ec}, the algorithm
 is actually run on the server, using the browser mainly for fitness
-evaluation so no actual contribution to the evaluation of the
+evaluation, and thus no actual contribution to the evaluation of the
 evolutionary algorithm itself is made.
 
 There is another factor that should be taken into account: since the
