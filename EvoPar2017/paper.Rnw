@@ -582,10 +582,10 @@ added a mechanism for rebooting the client, that is, reloading the
 page, if the cache size was found to be less than 1, which indicated a
 run recently started. This batch of runs is labelled {\tt
   reboot}. This size of the cache was not really noticed by some slow clients or too fast runs, so that in the
-last case, labeled {\tt cachecrash}, clients rebooted if the cache
+last case, is labeled {\tt cachecrash}, clients rebooted if the cache
 collapsed by more than a certain length, indicating a cache that had
 been voided and was filling again. Our objective was twofold: to
-encourage engagement by the users and also to increase the involvement
+encourage user engagement and also to increase the involvement
 of every client in the common experiment, eliminating at the same time
 overlaps between runs. 
 
@@ -634,14 +634,14 @@ configurations found the solution thanks to these carried over
 clients. However, in the last two rows, the ones that rebooted clients
 when they detected changes in cache, the difference is minimal. This
 means that one objective has been reached: if clients reboot when they
-detect changes in the cache that imply a new run, overlaps are almost
+detect changes in the cache implying a new run, this way overlaps are almost
 eliminated. Going back to Table \ref{tab:runs}, we can see than the
 ratio of effective contributions, those that feed the cache, increases
 from around 13\% in the first case to almost 16\% in the last,
 reaching lows of less than 6\% in some cases ({\tt graph2}). This
 indicates that rebooting the clients has the positive effect of
 increasing the contribution of clients to the common pool. However, we
-should remark that the clients will still stop contributing if they
+should remark that some clients will still stop contributing if they
 get stuck in a particular solution, so the ratio keeps being low
 resulting in a slow change in the cache and a lower diversity of
 clients that tap that cache. At any rate, an increased number of
@@ -675,10 +675,10 @@ needs less contributions by users to
 find the same solution. Besides, the last row shows that {\em all}
 users actively contribute to the cache, while in the {\tt reboot}
 strategy 30\% of users do not. This might be due to the fact that {\tt
-  reboot} only does so when cache size is less than one, indicating
+  reboot} is done only when the cache size is less than one, indicating
 that this strategy is only partly successful in avoiding overlaps.  
 
-In fact, Table \ref{tab:correlation}, which shows
+In fact, Table \ref{tab:correlation}, shows
 the correlation between the number of IPs from one minute to the
 next, presents a similar  behavior for all experiments but the last one. A high correlation indicating that the number of volunteers changes
 slowly from one minute to the next; however, the {\tt cachereboot} experiment correlation indicates a bigger
@@ -754,7 +754,7 @@ range of the compression entropy will vary between 0 (lower, or worse
 compression rate) and 1 (no compression). 
 
 The graph that plots the time to solution of every instance of the
-experiment vs. entrop is shown in \ref{fig:entropy}. There is a clear
+experiment vs. entropy is shown in \ref{fig:entropy}. There is a clear
 trend towards experiments with lower entropy taking more time and
 experiments with higher entropy taking more time, which indeed can be
 statistically fit to a linear model. This dependence on entropy is
