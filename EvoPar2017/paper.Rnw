@@ -313,6 +313,20 @@ As an experiment they provide an ASM.js compiled version of the RoboGen
 software platform, showing that JavaScript can be used in a broad 
 spectrum of applications.  
 
+Recent works have been using crowdsourcing in order to train robots 
+for human interaction, a representative work of this trend is that of  
+Anetsberger & Bongard in which they propose training simulated robots 
+the grounding of language symbols. They do this by using human 
+observers that issue arbitrary commands to these robots via the web, 
+providing positive or negative reinforcement in response to the
+robot’s resulting actions. For interaction, they use the Twitch 
+video streaming platform where users can issue commands through the
+platform's integrated chat service. Subjects were incentivized to 
+interact with the system by GUI features that provided participants
+with a sense of involvement with the simulation. This kind of systems
+could add additional dynamics, because users can collaborate or 
+even compete with each other when issuing their commands.
+
 
 Most
 of these papers focused on testing the system by itself as proofs of
@@ -321,6 +335,9 @@ the result of an evolutionary algorithm. In fact, some of them do not
 even work in as a distributed computing system
 \cite{EvoStar2014:jsEO}, describing the expressive capabilities of
 JavaScript for evolutionary computation. 
+
+
+
 
 The proof of concepts described above do not go further than trying to
 find out  how many users join the effort and how many the system is
