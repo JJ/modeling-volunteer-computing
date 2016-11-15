@@ -434,7 +434,7 @@ the sources from GitHub and set it up yourself.}.
 \begin{figure}[!t]
 \centering
 \includegraphics[width=3in]{system.pdf}
-\caption{Description of the proposed system. Clients execute a JavaScript EA
+\caption{Description of the NodIO system. Clients execute a JavaScript EA
   in the browser, which, every 100 generations, sends the best
   individual and receives a random one back from the server.}
 \label{fig:system}
