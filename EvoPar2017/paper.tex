@@ -406,14 +406,15 @@ cachereboot & 392917.0 & 12 & 12 & 576.0 & 79.0 & 0.1575092 & 55 & 225 & 43.2857
 %
 %
 %
-Since the point of using a volunteer computing system is to cut costs,
+Since the point of using a volunteer computing system is to cut costs, %actually, we talk about the system being efficient, and also the algorithm itself, but I think we don't talk about the costs...
 all experiments were set up using the OpenShift
 PaaS, which provides a free tier, making the whole experiment cost
 equal to nil. In fact, the NodIO system can be deployed to any
-Platform or Infraestructure as a Service 
-system as long as it can run node.js and can store logs on the same
+Platform or Infrastructure as a Service 
+system as long as it can run \texttt{node.js} and can store logs on the same
 place or in some other Log as a Service. Local storage can be used,
-but it is not a requisite and, in fact, Heroku does not allow
+but it is not a requisite and, in fact, Heroku %first time Heroku is mentioned...
+ does not allow
 persistent storage of files in its service. 
 All these logs are available upon
 request. Processed files are available in the same repository that
