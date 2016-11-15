@@ -502,7 +502,7 @@ cachereboot & 392917.0 & 12 & 12 & 576.0 & 79.0 & 0.1575092 & 55 & 225 & 43.2857
 %
 %
 %
-Since the point of using volunteer computing system is to cut costs,
+Since the point of using a volunteer computing system is to cut costs,
 all experiments were set up using the OpenShift
 PaaS, which provides a free tier, making the whole experiment cost
 equal to nil. In fact, the NodIO system can be deployed to any
@@ -537,7 +537,7 @@ of contributions per unique IP is shown in Figure \ref{fig:zipf} in a
 log-log scale. Besides following the usual Zipf's law found in our
 previous work and thus having a very similar appearance for all 5 sets, it
 is interesting to see how some sets have a number of contributions per
-IP that are slightly superior to the rest, specially so in {\tt
+IP that are slightly superior to the rest, especially so in {\tt
   graph2}. The last two sets, {\tt reboot} and {\tt cachereboot}, also
 show a regime in the middle of the graph that shows that some users
 are contributing more than in other similar sets. In general, these
@@ -606,7 +606,7 @@ cachereboot & 463347 & 12.0 & 12.0 & 638.5 & 80.5 & 52 & 44.25911\\
 \end{center}
 \end{table}
 %
-The first thin we will have to check is whether we have effectively eliminated these
+The first thing we will have to check is whether we have effectively eliminated these
 overlaps. In order to do that, we will have to establish a threshold
 under which we can reasonably expect that the solution cannot be found. In every
 evolutionary algorithm it might happen, by chance, that the solution
@@ -659,7 +659,8 @@ to {\tt cachereboot}. All variables are difficult to control in this
 environment, but it might be due to the fact that parallelism has
 increased, there are more volunteers contributing at the same time. In
 fact, as it can be seen in the last column, the median number of
-contributions per user is the lowest for {\tt cachereboot}, which so needs less contributions by users to
+contributions per user is the lowest for {\tt cachereboot}, which
+needs less contributions by users to
 find the same solution. Besides, the last row shows that {\em all}
 users actively contribute to the cache, while in the {\tt reboot}
 strategy 30\% of users do not. This might be due to the fact that {\tt
@@ -786,7 +787,7 @@ from a random population. In fact, we managed to do so, except in some
 byzantine cases, by making the clients restart when the cache size
 collapses to 1 or to a size much smaller than the current; we called
 this client configuration {\tt reboot} and {\tt cachecrash}.  This
-configuration achiever a positive secondary effect: all clients
+configuration achieves a positive secondary effect: all clients
 contribute to fill the cache, having thus an actual effect on the
 chromosome pool and effectively making all clients present contribute
 to the simulation. 
