@@ -766,7 +766,7 @@ participating and around 1500 PUTs in the high end of the graph,
 showing that it took the longest to find the solution. On the other
 hand, clearly red and small dots are on the lowest end of the graph,
 indicating that it took a short time to find the solution as long as
-the entropy is high. 
+the entropy was high. 
 
 This is a very significant result which has many implications on
 volunteer computing experiment design, and is clearly something that
@@ -786,8 +786,9 @@ much better than in similar synchronous and parallel experiments.
 
 Our main intention in this paper was to configure an evolutionary
 algorithm in a volunteer computing environment to improve its
-efficiency and eventually find out what this efficiency depends
-on. The baseline configuration that we had used in other papers  included
+efficiency and eventually find out on what this efficiency depends
+on. The baseline configuration that we had used in other papers 
+\cite{jj-ppsn98anonymous} included
 {\em overlaps} or volunteers running islands that had actually started in
 a previous experiment instance in the set. In previous papers, we were
 interested in measuring the number of users or their behavior in bulk
