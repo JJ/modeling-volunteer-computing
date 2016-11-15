@@ -305,7 +305,7 @@ evolutionary computation and it has been used ever since by several
 authors, including more recent efforts
 \cite{duda2013distributed,DBLP:journals/corr/abs-0801-1210,EvoStar2014:jsEO}.
 
-Using a peer to peer approach, the SPACE framework \cite{Leclerc2016} distributes fitness 
+Using a peer to peer approach, the SPACE framework \cite{leclerc2016seamless} distributes fitness 
 evaluations across a heterogeneous pool of cloud compute nodes and volunteer
 peer computers running a browser. In SPACE peers stablis a bi-directional 
 communication with the server using the Socket.io JavaScript library.  
