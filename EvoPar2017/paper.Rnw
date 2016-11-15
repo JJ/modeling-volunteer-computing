@@ -210,9 +210,9 @@ this paper, we analyze a volunteer evolutionary computing system called
 NodIO, by running several experiments, some of them massive. Our
 objective is to discover rules that encourage volunteer
 participation and also the interplay of these contributions with the
-dynamics of the algorithm itself, making it more or less efficient. 
+dynamics of the algorithm itself, making it more or less efficient. % efficient enough? Somehow saying "more or less efficient" does not seem "our work is awesome" to me.
 We will show different measures of
-participation and contribution to the algorithm and how different 
+participation and contribution to the algorithm, as well as how different 
 volunteer usage patterns and tweaks in the algorithm, such as
 restarting clients when a solution has been found, contribute to 
 improvements and leveraging of these contributions. We will also try
@@ -243,11 +243,11 @@ application has. But, more importantly and from the point of view of
 the user, that application can be run by simply visiting a web page.
 
 Using this approach for creating distributed experiments is called {\em
-  volunteer}, {\em cycle-scavenging} or {\em opportunistic} computing
+  volunteer}, {\em cycle-scavenging}, or {\em opportunistic} computing
 \cite{sarmenta2001volunteer} and it dates back, in different shapes
 and underlying mechanisms, to the origin of the web \cite{david-seti:home}. Our interest
 here, however, is to use it as a resource for evolutionary
-computation, as our group has done for a long time \cite{jj-ppsn98}.
+computation, as our group has done for a long time \cite{jj-ppsn98anonymous}.
 
 In this line of research that uses volunteer computing for
 evolutionary algorithms, there are several pending issues. The first
@@ -271,7 +271,7 @@ number of users available to perform the experiment, is able to
 maximize their contribution to the evolutionary algorithm, at the same
 time that the evolutionary algorithm itself makes the most of those
 contributions and is able to find
-the solution to the problem in a minimum time and with the least
+the solution to the problem in a minimum time, with the least
 number of contributions.
 
 The rest of the paper is organized as follows: Next we will briefly
@@ -290,21 +290,20 @@ Volunteer computing involves users deciding to run a program that acts
 as a client or as a peer in an experiment
 and, as such, has been deployed in many different ways from the
 beginning of the Internet, starting with the SETI@home framework for
-processing extraterrestrial signals \cite{david-seti:home} or
-high-throughput queuing system that such as HTCondor \cite{HTCondor}.
-However
+processing extraterrestrial signals \cite{david-seti:home}, or a 
+high-throughput queuing system such as HTCondor \cite{HTCondor}.
+However,
 the dual facts of the introduction of JavaScript as a universal language for the
-browser and the browser itself as an ubiquitous web and Internet client has
+browser and the browser itself as both an ubiquitous web and Internet client has
 made this combination the most popular for volunteer computing
 frameworks such as the one we are using here, and whose first version
-was described in [citation hidden]. Systems based on the
+was described in \cite{DBLP:conf/gecco/GuervosG15anonymous}. Systems based on the
 JavaScript/browser combination
-emphasize the ephemerality, ease of use and universality, while
-systems such as HTCondor or BOINC might be more adequate for work that
+emphasize the ephemerality, ease of use, and universality, while
+systems such as HTCondor or BOINC might be more adequate for work that % citation for BOINC (?)
 require higher availability of volunteer resources, achieving this
-with downloadable clients, in some cases like HTCondor needing
+with downloadable clients which in some cases, like HTCondor, need
 administration access to the resources.
-%\cite{DBLP:conf/gecco/GuervosG15}.
 
 Several authors have already described systems using JavaScript  either
 for unwitting
@@ -320,16 +319,16 @@ available can be vast and it that it can be cost-effective to use it.
 
 Using a peer to peer approach, the SPACE framework \cite{leclerc2016seamless} distributes fitness 
 evaluations across a heterogeneous pool of cloud compute nodes and volunteer
-peer computers running a browser. In SPACE peers stablis a bi-directional 
-communication with the server using the Socket.io JavaScript library.  
-As an experiment they provide an ASM.js compiled version of the RoboGen 
+peer computers running a browser. In SPACE peers establish a bi-directional 
+communication with the server using the \texttt{Socket.io} JavaScript library.  
+As an experiment they provide an \texttt{ASM.js} compiled version of the RoboGen 
 software platform, showing that JavaScript can be used in a broad 
 spectrum of applications.  
 
 Recent works have been using crowdsourcing in order to train robots 
 for human interaction, a representative work of this trend is that of  
 Anetsberger \& Bongard \cite{anetsbergerrobots} in which they propose 
-training simulated robots  the grounding of language symbols. They do this by using human 
+training simulated robots for the grounding of language symbols. They do this by using human 
 observers that issue arbitrary commands to these robots via the web, 
 providing positive or negative reinforcement in response to the
 robot\'s resulting actions. For interaction, they use the Twitch 
@@ -350,14 +349,14 @@ even work in as a distributed computing system
 JavaScript for evolutionary computation. 
 
 
-The proof of concepts described above do not go further than trying to
+The proofs of concept described above do not go further than trying to
 find out  how many users join the effort and how many the system is
 able to support. In fact, systems described in
 \cite{gecco07:workshop:dcor} had serious scaling issues; some of them
 also tried to find out how much time was needed to find the solution
 or, alternatively, how many users would be needed to be competitive
 with single-user single-computer implementations of the same
-algorithm. However, the latest systems try to enphasize the seamless
+algorithm. However, the latest systems try to emphasize the seamless
 integration of peer and volunteer computing systems \cite{leclerc2016seamless}. 
 
 This latest system offloads evaluation to browsers so the actual
@@ -369,7 +368,7 @@ al. \cite{churn08:ijhpsa}, using models, try to find out the resulting
 performance when the users are changing continuously according to a
 Weibull distribution. In the case of Klein and Spector \cite{unwitting-ec}, the algorithm
 is actually run on the server, using the browser mainly for fitness
-evaluation so no actual contribution to the evaluation of the
+evaluation, and thus no actual contribution to the evaluation of the
 evolutionary algorithm itself is made.
 
 There is another factor that should be taken into account: since the
@@ -401,11 +400,12 @@ All parts of the framework are free and available
 with a free license from \url{https://ANONYMOUS-URL}.
 %\url{https://github.com/JJ/splash-volunteer}. 
 
-The architecture of the {\sf NodIO} system is divided in two tiers:\begin{enumerate}
+The architecture of the {\sf NodIO} system is divided in two tiers:
+\begin{enumerate}
 \item A REST (representational state transfer) server that responds to
   HTTP requests made by the browsers. These HTTP requests use JSON for information 
   encoding, in this case chromosomes and related
-  information sent by the clients and responses returned by the
+  information sent by the clients, and responses returned by the
   server.  The server has the capability to
   run a single experiment, storing the incoming chromosomes in a
   key-value cache that uses as key the chromosome string itself and is
@@ -426,11 +426,11 @@ The architecture of the {\sf NodIO} system is divided in two tiers:\begin{enumer
   the version of the server used in this paper, we implemented a
   policy by which the combination IP-fitness chromosome could only be
   inserted once into the cache. That means that if a particular IP
-  sends the fitness 99 into the server, it will be accepted only
+  sends a fitness value of 99 into the server, it will be accepted only
   once. The main intention of this policy was to avoid {\em
     overlapping} of contributions, with clients still running an {\em
     old} run of the experiment contributing after a new one had
-  started. This did not completely avoid these contributions: if the
+  started. This however did not completely avoid these contributions: if the
   clients of the {\em old} run increased their new fitness, it would
   still be allowed. 
 \end{enumerate}
@@ -454,17 +454,16 @@ the sources from GitHub and set it up yourself.}.
 \label{fig:system}
 \end{figure}
 
-NodIO needs a fitness function to work with; in this case the classical Trap 
+NodIO needs a fitness function to work with, in this case the classical Trap 
 function \cite{Ackley1987} has been used. 
 The evolutionary algorithm that uses Trap as fitness function is
 completely run in the
-browser, but the server needs to know when the solution has been
-found, so a subroutine that checks if the solution been found  
-is also included in the server, as a configuration
-option. In all cases we are using 50 Traps, a problem
+browser, but the server also includes, as a configuration
+option, a subroutine that checks if the solution has been
+found. In all cases we are using 50 Traps, a problem
 that is difficult enough to need the intervention of several users for
-an extended amount of minutes.
-For every new individual sent by the clients to the cache, several
+an extended amount of minutes. % Why? Do we have results on a single computer or on a cluster to compare?
+For every new individual the clients send to the cache, several
 pieces of metadata are stored: a time stamp, the client IP, the chromosome and
 fitness value, the cache size in that particular moment, and also if that
 individual actually updated the cache or not. 
@@ -473,8 +472,8 @@ All experiments are announced in the same way: we use social networks,
 mainly Twitter, to announce the start of a new experiment. LinkedIn,
 Facebook, and also private groups in Telegram and WhatsApp have been
 used for announcements too. We also encourage friends and followers to
-put an original post for announcing it, instead of just sharing, in
-the way allowed by the platform, the original post. During the running
+put their own posts for announcing it, instead of just sharing, in
+the way allowed by the platform, our original ones. For instance, when using Twitter, to include the URL of the experiment inside a tweet of their own, instead of just sharing it via a re-tweet (RT). During the running
 of the experiments, users are engaged, questions answered, and all
 kind of explanations given if requested. In general, announcements
 have been made in Spanish, but in some cases English was used
@@ -517,14 +516,15 @@ cachereboot & 392917.0 & 12 & 12 & 576.0 & 79.0 & 0.1575092 & 55 & 225 & 43.2857
 %
 %
 %
-Since the point of using a volunteer computing system is to cut costs,
+Since the point of using a volunteer computing system is to cut costs, %actually, we talk about the system being efficient, and also the algorithm itself, but I think we don't talk about the costs...
 all experiments were set up using the OpenShift
 PaaS, which provides a free tier, making the whole experiment cost
 equal to nil. In fact, the NodIO system can be deployed to any
-Platform or Infraestructure as a Service 
-system as long as it can run node.js and can store logs on the same
+Platform or Infrastructure as a Service 
+system as long as it can run \texttt{node.js} and can store logs on the same
 place or in some other Log as a Service. Local storage can be used,
-but it is not a requisite and, in fact, Heroku does not allow
+but it is not a requisite and, in fact, Heroku %first time Heroku is mentioned...
+ does not allow
 persistent storage of files in its service. 
 All these logs are available upon
 request. Processed files are available in the same repository that
@@ -547,14 +547,14 @@ batch included at least 30 completions, that is, evolution until the
 solution was found. The number of runs was controlled by polling an
 URL that indicated the number of runs made in the present batch so
 far. Every volunteer contributed a certain number of individuals
-(represented by the PUT HTTP request) to the server. The ranked number
+(represented by the PUT HTTP request in Figure \ref{fig:system}) to the server. The ranked number
 of contributions per unique IP is shown in Figure \ref{fig:zipf} in a
 log-log scale. Besides following the usual Zipf's law found in our
 previous work and thus having a very similar appearance for all 5 sets, it
 is interesting to see how some sets have a number of contributions per
 IP that are slightly superior to the rest, especially so in {\tt
   graph2}. The last two sets, {\tt reboot} and {\tt cachereboot}, also
-show a regime in the middle of the graph that shows that some users
+show a regime in the middle of the graph which shows that some users
 are contributing more than in other similar sets. In general, these
 differences in behavior are due more to the specific users that show
 up in these experiments than to general laws, but it should also be
@@ -586,10 +586,10 @@ added a mechanism for rebooting the client, that is, reloading the
 page, if the cache size was found to be less than 1, which indicated a
 run recently started. This batch of runs is labelled {\tt
   reboot}. This size of the cache was not really noticed by some slow clients or too fast runs, so that in the
-last case, is labeled {\tt cachecrash}, clients rebooted if the cache
+last case, labeled {\tt cachecrash}, clients rebooted if the cache
 collapsed by more than a certain length, indicating a cache that had
 been voided and was filling again. Our objective was twofold: to
-encourage user engagement and also to increase the involvement
+encourage engagement by the users and also to increase the involvement
 of every client in the common experiment, eliminating at the same time
 overlaps between runs. 
 
@@ -621,31 +621,32 @@ cachereboot & 463347 & 12.0 & 12.0 & 638.5 & 80.5 & 52 & 44.25911\\
 \end{center}
 \end{table}
 %
-The first thing we will have to check is whether we have effectively eliminated these
+The first thing we will have to check is whether we have effectively eliminated those
 overlaps. In order to do that, we will have to establish a threshold
 under which we can reasonably expect that the solution cannot be found. In every
 evolutionary algorithm it might happen, by chance, that the solution
 is found in just a few evaluations, but that is usually not the
-case. By looking at the logs in the last case we have established that
-minimum as 16 PUTs; in less than 1600 generations no solution to that
-difficult problem will be found. Let us filter then the runs,
+case. By looking at the logs in the last case we have established the
+minimum at 16 PUTs; in less than 1600 generations no solution to that
+difficult problem will be found. % Why?
+ Let us filter then the runs,
 eliminating those that used less than 1600 generations to find the
 solution which can reasonably be said that they did so because some
 browser ``carried over'' a chromosome from the previous run. The
 results are shown in Table \ref{tab:filtered}. The first change is in
-the column \#Runs, that shows that most of the runs in the initial
+the column \#Runs, which shows that most of the runs in the initial
 configurations found the solution thanks to these carried over
 clients. However, in the last two rows, the ones that rebooted clients
 when they detected changes in cache, the difference is minimal. This
 means that one objective has been reached: if clients reboot when they
-detect changes in the cache implying a new run, this way overlaps are almost
+detect changes in the cache that imply a new run, overlaps are almost
 eliminated. Going back to Table \ref{tab:runs}, we can see than the
 ratio of effective contributions, those that feed the cache, increases
 from around 13\% in the first case to almost 16\% in the last,
 reaching lows of less than 6\% in some cases ({\tt graph2}). This
 indicates that rebooting the clients has the positive effect of
 increasing the contribution of clients to the common pool. However, we
-should remark that some clients will still stop contributing if they
+should remark that the clients will still stop contributing if they
 get stuck in a particular solution, so the ratio keeps being low
 resulting in a slow change in the cache and a lower diversity of
 clients that tap that cache. At any rate, an increased number of
@@ -679,10 +680,10 @@ needs less contributions by users to
 find the same solution. Besides, the last row shows that {\em all}
 users actively contribute to the cache, while in the {\tt reboot}
 strategy 30\% of users do not. This might be due to the fact that {\tt
-  reboot} is done only when the cache size is less than one, indicating
+  reboot} only does so when cache size is less than one, indicating
 that this strategy is only partly successful in avoiding overlaps.  
 
-In fact, Table \ref{tab:correlation}, shows
+In fact, Table \ref{tab:correlation}, which shows
 the correlation between the number of IPs from one minute to the
 next, presents a similar  behavior for all experiments but the last one. A high correlation indicating that the number of volunteers changes
 slowly from one minute to the next; however, the {\tt cachereboot} experiment correlation indicates a bigger
@@ -770,7 +771,7 @@ participating and around 1500 PUTs in the high end of the graph,
 showing that it took the longest to find the solution. On the other
 hand, clearly red and small dots are on the lowest end of the graph,
 indicating that it took a short time to find the solution as long as
-the entropy was high. 
+the entropy is high. 
 
 This is a very significant result which has many implications on
 volunteer computing experiment design, and is clearly something that
@@ -790,14 +791,13 @@ much better than in similar synchronous and parallel experiments.
 
 Our main intention in this paper was to configure an evolutionary
 algorithm in a volunteer computing environment to improve its
-efficiency and eventually find out on what this efficiency depends
-on. The baseline configuration that we had used in other papers 
-\cite{jj-ppsn98anonymous} included
+efficiency and eventually find out what this efficiency depends
+on. The baseline configuration that we had used in other papers  included
 {\em overlaps} or volunteers running islands that had actually started in
 a previous experiment instance in the set. In previous papers, we were
 interested in measuring the number of users or their behavior in bulk
-and this overlap was not so important.
-In this case our focus was on the evolutionary algorithm so we had to
+and this overlap was not so important, but
+in this case our focus was on the evolutionary algorithm so we had to
 make all volunteers in it started more or less at the same time and
 from a random population. %Pablo: too long paragraph, added commas and sepparated into two
 In fact, we managed to do so, except in some
@@ -896,7 +896,7 @@ Much\\
 Space\\ 
 
 \bibliographystyle{splncs}
-\bibliography{volunteer,GA-general,geneura,javascript,ror-js}
+\bibliography{volunteer,GA-general,geneura,javascript,ror-js,anonymous}
 
 \end{document}
 
