@@ -210,7 +210,8 @@ this paper, we analyze a volunteer evolutionary computing system called
 NodIO, by running several experiments, some of them massive. Our
 objective is to discover rules that encourage volunteer
 participation and also the interplay of these contributions with the
-dynamics of the algorithm itself, making it more or less efficient. We will show different measures of
+dynamics of the algorithm itself, making it more or less efficient. 
+We will show different measures of
 participation and contribution to the algorithm and how different 
 volunteer usage patterns and tweaks in the algorithm, such as
 restarting clients when a solution has been found, contribute to 
@@ -398,11 +399,12 @@ The architecture of the {\sf NodIO} system is divided in two tiers:\begin{enumer
   key-value cache that uses as key the chromosome string itself and is
   reset when the solution is found. This cache has a finite 
   size that erases the oldest chromosomes once it has been filled to % Also "it has been filled to its"
-  capacity.  
+  its maximum capacity.  
 \item A client that includes the evolutionary algorithm as
   JavaScript code embedded in a web page that displays the fitness and
   other graphs, some
-  additional links, and information on the experiment. This code runs
+  additional links, and information on the experiment. 
+  This code runs
   an evolutionary algorithm {\em island} that starts with a random
   population, then after every 100 generations, it sends the best individual
   back to the server (via a {\tt PUT} request), and then requests a random
@@ -445,12 +447,13 @@ function \cite{Ackley1987} has been used.
 The evolutionary algorithm that uses Trap as fitness function is
 completely run in the
 browser, but the server needs to know when the solution has been
-found, so a subroutine that checks if the solution been found  is also included in the server, as a configuration
+found, so a subroutine that checks if the solution been found  
+is also included in the server, as a configuration
 option. In all cases we are using 50 Traps, a problem
 that is difficult enough to need the intervention of several users for
 an extended amount of minutes.
 For every new individual sent by the clients to the cache, several
-pieces of metadata were stored: a time stamp, the client IP, the chromosome and
+pieces of metadata are stored: a time stamp, the client IP, the chromosome and
 fitness value, the cache size in that particular moment, and also if that
 individual actually updated the cache or not. 
 
