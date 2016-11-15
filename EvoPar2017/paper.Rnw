@@ -737,8 +737,8 @@ ggplot(data=new.experiment.data)+geom_point(aes(x=entropy,y=milliseconds,size=PU
 This is interesting in the sense that in indicates that there might be
 something more to performance that just the number of volunteers
 contributing. In this experiment we include an additional measure:
-user-contribution entropy, which is measure by computing the
-compression entropy of the user contributions every for the whole
+user-contribution entropy, which is measured by computing the
+compression entropy of every user contribution for the whole %please check 
 experiment.  This is computed converting the sequence of the number of
 PUTs into a string and then compressing it using {\tt Zlib}, a
 standard compression library. Since the compression rate is related to
