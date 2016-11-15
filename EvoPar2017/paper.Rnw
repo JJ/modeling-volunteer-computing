@@ -586,10 +586,10 @@ added a mechanism for rebooting the client, that is, reloading the
 page, if the cache size was found to be less than 1, which indicated a
 run recently started. This batch of runs is labelled {\tt
   reboot}. This size of the cache was not really noticed by some slow clients or too fast runs, so that in the
-last case, labeled {\tt cachecrash}, clients rebooted if the cache
+last case, is labeled {\tt cachecrash}, clients rebooted if the cache
 collapsed by more than a certain length, indicating a cache that had
 been voided and was filling again. Our objective was twofold: to
-encourage engagement by the users and also to increase the involvement
+encourage user engagement and also to increase the involvement
 of every client in the common experiment, eliminating at the same time
 overlaps between runs. 
 
@@ -638,14 +638,14 @@ configurations found the solution thanks to these carried over
 clients. However, in the last two rows, the ones that rebooted clients
 when they detected changes in cache, the difference is minimal. This
 means that one objective has been reached: if clients reboot when they
-detect changes in the cache that imply a new run, overlaps are almost
+detect changes in the cache implying a new run, this way overlaps are almost
 eliminated. Going back to Table \ref{tab:runs}, we can see than the
 ratio of effective contributions, those that feed the cache, increases
 from around 13\% in the first case to almost 16\% in the last,
 reaching lows of less than 6\% in some cases ({\tt graph2}). This
 indicates that rebooting the clients has the positive effect of
 increasing the contribution of clients to the common pool. However, we
-should remark that the clients will still stop contributing if they
+should remark that some clients will still stop contributing if they
 get stuck in a particular solution, so the ratio keeps being low
 resulting in a slow change in the cache and a lower diversity of
 clients that tap that cache. At any rate, an increased number of
@@ -679,10 +679,10 @@ needs less contributions by users to
 find the same solution. Besides, the last row shows that {\em all}
 users actively contribute to the cache, while in the {\tt reboot}
 strategy 30\% of users do not. This might be due to the fact that {\tt
-  reboot} only does so when cache size is less than one, indicating
+  reboot} is done only when the cache size is less than one, indicating
 that this strategy is only partly successful in avoiding overlaps.  
 
-In fact, Table \ref{tab:correlation}, which shows
+In fact, Table \ref{tab:correlation}, shows
 the correlation between the number of IPs from one minute to the
 next, presents a similar  behavior for all experiments but the last one. A high correlation indicating that the number of volunteers changes
 slowly from one minute to the next; however, the {\tt cachereboot} experiment correlation indicates a bigger
@@ -738,11 +738,11 @@ ggplot(data=new.experiment.data)+geom_point(aes(x=entropy,y=milliseconds,size=PU
   volunteer computing experiment. The fit to a linear model is significant. \label{fig:entropy}}
 \end{figure}
 
-This is interesting in the sense that in indicates that there might be
+This is interesting in the sense that it indicates that there might be
 something more to performance that just the number of volunteers
 contributing. In this experiment we include an additional measure:
-user-contribution entropy, which is measure by computing the
-compression entropy of the user contributions every for the whole
+user-contribution entropy, which is measured by computing the
+compression entropy of every user contribution for the whole %please check 
 experiment.  This is computed converting the sequence of the number of
 PUTs into a string and then compressing it using {\tt Zlib}, a
 standard compression library. Since the compression rate is related to
@@ -758,7 +758,7 @@ range of the compression entropy will vary between 0 (lower, or worse
 compression rate) and 1 (no compression). 
 
 The graph that plots the time to solution of every instance of the
-experiment vs. entrop is shown in \ref{fig:entropy}. There is a clear
+experiment vs. entropy is shown in \ref{fig:entropy}. There is a clear
 trend towards experiments with lower entropy taking more time and
 experiments with higher entropy taking more time, which indeed can be
 statistically fit to a linear model. This dependence on entropy is
@@ -770,7 +770,7 @@ participating and around 1500 PUTs in the high end of the graph,
 showing that it took the longest to find the solution. On the other
 hand, clearly red and small dots are on the lowest end of the graph,
 indicating that it took a short time to find the solution as long as
-the entropy is high. 
+the entropy was high. 
 
 This is a very significant result which has many implications on
 volunteer computing experiment design, and is clearly something that
@@ -790,15 +790,17 @@ much better than in similar synchronous and parallel experiments.
 
 Our main intention in this paper was to configure an evolutionary
 algorithm in a volunteer computing environment to improve its
-efficiency and eventually find out what this efficiency depends
-on. The baseline configuration that we had used in other papers  included
+efficiency and eventually find out on what this efficiency depends
+on. The baseline configuration that we had used in other papers 
+\cite{jj-ppsn98anonymous} included
 {\em overlaps} or volunteers running islands that had actually started in
 a previous experiment instance in the set. In previous papers, we were
 interested in measuring the number of users or their behavior in bulk
-and this overlap was not so important, but
-in this case our focus was on the evolutionary algorithm so we had to
+and this overlap was not so important.
+In this case our focus was on the evolutionary algorithm so we had to
 make all volunteers in it started more or less at the same time and
-from a random population. In fact, we managed to do so, except in some
+from a random population. %Pablo: too long paragraph, added commas and sepparated into two
+In fact, we managed to do so, except in some
 byzantine cases, by making the clients restart when the cache size
 collapses to 1 or to a size much smaller than the current; we called
 this client configuration {\tt reboot} and {\tt cachecrash}.  This
@@ -808,8 +810,10 @@ chromosome pool and effectively making all clients present contribute
 to the simulation. 
 
 The last configuration managed to find, with a relatively small number
+%Pablo: what is the difference with this configurarion with respect to the others?
 of evaluations, solutions in half the time that in previous sets of
 experiments. Although in the {\tt base} and {\tt graph} the median
+%Pablo: I usually prefer to do self-contained and conclusions, this whole explanation could be moved to discussion as it is too specific. But it is up to you :)
 time and number of contributions was smaller, we cannot disregard the
 possibility that many of those solutions were found thanks to
 contributions from {\em carried over} islands with an algorithm that
@@ -864,9 +868,8 @@ the solution. And the algorithm will have to be improved, mainly by
 making the population more diverse. Right now there is a rigid policy
 of contribution to the pool: send the best individual, but this could
 be relaxed. Some other policies could also be tested, as well as
-running heterogeneous algorithms in the same way that was done by
-Valdez et al. in 
-\cite{DBLP:journals/grid/ValdezTGVO15}. Diversity, as in any other
+running heterogeneous algorithms in the same way that was done in
+\cite{DBLP:journals/grid/ValdezTGVO15anonymous}. Diversity, as in any other
 evolutionary algorithm, seems to be the key, but there are many ways of
 approaching it. 
 
