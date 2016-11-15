@@ -251,7 +251,7 @@ computation, as our group has done for a long time \cite{jj-ppsn98}.
 In this line of research that uses volunteer computing for
 evolutionary algorithms, there are several pending issues. The first
 and maybe most important is approaching volunteer computing as a
-techno-social system \cite{vespignani2009predicting} which integrates
+socio-technical system \cite{vespignani2009predicting} which integrates
 user decisions and behavioral patterns in the system model; this
 includes trying to optimize the number of users in a particular
 experiment. The second line of research, although related to the
