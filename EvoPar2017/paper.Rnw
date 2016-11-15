@@ -337,8 +337,6 @@ even work in as a distributed computing system
 JavaScript for evolutionary computation. 
 
 
-
-
 The proof of concepts described above do not go further than trying to
 find out  how many users join the effort and how many the system is
 able to support. In fact, systems described in
@@ -384,10 +382,9 @@ present the general framework and the initial setup.
 \section{Description of the framework}
 \label{sec:description}
 
-In general, a distributed volunteer-based evolutionary computation
-system based on the browser is simply a client-server system
-which client is embedded in the browser via JavaScript. We call this
-system {\sf NodIO}. All parts of the framework are free and available
+In this section we present {\sf NodIO}, a distributed volunteer-based 
+evolutionary computation system immplemented in JavaScript. 
+All parts of the framework are free and available
 with a free license from \url{https://ANONYMOUS-URL}.
 %\url{https://github.com/JJ/splash-volunteer}. 
 
