@@ -202,11 +202,15 @@ administration access to the resources.
 
 Several authors have already described systems using JavaScript  either
 for unwitting
-\cite{unwitting-ec,boldrin2007distributed} or volunteer 
+\cite{unwitting-ec,boldrin2007distributed,apolonia2012enhancing} or volunteer 
 \cite{langdon:2005:metas,gecco07:workshop:dcor} distributed
 evolutionary computation and it has been used ever since by several
 authors, including more recent efforts
-\cite{duda2013distributed,DBLP:journals/corr/abs-0801-1210,EvoStar2014:jsEO}.
+\cite{duda2013distributed,DBLP:journals/corr/abs-0801-1210,EvoStar2014:jsEO,martinez2015capataz,pan2015gray}. In fact, this last paper \cite{pan2015gray} performs
+an analysis of what it calls {\em Gray computing} doing an analysis of
+feasibility, cost-effectiveness, change in the user experience and
+architectural optimization needed, concluding that the computing power
+available can be vast and it that it can be cost-effective to use it. 
 
 Using a peer to peer approach, the SPACE framework \cite{leclerc2016seamless} distributes fitness 
 evaluations across a heterogeneous pool of cloud compute nodes and volunteer
@@ -731,8 +735,36 @@ method to detect the beginning of a new run is much more effective and
 will be kept in the future. But the fact that this happened was due to
 the {\em entropy} as proved in the last section of this paper. 
 
-This future work holds many challenges which once again will go in two
-different directions: gathering more users and improving the
+We have also proved in this paper, through an experiment with a
+massive number of users, that in fact the single factor predicting the
+time needed to reach the solution is the compression entropy, meaning
+that it is not so much the raw number of users, but the fact that they
+contribute fit individuals to the pool in such a way that it increases
+its diversity early in the experiment; that is, it is much better a
+few users with different types of computers and browsers contributing
+at the same time that more users with exactly the same computer and
+browser contributing more or less synchronously. This also implies
+that it is obviously better to manage as many users as possible to
+contribute at the same time and at the beginning of the experiment,
+which might not really be possible; however, the reboot strategy used
+in the latest versions really contributed to this early boost in
+diversity. It is interesting also to note that this boost in
+performance due to client contribution diversity is due to the fact
+that we are running an evolutionary algorithm, where diversity is an
+essential component. 
+
+These last result has also got implications for architecture
+design. For instance, it might be interesting to combine clients in
+the browser with other kind of clients that contribute mainly to
+diversity. In fact, early experiments with other type and more
+difficult problem point in this direction. Besides, user-interaction
+strategies attracting users to experiment instances at the very
+beginning, like announcing it in social media, might help too to
+achieve higher performance.
+
+
+This is one of the changes we intend to explore in the future, which
+holds many challenges, such as gathering more users and improving the
 efficiency of the algorithm run in an asynchronous way by the
 users. In the first case, it will be interesting to make it more {\em
   social} by comparing local performance to other's contributions, and
@@ -743,7 +775,8 @@ the solution. And the algorithm will have to be improved, mainly by
 making the population more diverse. Right now there is a rigid policy
 of contribution to the pool: send the best individual, but this could
 be relaxed. Some other policies could also be tested, as well as
-running heterogeneous algorithms in the same way that was done in
+running heterogeneous algorithms in the same way that was done by
+Valdez et al. in 
 \cite{DBLP:journals/grid/ValdezTGVO15}. Diversity, as in any other
 evolutionary algorithm, seems to be the key, but there are many ways of
 approaching it. 
