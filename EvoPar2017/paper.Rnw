@@ -435,9 +435,38 @@ The architecture of the {\sf NodIO} system is divided in two tiers:
   clients of the {\em old} run increased their new fitness, it would
   still be allowed. 
 \end{enumerate}
+%
+\begin{algorithm}
+\caption{Algorithm for each of the clients in a web browser.\label{algorithm}}
+\begin{algorithmic}[1]
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\REQUIRE $ea$, $period$, $population\_size$
+\ENSURE $best$
+\\ 
+\textit{Initialisation} :
+\STATE create a random population of $ea.population.size$ =
+$population\_size$
+\STATE generation\_count = 0
+\\ 
+\textit{EA LOOP:}
+\WHILE{$(ea.population.best \ne best\_fitness)$}
+\STATE $ea.generation()$
+\STATE $generation\_count++$
+\IF {$((generation\_count \bmod period) == 0)$}
+\STATE \texttt{GET} $random$
+\STATE ea.population.add(random)
+\STATE \texttt{PUT} ea.population.best
+\STATE \texttt{GET} statistics
+\STATE update GUI with statistics
+\ENDIF
+\ENDWHILE
+\RETURN $ea.population.best$
+\end{algorithmic}
+\end{algorithm}
 
-Figure \ref{fig:system} describes the general system architecture and
-algorithm behavior. Different JavaScript libraries, such as JQuery or {\tt
+Figure \ref{fig:system} describes the general system architecture; the 
+algorithm is described in \ref{algorithm}. Different JavaScript libraries, such as JQuery or {\tt
   Chart.js} have been used to build the user interface elements of the
 framework, which should be running in \url{http://ANONYMOUS-URL}, 
 %\url{http://nodio-jmerelo.rhcloud.com}, 
