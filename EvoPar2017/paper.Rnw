@@ -10,6 +10,7 @@
 \usepackage{subfigure}
 \usepackage{url}
 \usepackage{caption}
+\usepackage{algorithm,algorithmic}
 
 \newcommand{\keywords}[1]{\par\addvspace\baselineskip
 \noindent\keywordname\enspace\ignorespaces#1}
