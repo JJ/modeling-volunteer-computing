@@ -396,7 +396,7 @@ present the general framework and the initial setup.
 \label{sec:description}
 
 In this section we present {\sf NodIO}, a distributed volunteer-based 
-evolutionary computation system immplemented in JavaScript. 
+evolutionary computation system implemented in JavaScript. 
 All parts of the framework are free and available
 with a free license from \url{https://ANONYMOUS-URL}.
 %\url{https://github.com/JJ/splash-volunteer}. 
@@ -444,7 +444,7 @@ The architecture of the {\sf NodIO} system is divided in two tiers:
 \REQUIRE $ea$, $period$, $population\_size$
 \ENSURE $best$
 \\ 
-\textit{Initialisation} :
+\textit{Initialization} :
 \STATE create a random population of $ea.population.size$ =
 $population\_size$
 \STATE generation\_count = 0
