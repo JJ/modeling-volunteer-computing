@@ -184,18 +184,21 @@ new.experiment.data <- data.frame( Experiment=rep("17-0", length(new.data$IPs)),
   volunteer computing environments: the importance of entropy} 
 
 
-% \author{Juan-J.~Merelo \and Paloma de las Cuevas \and Pablo
-%   Garc\'ia-S\'anchez \inst{1} \and Mario Garc\'ia-Valdez \inst{2}}
+\author{Juan-J.~Merelo\inst{1} \and Paloma de las Cuevas\inst{1} \and Pablo
+  Garc\'ia-S\'anchez \inst{2} \and Mario Garc\'ia-Valdez \inst{3}}
 
-% \institute{Dept. of Computer Architecture and Technology, University
-% of Granada, Spain \and
-% Dept. of Graduate Studies at Instituto Tecnol\'ogico de Tijuana}
+\institute{Dept. of Computer Architecture and Technology, University
+of Granada, Spain and CITIC, \email{(jmerelo,palomacd)@ugr.es} 
+\and
+Department of Computer Engineering, University of C\'adiz (Spain), \email{pablo.garciasanchez@uca.es}
+\and
+Dept. of Graduate Studies at Instituto Tecnol\'ogico de Tijuana, \email{amherag,mario@tectijuana.edu.mx}}
 
-\author{A.U. Thor \and A. N. Otherauthor \and Just A. Nother \inst{1}
-  \and Jet A. Nother \inst{2}}
+%% \author{A.U. Thor \and A. N. Otherauthor \and Just A. Nother \inst{1}
+%%   \and Jet A. Nother \inst{2}}
 
-\institute{Invisible University, Frantzia \and
-Institute of Higher Studies, Zootropa}
+%% \institute{Invisible University, Frantzia \and
+%% Institute of Higher Studies, Zootropa}
 
 
 \maketitle
@@ -248,7 +251,7 @@ Using this approach for creating distributed experiments is called {\em
 \cite{sarmenta2001volunteer} and it dates back, in different shapes
 and underlying mechanisms, to the origin of the web \cite{david-seti:home}. Our interest
 here, however, is to use it as a resource for evolutionary
-computation, as our group has done for a long time \cite{jj-ppsn98anonymous}.
+computation, as our group has done for a long time \cite{jj-ppsn98}.
 
 In this line of research that uses volunteer computing for
 evolutionary algorithms, there are several pending issues. The first
@@ -260,7 +263,7 @@ experiment. The second line of research, although related to the
 first, is more focused on the evolutionary algorithm itself and how
 different design decisions will affect its performance.
 % Is it ok that we say that the first line of research is the most important... but then we focus on the second?
-We have approached the first issue in our previous work \cite{jj-ppsn98anonymous},
+We have approached the first issue in our previous work \cite{jj-ppsn98},
 % I have justified to focus, in this case, on the second
 but in this paper our focus will be in the second aspect: we will try to
 design a decentralized system that, at the same time, is able to use
@@ -298,7 +301,7 @@ the dual facts of the introduction of JavaScript as a universal language for the
 browser and the browser itself as both an ubiquitous web and Internet client has
 made this combination the most popular for volunteer computing
 frameworks such as the one we are using here, and whose first version
-was described in \cite{DBLP:conf/gecco/GuervosG15anonymous}. Systems based on the
+was described in \cite{DBLP:conf/gecco/GuervosG15}. Systems based on the
 JavaScript/browser combination
 emphasize the ephemerality, ease of use, and universality, while
 systems such as HTCondor or BOINC might be more adequate for work that % citation for BOINC (?)
@@ -398,8 +401,7 @@ present the general framework and the initial setup.
 In this section we present {\sf NodIO}, a distributed volunteer-based 
 evolutionary computation system implemented in JavaScript. 
 All parts of the framework are free and available
-with a free license from \url{https://ANONYMOUS-URL}.
-%\url{https://github.com/JJ/splash-volunteer}. 
+with a free license from \url{https://github.com/JJ/splash-volunteer}. 
 
 The architecture of the {\sf NodIO} system is divided in two tiers:
 \begin{enumerate}
@@ -468,8 +470,7 @@ $population\_size$
 Figure \ref{fig:system} describes the general system architecture; the 
 algorithm is described in \ref{algorithm}. Different JavaScript libraries, such as JQuery or {\tt
   Chart.js} have been used to build the user interface elements of the
-framework, which should be running in \url{http://ANONYMOUS-URL}, 
-%\url{http://nodio-jmerelo.rhcloud.com}, 
+framework, which should be running in \url{http://nodio-jmerelo.rhcloud.com}, 
 a free resource hosted in the
 OpenShift Platform as a Service\footnote{It is not guaranteed to be running,
 or running the same version, when you read this, however; you can always get
@@ -897,7 +898,7 @@ making the population more diverse. Right now there is a rigid policy
 of contribution to the pool: send the best individual, but this could
 be relaxed. Some other policies could also be tested, as well as
 running heterogeneous algorithms in the same way that was done in
-\cite{DBLP:journals/grid/ValdezTGVO15anonymous}. Diversity, as in any other
+\cite{DBLP:journals/grid/ValdezTGVO15}. Diversity, as in any other
 evolutionary algorithm, seems to be the key, but there are many ways of
 approaching it. 
 
@@ -905,23 +906,14 @@ All these avenues of experimentation will be done openly following the
 Open Science policy of our group, which, in fact, contributes to
 establish trust and security between us and volunteers and is an
 essential feature of the system. That is why this paper, as well as
-the data and processing scripts, are published with a free license in GitHub at
-\url{ANONYMOUS-URL}.
-%\url{https://git.io/gecco-es-15}.
+the data and processing scripts, are published with a free license in GitHub at \url{https://git.io/gecco-es-15}.
 
 %---------------------------------------------------------------
 \section*{Acknowledgments}
 
-% This work has been supported in part by TIN2014-56494-C4-3-P (Spanish
-% Ministry of Economy and Competitivity), PROY-PP2015-06 (Plan Propio
-% 2015 UGR). We are also grateful to {\tt @otisdriftwood} for his help
-% gathering users for the new experiments.
-
-Several projects\\
-Taking\\
-This\\
-Much\\
-Space\\ 
+This work has been supported in part by TIN2014-56494-C4-3-P (Spanish
+Ministry of Economy and Competitivity). We are also grateful to {\tt @otisdriftwood} for his help
+gathering users for the new experiments.
 
 \bibliographystyle{splncs}
 \bibliography{volunteer,GA-general,geneura,javascript,ror-js,anonymous}
