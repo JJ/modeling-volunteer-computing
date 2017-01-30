@@ -182,11 +182,12 @@ new.experiment.data <- data.frame( Experiment=rep("17-0", length(new.data$IPs)),
 
 \title{A performance assessment of evolutionary algorithms in
   volunteer computing environments: the importance of entropy} 
+%\titlerunning{A performance assessment of evolutionary algorithms in volunteer computing environments} 
 
 
 \author{Juan-J.~Merelo\inst{1} \and Paloma de las Cuevas\inst{1} \and Pablo
   Garc\'ia-S\'anchez \inst{2} \and Mario Garc\'ia-Valdez \inst{3}}
-
+%\authorrunning{Merelo, de las Cuevas, García-Sánchez and García-Valdez}
 \institute{Dept. of Computer Architecture and Technology, University
 of Granada, Spain and CITIC, \email{(jmerelo,palomacd)@ugr.es} 
 \and
