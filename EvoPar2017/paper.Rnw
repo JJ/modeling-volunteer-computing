@@ -22,12 +22,14 @@
 
 
 \begin{document}
-%\SweaveOpts{concordance=TRUE}
 
 <<setup, cache=FALSE,echo=FALSE>>=
 library("ggplot2")
 library("RColorBrewer")
-opts_chunk$set( dev        = c("pdf", "png") )
+opts_chunk$set( dev        = c("pdf", "png"),
+               fig.width   = 9,
+               fig.height  = 6,
+               dpi     = 200 )
 experiment.data <- data.frame(Experiment=character(),
                               milliseconds=character(),                           
                               IPs=character(), 
@@ -566,7 +568,7 @@ hosts this paper, as well as the scripts needed to process them.
 %
 \begin{figure}[htbp]
 \centering
-<<zipf, cache=FALSE,echo=FALSE,fig.height=6>>=
+<<zipf, cache=FALSE,echo=FALSE, fig.width   = 9, fig.height  = 6>>=
 ggplot(ips.data,aes(x=idx,y=PUTs,group=Experiment,color=Experiment))+geom_point()+scale_y_log10()+ scale_colour_discrete(labels=c('base','graph1','graph2','reboot','cachereboot'))+scale_x_log10()
 @ %def graph for IPs and puts
 %
@@ -727,7 +729,7 @@ time, maybe because experiments take less time and need less resources.
 %
 \begin{figure}[ht!b]
 \centering
-<<minutedata, cache=FALSE,echo=FALSE,fig.height=6>>=
+<<minutedata, cache=FALSE,echo=FALSE, fig.width   = 9, fig.height  = 6, fig.dpi     = 100>>=
 ggplot(data=minutes.data, aes(x=minute,y=PUTs,color=ratio))+ scale_x_datetime()+geom_point()+stat_smooth()
 @ %def graph on PUTs per minute
 %
@@ -758,7 +760,7 @@ stay in the lowest part of the graphic.
 %
 \begin{figure}[ht!b]
 \centering
-<<entropy, cache=FALSE,echo=FALSE>>=
+<<entropy,cache=FALSE,echo=FALSE,fig.width=9,fig.height=6,dpi=200,dev='png'>>=
 max <- max(new.experiment.data$IPs)
 entropy.lm <- lm( new.experiment.data$milliseconds ~ new.experiment.data$entropy )
 exp.palette <- colorRampPalette(brewer.pal(12,"Paired"))
