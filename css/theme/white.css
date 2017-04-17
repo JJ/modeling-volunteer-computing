@@ -55,10 +55,11 @@ body {
 
 .reveal h1 {
     font-family: 'Neucha', cursive;
-  font-size: 2.5em; }
+    font-size: 2.25em;
+}
 
 .reveal h2 {
-  font-size: 1.6em; }
+  font-size: 1.5em; }
 
 .reveal h3 {
   font-size: 1.3em; }

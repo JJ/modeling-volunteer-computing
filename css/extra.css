@@ -29,15 +29,15 @@ code {
 
 section[data-background] h1 { 
        background-color:rgba(204,255,204,0.7);
-       padding: 50px;
-       margin: 20px;
+       padding: 25px;
+       margin: 10px;
        border-radius: 30px
 }
 
 section[data-background] h2 { 
        background-color:rgba(153,255,204,0.7);
-       padding: 30px;
-       margin: 15px;
+       padding: 20px;
+       margin: 10px;
        border-radius: 20px
 }
 
