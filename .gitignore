@@ -39,3 +39,6 @@ auto/
 
 #.tex generated from .Rnw
 *.tex
+
+# stuff
+.RData
